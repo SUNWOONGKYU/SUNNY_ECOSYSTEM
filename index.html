@@ -451,6 +451,11 @@
             display: none;
         }
 
+        /* 모바일 전용 줄바꿈 - PC에서는 숨김 */
+        .mobile-br {
+            display: none;
+        }
+
         /* 모바일 반응형 디자인 */
         @media (max-width: 768px) {
             /* 헤더 */
@@ -605,6 +610,11 @@
                 padding: 24px 20px;
                 font-size: 13px;
             }
+
+            /* 모바일에서 줄바꿈 표시 */
+            .mobile-br {
+                display: inline;
+            }
         }
 
         /* 작은 모바일 (360px 이하) */
@@ -710,7 +720,7 @@
         <!-- 푸터 -->
         <div class="footer">
             <div class="footer-inner">
-                <p class="footer-credit">© 2025 SUNNY ECONOMIC ECOSYSTEM. All Rights Reserved.</p>
+                <p class="footer-credit">© 2025 SUNNY ECONOMIC ECOSYSTEM.<br class="mobile-br"> All Rights Reserved.</p>
             </div>
         </div>
     </div>
@@ -823,7 +833,6 @@ HDH Fintech의 답:
 핵심 솔루션 구조 (프롭펌 챌린지 + 헷지 전략 기반 금선물 CFD 거래):
 • 프롭펌(Prop Firm) 챌린지 시스템 활용
 • 금선물 CFD 거래 (높은 변동성 활용)
-• 84:16 확률의 수학적 헷지 전략
 • 챌린지 계좌 + 보증금 계좌 반대 포지션
 • TP/SL 비율 5.24 (21.5p : 4.1p)
 • 완벽한 헷지로 리스크 상쇄`
