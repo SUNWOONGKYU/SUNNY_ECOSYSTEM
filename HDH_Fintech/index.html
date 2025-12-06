@@ -1285,10 +1285,12 @@
         }
 
         .ranking-change {
-            font-size: 11px;
+            font-size: 13px;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 2px;
+            justify-content: center;
+            min-width: 36px;
         }
 
         .ranking-change.up {
@@ -2706,14 +2708,8 @@
                         <div class="ranking-position ${positionClass}">${position}</div>
                         <div class="ranking-info">
                             <div class="ranking-name">${member.name}</div>
-                            <div class="ranking-grade">
-                                <span class="grade-badge grade-${grade.class}">${grade.name}</span>
-                            </div>
                         </div>
-                        <div class="ranking-profit">
-                            <div>₩${formatProfit(member.profit)}</div>
-                            <div class="ranking-change ${changeClass}">${changeIcon}</div>
-                        </div>
+                        <div class="ranking-change ${changeClass}">${changeIcon}</div>
                     </div>
                 `;
             });
