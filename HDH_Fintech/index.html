@@ -1219,6 +1219,7 @@
         .ranking-item {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 8px;
             padding: 10px 12px;
             background: #F8FAFC;
@@ -1273,6 +1274,7 @@
         .ranking-info {
             flex: 1;
             min-width: 0;
+            max-width: 40%;
         }
 
         .ranking-name {
@@ -1290,6 +1292,18 @@
             color: #10B981;
             text-align: center;
             white-space: nowrap;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ranking-change {
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            min-width: 28px;
+            width: 40%;
             flex-shrink: 0;
         }
 
@@ -1305,16 +1319,6 @@
             font-weight: 700;
             color: #10B981;
             text-align: right;
-        }
-
-        .ranking-change {
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 28px;
-            flex-shrink: 0;
         }
 
         .ranking-change.up {
