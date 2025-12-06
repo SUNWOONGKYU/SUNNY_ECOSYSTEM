@@ -1245,13 +1245,14 @@
         }
 
         .ranking-position {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 12px;
             border-radius: 50%;
             background: #64748B;
             color: white;
@@ -1263,24 +1264,20 @@
 
         .ranking-info {
             flex: 1;
-            min-width: 0;
+            min-width: 50px;
         }
 
         .ranking-name {
             font-size: 13px;
             font-weight: 600;
             color: #1F2937;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .ranking-profit-amount {
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 600;
             color: #10B981;
             text-align: right;
-            min-width: 90px;
             white-space: nowrap;
         }
 
@@ -2855,7 +2852,7 @@
 
                 // 만원 단위로 표시
                 const profitInMan = Math.floor(member.profit / 10000);
-                const profitDisplay = profitInMan.toLocaleString() + '만';
+                const profitDisplay = profitInMan.toLocaleString() + '만원';
 
                 html += `
                     <div class="ranking-item ${isTop3 ? 'top3' : ''}">
