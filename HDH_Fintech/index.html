@@ -2465,7 +2465,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 챌린지펀딩 수익이 15일 후에 입금되는 것을 전제로 하여 순현금흐름을 계산하였음</p>
+                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 챌린지 펀딩 수익이 15일 후에 입금되는 것을 전제로 하여 순현금흐름을 계산하였음</p>
                         </div>
 
                         <div class="results-visualization" id="resultsVisualization">
@@ -3203,19 +3203,19 @@
                 tr.innerHTML = `
                     <td>${round}</td>
                     <td><span class="${isPass ? 'pass-badge' : 'fail-badge'}">${isPass ? '🏆 합격' : '탈락'}</span></td>
-                    <td style="color: ${hedgeAmount > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                    <td style="color: ${hedgeAmount > 0 ? '#10B981' : '#EF4444'};">
                         ${hedgeAmount > 0 ? '+' : ''}$${hedgeAmount.toLocaleString()}
                     </td>
-                    <td style="color: ${challengeNet > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                    <td style="color: ${challengeNet > 0 ? '#10B981' : '#EF4444'};">
                         ${challengeNet > 0 ? '+' : ''}$${challengeNet.toLocaleString()}
                     </td>
-                    <td style="color: ${roundProfit > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                    <td style="color: ${roundProfit > 0 ? '#10B981' : '#EF4444'};">
                         ${roundProfit > 0 ? '+' : ''}$${roundProfit.toLocaleString()}
                     </td>
-                    <td style="font-family: 'SF Pro Display', 'Roboto', monospace; font-weight: 700; color: ${cumulative > 0 ? '#10B981' : cumulative < 0 ? '#EF4444' : '#64748B'};">
+                    <td style="color: ${cumulative > 0 ? '#10B981' : cumulative < 0 ? '#EF4444' : '#64748B'};">
                         ${cumulative > 0 ? '+' : ''}$${cumulative.toLocaleString()}
                     </td>
-                    <td style="font-family: 'SF Pro Display', 'Roboto', monospace; font-weight: 700; color: ${cashFlow > 0 ? '#3B82F6' : cashFlow < 0 ? '#EF4444' : '#64748B'};">
+                    <td style="color: ${cashFlow > 0 ? '#3B82F6' : cashFlow < 0 ? '#EF4444' : '#64748B'};">
                         ${cashFlow > 0 ? '+' : ''}$${cashFlow.toLocaleString()}
                     </td>
                 `;
