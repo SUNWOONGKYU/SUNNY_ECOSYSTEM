@@ -1723,7 +1723,7 @@
                             <div class="step-description">
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 연결 확인</a> |
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보증금 계좌</a>
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a>
                             </div>
                         </div>
 
@@ -1750,7 +1750,7 @@
                             </div>
                             <div class="step-description">
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> (Buy, TP: 21.5p, SL: 4.1p) |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보증금 계좌</a> (Sell, TP: 21.5p, SL: 4.1p)
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a> (Sell, TP: 21.5p, SL: 4.1p)
                             </div>
                         </div>
 
@@ -1882,15 +1882,15 @@
                             <div class="breakdown-title">상세 손익</div>
                             <table class="breakdown-table">
                                 <tr>
-                                    <td>보증금 계좌 익절 수익</td>
+                                    <td>보험금 계좌 익절 수익</td>
                                     <td class="breakdown-value breakdown-positive" id="hedgeProfit">+$0</td>
                                 </tr>
                                 <tr>
-                                    <td>보증금 계좌 손절 손실</td>
+                                    <td>보험금 계좌 손절 손실</td>
                                     <td class="breakdown-value breakdown-negative" id="hedgeLoss">-$0</td>
                                 </tr>
                                 <tr>
-                                    <td>보증금 계좌 순손익</td>
+                                    <td>보험금 계좌 순손익</td>
                                     <td class="breakdown-value" id="hedgeNet">$0</td>
                                 </tr>
                                 <tr class="breakdown-highlight">
@@ -1917,7 +1917,7 @@
                                         <tr>
                                             <th>회차</th>
                                             <th>결과</th>
-                                            <th>보증금 계좌</th>
+                                            <th>보험금 계좌</th>
                                             <th>챌린지 계좌</th>
                                             <th>회차 손익</th>
                                             <th>누적 합계</th>
@@ -2305,8 +2305,8 @@
             const { trades, account, winRateTP, winRateSL } = simConfig;
 
             // PDF 기반 계산식
-            const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 보증금 계좌 수익
-            const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 보증금 계좌 손실
+            const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 보험금 계좌 수익
+            const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 보험금 계좌 손실
             const fundingAmount = account * 10 * 0.9; // 펀딩 계좌 금액 (10배 * 90%)
             const fundingProfit = fundingAmount * 0.8; // 펀딩 수익의 80%
 
@@ -2316,16 +2316,16 @@
             const failCount = trades - passCount;
 
             // 손익 계산
-            const hedgeProfitTotal = failCount * tpProfit; // 보증금 계좌 익절 수익
-            const hedgeLossTotal = passCount * slLoss; // 보증금 계좌 손절 손실
-            const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 보증금 계좌 순손익
+            const hedgeProfitTotal = failCount * tpProfit; // 보험금 계좌 익절 수익
+            const hedgeLossTotal = passCount * slLoss; // 보험금 계좌 손절 손실
+            const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 보험금 계좌 순손익
 
             const fundingProfitTotal = passCount * fundingProfit; // 합격 시 펀딩 수익
             const entryLossTotal = failCount * account; // 참가비 손실
 
             const totalProfit = hedgeNet + fundingProfitTotal - entryLossTotal;
 
-            // 월 수익률 계산 (필요 자본 = 보증금 계좌 + 참가비)
+            // 월 수익률 계산 (필요 자본 = 보험금 계좌 + 참가비)
             const requiredCapital = account * trades + account * 50; // 마진 포함
             const monthlyReturn = (totalProfit / requiredCapital * 100).toFixed(1);
 
