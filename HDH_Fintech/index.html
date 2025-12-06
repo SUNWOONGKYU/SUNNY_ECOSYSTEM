@@ -219,6 +219,12 @@
             background: #FFF7ED;
             color: #F59E0B;
         }
+n        .submenu-item.download-btn:hover {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+            color: white !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
 
         .submenu-list {
             display: none;
@@ -908,7 +914,7 @@
             border: 2px solid #E2E8F0;
             border-radius: 8px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 400;
             color: #64748B;
             cursor: pointer;
             transition: all 0.2s;
@@ -2396,7 +2402,7 @@
                                 <span style="color: #1F2937; font-weight: 600;">최종 수령: $3,000 × 80% = $2,400</span>
                                 <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
                                 <br>
-                                <span style="font-size: 12px; color: #94A3B8;">프롭펌과 정산 완료 후 약 15일 이내 입금</span>
+                                <span style="font-size: 12px; color: #94A3B8;">정산 완료 후 1-2일 이내 입금</span>
                             </div>
                         </div>
                     </div>
@@ -2565,11 +2571,11 @@
                 </div>
             </div>
 
-            <!-- AI 활용 프로그램 다운로드 -->
+            <!-- AI 자동화 프로그램 다운로드 -->
             <div class="sidebar-section">
                 <div class="section-title">
                     <span class="section-icon">🤖</span>
-                    AI 활용 프로그램 다운로드
+                    AI 자동화 프로그램 다운로드
                 </div>
 
                 <!-- AI 자동화 시스템 v1.1 -->
@@ -2578,22 +2584,22 @@
                     <span class="expand-arrow">▶</span>
                 </div>
                 <div class="submenu-list">
-                    <div class="submenu-item">
-                        <div style="font-size: 11px; color: #64748B; margin-bottom: 4px;">✅ 1차 챌린지 단계</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 원클릭 동시 진입</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 음성 명령 지원</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 조건 도달 시 자동 청산</div>
+                    <div class="submenu-item" style="margin-bottom: 10px;">
+                        <div style="font-size: 11px; color: #64748B; margin-bottom: 6px; font-weight: 600;">✅ 1차 챌린지 단계</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7; margin-bottom: 2px;">• 원클릭 동시 진입</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7; margin-bottom: 2px;">• 음성 명령 지원</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7;">• 조건 도달 시 자동 청산</div>
                     </div>
-                    <div class="submenu-item">
-                        <div style="font-size: 11px; color: #64748B; margin-bottom: 4px;">✅ 2차 펀딩 금액 트레이딩 단계</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 음성 명령 지원</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• SL 자동 감지</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 반대 계좌 즉시 청산</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 타이밍 오차 20-80ms</div>
+                    <div class="submenu-item" style="margin-bottom: 10px;">
+                        <div style="font-size: 11px; color: #64748B; margin-bottom: 6px; font-weight: 600;">✅ 2차 펀딩 금액 트레이딩 단계</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7; margin-bottom: 2px;">• 음성 명령 지원</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7; margin-bottom: 2px;">• SL 자동 감지</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7; margin-bottom: 2px;">• 반대 계좌 즉시 청산</div>
+                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px; line-height: 1.7;">• 타이밍 오차 20-80ms</div>
                     </div>
-                    <div class="submenu-item">📖 설치 및 MT5 연동 가이드</div>
-                    <div class="submenu-item">📹 사용법 동영상</div>
-                    <div class="submenu-item" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; font-weight: 700; padding: 12px; border-radius: 8px; margin-top: 8px; cursor: pointer; text-align: center;">
+                    <div class="submenu-item" style="margin-bottom: 4px;">📖 설치 및 MT5 연동 가이드</div>
+                    <div class="submenu-item" style="margin-bottom: 10px;">📹 사용법 동영상</div>
+                    <div class="submenu-item download-btn" style="background: #D1FAE5; color: #059669; font-weight: 700; padding: 12px; border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.3s; border: 1px solid #A7F3D0;">
                         다운로드 하기
                     </div>
                 </div>
