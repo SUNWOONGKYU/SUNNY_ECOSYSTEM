@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDH Fintech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+            background: #F8FAFC;
+            color: #212529;
+        }
+
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            height: 70px;
+            padding: 0 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 32px;
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+        }
+
+        .notification {
+            font-size: 24px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #EF4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .btn-logout {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 메인 레이아웃 */
+        .main-container {
+            display: grid;
+            grid-template-columns: 310px minmax(400px, 720px) 370px;
+            gap: 12px;
+            width: 100%;
+            justify-content: center;
+            padding: 20px;
+            min-height: calc(100vh - 84px);
+        }
+
+        /* 좌측 사이드바 (준비) */
+        .left-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #64748B;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            font-size: 18px;
+        }
+
+        .menu-item {
+            padding: 10px 12px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .menu-item:hover {
+            background: #F8FAFC;
+            color: #F59E0B;
+        }
+
+        .menu-item.active {
+            background: #FEF3C7;
+            color: #D97706;
+            font-weight: 600;
+        }
+
+        .submenu-item {
+            padding: 8px 12px 8px 24px;
+            margin-bottom: 4px;
+            font-size: 13px;
+            color: #64748B;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .submenu-item:hover {
+            background: #F8FAFC;
+            color: #F59E0B;
+        }
+
+        .submenu-list {
+            display: none;
+            margin-top: 4px;
+        }
+
+        .submenu-list.active {
+            display: block;
+        }
+
+        .menu-item.expandable {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expand-arrow {
+            font-size: 10px;
+            transition: transform 0.2s;
+        }
+
+        .menu-item.expanded .expand-arrow {
+            transform: rotate(90deg);
+        }
+
+        .link-button {
+            display: block;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+        }
+
+        /* 중앙 콘텐츠 (실행) */
+        .center-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-main {
+            flex: 1;
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border-left: 4px solid #F59E0B;
+        }
+
+        .welcome-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 4px;
+        }
+
+        .welcome-subtitle {
+            font-size: 14px;
+            color: #B45309;
+        }
+
+        .process-container {
+            margin-top: 20px;
+        }
+
+        .process-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .process-step {
+            background: #F8FAFC;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #E5E7EB;
+            transition: all 0.3s;
+        }
+
+        .process-step.active {
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-left-color: #3B82F6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #E5E7EB;
+            color: #64748B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .process-step.active .step-number {
+            background: #3B82F6;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .step-status {
+            margin-left: auto;
+            font-size: 20px;
+        }
+
+        .step-description {
+            margin-left: 44px;
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        /* 즐겨찾기 */
+        .favorites-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .favorite-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #E2E8F0;
+        }
+
+        .favorite-link:hover {
+            background: #FFF7ED;
+            border-color: #F59E0B;
+            transform: translateX(2px);
+        }
+
+        .favorite-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .favorite-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .favorite-link:hover .favorite-name {
+            color: #F59E0B;
+        }
+
+        /* 우측 사이드바 (결과/공지) */
+        .right-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .widget {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .widget-icon {
+            font-size: 18px;
+        }
+
+        .notice-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #475569;
+            border-left: 3px solid #F59E0B;
+        }
+
+        .notice-date {
+            font-size: 11px;
+            color: #94A3B8;
+            margin-bottom: 4px;
+        }
+
+        .warning-item {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #FEF2F2;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #991B1B;
+            border-left: 3px solid #EF4444;
+        }
+
+        .result-value {
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: #10B981;
+            text-align: center;
+            margin: 16px 0;
+            letter-spacing: -1px;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #64748B;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .achievement {
+            text-align: center;
+            padding: 12px;
+            background: #ECFDF5;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+
+        .achievement-text {
+            font-size: 14px;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .diary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 6px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .diary-date {
+            color: #64748B;
+        }
+
+        .diary-amount {
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            color: #10B981;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .diary-amount.negative {
+            color: #EF4444;
+        }
+
+        .view-more {
+            display: block;
+            text-align: center;
+            padding: 8px;
+            margin-top: 8px;
+            color: #F59E0B;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .view-more:hover {
+            background: #FEF3C7;
+        }
+
+        /* 모달/팝업 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1F2937;
+        }
+
+        .modal-close {
+            font-size: 28px;
+            color: #94A3B8;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #F1F5F9;
+            color: #64748B;
+        }
+
+        .diary-item-modal {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            align-items: center;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            font-size: 14px;
+            gap: 16px;
+        }
+
+        .diary-item-modal:last-child {
+            margin-bottom: 0;
+        }
+
+        .diary-cumulative {
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            color: #059669;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            text-align: right;
+        }
+
+        .modal-summary {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            text-align: center;
+            border: 2px solid #10B981;
+        }
+
+        .modal-summary-label {
+            font-size: 13px;
+            color: #059669;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .modal-summary-value {
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: #10B981;
+            letter-spacing: -1px;
+        }
+
+        /* 설정 섹션 */
+        .settings-section {
+            margin-bottom: 24px;
+        }
+
+        .settings-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .settings-description {
+            font-size: 13px;
+            color: #64748B;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .settings-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #0F172A;
+            font-family: 'Malgun Gothic', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .settings-input:focus {
+            outline: none;
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .settings-current {
+            margin-top: 12px;
+            padding: 12px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .settings-current-label {
+            color: #64748B;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .settings-current-value {
+            color: #0F172A;
+            font-weight: 600;
+        }
+
+        .settings-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn-settings-cancel {
+            padding: 10px 24px;
+            background: white;
+            color: #64748B;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-settings-cancel:hover {
+            background: #F8FAFC;
+            border-color: #CBD5E1;
+        }
+
+        .btn-settings-save {
+            padding: 10px 24px;
+            background: #10B981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-settings-save:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* 버튼 스타일 */
+        .btn-alarm {
+            padding: 6px 16px;
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-alarm:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* 반응형 - 태블릿 */
+        @media (max-width: 1400px) {
+            .main-container {
+                grid-template-columns: 220px 1fr 260px;
+                gap: 16px;
+            }
+        }
+
+        /* 반응형 - 작은 태블릿 */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 200px 1fr 240px;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 반응형 - 모바일 */
+        @media (max-width: 960px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            /* 사이드바도 세로로 쌓임 - 숨기지 않음 */
+            .left-sidebar,
+            .right-sidebar {
+                width: 100%;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* 작은 모바일 */
+        @media (max-width: 600px) {
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header {
+                padding: 16px 20px;
+            }
+
+            .header-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-left">
+                <div class="logo">💰</div>
+                <div class="header-title">HDH Fintech</div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    🔔
+                    <div class="notification-badge">3</div>
+                </div>
+                <div class="user-info">
+                    <span>홍길동님</span>
+                </div>
+                <button class="btn-logout">로그아웃</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="main-container">
+        <!-- 좌측 사이드바 (준비) -->
+        <div class="left-sidebar">
+            <!-- 솔루션 소개 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">📚</span>
+                    솔루션 소개
+                </div>
+                <div class="menu-item">HDH란?</div>
+                <div class="menu-item">10년 검증 실적</div>
+                <div class="menu-item">헷지 전략 원리</div>
+                <div class="menu-item">수익 구조</div>
+            </div>
+
+            <!-- 매뉴얼 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">📖</span>
+                    매뉴얼
+                </div>
+                <div class="menu-item">거래 가이드</div>
+                <div class="menu-item">계좌 설정 방법</div>
+                <div class="menu-item">비상 대응</div>
+                <div class="menu-item">FAQ</div>
+            </div>
+
+            <!-- 교육 프로그램 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">🎓</span>
+                    교육 프로그램
+                </div>
+                <div class="menu-item expandable" onclick="toggleSubmenu(this)">
+                    <span>Day 1: 솔루션 이론</span>
+                    <span class="expand-arrow">▶</span>
+                </div>
+                <div class="submenu-list">
+                    <div class="submenu-item">1-1. 프롭펌 챌린지</div>
+                    <div class="submenu-item">1-2. 금선물 CFD</div>
+                    <div class="submenu-item">1-3. 헷지 전략</div>
+                </div>
+                <div class="menu-item expandable" onclick="toggleSubmenu(this)">
+                    <span>Day 2: 플랫폼 사용법</span>
+                    <span class="expand-arrow">▶</span>
+                </div>
+                <div class="submenu-list">
+                    <div class="submenu-item">2-1. MT5 설정</div>
+                    <div class="submenu-item">2-2. 자동화 시스템</div>
+                </div>
+                <div class="menu-item expandable" onclick="toggleSubmenu(this)">
+                    <span>Day 3: 실전 시뮬레이션</span>
+                    <span class="expand-arrow">▶</span>
+                </div>
+                <div class="submenu-list">
+                    <div class="submenu-item">3-1. 데모 거래</div>
+                    <div class="submenu-item">3-2. 최종 테스트</div>
+                </div>
+            </div>
+
+            <!-- 프로그램 다운로드 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">📥</span>
+                    프로그램 다운로드
+                </div>
+                <div class="menu-item expandable" onclick="toggleSubmenu(this)">
+                    <span>원클릭 자동 실행 프로그램</span>
+                    <span class="expand-arrow">▶</span>
+                </div>
+                <div class="submenu-list">
+                    <div class="submenu-item">설치 가이드</div>
+                    <div class="submenu-item">MT5 연동 방법</div>
+                </div>
+            </div>
+
+            <!-- 즐겨찾기 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">⭐</span>
+                    즐겨찾기
+                </div>
+                <div class="favorites-grid">
+                    <a href="#" class="favorite-link">
+                        <span class="favorite-icon">🏢</span>
+                        <span class="favorite-name">WT Group</span>
+                    </a>
+                    <a href="#" class="favorite-link">
+                        <span class="favorite-icon">🏢</span>
+                        <span class="favorite-name">Enso Markets</span>
+                    </a>
+                    <a href="#" class="favorite-link">
+                        <span class="favorite-icon">🏢</span>
+                        <span class="favorite-name">Infinox</span>
+                    </a>
+                    <a href="#" class="favorite-link">
+                        <span class="favorite-icon">💳</span>
+                        <span class="favorite-name">전자지갑</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 중앙 콘텐츠 (실행) -->
+        <div class="center-content">
+            <div class="content-main">
+                <!-- 환영 배너 -->
+                <div class="welcome-banner">
+                    <div class="welcome-title">환영합니다, 홍길동님! 👋</div>
+                    <div class="welcome-subtitle">활동 회원 | 가입일: 2025-01-15</div>
+                </div>
+
+                <!-- 거래 프로세스 -->
+                <div class="process-container">
+                    <div class="process-title">📊 거래 프로세스</div>
+
+                    <div class="process-steps">
+                        <!-- Step 1 -->
+                        <div class="process-step active">
+                            <div class="step-header">
+                                <div class="step-number">1</div>
+                                <div class="step-title">거래 시간 확인 + 알람 예약</div>
+                                <div class="step-status">✅</div>
+                            </div>
+                            <div class="step-description">
+                                <span style="color: #10B981; font-weight: 600;">⏰ 오전 09:00 - 11:00</span> |
+                                <span style="color: #64748B;">오후 14:00 - 16:00</span> |
+                                <span style="color: #64748B;">저녁 20:00 - 22:00</span>
+                                <br>
+                                <button class="btn-alarm" style="margin-top: 8px;">🔔 알람 설정하기</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="process-step active">
+                            <div class="step-header">
+                                <div class="step-number">2</div>
+                                <div class="step-title">시스템 확인</div>
+                                <div class="step-status">✅</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 연결 확인</a> |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보증금 계좌</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="process-step active">
+                            <div class="step-header">
+                                <div class="step-number">3</div>
+                                <div class="step-title">코인 매입 및 송금</div>
+                                <div class="step-status">⏳</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ USDT 구매</a> (업비트 등) |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 전자지갑 송금</a> |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 거래소 입금 확인</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="process-step">
+                            <div class="step-header">
+                                <div class="step-number">4</div>
+                                <div class="step-title">포지션 + TP/SL 설정</div>
+                                <div class="step-status">🕐</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> (Buy, TP: 21.5p, SL: 4.1p) |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보증금 계좌</a> (Sell, TP: 21.5p, SL: 4.1p)
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="process-step">
+                            <div class="step-header">
+                                <div class="step-number">5</div>
+                                <div class="step-title">원클릭 거래 실행</div>
+                                <div class="step-status">🕐</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5에서 거래 실행</a>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="process-step">
+                            <div class="step-header">
+                                <div class="step-number">6</div>
+                                <div class="step-title">실시간 모니터링</div>
+                                <div class="step-status">🕐</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 실시간 수익/손실 확인</a>
+                                <span style="color: #64748B; margin-left: 8px;">| TP/SL 자동 작동 확인</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="process-step">
+                            <div class="step-header">
+                                <div class="step-number">7</div>
+                                <div class="step-title">자동 정산</div>
+                                <div class="step-status">🕐</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 자동 익절/손절 실행</a>
+                                <span style="color: #64748B; margin-left: 8px;">| 결과 확인</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 8 -->
+                        <div class="process-step">
+                            <div class="step-header">
+                                <div class="step-number">8</div>
+                                <div class="step-title">수익 출금</div>
+                                <div class="step-status">🕐</div>
+                            </div>
+                            <div class="step-description">
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 거래소에서 출금</a> |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 전자지갑 확인</a> |
+                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 원화 환전</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 우측 사이드바 (결과/공지) -->
+        <div class="right-sidebar">
+            <!-- 공지사항 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">📢</span>
+                    공지사항
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">2025-12-05</div>
+                    시스템 업데이트 완료
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">2025-12-03</div>
+                    12/25 크리스마스 휴장 안내
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">2025-12-01</div>
+                    신규 교육 콘텐츠 추가
+                </div>
+            </div>
+
+            <!-- 주의사항 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">⚠️</span>
+                    주의사항
+                </div>
+                <div class="warning-item">
+                    오늘 저녁 거래 전 손절 설정 확인 필요
+                </div>
+                <div class="warning-item">
+                    챌린지 계좌 잔고 모니터링 요망
+                </div>
+                <div class="warning-item">
+                    주말 시장 휴장 - 포지션 정리 권장
+                </div>
+            </div>
+
+            <!-- 이번 달 누적 수익 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">📊</span>
+                    이번 달 누적 수익
+                </div>
+                <div class="result-value">₩5,160,000</div>
+                <div class="achievement">
+                    <div class="achievement-text">목표 달성률: 97% ✅</div>
+                </div>
+            </div>
+
+            <!-- 수익 일지 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">📝</span>
+                    수익 일지
+                </div>
+                <div class="diary-item">
+                    <span class="diary-date">12/06</span>
+                    <span class="diary-amount">+167,000원 ✅</span>
+                </div>
+                <a href="#" class="view-more" onclick="openDiaryModal(event)">전체 보기 →</a>
+            </div>
+
+            <!-- 설정 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">⚙️</span>
+                    설정
+                </div>
+                <div class="menu-item" onclick="openSettingsModal(event)" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; margin-bottom: 8px; transition: all 0.2s;">
+                    거래 시작일 설정
+                </div>
+                <div class="menu-item" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; margin-bottom: 8px; color: #94A3B8;">
+                    알림 설정
+                </div>
+                <div class="menu-item" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; color: #94A3B8;">
+                    계좌 관리
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 수익 일지 전체 보기 모달 -->
+    <div class="modal-overlay" id="diaryModal" onclick="closeDiaryModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title">📝 수익 일지 (12월 전체)</div>
+                <button class="modal-close" onclick="closeDiaryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-summary">
+                    <div class="modal-summary-label">12월 누적 수익</div>
+                    <div class="modal-summary-value">₩5,160,000</div>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/06</span>
+                    <span class="diary-amount">+167,000원 ✅</span>
+                    <span class="diary-cumulative">₩5,160,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/05</span>
+                    <span class="diary-amount">+183,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,993,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/04</span>
+                    <span class="diary-amount">+145,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,810,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/03</span>
+                    <span class="diary-amount">+159,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,665,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/02</span>
+                    <span class="diary-amount">+201,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,506,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">12/01</span>
+                    <span class="diary-amount">+178,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,305,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/30</span>
+                    <span class="diary-amount">+192,000원 ✅</span>
+                    <span class="diary-cumulative">₩4,127,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/29</span>
+                    <span class="diary-amount">+156,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,935,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/28</span>
+                    <span class="diary-amount">+188,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,779,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/27</span>
+                    <span class="diary-amount">+174,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,591,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/26</span>
+                    <span class="diary-amount">+163,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,417,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/25</span>
+                    <span class="diary-amount">+195,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,254,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/24</span>
+                    <span class="diary-amount">+149,000원 ✅</span>
+                    <span class="diary-cumulative">₩3,059,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/23</span>
+                    <span class="diary-amount">+187,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,910,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/22</span>
+                    <span class="diary-amount">+172,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,723,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/21</span>
+                    <span class="diary-amount">+158,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,551,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/20</span>
+                    <span class="diary-amount">+181,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,393,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/19</span>
+                    <span class="diary-amount">+166,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,212,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/18</span>
+                    <span class="diary-amount">+194,000원 ✅</span>
+                    <span class="diary-cumulative">₩2,046,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/17</span>
+                    <span class="diary-amount">+151,000원 ✅</span>
+                    <span class="diary-cumulative">₩1,852,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/16</span>
+                    <span class="diary-amount">+176,000원 ✅</span>
+                    <span class="diary-cumulative">₩1,701,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/15</span>
+                    <span class="diary-amount">+189,000원 ✅</span>
+                    <span class="diary-cumulative">₩1,525,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/14</span>
+                    <span class="diary-amount">+162,000원 ✅</span>
+                    <span class="diary-cumulative">₩1,336,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/13</span>
+                    <span class="diary-amount">+197,000원 ✅</span>
+                    <span class="diary-cumulative">₩1,174,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/12</span>
+                    <span class="diary-amount">+154,000원 ✅</span>
+                    <span class="diary-cumulative">₩977,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/11</span>
+                    <span class="diary-amount">+185,000원 ✅</span>
+                    <span class="diary-cumulative">₩823,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/10</span>
+                    <span class="diary-amount">+170,000원 ✅</span>
+                    <span class="diary-cumulative">₩638,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/09</span>
+                    <span class="diary-amount">+160,000원 ✅</span>
+                    <span class="diary-cumulative">₩468,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/08</span>
+                    <span class="diary-amount">+191,000원 ✅</span>
+                    <span class="diary-cumulative">₩308,000</span>
+                </div>
+                <div class="diary-item-modal">
+                    <span class="diary-date">11/07</span>
+                    <span class="diary-amount">+148,000원 ✅</span>
+                    <span class="diary-cumulative">₩148,000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 설정 모달 -->
+    <div class="modal-overlay" id="settingsModal" onclick="closeSettingsModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title">⚙️ 거래 시작일 설정</div>
+                <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <div class="settings-label">거래 시작일</div>
+                    <div class="settings-description">수익 일지 및 누적 수익 계산의 기준이 되는 거래 시작일을 설정합니다.</div>
+                    <input type="date" id="startDateInput" class="settings-input" value="2024-11-07">
+                    <div class="settings-current">
+                        <span class="settings-current-label">현재 설정:</span>
+                        <span class="settings-current-value" id="currentStartDate">2024년 11월 7일</span>
+                    </div>
+                </div>
+                <div class="settings-actions">
+                    <button class="btn-settings-cancel" onclick="closeSettingsModal()">취소</button>
+                    <button class="btn-settings-save" onclick="saveStartDate()">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(element) {
+            // 클릭한 menu-item의 다음 형제 요소 (submenu-list) 찾기
+            const submenuList = element.nextElementSibling;
+
+            // expanded 클래스 토글
+            element.classList.toggle('expanded');
+
+            // submenu-list의 active 클래스 토글
+            submenuList.classList.toggle('active');
+        }
+
+        function openDiaryModal(event) {
+            event.preventDefault();
+            document.getElementById('diaryModal').classList.add('active');
+        }
+
+        function closeDiaryModal(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            document.getElementById('diaryModal').classList.remove('active');
+        }
+
+        function openSettingsModal(event) {
+            event.preventDefault();
+            document.getElementById('settingsModal').classList.add('active');
+        }
+
+        function closeSettingsModal(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            document.getElementById('settingsModal').classList.remove('active');
+        }
+
+        function saveStartDate() {
+            const dateInput = document.getElementById('startDateInput');
+            const selectedDate = new Date(dateInput.value);
+
+            // 날짜 포맷팅
+            const year = selectedDate.getFullYear();
+            const month = selectedDate.getMonth() + 1;
+            const day = selectedDate.getDate();
+            const formattedDate = `${year}년 ${month}월 ${day}일`;
+
+            // 현재 설정 업데이트
+            document.getElementById('currentStartDate').textContent = formattedDate;
+
+            // 저장 완료 알림
+            alert(`거래 시작일이 ${formattedDate}로 설정되었습니다.`);
+
+            // 모달 닫기
+            closeSettingsModal();
+        }
+    </script>
+</body>
+</html>

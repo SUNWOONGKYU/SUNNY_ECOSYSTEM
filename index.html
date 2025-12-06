@@ -66,6 +66,12 @@
             gap: 16px;
         }
 
+        .user-name {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         .btn-login, .btn-logout, .btn-signup {
             background: white;
             color: #D97706;
@@ -682,6 +688,7 @@
             <div class="header-inner">
                 <h1>SUNNY ECONOMIC ECOSYSTEM</h1>
                 <div class="user-info">
+                    <span id="userName" class="user-name hidden"></span>
                     <button id="btnSignup" class="btn-signup">회원가입</button>
                     <button id="btnLogin" class="btn-login">로그인</button>
                     <button id="btnLogout" class="btn-logout hidden">로그아웃</button>
@@ -791,6 +798,7 @@
                 color: '#10B981',
                 icon: '🚀',
                 hasDetailPage: true,
+                isComingSoon: true,
                 requirements: ['전문성 검증', '투자 재원 확인', '멘토 심사']
             },
             // Connected Services - 보라색 계열
@@ -814,18 +822,27 @@
             },
             {
                 id: 'hipus',
-                title: 'HIPUS\nSystem',
-                subtitle: '회계 · 경영정보 제공 시스템',
-                description: '스타트업의 회계 및 경영정보를 통합 제공하고 실시간으로 경영성과를 모니터링하는 시스템',
+                title: 'HIPUS\nAI',
+                subtitle: 'AI 기반 실시간 경영정보 생성 시스템',
+                description: '회계·인사·매입매출·전자결재 데이터를 실시간으로 연결하여 현금흐름 중심의 경영정보를 AI가 자동 생성하는 시스템',
                 color: '#7C3AED',
                 icon: '📈',
-                hasDetailPage: false
+                hasDetailPage: true,
+                isComingSoon: true
             }
         ];
 
         const detailContent = {
             hdh: {
                 sections: [
+                    {
+                        title: 'HDH의 의미',
+                        content: `HDH는 이 솔루션을 개발한 세 사람의 이름에서 영어 철자 한 개씩을 가져와서 만들어진 것입니다.
+'하', '대', '호' - 세 글자의 영문 이니셜 H, D, H를 조합하여 'HDH'가 되었습니다.
+
+10년간 세 명의 개발자가 함께 연구하고 검증한 결과물,
+그것이 바로 HDH Fintech입니다.`
+                    },
                     {
                         title: '왜 HDH Fintech인가?',
                         content: `10년간 찾아낸 솔루션
@@ -842,12 +859,18 @@ HDH Fintech의 답:
 • 저위험 자동화 시스템 (10년 검증)
 • 복잡한 기술 불필요 (3일 교육으로 시작)
 • 5060세대 최적화 솔루션
-• 은퇴 후 경제적 자립의 해법
+• 은퇴 후 경제적 자립의 해법`
+                    },
+                    {
+                        title: '선순환 생태계',
+                        content: `HDH Fintech가 만드는 지속 가능한 경제 생태계
 
-선순환 생태계:
 • 안정적 수입이 있어야 스타트업 서포팅 가능
 • ProActive Senior의 경험과 여유를 스타트업 멘토링에 투자
-• 경제적 자립 → 사회 기여 → 지속 가능한 선순환`
+• 경제적 자립 → 사회 기여 → 지속 가능한 선순환
+
+HDH Fintech는 단순한 수익 창출을 넘어,
+ProActive Senior와 스타트업이 함께 성장하는 생태계의 시작점입니다.`
                     },
                     {
                         title: '10년 검증된 안정적 수익',
@@ -859,27 +882,26 @@ HDH Fintech의 답:
 • 초기 투자금: ₩5,000만원
 • 5060세대 ProActive Senior 대상
 • 10년간 축적된 데이터 기반 지속 최적화
-• 커뮤니티 기반 상호 지원
+• 커뮤니티 기반 상호 지원`
+                    },
+                    {
+                        title: '핵심 솔루션 구조',
+                        content: `프롭펌 챌린지 + 헷지 전략 기반 금선물 CFD 거래
 
-핵심 솔루션 구조 (프롭펌 챌린지 + 헷지 전략 기반 금선물 CFD 거래):
+시스템 구조:
 • 프롭펌(Prop Firm) 챌린지 시스템 활용
 • 금선물 CFD 거래 (높은 변동성 활용)
 • 챌린지 계좌 + 보증금 계좌 반대 포지션
-• 완벽한 헷지로 리스크 상쇄`
-                    },
-                    {
-                        title: '자동화 시스템',
-                        content: `복잡한 금융 지식 없이 운영하는 자동화 시스템
+• 완벽한 헷지로 리스크 상쇄
 
+자동화 시스템:
 • 자동 손절 및 익절 시스템
 • 리스크 관리 완전 자동화
 • 감정적 판단 개입 최소화
-• MT5 플랫폼 기반 원클릭 거래
-• 실시간 모니터링 대시보드
-• 초보자도 3일 교육으로 운영 가능`
+• MT5 플랫폼 기반 원클릭 거래`
                     },
                     {
-                        title: '추천인 제도',
+                        title: '추천인 제도 & 시작하기',
                         content: `검증된 사용자를 통한 안전한 확산
 
 회원 등급:
@@ -891,6 +913,8 @@ HDH Fintech의 답:
 
 운영 방식:
 • 기존 사용자의 1:1 가이드
+• 실시간 모니터링 대시보드 제공
+• 초보자도 3일 교육으로 운영 가능
 • 책임감 있는 성장 관리`
                     }
                 ]
@@ -1026,12 +1050,111 @@ ProActive Senior가 제공하는 가치:
 • 성장 가능성 (Scalability)`
                     }
                 ]
+            },
+            hipus: {
+                sections: [
+                    {
+                        title: 'HIPUS AI란?',
+                        content: `HIPUS (Hyper-Intelligent Pulse for Unified Systems)
+
+HIPUS AI는 기업의 중추신경계처럼 작동하는 AI 기반 경영정보 생성 시스템입니다.
+
+회계·인사·매입매출·전자결재 데이터를 하나의 실시간 신경망으로 연결하여,
+현금흐름 중심의 의사결정과 경영통제를 가능하게 합니다.
+
+단순한 데이터 집계가 아닌, AI가 데이터의 '맥동(pulse)'을 감지하여
+경영자에게 즉시 필요한 '신호(signal)'를 전달하는 지능형 시스템입니다.`
+                    },
+                    {
+                        title: '왜 HIPUS AI인가?',
+                        content: `전통적 경영 시스템의 한계
+
+기존 방식:
+• 회계·인사·매입매출이 각각 따로 관리됨
+• 데이터 통합은 주기적 배치 작업으로만 가능
+• 경영정보는 '과거' 데이터 중심의 정적 리포트
+• 의사결정 시점과 정보 제공 시점의 시차 발생
+
+HIPUS AI의 해법:
+• 모든 데이터를 실시간 신경망으로 통합
+• 발생 즉시 현금흐름에 반영되는 이벤트 기반 구조
+• AI가 맥동을 감지하여 예측적 인사이트 제공
+• 의사결정 순간에 필요한 정보를 즉시 생성`
+                    },
+                    {
+                        title: '핵심 차별점',
+                        content: `기업의 신경계로 작동하는 실시간 시스템
+
+전통적 시스템과의 차이:
+• 데이터 연계: 배치/주기적 수집 → 실시간 이벤트 스트림
+• 분석 방식: 과거 통계/집계 → AI 예측/맥동 분석
+• 정보 제공: 정적 보고서 → 동적 신호 감지
+• 현금흐름: 회계 결과로만 파악 → 실시간 중심축
+• 의사결정: 보고 중심 → 감지 중심
+
+HIPUS AI는 '보고'가 아닌 '감지'의 철학으로 설계되었습니다.
+
+기존 ERP/EIS는 데이터를 '보여주지만',
+HIPUS AI는 데이터를 '이해하고 예측'합니다.`
+                    },
+                    {
+                        title: '통합 데이터 구조',
+                        content: `하나의 신경망으로 연결되는 4대 핵심 영역
+
+회계 시스템:
+• 발생주의 회계 → 실시간 현금흐름 예측으로 전환
+• 모든 거래가 즉시 자금 Pulse로 변환
+
+인사 시스템:
+• 급여·근태 → 인건비 자금 흐름에 통합
+• 인력 변동이 즉시 현금흐름 예측에 반영
+
+매입·매출 시스템:
+• 거래 데이터 → 자금 유입·유출 신호로 직결
+• 매출채권·매입채무가 현금흐름 타임라인에 자동 배치
+
+전자결재 시스템:
+• 단순 승인 경로 → 실시간 의사결정 트리거
+• 결재 이벤트가 즉시 자금계획에 반영`
+                    },
+                    {
+                        title: 'AI 인사이트 생성',
+                        content: `데이터 맥동을 감지하는 지능형 분석
+
+실시간 맥동(Pulse) 감지:
+• 매출 패턴 변화 감지 → 현금흐름 예측 자동 조정
+• 인건비 증가 신호 → 자금 부족 사전 경고
+• 매입 집중 구간 탐지 → 지급 계획 최적화 제안
+• 결재 병목 인식 → 의사결정 지연 알림
+
+AI 자동 생성 정보:
+• 향후 3개월 현금흐름 예측
+• 부서별 수익성 실시간 분석
+• 자금 부족 시점 사전 경고
+• 의사결정 최적 타이밍 제안
+• 경영 이상 신호 자동 탐지`
+                    },
+                    {
+                        title: '스타트업을 위한 가치',
+                        content: `성장하는 스타트업의 필수 경영 도구
+
+스타트업이 얻는 것:
+• 복잡한 회계·인사·매입매출 시스템을 하나로 통합
+• 전문 인력 없이도 AI가 경영정보 자동 생성
+• 실시간 현금흐름 모니터링으로 자금 리스크 예방
+• 투자 유치 시 신뢰도 높은 경영 데이터 제공
+• Company Valuation Platform과 연동하여 기업가치 평가 자동화
+
+HIPUS AI는 스타트업이 '감'이 아닌 '데이터'로
+경영하도록 돕는 지능형 파트너입니다.`
+                    }
+                ]
             }
         };
 
         // 상태
-        let isLoggedIn = false;
-        let userName = '';
+        let isLoggedIn = true;
+        let userName = '홍길동';
         let serviceStatus = {
             hdh: false,
             ssal: false,
@@ -1045,6 +1168,7 @@ ProActive Senior가 제공하는 가치:
         function init() {
             renderServices();
             setupEventListeners();
+            updateLoginUI();
         }
 
         // 서비스 카드 렌더링
@@ -1121,15 +1245,19 @@ ProActive Senior가 제공하는 가치:
         }
 
         function updateLoginUI() {
+            const userNameElement = document.getElementById('userName');
             const btnSignup = document.getElementById('btnSignup');
             const btnLogin = document.getElementById('btnLogin');
             const btnLogout = document.getElementById('btnLogout');
 
             if (isLoggedIn) {
+                userNameElement.textContent = `👤 ${userName}님`;
+                userNameElement.classList.remove('hidden');
                 btnSignup.classList.add('hidden');
                 btnLogin.classList.add('hidden');
                 btnLogout.classList.remove('hidden');
             } else {
+                userNameElement.classList.add('hidden');
                 btnSignup.classList.remove('hidden');
                 btnLogin.classList.remove('hidden');
                 btnLogout.classList.add('hidden');
@@ -1173,10 +1301,22 @@ ProActive Senior가 제공하는 가치:
 
             document.getElementById('detailSections').innerHTML = sectionsHTML;
 
-            // 요구사항 섹션 (로그인 상태에 따라)
+            // 요구사항 섹션 (로그인 상태 및 서비스 준비 상태에 따라)
             let requirementsHTML = '';
 
-            if (!isLoggedIn) {
+            // 서비스 준비 중인 경우 (HIPUS AI 등)
+            if (service.isComingSoon) {
+                requirementsHTML = `
+                    <div style="text-align: center; padding: 40px 32px; background: #F3F4F6; border-radius: 12px; margin-top: 20px; margin-bottom: 16px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🚧</div>
+                        <h3 style="color: #6B7280; font-size: 20px; margin-bottom: 12px; font-weight: 700;">서비스 준비 중</h3>
+                        <p style="color: #9CA3AF; font-size: 15px; line-height: 1.6;">
+                            ${service.title.replace(/\n/g, ' ')}는 현재 개발 중입니다.<br/>
+                            빠른 시일 내에 여러분을 만나뵙겠습니다.
+                        </p>
+                    </div>
+                `;
+            } else if (!isLoggedIn) {
                 // 로그인 안 했을 때: 로그인 유도
                 requirementsHTML = `
                     <div style="text-align: center; padding: 32px; background: #FEF3C7; border-radius: 12px; margin-bottom: 16px;">
@@ -1204,10 +1344,28 @@ ProActive Senior가 제공하는 가치:
 
         function handleActivate(serviceId, color) {
             const service = services.find(s => s.id === serviceId);
-            alert(`${service.title} 서비스는 현재 준비 중입니다.`);
-            // 실제로는 해당 서비스 페이지로 이동
-            serviceStatus[serviceId] = true;
-            handleBack();
+
+            // 각 서비스별 페이지 URL 매핑
+            const serviceUrls = {
+                hdh: 'HDH_Fintech/index.html',
+                ssal: 'SSAL_Works/prototype_index_최종개선.html',
+                startup: null,  // 준비 중
+                sites: null,
+                valuation: null,
+                hipus: null
+            };
+
+            const pageUrl = serviceUrls[serviceId];
+
+            if (pageUrl) {
+                // 해당 서비스 페이지로 이동
+                window.location.href = pageUrl;
+            } else {
+                // 준비 중인 서비스
+                alert(`${service.title} 서비스는 현재 준비 중입니다.`);
+                serviceStatus[serviceId] = true;
+                handleBack();
+            }
         }
 
         function handleBack() {
