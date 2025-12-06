@@ -330,6 +330,44 @@
             color: #64748B;
         }
 
+        /* 커뮤니티 바로가기 */
+        .community-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid #3B82F6;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+
+        .community-link:hover {
+            background: linear-gradient(135deg, #BFDBFE 0%, #93C5FD 100%);
+            transform: translateX(4px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .community-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .community-text {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E40AF;
+        }
+
+        .community-arrow {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3B82F6;
+        }
+
         /* 즐겨찾기 */
         .favorites-grid {
             display: flex;
@@ -711,6 +749,314 @@
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
 
+        /* 시뮬레이터 스타일 */
+        .simulator-container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            margin-top: 24px;
+        }
+
+        .simulator-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .simulator-subtitle {
+            font-size: 15px;
+            color: #64748B;
+            margin-bottom: 32px;
+        }
+
+        .simulator-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .control-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-option {
+            padding: 10px 20px;
+            background: #F8FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748B;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-option:hover {
+            background: #FFF7ED;
+            border-color: #F59E0B;
+            color: #D97706;
+        }
+
+        .btn-option.active {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            border-color: #F59E0B;
+            color: white;
+        }
+
+        .btn-simulate {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            margin-top: 8px;
+        }
+
+        .btn-simulate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .simulator-results {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid #E2E8F0;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 24px;
+        }
+
+        .btn-close-results {
+            padding: 8px 16px;
+            background: #EF4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-close-results:hover {
+            background: #DC2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .results-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .summary-card {
+            background: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #E2E8F0;
+        }
+
+        .summary-card.summary-profit {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border-color: #10B981;
+        }
+
+        .summary-label {
+            font-size: 13px;
+            color: #64748B;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .summary-value {
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: #0F172A;
+            letter-spacing: -1px;
+        }
+
+        .summary-profit .summary-value {
+            color: #10B981;
+        }
+
+        .results-breakdown {
+            background: #F8FAFC;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .breakdown-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0F172A;
+            margin-bottom: 16px;
+        }
+
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .breakdown-table tr {
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .breakdown-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-table td {
+            padding: 12px 0;
+            font-size: 14px;
+        }
+
+        .breakdown-table td:first-child {
+            color: #475569;
+        }
+
+        .breakdown-value {
+            text-align: right;
+            font-family: 'SF Pro Display', 'Roboto', 'Malgun Gothic', monospace;
+            font-weight: 600;
+            color: #0F172A;
+        }
+
+        .breakdown-positive {
+            color: #10B981;
+        }
+
+        .breakdown-negative {
+            color: #EF4444;
+        }
+
+        .breakdown-highlight {
+            background: #FFF7ED;
+        }
+
+        .breakdown-total {
+            background: #ECFDF5;
+            border-top: 2px solid #10B981;
+        }
+
+        .breakdown-total td {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .detailed-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .detailed-table thead {
+            position: sticky;
+            top: 0;
+            background: #F59E0B;
+            color: white;
+            z-index: 10;
+        }
+
+        .detailed-table th {
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .detailed-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .detailed-table tbody tr:hover {
+            background: #F8FAFC;
+        }
+
+        .detailed-table .pass-row {
+            background: #FFF7ED;
+        }
+
+        .detailed-table .pass-badge {
+            background: #F59E0B;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .detailed-table .fail-badge {
+            background: #10B981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .results-visualization {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 20px;
+            background: #F8FAFC;
+            border-radius: 12px;
+        }
+
+        .trade-result {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .trade-pass {
+            background: #F59E0B;
+        }
+
+        .trade-fail {
+            background: #10B981;
+        }
+
         /* 버튼 스타일 */
         .btn-alarm {
             padding: 6px 16px;
@@ -834,11 +1180,11 @@
                 <div class="menu-item">FAQ</div>
             </div>
 
-            <!-- 교육 프로그램 -->
+            <!-- 아카데미 -->
             <div class="sidebar-section">
                 <div class="section-title">
                     <span class="section-icon">🎓</span>
-                    교육 프로그램
+                    아카데미
                 </div>
                 <div class="menu-item expandable" onclick="toggleSubmenu(this)">
                     <span>Day 1: 솔루션 이론</span>
@@ -881,6 +1227,18 @@
                     <div class="submenu-item">설치 가이드</div>
                     <div class="submenu-item">MT5 연동 방법</div>
                 </div>
+            </div>
+
+            <!-- 커뮤니티 바로가기 -->
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span class="section-icon">💬</span>
+                    커뮤니티 바로가기
+                </div>
+                <a href="#" class="community-link">
+                    <span class="community-text">HDH 실전 커뮤니티</span>
+                    <span class="community-arrow">→</span>
+                </a>
             </div>
 
             <!-- 즐겨찾기 -->
@@ -1032,6 +1390,133 @@
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 전자지갑 확인</a> |
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 원화 환전</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 운영수익 시뮬레이터 -->
+                <div class="simulator-container" id="simulatorSection">
+                    <div class="simulator-title">🧮 운영수익 시뮬레이터</div>
+                    <div class="simulator-subtitle">거래 횟수, 계좌 규모, 합격률을 설정하여 예상 손익을 시뮬레이션하세요</div>
+
+                    <div class="simulator-controls">
+                        <!-- 거래 횟수 -->
+                        <div class="control-group">
+                            <label class="control-label">거래 횟수</label>
+                            <div class="btn-group">
+                                <button class="btn-option active" onclick="selectTrades(30)">30회</button>
+                                <button class="btn-option" onclick="selectTrades(40)">40회</button>
+                                <button class="btn-option" onclick="selectTrades(50)">50회</button>
+                                <button class="btn-option" onclick="selectTrades(60)">60회</button>
+                                <button class="btn-option" onclick="selectTrades(70)">70회</button>
+                                <button class="btn-option" onclick="selectTrades(80)">80회</button>
+                                <button class="btn-option" onclick="selectTrades(90)">90회</button>
+                            </div>
+                        </div>
+
+                        <!-- 계좌 규모 -->
+                        <div class="control-group">
+                            <label class="control-label">계좌 규모 (챌린지 참가비)</label>
+                            <div class="btn-group">
+                                <button class="btn-option" onclick="selectAccount(100)">$100</button>
+                                <button class="btn-option active" onclick="selectAccount(300)">$300</button>
+                                <button class="btn-option" onclick="selectAccount(500)">$500</button>
+                            </div>
+                        </div>
+
+                        <!-- 합격률 -->
+                        <div class="control-group">
+                            <label class="control-label">합격률 (TP/SL 비율)</label>
+                            <div class="btn-group">
+                                <button class="btn-option" onclick="selectWinRate(70, 30)">70:30 (30%)</button>
+                                <button class="btn-option" onclick="selectWinRate(80, 20)">80:20 (20%)</button>
+                                <button class="btn-option active" onclick="selectWinRate(84, 16)">84:16 (16%)</button>
+                                <button class="btn-option" onclick="selectWinRate(90, 10)">90:10 (10%)</button>
+                            </div>
+                        </div>
+
+                        <button class="btn-simulate" onclick="runSimulation()">시뮬레이션 실행</button>
+                    </div>
+
+                    <!-- 결과 표시 영역 -->
+                    <div class="simulator-results" id="simulatorResults" style="display: none;">
+                        <div class="results-header">
+                            📊 시뮬레이션 결과
+                            <button class="btn-close-results" onclick="closeSimulationResults()">닫기 ✕</button>
+                        </div>
+
+                        <div class="results-summary">
+                            <div class="summary-card summary-profit">
+                                <div class="summary-label">최종 순이익</div>
+                                <div class="summary-value" id="totalProfit">$0</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">합격 횟수</div>
+                                <div class="summary-value" id="passCount">0회</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">탈락 횟수</div>
+                                <div class="summary-value" id="failCount">0회</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">월 예상 수익률</div>
+                                <div class="summary-value" id="monthlyReturn">0%</div>
+                            </div>
+                        </div>
+
+                        <div class="results-breakdown">
+                            <div class="breakdown-title">상세 손익</div>
+                            <table class="breakdown-table">
+                                <tr>
+                                    <td>보증금 계좌 익절 수익</td>
+                                    <td class="breakdown-value breakdown-positive" id="hedgeProfit">+$0</td>
+                                </tr>
+                                <tr>
+                                    <td>보증금 계좌 손절 손실</td>
+                                    <td class="breakdown-value breakdown-negative" id="hedgeLoss">-$0</td>
+                                </tr>
+                                <tr>
+                                    <td>보증금 계좌 순손익</td>
+                                    <td class="breakdown-value" id="hedgeNet">$0</td>
+                                </tr>
+                                <tr class="breakdown-highlight">
+                                    <td>합격 시 펀딩 수익 (80%)</td>
+                                    <td class="breakdown-value breakdown-positive" id="fundingProfit">+$0</td>
+                                </tr>
+                                <tr>
+                                    <td>참가비 손실 (탈락)</td>
+                                    <td class="breakdown-value breakdown-negative" id="entryLoss">-$0</td>
+                                </tr>
+                                <tr class="breakdown-total">
+                                    <td><strong>최종 순이익</strong></td>
+                                    <td class="breakdown-value" id="finalProfit" style="font-size: 18px; font-weight: 700; color: #10B981;">$0</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="results-breakdown">
+                            <div class="breakdown-title">📋 회차별 상세 손익</div>
+                            <div style="max-height: 500px; overflow-y: auto;">
+                                <table class="detailed-table">
+                                    <thead>
+                                        <tr>
+                                            <th>회차</th>
+                                            <th>결과</th>
+                                            <th>보증금 계좌</th>
+                                            <th>챌린지 계좌</th>
+                                            <th>회차 손익</th>
+                                            <th>누적 합계</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detailedTableBody">
+                                        <!-- JavaScript로 동적 생성 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="results-visualization" id="resultsVisualization">
+                            <!-- 시뮬레이션 결과 시각화 (합격/탈락 표시) -->
                         </div>
                     </div>
                 </div>
@@ -1366,6 +1851,143 @@
 
             // 모달 닫기
             closeSettingsModal();
+        }
+
+        // 시뮬레이터 변수
+        let simConfig = {
+            trades: 30,
+            account: 300,
+            winRateTP: 84,
+            winRateSL: 16
+        };
+
+        function selectTrades(trades) {
+            simConfig.trades = trades;
+            document.querySelectorAll('.control-group:nth-child(1) .btn-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function selectAccount(account) {
+            simConfig.account = account;
+            document.querySelectorAll('.control-group:nth-child(2) .btn-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function selectWinRate(tp, sl) {
+            simConfig.winRateTP = tp;
+            simConfig.winRateSL = sl;
+            document.querySelectorAll('.control-group:nth-child(3) .btn-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function runSimulation() {
+            const { trades, account, winRateTP, winRateSL } = simConfig;
+
+            // PDF 기반 계산식
+            const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 보증금 계좌 수익
+            const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 보증금 계좌 손실
+            const fundingAmount = account * 10 * 0.9; // 펀딩 계좌 금액 (10배 * 90%)
+            const fundingProfit = fundingAmount * 0.8; // 펀딩 수익의 80%
+
+            // 합격률 계산 (winRateSL = 합격 확률)
+            const passRate = winRateSL / 100;
+            const passCount = Math.round(trades * passRate);
+            const failCount = trades - passCount;
+
+            // 손익 계산
+            const hedgeProfitTotal = failCount * tpProfit; // 보증금 계좌 익절 수익
+            const hedgeLossTotal = passCount * slLoss; // 보증금 계좌 손절 손실
+            const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 보증금 계좌 순손익
+
+            const fundingProfitTotal = passCount * fundingProfit; // 합격 시 펀딩 수익
+            const entryLossTotal = failCount * account; // 참가비 손실
+
+            const totalProfit = hedgeNet + fundingProfitTotal - entryLossTotal;
+
+            // 월 수익률 계산 (필요 자본 = 보증금 계좌 + 참가비)
+            const requiredCapital = account * trades + account * 50; // 마진 포함
+            const monthlyReturn = (totalProfit / requiredCapital * 100).toFixed(1);
+
+            // 랜덤 시뮬레이션 결과 생성
+            const results = [];
+            for (let i = 0; i < trades; i++) {
+                results.push(Math.random() < passRate);
+            }
+
+            // 결과 표시
+            document.getElementById('totalProfit').textContent = `$${totalProfit.toLocaleString()}`;
+            document.getElementById('passCount').textContent = `${passCount}회`;
+            document.getElementById('failCount').textContent = `${failCount}회`;
+            document.getElementById('monthlyReturn').textContent = `${monthlyReturn}%`;
+
+            document.getElementById('hedgeProfit').textContent = `+$${hedgeProfitTotal.toLocaleString()}`;
+            document.getElementById('hedgeLoss').textContent = `-$${hedgeLossTotal.toLocaleString()}`;
+            document.getElementById('hedgeNet').textContent = `$${hedgeNet.toLocaleString()}`;
+            document.getElementById('fundingProfit').textContent = `+$${fundingProfitTotal.toLocaleString()}`;
+            document.getElementById('entryLoss').textContent = `-$${entryLossTotal.toLocaleString()}`;
+            document.getElementById('finalProfit').textContent = `$${totalProfit.toLocaleString()}`;
+
+            // 회차별 상세 테이블 생성
+            const detailedTableBody = document.getElementById('detailedTableBody');
+            detailedTableBody.innerHTML = '';
+
+            let cumulative = 0;
+            results.forEach((isPass, index) => {
+                const round = index + 1;
+                const hedgeAmount = isPass ? -slLoss : tpProfit;
+                const challengeAmount = isPass ? fundingProfit : -account;
+                const roundProfit = hedgeAmount + challengeAmount;
+                cumulative += roundProfit;
+
+                const tr = document.createElement('tr');
+                if (isPass) tr.classList.add('pass-row');
+
+                tr.innerHTML = `
+                    <td>${round}</td>
+                    <td><span class="${isPass ? 'pass-badge' : 'fail-badge'}">${isPass ? '🏆 합격' : '탈락'}</span></td>
+                    <td style="color: ${hedgeAmount > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                        ${hedgeAmount > 0 ? '+' : ''}$${hedgeAmount.toLocaleString()}
+                    </td>
+                    <td style="color: ${challengeAmount > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                        ${challengeAmount > 0 ? '+' : ''}$${challengeAmount.toLocaleString()}
+                    </td>
+                    <td style="color: ${roundProfit > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                        ${roundProfit > 0 ? '+' : ''}$${roundProfit.toLocaleString()}
+                    </td>
+                    <td style="font-family: 'SF Pro Display', 'Roboto', monospace; font-weight: 700; color: ${cumulative > 0 ? '#10B981' : cumulative < 0 ? '#EF4444' : '#64748B'};">
+                        ${cumulative > 0 ? '+' : ''}$${cumulative.toLocaleString()}
+                    </td>
+                `;
+                detailedTableBody.appendChild(tr);
+            });
+
+            // 시각화 생성
+            const visualization = document.getElementById('resultsVisualization');
+            visualization.innerHTML = '';
+
+            results.forEach((isPass, index) => {
+                const div = document.createElement('div');
+                div.className = `trade-result ${isPass ? 'trade-pass' : 'trade-fail'}`;
+                div.textContent = isPass ? '🏆' : index + 1;
+                div.title = isPass ? `${index + 1}회: 합격` : `${index + 1}회: 탈락`;
+                visualization.appendChild(div);
+            });
+
+            // 결과 영역 표시
+            document.getElementById('simulatorResults').style.display = 'block';
+
+            // 결과로 스크롤
+            document.getElementById('simulatorResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function closeSimulationResults() {
+            document.getElementById('simulatorResults').style.display = 'none';
         }
     </script>
 </body>
