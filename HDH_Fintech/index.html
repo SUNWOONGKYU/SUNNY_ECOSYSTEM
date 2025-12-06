@@ -1160,6 +1160,171 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
+        /* Top 10 랭킹 위젯 */
+        .ranking-widget {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .ranking-widget .widget-title {
+            color: #F8FAFC;
+            margin-bottom: 16px;
+        }
+
+        .ranking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .ranking-year {
+            font-size: 12px;
+            color: #94A3B8;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .ranking-live {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #10B981;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .ranking-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .ranking-item.top3 {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .ranking-position {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 50%;
+            background: #475569;
+            color: #F8FAFC;
+        }
+
+        .ranking-item.top3 .ranking-position {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: white;
+        }
+
+        .ranking-position.gold { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
+        .ranking-position.silver { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); }
+        .ranking-position.bronze { background: linear-gradient(135deg, #CD7F32 0%, #A0522D 100%); }
+
+        .ranking-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ranking-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #F8FAFC;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ranking-grade {
+            font-size: 11px;
+            color: #94A3B8;
+            margin-top: 2px;
+        }
+
+        .ranking-profit {
+            font-family: 'SF Pro Display', 'Roboto', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #10B981;
+            text-align: right;
+        }
+
+        .ranking-change {
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 36px;
+        }
+
+        .ranking-change.up {
+            color: #10B981;
+        }
+
+        .ranking-change.down {
+            color: #EF4444;
+        }
+
+        .ranking-change.same {
+            color: #64748B;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        /* Level 등급 색상 (Level 10이 최고) */
+        .grade-level-10 { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; }
+        .grade-level-9 { background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); color: white; }
+        .grade-level-8 { background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%); color: white; }
+        .grade-level-7 { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); color: white; }
+        .grade-level-6 { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; }
+        .grade-level-5 { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; }
+        .grade-level-4 { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; }
+        .grade-level-3 { background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: white; }
+        .grade-level-2 { background: linear-gradient(135deg, #78716C 0%, #57534E 100%); color: white; }
+        .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }
+
         /* 반응형 - 태블릿 */
         @media (max-width: 1400px) {
             .main-container {
@@ -1355,6 +1520,35 @@
 
             .result-value {
                 font-size: 24px;
+            }
+
+            /* 랭킹 위젯 모바일 */
+            .ranking-widget {
+                padding: 16px;
+            }
+
+            .ranking-item {
+                padding: 8px 10px;
+                gap: 10px;
+            }
+
+            .ranking-position {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .ranking-name {
+                font-size: 12px;
+            }
+
+            .ranking-profit {
+                font-size: 12px;
+            }
+
+            .grade-badge {
+                font-size: 9px;
+                padding: 2px 4px;
             }
         }
 
@@ -2018,6 +2212,24 @@
                     계좌 관리
                 </div>
             </div>
+
+            <!-- Top 10 랭킹 -->
+            <div class="widget ranking-widget">
+                <div class="widget-title">
+                    <span class="widget-icon">🏆</span>
+                    연간 수익 Top 10
+                </div>
+                <div class="ranking-header">
+                    <span class="ranking-year">2025년</span>
+                    <div class="ranking-live">
+                        <span class="live-dot"></span>
+                        실시간
+                    </div>
+                </div>
+                <div class="ranking-list" id="rankingList">
+                    <!-- JavaScript로 동적 생성 -->
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2404,6 +2616,141 @@
         function closeSimulationResults() {
             document.getElementById('simulatorResults').style.display = 'none';
         }
+
+        // ===== Top 10 랭킹 시스템 =====
+
+        // 등급 기준 (구성비율 기반 - 백분위)
+        // Level 10: 상위 1%, Level 9: 상위 3%, Level 8: 상위 7%, Level 7: 상위 13%
+        // Level 6: 상위 21%, Level 5: 상위 31%, Level 4: 상위 43%, Level 3: 상위 57%
+        // Level 2: 상위 73%, Level 1: 상위 91% (나머지)
+        const levelPercentiles = [
+            { level: 10, percentile: 1 },
+            { level: 9, percentile: 3 },
+            { level: 8, percentile: 7 },
+            { level: 7, percentile: 13 },
+            { level: 6, percentile: 21 },
+            { level: 5, percentile: 31 },
+            { level: 4, percentile: 43 },
+            { level: 3, percentile: 57 },
+            { level: 2, percentile: 73 },
+            { level: 1, percentile: 91 }
+        ];
+
+        // 순위 기반 등급 계산 (총 회원 수 대비 현재 순위)
+        function getGradeByRank(rank, totalMembers) {
+            const percentile = (rank / totalMembers) * 100;
+
+            for (const levelInfo of levelPercentiles) {
+                if (percentile <= levelInfo.percentile) {
+                    return { name: `Lv.${levelInfo.level}`, class: `level-${levelInfo.level}`, level: levelInfo.level };
+                }
+            }
+            return { name: 'Lv.1', class: 'level-1', level: 1 };
+        }
+
+        // 샘플 회원 데이터 (실제 구현 시 API 연동)
+        // 전체 회원 수 시뮬레이션: 1000명 중 Top 10
+        const totalMembers = 1000;
+        const rankingData = [
+            { id: 1, name: '김**', profit: 127500000, change: 'up', changeAmount: 2, rank: 1 },
+            { id: 2, name: '이**', profit: 98200000, change: 'same', changeAmount: 0, rank: 2 },
+            { id: 3, name: '박**', profit: 85600000, change: 'up', changeAmount: 1, rank: 3 },
+            { id: 4, name: '최**', profit: 72300000, change: 'down', changeAmount: 1, rank: 4 },
+            { id: 5, name: '정**', profit: 65800000, change: 'up', changeAmount: 3, rank: 5 },
+            { id: 6, name: '강**', profit: 54200000, change: 'same', changeAmount: 0, rank: 6 },
+            { id: 7, name: '조**', profit: 48700000, change: 'down', changeAmount: 2, rank: 7 },
+            { id: 8, name: '윤**', profit: 42100000, change: 'up', changeAmount: 1, rank: 8 },
+            { id: 9, name: '장**', profit: 38500000, change: 'same', changeAmount: 0, rank: 9 },
+            { id: 10, name: '임**', profit: 31200000, change: 'down', changeAmount: 1, rank: 10 }
+        ];
+
+        function formatProfit(amount) {
+            if (amount >= 100000000) {
+                return (amount / 100000000).toFixed(1) + '억';
+            } else if (amount >= 10000000) {
+                return (amount / 10000000).toFixed(1) + '천만';
+            } else if (amount >= 10000) {
+                return Math.floor(amount / 10000) + '만';
+            }
+            return amount.toLocaleString() + '원';
+        }
+
+        function getPositionClass(position) {
+            if (position === 1) return 'gold';
+            if (position === 2) return 'silver';
+            if (position === 3) return 'bronze';
+            return '';
+        }
+
+        function renderRankingList() {
+            const container = document.getElementById('rankingList');
+            if (!container) return;
+
+            let html = '';
+            rankingData.forEach((member, index) => {
+                const position = index + 1;
+                const grade = getGradeByRank(member.rank, totalMembers);
+                const isTop3 = position <= 3;
+                const positionClass = getPositionClass(position);
+
+                let changeIcon = '';
+                let changeClass = member.change;
+                if (member.change === 'up') {
+                    changeIcon = `▲${member.changeAmount}`;
+                } else if (member.change === 'down') {
+                    changeIcon = `▼${member.changeAmount}`;
+                } else {
+                    changeIcon = '-';
+                }
+
+                html += `
+                    <div class="ranking-item ${isTop3 ? 'top3' : ''}">
+                        <div class="ranking-position ${positionClass}">${position}</div>
+                        <div class="ranking-info">
+                            <div class="ranking-name">${member.name}</div>
+                        </div>
+                        <div class="ranking-change ${changeClass}">${changeIcon}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 실시간 업데이트 시뮬레이션 (30초마다)
+        function simulateRankingUpdate() {
+            // 랜덤하게 수익 변동 시뮬레이션
+            rankingData.forEach(member => {
+                const fluctuation = Math.floor(Math.random() * 500000) - 200000;
+                member.profit = Math.max(0, member.profit + fluctuation);
+
+                // 랜덤하게 순위 변동
+                const changeType = Math.random();
+                if (changeType < 0.3) {
+                    member.change = 'up';
+                    member.changeAmount = Math.floor(Math.random() * 3) + 1;
+                } else if (changeType < 0.5) {
+                    member.change = 'down';
+                    member.changeAmount = Math.floor(Math.random() * 2) + 1;
+                } else {
+                    member.change = 'same';
+                    member.changeAmount = 0;
+                }
+            });
+
+            // 수익 순으로 정렬
+            rankingData.sort((a, b) => b.profit - a.profit);
+
+            // 다시 렌더링
+            renderRankingList();
+        }
+
+        // 페이지 로드 시 랭킹 렌더링
+        document.addEventListener('DOMContentLoaded', function() {
+            renderRankingList();
+            // 30초마다 업데이트 (실제 구현 시 WebSocket 또는 API 폴링)
+            setInterval(simulateRankingUpdate, 30000);
+        });
     </script>
 </body>
 </html>
