@@ -1324,17 +1324,17 @@
             font-weight: 600;
         }
 
-        /* Level 등급 색상 (따뜻한 색 → 차가운 색 그라데이션) */
-        .grade-level-10 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #1F2937; }  /* Gold */
-        .grade-level-9 { background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%); color: white; }     /* Orange-Red */
-        .grade-level-8 { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; }     /* Orange */
-        .grade-level-7 { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #1F2937; }   /* Amber */
-        .grade-level-6 { background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%); color: white; }     /* Lime */
-        .grade-level-5 { background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%); color: white; }     /* Green */
-        .grade-level-4 { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; }     /* Teal */
-        .grade-level-3 { background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%); color: white; }     /* Sky Blue */
-        .grade-level-2 { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; }     /* Indigo */
-        .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }     /* Slate Gray */
+        /* Level 등급 색상 - 통일된 체계 (Lv.1 연한 회색 → Lv.10 강렬한 금색) */
+        .grade-level-1 { background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 100%); color: #475569; }   /* Lv.1: 연한 회색 */
+        .grade-level-2 { background: linear-gradient(135deg, #A5B4FC 0%, #818CF8 100%); color: white; }     /* Lv.2: 연한 남색 */
+        .grade-level-3 { background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%); color: white; }     /* Lv.3: 파랑 */
+        .grade-level-4 { background: linear-gradient(135deg, #34D399 0%, #10B981 100%); color: white; }     /* Lv.4: 민트 */
+        .grade-level-5 { background: linear-gradient(135deg, #4ADE80 0%, #22C55E 100%); color: white; }     /* Lv.5: 초록 */
+        .grade-level-6 { background: linear-gradient(135deg, #A3E635 0%, #84CC16 100%); color: #1F2937; }   /* Lv.6: 연두 */
+        .grade-level-7 { background: linear-gradient(135deg, #FDE047 0%, #FACC15 100%); color: #1F2937; }   /* Lv.7: 노랑 */
+        .grade-level-8 { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #1F2937; }   /* Lv.8: 금색 */
+        .grade-level-9 { background: linear-gradient(135deg, #FB923C 0%, #F97316 100%); color: white; }     /* Lv.9: 주황 */
+        .grade-level-10 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #1F2937; font-weight: 700; }  /* Lv.10: 강렬한 금색 */
 
         /* Level 통계 위젯 - 표준 디자인 시스템 */
         .level-stats-widget {
@@ -1421,14 +1421,15 @@
         }
 
         .level-stat-percent {
-            font-size: 12px;
-            font-weight: 600;
-            color: #1F2937;
+            font-size: 10px;
+            font-weight: 400;
+            color: #94A3B8;
         }
 
         .level-stat-count {
-            font-size: 10px;
-            color: #64748B;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1F2937;
         }
 
         /* 반응형 - 태블릿 */
@@ -1678,11 +1679,11 @@
             }
 
             .level-stat-percent {
-                font-size: 11px;
+                font-size: 9px;
             }
 
             .level-stat-count {
-                font-size: 9px;
+                font-size: 12px;
             }
         }
 
@@ -2899,18 +2900,18 @@
 
         // Level별 통계 데이터 (상위 % 기준)
         // Level 10: 상위 1%, Level 9: 상위 3%, Level 8: 상위 7%, ...
-        // 색상: 따뜻한 색(Gold/Red) → 차가운 색(Blue/Gray) 그라데이션
+        // 색상: Lv.1 연한 회색 → Lv.10 강렬한 금색 (랭킹과 동일한 색상 체계)
         const levelDistribution = [
-            { level: 10, topPercent: 1, rangePercent: 1, color: '#FFD700' },   // Gold - 최상위
-            { level: 9, topPercent: 3, rangePercent: 2, color: '#FF6B35' },    // Orange-Red
-            { level: 8, topPercent: 7, rangePercent: 4, color: '#F97316' },    // Orange
-            { level: 7, topPercent: 13, rangePercent: 6, color: '#FBBF24' },   // Amber
-            { level: 6, topPercent: 21, rangePercent: 8, color: '#84CC16' },   // Lime
-            { level: 5, topPercent: 31, rangePercent: 10, color: '#22C55E' },  // Green
-            { level: 4, topPercent: 43, rangePercent: 12, color: '#14B8A6' },  // Teal
-            { level: 3, topPercent: 57, rangePercent: 14, color: '#0EA5E9' },  // Sky Blue
-            { level: 2, topPercent: 73, rangePercent: 16, color: '#6366F1' },  // Indigo
-            { level: 1, topPercent: 91, rangePercent: 18, color: '#94A3B8' }   // Slate Gray - 최하위
+            { level: 10, topPercent: 1, rangePercent: 1, color: '#FFB800' },   // Lv.10: 강렬한 금색
+            { level: 9, topPercent: 3, rangePercent: 2, color: '#FB923C' },    // Lv.9: 주황
+            { level: 8, topPercent: 7, rangePercent: 4, color: '#F59E0B' },    // Lv.8: 금색
+            { level: 7, topPercent: 13, rangePercent: 6, color: '#FACC15' },   // Lv.7: 노랑
+            { level: 6, topPercent: 21, rangePercent: 8, color: '#A3E635' },   // Lv.6: 연두
+            { level: 5, topPercent: 31, rangePercent: 10, color: '#4ADE80' },  // Lv.5: 초록
+            { level: 4, topPercent: 43, rangePercent: 12, color: '#34D399' },  // Lv.4: 민트
+            { level: 3, topPercent: 57, rangePercent: 14, color: '#60A5FA' },  // Lv.3: 파랑
+            { level: 2, topPercent: 73, rangePercent: 16, color: '#A5B4FC' },  // Lv.2: 연한 남색
+            { level: 1, topPercent: 91, rangePercent: 18, color: '#CBD5E1' }   // Lv.1: 연한 회색
         ];
 
         function renderLevelStats() {
@@ -2931,8 +2932,8 @@
                             <div class="level-stat-bar" style="width: ${level.topPercent}%; background: ${level.color};"></div>
                         </div>
                         <div class="level-stat-info">
-                            <div class="level-stat-percent">상위 ${level.topPercent}%</div>
                             <div class="level-stat-count">${memberCount.toLocaleString()}명</div>
+                            <div class="level-stat-percent">상위 ${level.topPercent}%</div>
                         </div>
                     </div>
                 `;
