@@ -2535,19 +2535,32 @@
                     <span class="widget-icon">📝</span>
                     수익 일지 (1년간)
                 </div>
-                <div class="diary-item">
-                    <span class="diary-date">12/06</span>
-                    <span class="diary-amount">+167,000원 ✅</span>
+
+                <!-- 테이블 헤더 -->
+                <div style="display: grid; grid-template-columns: 60px 1fr 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid #E2E8F0; margin-bottom: 8px;">
+                    <div style="font-size: 11px; font-weight: 600; color: #64748B; text-align: center;">날짜</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #64748B; text-align: center;">일별 수익</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #64748B; text-align: center;">누적 수익</div>
                 </div>
-                <div class="diary-item">
-                    <span class="diary-date">12/05</span>
-                    <span class="diary-amount">+145,000원 ✅</span>
+
+                <!-- 데이터 행 -->
+                <div style="display: grid; grid-template-columns: 60px 1fr 1fr; gap: 8px; padding: 6px 0; align-items: center;">
+                    <div style="font-size: 11px; color: #475569; text-align: center;">12/06</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #10B981; text-align: center;">+167,000</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #1F2937; text-align: center;">5,160,000</div>
                 </div>
-                <div class="diary-item">
-                    <span class="diary-date">12/04</span>
-                    <span class="diary-amount">+189,000원 ✅</span>
+                <div style="display: grid; grid-template-columns: 60px 1fr 1fr; gap: 8px; padding: 6px 0; align-items: center;">
+                    <div style="font-size: 11px; color: #475569; text-align: center;">12/05</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #10B981; text-align: center;">+145,000</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #1F2937; text-align: center;">4,993,000</div>
                 </div>
-                <a href="#" class="view-more" onclick="openDiaryModal(event)">전체 보기 →</a>
+                <div style="display: grid; grid-template-columns: 60px 1fr 1fr; gap: 8px; padding: 6px 0; align-items: center;">
+                    <div style="font-size: 11px; color: #475569; text-align: center;">12/04</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #10B981; text-align: center;">+189,000</div>
+                    <div style="font-size: 11px; font-weight: 600; color: #1F2937; text-align: center;">4,848,000</div>
+                </div>
+
+                <a href="#" class="view-more" onclick="openDiaryModal(event)" style="margin-top: 8px;">전체 보기 →</a>
             </div>
 
             <!-- Top 10 랭킹 -->
