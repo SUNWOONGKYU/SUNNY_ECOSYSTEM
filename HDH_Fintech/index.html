@@ -1219,7 +1219,7 @@
         .ranking-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             padding: 10px 12px;
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
@@ -1272,21 +1272,31 @@
 
         .ranking-info {
             flex: 1;
-            min-width: 50px;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
         }
 
         .ranking-name {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: #1F2937;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .ranking-profit-amount {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: #10B981;
             text-align: right;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .ranking-grade {
@@ -1304,12 +1314,13 @@
         }
 
         .ranking-change {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 36px;
+            min-width: 28px;
+            flex-shrink: 0;
         }
 
         .ranking-change.up {
@@ -1424,20 +1435,26 @@
         }
 
         .level-stat-info {
-            min-width: 80px;
-            text-align: right;
-        }
-
-        .level-stat-percent {
-            font-size: 10px;
-            font-weight: 400;
-            color: #94A3B8;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 4px;
+            min-width: 0;
+            flex-shrink: 0;
         }
 
         .level-stat-count {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             color: #1F2937;
+            white-space: nowrap;
+        }
+
+        .level-stat-percent {
+            font-size: 9px;
+            font-weight: 400;
+            color: #94A3B8;
+            white-space: nowrap;
         }
 
         /* 반응형 - 태블릿 */
@@ -1683,15 +1700,16 @@
             }
 
             .level-stat-info {
-                min-width: 60px;
-            }
-
-            .level-stat-percent {
-                font-size: 9px;
+                min-width: 80px;
+                gap: 4px;
             }
 
             .level-stat-count {
-                font-size: 12px;
+                font-size: 10px;
+            }
+
+            .level-stat-percent {
+                font-size: 8px;
             }
         }
 
@@ -2865,8 +2883,8 @@
                         <div class="ranking-position ${positionClass}">${position}</div>
                         <div class="ranking-info">
                             <div class="ranking-name">${member.name}</div>
+                            <div class="ranking-profit-amount">+${profitDisplay}</div>
                         </div>
-                        <div class="ranking-profit-amount">+${profitDisplay}</div>
                         <div class="ranking-change ${changeClass}">${changeIcon}</div>
                     </div>
                 `;
