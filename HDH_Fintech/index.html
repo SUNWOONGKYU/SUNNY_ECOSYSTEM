@@ -1276,10 +1276,12 @@
         }
 
         .ranking-profit-amount {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             color: #10B981;
-            margin-top: 2px;
+            text-align: right;
+            min-width: 90px;
+            white-space: nowrap;
         }
 
         .ranking-grade {
@@ -2853,15 +2855,15 @@
 
                 // 만원 단위로 표시
                 const profitInMan = Math.floor(member.profit / 10000);
-                const profitDisplay = profitInMan.toLocaleString() + '만원';
+                const profitDisplay = profitInMan.toLocaleString() + '만';
 
                 html += `
                     <div class="ranking-item ${isTop3 ? 'top3' : ''}">
                         <div class="ranking-position ${positionClass}">${position}</div>
                         <div class="ranking-info">
                             <div class="ranking-name">${member.name}</div>
-                            <div class="ranking-profit-amount">+${profitDisplay}</div>
                         </div>
+                        <div class="ranking-profit-amount">+${profitDisplay}</div>
                         <div class="ranking-change ${changeClass}">${changeIcon}</div>
                     </div>
                 `;
