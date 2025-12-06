@@ -2446,7 +2446,7 @@
                         </div>
 
                         <div class="results-breakdown">
-                            <div class="breakdown-title">📋 회차별 상세 손익</div>
+                            <div class="breakdown-title">📋 회차별 상세 손익 및 현금흐름</div>
                             <div style="max-height: 500px; overflow-y: auto;">
                                 <table class="detailed-table">
                                     <thead>
@@ -2456,7 +2456,8 @@
                                             <th>보험금 계좌</th>
                                             <th>챌린지 계좌</th>
                                             <th>회차 손익</th>
-                                            <th>누적 합계</th>
+                                            <th>누적손익</th>
+                                            <th>순현금흐름</th>
                                         </tr>
                                     </thead>
                                     <tbody id="detailedTableBody">
@@ -3169,7 +3170,13 @@
             const detailedTableBody = document.getElementById('detailedTableBody');
             detailedTableBody.innerHTML = '';
 
+            // 펀딩 수익 지연 입금 배열 (15일 후 입금)
+            const fundingDelayDays = 15;
+            const fundingPayments = new Array(trades).fill(0);
+
             let cumulative = 0;
+            let cashFlow = 0; // 순현금흐름 누적
+
             results.forEach((isPass, index) => {
                 const round = index + 1;
                 const hedgeAmount = isPass ? -slLoss : tpProfit;
@@ -3177,6 +3184,16 @@
                 const entryFee = -account; // 참가비는 항상 비용
                 const roundProfit = hedgeAmount + fundingAmount + entryFee;
                 cumulative += roundProfit;
+
+                // 펀딩 수익을 15일 후에 입금되도록 예약
+                if (fundingAmount > 0 && (index + fundingDelayDays) < trades) {
+                    fundingPayments[index + fundingDelayDays] += fundingAmount;
+                }
+
+                // 현재 회차의 실제 현금흐름 = 헤지 손익 - 참가비 + 15일 전 발생한 펀딩 입금
+                const delayedFunding = fundingPayments[index] || 0;
+                const currentCashFlow = hedgeAmount + entryFee + delayedFunding;
+                cashFlow += currentCashFlow;
 
                 const tr = document.createElement('tr');
                 if (isPass) tr.classList.add('pass-row');
@@ -3196,6 +3213,9 @@
                     </td>
                     <td style="font-family: 'SF Pro Display', 'Roboto', monospace; font-weight: 700; color: ${cumulative > 0 ? '#10B981' : cumulative < 0 ? '#EF4444' : '#64748B'};">
                         ${cumulative > 0 ? '+' : ''}$${cumulative.toLocaleString()}
+                    </td>
+                    <td style="font-family: 'SF Pro Display', 'Roboto', monospace; font-weight: 700; color: ${cashFlow > 0 ? '#3B82F6' : cashFlow < 0 ? '#EF4444' : '#64748B'};">
+                        ${cashFlow > 0 ? '+' : ''}$${cashFlow.toLocaleString()}
                     </td>
                 `;
                 detailedTableBody.appendChild(tr);
