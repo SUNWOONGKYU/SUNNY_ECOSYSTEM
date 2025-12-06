@@ -1273,18 +1273,12 @@
         .ranking-info {
             flex: 1;
             min-width: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 6px;
         }
 
         .ranking-name {
             font-size: 12px;
             font-weight: 600;
             color: #1F2937;
-            flex: 1;
-            min-width: 0;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -1294,7 +1288,7 @@
             font-size: 11px;
             font-weight: 600;
             color: #10B981;
-            text-align: right;
+            text-align: center;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -3029,8 +3023,8 @@
                         <div class="ranking-position ${positionClass}">${position}</div>
                         <div class="ranking-info">
                             <div class="ranking-name">${member.name}</div>
-                            <div class="ranking-profit-amount">+${profitDisplay}</div>
                         </div>
+                        <div class="ranking-profit-amount">+${profitDisplay}</div>
                         <div class="ranking-change ${changeClass}">${changeIcon}</div>
                     </div>
                 `;
