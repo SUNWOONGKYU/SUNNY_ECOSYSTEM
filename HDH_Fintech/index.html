@@ -1325,6 +1325,98 @@
         .grade-level-2 { background: linear-gradient(135deg, #78716C 0%, #57534E 100%); color: white; }
         .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }
 
+        /* Level 통계 위젯 */
+        .level-stats-widget {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            margin-top: 12px;
+        }
+
+        .level-stats-widget .widget-title {
+            color: #F8FAFC;
+            margin-bottom: 16px;
+        }
+
+        .level-stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .level-stats-total {
+            font-size: 12px;
+            color: #94A3B8;
+        }
+
+        .level-stats-total span {
+            color: #F8FAFC;
+            font-weight: 600;
+        }
+
+        .level-stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .level-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .level-stat-item:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .level-stat-badge {
+            min-width: 48px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .level-stat-bar-container {
+            flex: 1;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .level-stat-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .level-stat-info {
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .level-stat-percent {
+            font-size: 12px;
+            font-weight: 600;
+            color: #F8FAFC;
+        }
+
+        .level-stat-count {
+            font-size: 10px;
+            color: #94A3B8;
+        }
+
         /* 반응형 - 태블릿 */
         @media (max-width: 1400px) {
             .main-container {
@@ -1549,6 +1641,34 @@
             .grade-badge {
                 font-size: 9px;
                 padding: 2px 4px;
+            }
+
+            /* Level 통계 모바일 */
+            .level-stats-widget {
+                padding: 16px;
+            }
+
+            .level-stat-item {
+                padding: 6px 8px;
+                gap: 8px;
+            }
+
+            .level-stat-badge {
+                min-width: 42px;
+                padding: 3px 6px;
+                font-size: 10px;
+            }
+
+            .level-stat-info {
+                min-width: 60px;
+            }
+
+            .level-stat-percent {
+                font-size: 11px;
+            }
+
+            .level-stat-count {
+                font-size: 9px;
             }
         }
 
@@ -2229,6 +2349,20 @@
                 <div class="ranking-list" id="rankingList">
                     <!-- JavaScript로 동적 생성 -->
                 </div>
+
+                <!-- Level 통계 -->
+                <div class="level-stats-widget">
+                    <div class="widget-title">
+                        <span class="widget-icon">📊</span>
+                        Level별 분포
+                    </div>
+                    <div class="level-stats-header">
+                        <div class="level-stats-total">전체 회원: <span id="totalMembersDisplay">1,000명</span></div>
+                    </div>
+                    <div class="level-stats-list" id="levelStatsList">
+                        <!-- JavaScript로 동적 생성 -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2745,9 +2879,53 @@
             renderRankingList();
         }
 
-        // 페이지 로드 시 랭킹 렌더링
+        // Level별 통계 데이터 (비율 기반 인원수 계산)
+        // Level 10: 1%, Level 9: 2% (3-1), Level 8: 4% (7-3), ...
+        const levelDistribution = [
+            { level: 10, percent: 1, color: '#F59E0B' },
+            { level: 9, percent: 2, color: '#EF4444' },
+            { level: 8, percent: 4, color: '#8B5CF6' },
+            { level: 7, percent: 6, color: '#3B82F6' },
+            { level: 6, percent: 8, color: '#10B981' },
+            { level: 5, percent: 10, color: '#14B8A6' },
+            { level: 4, percent: 12, color: '#6366F1' },
+            { level: 3, percent: 14, color: '#EC4899' },
+            { level: 2, percent: 16, color: '#78716C' },
+            { level: 1, percent: 18, color: '#94A3B8' }
+        ];
+
+        function renderLevelStats() {
+            const container = document.getElementById('levelStatsList');
+            const totalDisplay = document.getElementById('totalMembersDisplay');
+            if (!container) return;
+
+            totalDisplay.textContent = totalMembers.toLocaleString() + '명';
+
+            let html = '';
+            levelDistribution.forEach(level => {
+                const memberCount = Math.round(totalMembers * level.percent / 100);
+
+                html += `
+                    <div class="level-stat-item">
+                        <div class="level-stat-badge grade-level-${level.level}">Lv.${level.level}</div>
+                        <div class="level-stat-bar-container">
+                            <div class="level-stat-bar" style="width: ${level.percent * 3}%; background: ${level.color};"></div>
+                        </div>
+                        <div class="level-stat-info">
+                            <div class="level-stat-percent">${level.percent}%</div>
+                            <div class="level-stat-count">${memberCount.toLocaleString()}명</div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 페이지 로드 시 랭킹 및 Level 통계 렌더링
         document.addEventListener('DOMContentLoaded', function() {
             renderRankingList();
+            renderLevelStats();
             // 30초마다 업데이트 (실제 구현 시 WebSocket 또는 API 폴링)
             setInterval(simulateRankingUpdate, 30000);
         });
