@@ -1217,9 +1217,9 @@
         }
 
         .ranking-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: 24px 1fr 1fr 1fr;
             align-items: center;
-            justify-content: space-between;
             gap: 8px;
             padding: 10px 12px;
             background: #F8FAFC;
@@ -1272,9 +1272,7 @@
         .ranking-position.rank-10 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); }  /* 10위: 회색 */
 
         .ranking-info {
-            flex: 1;
             min-width: 0;
-            max-width: 40%;
         }
 
         .ranking-name {
@@ -1284,6 +1282,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            text-align: left;
         }
 
         .ranking-profit-amount {
@@ -1292,19 +1291,12 @@
             color: #10B981;
             text-align: center;
             white-space: nowrap;
-            flex: 1;
-            min-width: 0;
         }
 
         .ranking-change {
             font-size: 12px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            min-width: 28px;
-            width: 40%;
-            flex-shrink: 0;
+            text-align: right;
         }
 
         .ranking-grade {
@@ -1597,6 +1589,7 @@
 
             /* 랭킹 위젯 모바일 최적화 */
             .ranking-item {
+                grid-template-columns: 22px 1fr 1fr 1fr;
                 padding: 8px 10px;
                 gap: 6px;
             }
@@ -1618,7 +1611,6 @@
 
             .ranking-change {
                 font-size: 11px;
-                min-width: 24px;
             }
 
             /* 레벨 분포 모바일 최적화 */
@@ -1890,6 +1882,7 @@
 
             /* 랭킹 위젯 480px 최적화 */
             .ranking-item {
+                grid-template-columns: 20px 1fr 1fr 1fr;
                 padding: 6px 8px;
                 gap: 5px;
             }
@@ -1911,7 +1904,6 @@
 
             .ranking-change {
                 font-size: 10px;
-                min-width: 22px;
             }
 
             /* 레벨 분포 480px 최적화 */
@@ -1994,6 +1986,7 @@
 
             /* 랭킹 위젯 360px 최적화 */
             .ranking-item {
+                grid-template-columns: 18px 1fr 1fr 1fr;
                 padding: 5px 6px;
                 gap: 4px;
             }
@@ -2015,7 +2008,6 @@
 
             .ranking-change {
                 font-size: 9px;
-                min-width: 20px;
             }
 
             /* 레벨 분포 360px 최적화 */
@@ -2161,21 +2153,21 @@
                     즐겨찾기
                 </div>
                 <div class="favorites-grid">
-                    <a href="#" class="favorite-link">
-                        <span class="favorite-icon">🏢</span>
-                        <span class="favorite-name">WT Group</span>
+                    <a href="https://wetrader.com" target="_blank" class="favorite-link" title="프롭펌 챌린지 플랫폼">
+                        <span class="favorite-icon">🏆</span>
+                        <span class="favorite-name">WeTrader (위트레이더)</span>
                     </a>
-                    <a href="#" class="favorite-link">
+                    <a href="https://ensomarket.com" target="_blank" class="favorite-link" title="챌린지 계좌 브로커 (MT5)">
                         <span class="favorite-icon">🏢</span>
-                        <span class="favorite-name">Enso Markets</span>
+                        <span class="favorite-name">Enso Markets (엔소마켓)</span>
                     </a>
-                    <a href="#" class="favorite-link">
+                    <a href="https://infinox.com" target="_blank" class="favorite-link" title="보증금 계좌 브로커 (MT5)">
                         <span class="favorite-icon">🏢</span>
-                        <span class="favorite-name">Infinox</span>
+                        <span class="favorite-name">INFINOX (인피녹스)</span>
                     </a>
-                    <a href="#" class="favorite-link">
+                    <a href="https://mw-wallet.io" target="_blank" class="favorite-link" title="암호화폐 입출금 허브">
                         <span class="favorite-icon">💳</span>
-                        <span class="favorite-name">전자지갑</span>
+                        <span class="favorite-name">MW Wallet (MW 지갑)</span>
                     </a>
                 </div>
             </div>
