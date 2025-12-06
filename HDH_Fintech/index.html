@@ -2405,11 +2405,11 @@
                                     <td class="breakdown-value" id="hedgeNet">$0</td>
                                 </tr>
                                 <tr class="breakdown-highlight">
-                                    <td>합격 시 펀딩 수익 (80%)</td>
+                                    <td>합격시 펀딩 수익 (참가비×10×합격횟수×80%)</td>
                                     <td class="breakdown-value breakdown-positive" id="fundingProfit">+$0</td>
                                 </tr>
                                 <tr>
-                                    <td>참가비 손실 (탈락)</td>
+                                    <td>참가비 소멸액 (참가비×참가횟수)</td>
                                     <td class="breakdown-value breakdown-negative" id="entryLoss">-$0</td>
                                 </tr>
                                 <tr class="breakdown-total">
@@ -2895,8 +2895,6 @@
             // PDF 기반 계산식
             const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 보험금 계좌 수익
             const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 보험금 계좌 손실
-            const fundingAmount = account * 10 * 0.9; // 펀딩 계좌 금액 (10배 * 90%)
-            const fundingProfit = fundingAmount * 0.8; // 펀딩 수익의 80%
 
             // 합격률 계산 (winRateSL = 합격 확률)
             const passRate = winRateSL / 100;
@@ -2908,10 +2906,13 @@
             const hedgeLossTotal = passCount * slLoss; // 보험금 계좌 손절 손실
             const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 보험금 계좌 순손익
 
-            const fundingProfitTotal = passCount * fundingProfit; // 합격 시 펀딩 수익
-            const entryLossTotal = failCount * account; // 참가비 손실
+            // 합격시 펀딩 수익 = 참가비 × 10 × 합격 횟수 × 80%
+            const fundingProfitTotal = account * 10 * passCount * 0.8;
 
-            const totalProfit = hedgeNet + fundingProfitTotal - entryLossTotal;
+            // 참가비 투입액 = 참가비 × 참가 횟수
+            const entryFeeTotal = account * trades;
+
+            const totalProfit = hedgeNet + fundingProfitTotal - entryFeeTotal;
 
             // 월 수익률 계산 (필요 자본 = 보험금 계좌 + 참가비)
             const requiredCapital = account * trades + account * 50; // 마진 포함
@@ -2933,7 +2934,7 @@
             document.getElementById('hedgeLoss').textContent = `-$${hedgeLossTotal.toLocaleString()}`;
             document.getElementById('hedgeNet').textContent = `$${hedgeNet.toLocaleString()}`;
             document.getElementById('fundingProfit').textContent = `+$${fundingProfitTotal.toLocaleString()}`;
-            document.getElementById('entryLoss').textContent = `-$${entryLossTotal.toLocaleString()}`;
+            document.getElementById('entryLoss').textContent = `-$${entryFeeTotal.toLocaleString()}`;
             document.getElementById('finalProfit').textContent = `$${totalProfit.toLocaleString()}`;
 
             // 회차별 상세 테이블 생성
@@ -2944,8 +2945,9 @@
             results.forEach((isPass, index) => {
                 const round = index + 1;
                 const hedgeAmount = isPass ? -slLoss : tpProfit;
-                const challengeAmount = isPass ? fundingProfit : -account;
-                const roundProfit = hedgeAmount + challengeAmount;
+                const fundingAmount = isPass ? (account * 10 * 0.8) : 0; // 합격시만 펀딩 수익
+                const entryFee = -account; // 참가비는 항상 비용
+                const roundProfit = hedgeAmount + fundingAmount + entryFee;
                 cumulative += roundProfit;
 
                 const tr = document.createElement('tr');
