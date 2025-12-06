@@ -2953,14 +2953,15 @@
                 const tr = document.createElement('tr');
                 if (isPass) tr.classList.add('pass-row');
 
+                const challengeNet = fundingAmount + entryFee; // 펀딩 수익 + 참가비 소멸
                 tr.innerHTML = `
                     <td>${round}</td>
                     <td><span class="${isPass ? 'pass-badge' : 'fail-badge'}">${isPass ? '🏆 합격' : '탈락'}</span></td>
                     <td style="color: ${hedgeAmount > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
                         ${hedgeAmount > 0 ? '+' : ''}$${hedgeAmount.toLocaleString()}
                     </td>
-                    <td style="color: ${challengeAmount > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
-                        ${challengeAmount > 0 ? '+' : ''}$${challengeAmount.toLocaleString()}
+                    <td style="color: ${challengeNet > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
+                        ${challengeNet > 0 ? '+' : ''}$${challengeNet.toLocaleString()}
                     </td>
                     <td style="color: ${roundProfit > 0 ? '#10B981' : '#EF4444'}; font-weight: 600;">
                         ${roundProfit > 0 ? '+' : ''}$${roundProfit.toLocaleString()}
