@@ -1575,19 +1575,19 @@ SUNNY ECOSYSTEM 전체를 연결하는 핵심 허브입니다.`
                 requirementsHTML = `
                     <div style="text-align: center; padding: 32px; background: #FEF3C7; border-radius: 12px; margin-bottom: 16px;">
                         <p style="color: #92400E; font-size: 16px; margin-bottom: 16px;">
-                            ⚠️ 서비스 이용을 위해서는 먼저 회원가입을 하시고 아래의 시작하기 버튼을 눌러주세요.
+                            ⚠️ 서비스 이용을 위해서는 먼저 회원가입을 하시고 아래의 입장하기 버튼을 눌러주세요.
                         </p>
                         <button class="btn-activate" style="background: ${service.color};" onclick="handleBack(); setTimeout(() => document.getElementById('btnSignup').click(), 100);">
-                            시작하기
+                            입장하기
                         </button>
                     </div>
                 `;
             } else {
-                // 로그인 했을 때: 바로 시작하기 버튼
+                // 로그인 했을 때: 바로 입장하기 버튼
                 requirementsHTML = `
                     <div style="text-align: center; padding: 32px; margin-top: 20px;">
                         <button class="btn-activate" style="background: ${service.color};" onclick="handleActivate('${service.id}', '${service.color}')">
-                            시작하기
+                            입장하기
                         </button>
                     </div>
                 `;
