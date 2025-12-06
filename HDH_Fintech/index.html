@@ -381,12 +381,12 @@
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.2s;
-            border: 1px solid #BFDBFE;
+            border: 1px solid #D1FAE5;
         }
 
         .community-link:hover {
-            background: #EFF6FF;
-            border-color: #93C5FD;
+            background: #ECFDF5;
+            border-color: #A7F3D0;
             transform: translateX(2px);
         }
 
@@ -399,13 +399,13 @@
             flex: 1;
             font-size: 13px;
             font-weight: 600;
-            color: #1E40AF;
+            color: #059669;
         }
 
         .community-arrow {
             font-size: 18px;
             font-weight: 700;
-            color: #3B82F6;
+            color: #10B981;
         }
 
         /* 즐겨찾기 */
@@ -428,8 +428,8 @@
         }
 
         .favorite-link:hover {
-            background: #EFF6FF;
-            border-color: #93C5FD;
+            background: #ECFDF5;
+            border-color: #A7F3D0;
             transform: translateX(2px);
         }
 
@@ -448,7 +448,7 @@
         }
 
         .favorite-link:hover .favorite-name {
-            color: #3B82F6;
+            color: #10B981;
         }
 
         /* 우측 사이드바 (결과/공지) */
@@ -456,6 +456,23 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+
+        /* 우측 사이드바 menu-item 초록색 계열 오버라이드 */
+        .right-sidebar .menu-item:hover {
+            background: #ECFDF5;
+            color: #10B981;
+        }
+
+        .right-sidebar .menu-item.active {
+            background: #D1FAE5;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .right-sidebar .submenu-item:hover {
+            background: #ECFDF5;
+            color: #10B981;
         }
 
         .widget {
