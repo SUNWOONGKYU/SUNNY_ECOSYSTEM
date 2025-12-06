@@ -2502,7 +2502,7 @@
                 <div class="settings-item" onclick="openSettingsModal(event)">
                     거래 시작일 설정
                 </div>
-                <div class="settings-item" style="color: #94A3B8;">
+                <div class="settings-item" onclick="openAccountModal(event)">
                     계좌 관리
                 </div>
             </div>
@@ -2801,6 +2801,87 @@
         </div>
     </div>
 
+    <!-- 계좌 관리 모달 -->
+    <div class="modal-overlay" id="accountModal" onclick="closeAccountModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 600px;">
+            <div class="modal-header">
+                <div class="modal-title">💼 계좌 관리</div>
+                <button class="modal-close" onclick="closeAccountModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <div class="settings-description">거래소 계좌를 연결하여 실시간 손익 데이터를 가져옵니다.</div>
+
+                    <!-- 계좌 추가 폼 -->
+                    <div style="background: #F8FAFC; padding: 20px; border-radius: 12px; margin-top: 16px;">
+                        <div style="font-size: 15px; font-weight: 700; color: #0F172A; margin-bottom: 12px;">새 계좌 추가</div>
+
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">거래소 선택</label>
+                            <select id="exchangeSelect" class="settings-input" style="width: 100%;">
+                                <option value="ensomkt">앤소마켓 (Enso Market)</option>
+                                <option value="binance">바이낸스 (Binance)</option>
+                                <option value="upbit">업비트 (Upbit)</option>
+                                <option value="bybit">바이비트 (Bybit)</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">계좌 별칭</label>
+                            <input type="text" id="accountNickname" class="settings-input" placeholder="예: 메인 계좌" style="width: 100%;">
+                        </div>
+
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">API Key</label>
+                            <input type="text" id="apiKey" class="settings-input" placeholder="API Key 입력" style="width: 100%;">
+                        </div>
+
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">API Secret</label>
+                            <input type="password" id="apiSecret" class="settings-input" placeholder="API Secret 입력" style="width: 100%;">
+                        </div>
+
+                        <button onclick="addAccount()" style="width: 100%; padding: 12px; background: #10B981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">
+                            계좌 추가
+                        </button>
+                    </div>
+
+                    <!-- 연결된 계좌 목록 -->
+                    <div style="margin-top: 24px;">
+                        <div style="font-size: 15px; font-weight: 700; color: #0F172A; margin-bottom: 12px;">연결된 계좌</div>
+                        <div id="accountList" style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- 샘플 계좌 -->
+                            <div class="account-item" style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                            <span style="font-size: 14px; font-weight: 700; color: #0F172A;">메인 계좌</span>
+                                            <span style="background: #DCFCE7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">연결됨</span>
+                                        </div>
+                                        <div style="font-size: 13px; color: #64748B;">앤소마켓 (Enso Market)</div>
+                                        <div style="font-size: 12px; color: #94A3B8; margin-top: 4px;">API Key: enso_**********************</div>
+                                        <div style="font-size: 12px; color: #10B981; margin-top: 8px; font-weight: 600;">실시간 손익 연동 중</div>
+                                    </div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button onclick="disconnectAccount(this)" style="padding: 8px 12px; background: #FEF2F2; color: #DC2626; border: 1px solid #FEE2E2; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                                            연결 해제
+                                        </button>
+                                        <button onclick="deleteAccount(this)" style="padding: 8px 12px; background: white; color: #EF4444; border: 1px solid #FEE2E2; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                                            삭제
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding: 20px; border-top: 1px solid #E2E8F0; display: flex; justify-content: flex-end;">
+                <button class="btn-settings-cancel" onclick="closeAccountModal()">닫기</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         function toggleSubmenu(element) {
             // 클릭한 menu-item의 다음 형제 요소 (submenu-list) 찾기
@@ -2855,6 +2936,133 @@
 
             // 모달 닫기
             closeSettingsModal();
+        }
+
+        // 계좌 관리 모달 함수
+        function openAccountModal(event) {
+            event.preventDefault();
+            document.getElementById('accountModal').classList.add('active');
+        }
+
+        function closeAccountModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('accountModal').classList.remove('active');
+        }
+
+        // 계좌 추가 함수
+        function addAccount() {
+            const exchange = document.getElementById('exchangeSelect').value;
+            const exchangeName = document.getElementById('exchangeSelect').selectedOptions[0].text;
+            const nickname = document.getElementById('accountNickname').value;
+            const apiKey = document.getElementById('apiKey').value;
+            const apiSecret = document.getElementById('apiSecret').value;
+
+            if (!nickname || !apiKey || !apiSecret) {
+                alert('모든 필드를 입력해주세요.');
+                return;
+            }
+
+            // API Key 마스킹
+            const maskedKey = apiKey.substring(0, 5) + '*'.repeat(20);
+
+            // 새 계좌 아이템 생성
+            const accountItem = document.createElement('div');
+            accountItem.className = 'account-item';
+            accountItem.style.cssText = 'background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px;';
+            accountItem.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                            <span style="font-size: 14px; font-weight: 700; color: #0F172A;">${nickname}</span>
+                            <span style="background: #DCFCE7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">연결됨</span>
+                        </div>
+                        <div style="font-size: 13px; color: #64748B;">${exchangeName}</div>
+                        <div style="font-size: 12px; color: #94A3B8; margin-top: 4px;">API Key: ${maskedKey}</div>
+                        <div style="font-size: 12px; color: #10B981; margin-top: 8px; font-weight: 600;">실시간 손익 연동 중</div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="disconnectAccount(this)" style="padding: 8px 12px; background: #FEF2F2; color: #DC2626; border: 1px solid #FEE2E2; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                            연결 해제
+                        </button>
+                        <button onclick="deleteAccount(this)" style="padding: 8px 12px; background: white; color: #EF4444; border: 1px solid #FEE2E2; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                            삭제
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // 계좌 목록에 추가
+            document.getElementById('accountList').appendChild(accountItem);
+
+            // 폼 초기화
+            document.getElementById('accountNickname').value = '';
+            document.getElementById('apiKey').value = '';
+            document.getElementById('apiSecret').value = '';
+
+            alert(`${nickname} 계좌가 성공적으로 연결되었습니다.`);
+        }
+
+        // 계좌 연결 해제
+        function disconnectAccount(button) {
+            const accountItem = button.closest('.account-item');
+            const nickname = accountItem.querySelector('span[style*="font-weight: 700"]').textContent;
+
+            if (confirm(`${nickname} 계좌의 연결을 해제하시겠습니까?\n연결을 해제하면 실시간 손익 데이터를 가져올 수 없습니다.`)) {
+                // 연결 상태 변경
+                const statusBadge = accountItem.querySelector('span[style*="background: #DCFCE7"]');
+                statusBadge.style.background = '#FEE2E2';
+                statusBadge.style.color = '#991B1B';
+                statusBadge.textContent = '연결 해제됨';
+
+                const syncStatus = accountItem.querySelector('div[style*="color: #10B981"]');
+                syncStatus.style.color = '#94A3B8';
+                syncStatus.textContent = '손익 연동 중지됨';
+
+                // 버튼을 재연결로 변경
+                button.textContent = '재연결';
+                button.style.background = '#EFF6FF';
+                button.style.color = '#1D4ED8';
+                button.style.border = '1px solid #DBEAFE';
+                button.onclick = function() { reconnectAccount(this); };
+
+                alert(`${nickname} 계좌의 연결이 해제되었습니다.`);
+            }
+        }
+
+        // 계좌 재연결
+        function reconnectAccount(button) {
+            const accountItem = button.closest('.account-item');
+            const nickname = accountItem.querySelector('span[style*="font-weight: 700"]').textContent;
+
+            // 연결 상태 복구
+            const statusBadge = accountItem.querySelector('span[style*="background"]');
+            statusBadge.style.background = '#DCFCE7';
+            statusBadge.style.color = '#166534';
+            statusBadge.textContent = '연결됨';
+
+            const syncStatus = accountItem.querySelector('div[style*="중지됨"], div[style*="연동 중"]');
+            syncStatus.style.color = '#10B981';
+            syncStatus.textContent = '실시간 손익 연동 중';
+
+            // 버튼을 연결 해제로 변경
+            button.textContent = '연결 해제';
+            button.style.background = '#FEF2F2';
+            button.style.color = '#DC2626';
+            button.style.border = '1px solid #FEE2E2';
+            button.onclick = function() { disconnectAccount(this); };
+
+            alert(`${nickname} 계좌가 재연결되었습니다.`);
+        }
+
+        // 계좌 삭제
+        function deleteAccount(button) {
+            const accountItem = button.closest('.account-item');
+            const nickname = accountItem.querySelector('span[style*="font-weight: 700"]').textContent;
+
+            if (confirm(`${nickname} 계좌를 삭제하시겠습니까?\n이 작업은 되돌릴 수 없습니다.`)) {
+                accountItem.remove();
+                alert(`${nickname} 계좌가 삭제되었습니다.`);
+            }
         }
 
         // 시뮬레이터 변수
