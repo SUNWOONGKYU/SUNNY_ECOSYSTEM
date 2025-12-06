@@ -1311,11 +1311,17 @@
             font-weight: 600;
         }
 
-        .grade-diamond { background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%); color: white; }
-        .grade-platinum { background: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%); color: white; }
-        .grade-gold { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #78350F; }
-        .grade-silver { background: linear-gradient(135deg, #D1D5DB 0%, #9CA3AF 100%); color: #1F2937; }
-        .grade-bronze { background: linear-gradient(135deg, #D2691E 0%, #A0522D 100%); color: white; }
+        /* Level 등급 색상 (Level 10이 최고) */
+        .grade-level-10 { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; }
+        .grade-level-9 { background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); color: white; }
+        .grade-level-8 { background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%); color: white; }
+        .grade-level-7 { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); color: white; }
+        .grade-level-6 { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; }
+        .grade-level-5 { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; }
+        .grade-level-4 { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; }
+        .grade-level-3 { background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: white; }
+        .grade-level-2 { background: linear-gradient(135deg, #78716C 0%, #57534E 100%); color: white; }
+        .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }
 
         /* 반응형 - 태블릿 */
         @media (max-width: 1400px) {
@@ -2611,35 +2617,49 @@
 
         // ===== Top 10 랭킹 시스템 =====
 
-        // 등급 기준 (연간 누적 순이익 기준)
-        const gradeThresholds = {
-            diamond: 100000000,   // 1억 이상
-            platinum: 50000000,   // 5천만 이상
-            gold: 30000000,       // 3천만 이상
-            silver: 10000000,     // 1천만 이상
-            bronze: 0             // 기본
-        };
+        // 등급 기준 (구성비율 기반 - 백분위)
+        // Level 10: 상위 1%, Level 9: 상위 3%, Level 8: 상위 7%, Level 7: 상위 13%
+        // Level 6: 상위 21%, Level 5: 상위 31%, Level 4: 상위 43%, Level 3: 상위 57%
+        // Level 2: 상위 73%, Level 1: 상위 91% (나머지)
+        const levelPercentiles = [
+            { level: 10, percentile: 1 },
+            { level: 9, percentile: 3 },
+            { level: 8, percentile: 7 },
+            { level: 7, percentile: 13 },
+            { level: 6, percentile: 21 },
+            { level: 5, percentile: 31 },
+            { level: 4, percentile: 43 },
+            { level: 3, percentile: 57 },
+            { level: 2, percentile: 73 },
+            { level: 1, percentile: 91 }
+        ];
 
-        function getGrade(profit) {
-            if (profit >= gradeThresholds.diamond) return { name: '다이아몬드', class: 'diamond' };
-            if (profit >= gradeThresholds.platinum) return { name: '플래티넘', class: 'platinum' };
-            if (profit >= gradeThresholds.gold) return { name: '골드', class: 'gold' };
-            if (profit >= gradeThresholds.silver) return { name: '실버', class: 'silver' };
-            return { name: '브론즈', class: 'bronze' };
+        // 순위 기반 등급 계산 (총 회원 수 대비 현재 순위)
+        function getGradeByRank(rank, totalMembers) {
+            const percentile = (rank / totalMembers) * 100;
+
+            for (const levelInfo of levelPercentiles) {
+                if (percentile <= levelInfo.percentile) {
+                    return { name: `Lv.${levelInfo.level}`, class: `level-${levelInfo.level}`, level: levelInfo.level };
+                }
+            }
+            return { name: 'Lv.1', class: 'level-1', level: 1 };
         }
 
         // 샘플 회원 데이터 (실제 구현 시 API 연동)
+        // 전체 회원 수 시뮬레이션: 1000명 중 Top 10
+        const totalMembers = 1000;
         const rankingData = [
-            { id: 1, name: '김**', profit: 127500000, change: 'up', changeAmount: 2 },
-            { id: 2, name: '이**', profit: 98200000, change: 'same', changeAmount: 0 },
-            { id: 3, name: '박**', profit: 85600000, change: 'up', changeAmount: 1 },
-            { id: 4, name: '최**', profit: 72300000, change: 'down', changeAmount: 1 },
-            { id: 5, name: '정**', profit: 65800000, change: 'up', changeAmount: 3 },
-            { id: 6, name: '강**', profit: 54200000, change: 'same', changeAmount: 0 },
-            { id: 7, name: '조**', profit: 48700000, change: 'down', changeAmount: 2 },
-            { id: 8, name: '윤**', profit: 42100000, change: 'up', changeAmount: 1 },
-            { id: 9, name: '장**', profit: 38500000, change: 'same', changeAmount: 0 },
-            { id: 10, name: '임**', profit: 31200000, change: 'down', changeAmount: 1 }
+            { id: 1, name: '김**', profit: 127500000, change: 'up', changeAmount: 2, rank: 1 },
+            { id: 2, name: '이**', profit: 98200000, change: 'same', changeAmount: 0, rank: 2 },
+            { id: 3, name: '박**', profit: 85600000, change: 'up', changeAmount: 1, rank: 3 },
+            { id: 4, name: '최**', profit: 72300000, change: 'down', changeAmount: 1, rank: 4 },
+            { id: 5, name: '정**', profit: 65800000, change: 'up', changeAmount: 3, rank: 5 },
+            { id: 6, name: '강**', profit: 54200000, change: 'same', changeAmount: 0, rank: 6 },
+            { id: 7, name: '조**', profit: 48700000, change: 'down', changeAmount: 2, rank: 7 },
+            { id: 8, name: '윤**', profit: 42100000, change: 'up', changeAmount: 1, rank: 8 },
+            { id: 9, name: '장**', profit: 38500000, change: 'same', changeAmount: 0, rank: 9 },
+            { id: 10, name: '임**', profit: 31200000, change: 'down', changeAmount: 1, rank: 10 }
         ];
 
         function formatProfit(amount) {
@@ -2667,7 +2687,7 @@
             let html = '';
             rankingData.forEach((member, index) => {
                 const position = index + 1;
-                const grade = getGrade(member.profit);
+                const grade = getGradeByRank(member.rank, totalMembers);
                 const isTop3 = position <= 3;
                 const positionClass = getPositionClass(position);
 
