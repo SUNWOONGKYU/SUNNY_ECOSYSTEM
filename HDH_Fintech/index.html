@@ -1275,6 +1275,13 @@
             text-overflow: ellipsis;
         }
 
+        .ranking-profit-amount {
+            font-size: 12px;
+            font-weight: 600;
+            color: #10B981;
+            margin-top: 2px;
+        }
+
         .ranking-grade {
             font-size: 11px;
             color: #94A3B8;
@@ -1318,17 +1325,17 @@
             font-weight: 600;
         }
 
-        /* Level 등급 색상 (Level 10이 최고) */
-        .grade-level-10 { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; }
-        .grade-level-9 { background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); color: white; }
-        .grade-level-8 { background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%); color: white; }
-        .grade-level-7 { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); color: white; }
-        .grade-level-6 { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; }
-        .grade-level-5 { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; }
-        .grade-level-4 { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; }
-        .grade-level-3 { background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%); color: white; }
-        .grade-level-2 { background: linear-gradient(135deg, #78716C 0%, #57534E 100%); color: white; }
-        .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }
+        /* Level 등급 색상 (따뜻한 색 → 차가운 색 그라데이션) */
+        .grade-level-10 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #1F2937; }  /* Gold */
+        .grade-level-9 { background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%); color: white; }     /* Orange-Red */
+        .grade-level-8 { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; }     /* Orange */
+        .grade-level-7 { background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #1F2937; }   /* Amber */
+        .grade-level-6 { background: linear-gradient(135deg, #84CC16 0%, #65A30D 100%); color: white; }     /* Lime */
+        .grade-level-5 { background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%); color: white; }     /* Green */
+        .grade-level-4 { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%); color: white; }     /* Teal */
+        .grade-level-3 { background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%); color: white; }     /* Sky Blue */
+        .grade-level-2 { background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%); color: white; }     /* Indigo */
+        .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }     /* Slate Gray */
 
         /* Level 통계 위젯 - 표준 디자인 시스템 */
         .level-stats-widget {
@@ -2844,11 +2851,16 @@
                     changeIcon = '-';
                 }
 
+                // 만원 단위로 표시
+                const profitInMan = Math.floor(member.profit / 10000);
+                const profitDisplay = profitInMan.toLocaleString() + '만원';
+
                 html += `
                     <div class="ranking-item ${isTop3 ? 'top3' : ''}">
                         <div class="ranking-position ${positionClass}">${position}</div>
                         <div class="ranking-info">
                             <div class="ranking-name">${member.name}</div>
+                            <div class="ranking-profit-amount">+${profitDisplay}</div>
                         </div>
                         <div class="ranking-change ${changeClass}">${changeIcon}</div>
                     </div>
@@ -2888,17 +2900,18 @@
 
         // Level별 통계 데이터 (상위 % 기준)
         // Level 10: 상위 1%, Level 9: 상위 3%, Level 8: 상위 7%, ...
+        // 색상: 따뜻한 색(Gold/Red) → 차가운 색(Blue/Gray) 그라데이션
         const levelDistribution = [
-            { level: 10, topPercent: 1, rangePercent: 1, color: '#F59E0B' },
-            { level: 9, topPercent: 3, rangePercent: 2, color: '#EF4444' },
-            { level: 8, topPercent: 7, rangePercent: 4, color: '#8B5CF6' },
-            { level: 7, topPercent: 13, rangePercent: 6, color: '#3B82F6' },
-            { level: 6, topPercent: 21, rangePercent: 8, color: '#10B981' },
-            { level: 5, topPercent: 31, rangePercent: 10, color: '#14B8A6' },
-            { level: 4, topPercent: 43, rangePercent: 12, color: '#6366F1' },
-            { level: 3, topPercent: 57, rangePercent: 14, color: '#EC4899' },
-            { level: 2, topPercent: 73, rangePercent: 16, color: '#78716C' },
-            { level: 1, topPercent: 91, rangePercent: 18, color: '#94A3B8' }
+            { level: 10, topPercent: 1, rangePercent: 1, color: '#FFD700' },   // Gold - 최상위
+            { level: 9, topPercent: 3, rangePercent: 2, color: '#FF6B35' },    // Orange-Red
+            { level: 8, topPercent: 7, rangePercent: 4, color: '#F97316' },    // Orange
+            { level: 7, topPercent: 13, rangePercent: 6, color: '#FBBF24' },   // Amber
+            { level: 6, topPercent: 21, rangePercent: 8, color: '#84CC16' },   // Lime
+            { level: 5, topPercent: 31, rangePercent: 10, color: '#22C55E' },  // Green
+            { level: 4, topPercent: 43, rangePercent: 12, color: '#14B8A6' },  // Teal
+            { level: 3, topPercent: 57, rangePercent: 14, color: '#0EA5E9' },  // Sky Blue
+            { level: 2, topPercent: 73, rangePercent: 16, color: '#6366F1' },  // Indigo
+            { level: 1, topPercent: 91, rangePercent: 18, color: '#94A3B8' }   // Slate Gray - 최하위
         ];
 
         function renderLevelStats() {
