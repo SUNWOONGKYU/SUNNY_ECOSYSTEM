@@ -316,17 +316,18 @@
         }
 
         .process-step {
-            background: #F8FAFC;
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
             padding: 20px;
             border-radius: 10px;
-            border-left: 4px solid #E5E7EB;
+            border-left: 4px solid #3B82F6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
             transition: all 0.3s;
         }
 
-        .process-step.active {
-            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
-            border-left-color: #3B82F6;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        .process-step.completed {
+            background: #F8FAFC;
+            border-left-color: #E5E7EB;
+            box-shadow: none;
         }
 
         .step-header {
@@ -339,8 +340,8 @@
         .step-number {
             width: 32px;
             height: 32px;
-            background: #E5E7EB;
-            color: #64748B;
+            background: #3B82F6;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -349,9 +350,14 @@
             font-size: 16px;
         }
 
-        .process-step.active .step-number {
-            background: #3B82F6;
-            color: white;
+        .process-step.completed .step-number {
+            background: #E5E7EB;
+            color: #64748B;
+        }
+
+        .step-status {
+            margin-left: auto;
+            font-size: 20px;
         }
 
         .step-title {
@@ -2186,7 +2192,7 @@
                         <span class="expand-arrow">▶</span>
                     </div>
                     <div class="submenu-list" style="margin-left: 16px;">
-                        <div class="submenu-item">3-1. 데모 거래</div>
+                        <div class="submenu-item">3-1. 모의거래</div>
                         <div class="submenu-item">3-2. 최종 테스트</div>
                     </div>
                 </div>
@@ -2197,7 +2203,7 @@
                     <span class="expand-arrow">▶</span>
                 </div>
                 <div class="submenu-list">
-                    <div class="submenu-item">데모 계좌 개설</div>
+                    <div class="submenu-item">모의거래 계좌 개설</div>
                     <div class="submenu-item">거래 연습</div>
                     <div class="submenu-item">결과 분석</div>
                 </div>
@@ -2215,6 +2221,20 @@
                     <div class="submenu-item">계좌 설정 방법</div>
                     <div class="submenu-item">비상 대응</div>
                     <div class="submenu-item">FAQ</div>
+                </div>
+            </div>
+
+            <!-- 레벨별 회원 분포 -->
+            <div class="level-stats-widget">
+                <div class="widget-title">
+                    <span class="widget-icon">📊</span>
+                    레벨별 회원 분포
+                </div>
+                <div class="level-stats-header">
+                    <div class="level-stats-total">전체 회원: <span id="totalMembersDisplay">1,000명</span></div>
+                </div>
+                <div class="level-stats-list" id="levelStatsList">
+                    <!-- JavaScript로 동적 생성 -->
                 </div>
             </div>
 
@@ -2237,8 +2257,8 @@
                     </div>
 
                     <div class="process-steps">
-                        <!-- Step 1 -->
-                        <div class="process-step active">
+                        <!-- Step 1: 완료됨 -->
+                        <div class="process-step completed">
                             <div class="step-header">
                                 <div class="step-number">1</div>
                                 <div class="step-title">거래 시간 확인 + 알람 예약</div>
@@ -2254,8 +2274,8 @@
                             </div>
                         </div>
 
-                        <!-- Step 2 -->
-                        <div class="process-step active">
+                        <!-- Step 2: 완료됨 -->
+                        <div class="process-step completed">
                             <div class="step-header">
                                 <div class="step-number">2</div>
                                 <div class="step-title">시스템 확인</div>
@@ -2268,12 +2288,12 @@
                             </div>
                         </div>
 
-                        <!-- Step 3 -->
-                        <div class="process-step active">
+                        <!-- Step 3: 완료됨 -->
+                        <div class="process-step completed">
                             <div class="step-header">
                                 <div class="step-number">3</div>
                                 <div class="step-title">코인 매입 및 송금</div>
-                                <div class="step-status">⏳</div>
+                                <div class="step-status">✅</div>
                             </div>
                             <div class="step-description">
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ USDT 구매</a> (업비트 등) |
@@ -2282,12 +2302,12 @@
                             </div>
                         </div>
 
-                        <!-- Step 4 -->
+                        <!-- Step 4: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">4</div>
                                 <div class="step-title">챌린지 + 보험금 계좌 동시 거래 실행</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> (Buy/Sell, TP: 21.5p, SL: 참가비 소멸) |
@@ -2297,16 +2317,17 @@
                             </div>
                         </div>
 
-                        <!-- Step 5 -->
+                        <!-- Step 5: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">5</div>
                                 <div class="step-title">일일 결과 확인 및 기록</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <span style="color: #10B981;">✓ 탈락 시: +$69</span> |
                                 <span style="color: #F59E0B;">✓ 합격 시: +$165 + 펀딩 계좌 획득</span>
+                                <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">펀딩 계좌 2개 확보 시 → 2차 단계 진입</span>
                             </div>
@@ -2322,12 +2343,12 @@
                     </div>
 
                     <div class="process-steps">
-                        <!-- Step 1 -->
+                        <!-- Step 1: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">1</div>
                                 <div class="step-title">펀딩 계좌 2개 확보 확인</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <span style="color: #64748B;">챌린지 2회 합격으로 펀딩 계좌($3,000) 2개 대기</span>
@@ -2336,12 +2357,12 @@
                             </div>
                         </div>
 
-                        <!-- Step 2 -->
+                        <!-- Step 2: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">2</div>
                                 <div class="step-title">양방향 헷지 포지션 설정</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 펀딩 계좌 A</a> (상방 Buy) |
@@ -2351,12 +2372,12 @@
                             </div>
                         </div>
 
-                        <!-- Step 3 -->
+                        <!-- Step 3: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">3</div>
                                 <div class="step-title">펀딩 계좌 트레이딩 실행</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <span style="color: #64748B;">한쪽 청산 시 반대쪽 즉시 청산</span>
@@ -2365,12 +2386,12 @@
                             </div>
                         </div>
 
-                        <!-- Step 4 -->
+                        <!-- Step 4: 할 일 -->
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">4</div>
                                 <div class="step-title">정산 및 출금 (80% 수령)</div>
-                                <div class="step-status">🕐</div>
+                                <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <span style="color: #10B981; font-weight: 600;">최종 수령: $3,000 × 80% = $2,400</span>
@@ -2644,20 +2665,6 @@
                 </div>
                 <div class="ranking-list" id="rankingList">
                     <!-- JavaScript로 동적 생성 -->
-                </div>
-
-                <!-- Level 통계 -->
-                <div class="level-stats-widget">
-                    <div class="widget-title">
-                        <span class="widget-icon">📊</span>
-                        Level별 분포
-                    </div>
-                    <div class="level-stats-header">
-                        <div class="level-stats-total">전체 회원: <span id="totalMembersDisplay">1,000명</span></div>
-                    </div>
-                    <div class="level-stats-list" id="levelStatsList">
-                        <!-- JavaScript로 동적 생성 -->
-                    </div>
                 </div>
             </div>
         </div>
