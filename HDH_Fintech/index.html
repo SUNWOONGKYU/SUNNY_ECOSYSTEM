@@ -701,6 +701,10 @@
             gap: 16px;
         }
 
+        .diary-item-modal > * {
+            text-align: center;
+        }
+
         .diary-item-modal:last-child {
             margin-bottom: 0;
         }
@@ -710,7 +714,6 @@
             color: #059669;
             font-weight: 600;
             letter-spacing: -0.5px;
-            text-align: right;
         }
 
         .modal-summary {
@@ -2592,17 +2595,31 @@
         </div>
     </div>
 
-    <!-- 수익 일지 전체 보기 모달 -->
+    <!-- 손익 발생 일지 전체 보기 모달 -->
     <div class="modal-overlay" id="diaryModal" onclick="closeDiaryModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="modal-title">📝 수익 일지 (12월 전체)</div>
+                <div class="modal-title">📝 손익 발생 일지</div>
                 <button class="modal-close" onclick="closeDiaryModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-summary">
-                    <div class="modal-summary-label">12월 누적 수익</div>
-                    <div class="modal-summary-value">₩5,160,000</div>
+                <!-- 월간/연간 누적 손익 -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                    <div style="background: #F0FDF4; padding: 12px; border-radius: 8px; border: 1px solid #BBF7D0;">
+                        <div style="font-size: 11px; color: #166534; margin-bottom: 4px;">월간 누적 손익</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #15803D;">₩5,160,000</div>
+                    </div>
+                    <div style="background: #EFF6FF; padding: 12px; border-radius: 8px; border: 1px solid #BFDBFE;">
+                        <div style="font-size: 11px; color: #1E40AF; margin-bottom: 4px;">연간 누적 손익</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #1D4ED8;">₩58,920,000</div>
+                    </div>
+                </div>
+
+                <!-- 테이블 헤더 -->
+                <div style="display: grid; grid-template-columns: 80px 1fr 1fr; gap: 16px; padding: 10px 16px; background: #F1F5F9; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 12px; font-weight: 600; color: #475569; text-align: center;">날짜</div>
+                    <div style="font-size: 12px; font-weight: 600; color: #475569; text-align: center;">일자별 손익</div>
+                    <div style="font-size: 12px; font-weight: 600; color: #475569; text-align: center;">누적 손익</div>
                 </div>
                 <div class="diary-item-modal">
                     <span class="diary-date">12/06</span>
