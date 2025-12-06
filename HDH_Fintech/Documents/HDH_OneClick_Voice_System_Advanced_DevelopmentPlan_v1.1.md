@@ -538,10 +538,11 @@ if (AccountInfoInteger(ACCOUNT_LOGIN) != EXPECTED_ACCOUNT_A) {
 
 ### Phase 1: 1차 챌린지 단계 구현 (기존)
 - 원클릭 UI 개발
-- 음성 명령 시스템 구현
-- LOT 자동 계산 엔진
+- 음성 명령 시스템 구현 (설정 + 실행)
+- 파라미터 설정 모듈 (LOT/SL/TP 입력)
 - 위험 감지 모듈
 - 동시 주문 API 연동
+- 조건 도달 시 자동 청산
 
 ### Phase 2: 2차 펀딩 단계 구현 (v1.1)
 - **Week 1-2**: EA 기본 구조 개발
@@ -618,9 +619,9 @@ https://sunwoongkyu.github.io/SUNNY_ECOSYSTEM/HDH_Fintech/
 AI_AutoTrading_System_v1.1.exe
 ├─ 1차 챌린지 모드
 │   ├─ 챌린지 계좌 + 보험금 계좌 동시 제어
-│   ├─ 원클릭 진입/청산
-│   ├─ 음성 명령
-│   └─ LOT 자동 계산
+│   ├─ 원클릭 동시 진입
+│   ├─ 음성 명령 지원
+│   └─ 조건 도달 시 자동 청산
 │
 └─ 2차 펀딩 모드
     ├─ 펀딩 계좌 A + B 모니터링
@@ -641,7 +642,7 @@ AI_AutoTrading_System_v1.1.exe
 #### Step 1: 다운로드
 1. HDH 핀테크 웹사이트 접속
 2. 좌측 사이드바 "🤖 AI 활용 프로그램 다운로드" 클릭
-3. "HDH 자동화 시스템 v1.1" 펼치기
+3. "AI 자동화 시스템 v1.1" 펼치기
 4. "📥 프로그램 다운로드" 버튼 클릭
 5. `AI_AutoTrading_System_v1.1.exe` 다운로드
 
@@ -676,38 +677,37 @@ AI_AutoTrading_System_v1.1.exe
 **현재 구현된 내용** (index.html):
 
 ```html
-<!-- HDH 자동화 시스템 v1.1 -->
+<!-- AI 자동화 시스템 v1.1 -->
 <div class="menu-item expandable">
-    <span>HDH 자동화 시스템 v1.1 ⭐</span>
+    <span>AI 자동화 시스템 v1.1</span>
 </div>
 <div class="submenu-list">
-    <!-- 다운로드 버튼 -->
-    <div class="submenu-item" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-         color: white; font-weight: 700; padding: 12px; border-radius: 8px;">
-        📥 프로그램 다운로드
-    </div>
-
     <!-- 1차 챌린지 단계 기능 -->
     <div class="submenu-item">
         ✅ 1차 챌린지 단계
-        • 원클릭 동시 진입/청산
+        • 원클릭 동시 진입
         • 음성 명령 지원
-        • LOT 자동 계산
+        • 조건 도달 시 자동 청산
     </div>
 
-    <!-- 2차 펀딩 단계 기능 -->
+    <!-- 2차 펀딩 금액 트레이딩 단계 기능 -->
     <div class="submenu-item">
-        ✅ 2차 펀딩 단계
+        ✅ 2차 펀딩 금액 트레이딩 단계
+        • 음성 명령 지원
         • SL 자동 감지
         • 반대 계좌 즉시 청산
         • 타이밍 오차 20-80ms
     </div>
 
     <!-- 부가 자료 -->
-    <div class="submenu-item">📖 설치 가이드</div>
-    <div class="submenu-item">🔧 MT5 연동 방법</div>
+    <div class="submenu-item">📖 설치 및 MT5 연동 가이드</div>
     <div class="submenu-item">📹 사용법 동영상</div>
-    <div class="submenu-item">📄 개발 계획서 보기</div>
+
+    <!-- 다운로드 버튼 (초록색) -->
+    <div class="submenu-item" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+         color: white; font-weight: 700; padding: 12px; border-radius: 8px;">
+        다운로드 하기
+    </div>
 </div>
 ```
 
