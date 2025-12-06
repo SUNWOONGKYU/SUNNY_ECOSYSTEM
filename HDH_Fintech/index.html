@@ -2339,7 +2339,7 @@
 
                 <!-- 운영 손익 시뮬레이터 -->
                 <div class="simulator-container" id="simulatorSection">
-                    <div class="simulator-title">🧮 운영 손익 시뮬레이터</div>
+                    <div class="simulator-title">🧮 운영손익 시뮬레이터</div>
                     <div class="simulator-subtitle">거래 횟수, 계좌 규모, 합격률을 설정하여 예상 손익을 시뮬레이션하세요</div>
 
                     <div class="simulator-controls">
@@ -2372,12 +2372,16 @@
 
                         <!-- 합격률 -->
                         <div class="control-group">
-                            <label class="control-label">합격률 (TP/SL 비율)</label>
+                            <label class="control-label">합격률</label>
                             <div class="btn-group">
-                                <button class="btn-option" onclick="selectWinRate(70, 30)">70:30 (30%)</button>
-                                <button class="btn-option" onclick="selectWinRate(80, 20)">80:20 (20%)</button>
-                                <button class="btn-option active" onclick="selectWinRate(84, 16)">84:16 (16%)</button>
-                                <button class="btn-option" onclick="selectWinRate(90, 10)">90:10 (10%)</button>
+                                <button class="btn-option" onclick="selectWinRate(100, 0)">0%</button>
+                                <button class="btn-option" onclick="selectWinRate(90, 10)">10%</button>
+                                <button class="btn-option active" onclick="selectWinRate(84, 16)">16%</button>
+                                <button class="btn-option" onclick="selectWinRate(80, 20)">20%</button>
+                                <button class="btn-option" onclick="selectWinRate(70, 30)">30%</button>
+                                <button class="btn-option" onclick="selectWinRate(60, 40)">40%</button>
+                                <button class="btn-option" onclick="selectWinRate(50, 50)">50%</button>
+                                <button class="btn-option" onclick="selectWinRate(40, 60)">60%</button>
                             </div>
                         </div>
 
