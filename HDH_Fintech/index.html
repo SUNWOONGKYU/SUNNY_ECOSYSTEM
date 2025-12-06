@@ -1160,16 +1160,16 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
-        /* Top 10 랭킹 위젯 */
+        /* Top 10 랭킹 위젯 - 표준 디자인 시스템 */
         .ranking-widget {
-            background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+            background: white;
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .ranking-widget .widget-title {
-            color: #F8FAFC;
+            color: #1F2937;
             margin-bottom: 16px;
         }
 
@@ -1182,10 +1182,11 @@
 
         .ranking-year {
             font-size: 12px;
-            color: #94A3B8;
-            background: rgba(255,255,255,0.1);
+            color: #10B981;
+            background: #ECFDF5;
             padding: 4px 10px;
             border-radius: 12px;
+            font-weight: 600;
         }
 
         .ranking-live {
@@ -1220,27 +1221,27 @@
             align-items: center;
             gap: 12px;
             padding: 10px 12px;
-            background: rgba(255,255,255,0.05);
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
             border-radius: 8px;
             transition: all 0.2s;
         }
 
         .ranking-item:hover {
-            background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.3);
+            background: #ECFDF5;
+            border-color: #A7F3D0;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
         }
 
         .ranking-item.top3 {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.1) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: #FFFBEB;
+            border: 1px solid #FCD34D;
         }
 
         .ranking-item.top3:hover {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.2) 100%);
+            background: #FEF3C7;
+            border-color: #F59E0B;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
         }
 
         .ranking-position {
@@ -1252,12 +1253,7 @@
             font-weight: 700;
             font-size: 14px;
             border-radius: 50%;
-            background: #475569;
-            color: #F8FAFC;
-        }
-
-        .ranking-item.top3 .ranking-position {
-            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            background: #64748B;
             color: white;
         }
 
@@ -1273,7 +1269,7 @@
         .ranking-name {
             font-size: 13px;
             font-weight: 600;
-            color: #F8FAFC;
+            color: #1F2937;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1334,17 +1330,17 @@
         .grade-level-2 { background: linear-gradient(135deg, #78716C 0%, #57534E 100%); color: white; }
         .grade-level-1 { background: linear-gradient(135deg, #94A3B8 0%, #64748B 100%); color: white; }
 
-        /* Level 통계 위젯 */
+        /* Level 통계 위젯 - 표준 디자인 시스템 */
         .level-stats-widget {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            background: white;
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-top: 12px;
         }
 
         .level-stats-widget .widget-title {
-            color: #F8FAFC;
+            color: #1F2937;
             margin-bottom: 16px;
         }
 
@@ -1354,16 +1350,16 @@
             align-items: center;
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid #E2E8F0;
         }
 
         .level-stats-total {
             font-size: 12px;
-            color: #94A3B8;
+            color: #64748B;
         }
 
         .level-stats-total span {
-            color: #F8FAFC;
+            color: #1F2937;
             font-weight: 600;
         }
 
@@ -1378,15 +1374,16 @@
             align-items: center;
             gap: 10px;
             padding: 8px 10px;
-            background: rgba(255,255,255,0.03);
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
             border-radius: 6px;
             transition: all 0.2s;
         }
 
         .level-stat-item:hover {
-            background: rgba(16, 185, 129, 0.12);
-            transform: translateX(4px);
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+            background: #ECFDF5;
+            border-color: #A7F3D0;
+            transform: translateX(2px);
         }
 
         .level-stat-badge {
@@ -1401,7 +1398,7 @@
         .level-stat-bar-container {
             flex: 1;
             height: 8px;
-            background: rgba(255,255,255,0.1);
+            background: #E2E8F0;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -1420,12 +1417,12 @@
         .level-stat-percent {
             font-size: 12px;
             font-weight: 600;
-            color: #F8FAFC;
+            color: #1F2937;
         }
 
         .level-stat-count {
             font-size: 10px;
-            color: #94A3B8;
+            color: #64748B;
         }
 
         /* 반응형 - 태블릿 */
@@ -2348,10 +2345,9 @@
             <div class="widget ranking-widget">
                 <div class="widget-title">
                     <span class="widget-icon">🏆</span>
-                    연간 수익 Top 10
+                    2025년 연간 누적 순이익 Top 10
                 </div>
                 <div class="ranking-header">
-                    <span class="ranking-year">2025년</span>
                     <div class="ranking-live">
                         <span class="live-dot"></span>
                         실시간
@@ -2890,19 +2886,19 @@
             renderRankingList();
         }
 
-        // Level별 통계 데이터 (비율 기반 인원수 계산)
-        // Level 10: 1%, Level 9: 2% (3-1), Level 8: 4% (7-3), ...
+        // Level별 통계 데이터 (상위 % 기준)
+        // Level 10: 상위 1%, Level 9: 상위 3%, Level 8: 상위 7%, ...
         const levelDistribution = [
-            { level: 10, percent: 1, color: '#F59E0B' },
-            { level: 9, percent: 2, color: '#EF4444' },
-            { level: 8, percent: 4, color: '#8B5CF6' },
-            { level: 7, percent: 6, color: '#3B82F6' },
-            { level: 6, percent: 8, color: '#10B981' },
-            { level: 5, percent: 10, color: '#14B8A6' },
-            { level: 4, percent: 12, color: '#6366F1' },
-            { level: 3, percent: 14, color: '#EC4899' },
-            { level: 2, percent: 16, color: '#78716C' },
-            { level: 1, percent: 18, color: '#94A3B8' }
+            { level: 10, topPercent: 1, rangePercent: 1, color: '#F59E0B' },
+            { level: 9, topPercent: 3, rangePercent: 2, color: '#EF4444' },
+            { level: 8, topPercent: 7, rangePercent: 4, color: '#8B5CF6' },
+            { level: 7, topPercent: 13, rangePercent: 6, color: '#3B82F6' },
+            { level: 6, topPercent: 21, rangePercent: 8, color: '#10B981' },
+            { level: 5, topPercent: 31, rangePercent: 10, color: '#14B8A6' },
+            { level: 4, topPercent: 43, rangePercent: 12, color: '#6366F1' },
+            { level: 3, topPercent: 57, rangePercent: 14, color: '#EC4899' },
+            { level: 2, topPercent: 73, rangePercent: 16, color: '#78716C' },
+            { level: 1, topPercent: 91, rangePercent: 18, color: '#94A3B8' }
         ];
 
         function renderLevelStats() {
@@ -2914,16 +2910,16 @@
 
             let html = '';
             levelDistribution.forEach(level => {
-                const memberCount = Math.round(totalMembers * level.percent / 100);
+                const memberCount = Math.round(totalMembers * level.rangePercent / 100);
 
                 html += `
                     <div class="level-stat-item">
                         <div class="level-stat-badge grade-level-${level.level}">Lv.${level.level}</div>
                         <div class="level-stat-bar-container">
-                            <div class="level-stat-bar" style="width: ${level.percent * 3}%; background: ${level.color};"></div>
+                            <div class="level-stat-bar" style="width: ${level.topPercent}%; background: ${level.color};"></div>
                         </div>
                         <div class="level-stat-info">
-                            <div class="level-stat-percent">${level.percent}%</div>
+                            <div class="level-stat-percent">상위 ${level.topPercent}%</div>
                             <div class="level-stat-count">${memberCount.toLocaleString()}명</div>
                         </div>
                     </div>
