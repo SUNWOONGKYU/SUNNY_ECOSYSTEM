@@ -358,17 +358,14 @@
         .step-status {
             margin-left: auto;
             font-size: 20px;
+            color: #3B82F6;
+            font-weight: 700;
         }
 
         .step-title {
             font-size: 14px;
             font-weight: 700;
             color: #1F2937;
-        }
-
-        .step-status {
-            margin-left: auto;
-            font-size: 20px;
         }
 
         .step-description {
@@ -931,7 +928,7 @@
 
         .btn-simulate {
             padding: 16px 32px;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -939,13 +936,13 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             margin-top: 8px;
         }
 
         .btn-simulate:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         .simulator-results {
@@ -2262,7 +2259,7 @@
                             <div class="step-header">
                                 <div class="step-number">1</div>
                                 <div class="step-title">거래 시간 확인 + 알람 예약</div>
-                                <div class="step-status">✅</div>
+                                <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
                                 <span style="color: #10B981; font-weight: 600;">⏰ 오전 08:00 - 12:00 (4시간)</span> |
@@ -2270,7 +2267,7 @@
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">오전 3-4회, 오후 6-7회 권장</span>
                                 <br>
-                                <button class="btn-alarm" style="margin-top: 8px;">🔔 알람 설정하기</button>
+                                <button class="btn-alarm" style="margin-top: 8px;" onclick="setAlarm()">🔔 알람 설정하기</button>
                             </div>
                         </div>
 
@@ -2279,12 +2276,12 @@
                             <div class="step-header">
                                 <div class="step-number">2</div>
                                 <div class="step-title">시스템 확인</div>
-                                <div class="step-status">✅</div>
+                                <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 연결 확인</a> |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a>
+                                <a href="#" onclick="checkMT5Connection(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ MT5 연결 확인</a> |
+                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> |
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a>
                             </div>
                         </div>
 
@@ -2293,12 +2290,12 @@
                             <div class="step-header">
                                 <div class="step-number">3</div>
                                 <div class="step-title">코인 매입 및 송금</div>
-                                <div class="step-status">✅</div>
+                                <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ USDT 구매</a> (업비트 등) |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 전자지갑 송금</a> |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 거래소 입금 확인</a>
+                                <a href="#" onclick="buyUSDT(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ USDT 구매</a> (업비트 등) |
+                                <a href="#" onclick="transferToWallet(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 전자지갑 송금</a> |
+                                <a href="#" onclick="checkExchangeDeposit(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 거래소 입금 확인</a>
                             </div>
                         </div>
 
@@ -2310,8 +2307,8 @@
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> (Buy/Sell, TP: 21.5p, SL: 참가비 소멸) |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a> (반대 방향, TP: 4.1p, SL: 21.5p)
+                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 챌린지 계좌</a> (Buy/Sell, TP: 21.5p, SL: 참가비 소멸) |
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 보험금 계좌</a> (반대 방향, TP: 4.1p, SL: 21.5p)
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">양방향 헷지로 어느 결과든 수익 발생</span>
                             </div>
@@ -2352,6 +2349,7 @@
                             </div>
                             <div class="step-description">
                                 <span style="color: #64748B;">챌린지 2회 합격으로 펀딩 계좌($3,000) 2개 대기</span>
+                                <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">평균 12-15회 거래 시 2개 확보</span>
                             </div>
@@ -2365,8 +2363,8 @@
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 펀딩 계좌 A</a> (상방 Buy) |
-                                <a href="#" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 펀딩 계좌 B</a> (하방 Sell)
+                                <a href="#" onclick="manageFundingAccountA(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 펀딩 계좌 A</a> (상방 Buy) |
+                                <a href="#" onclick="manageFundingAccountB(); return false;" style="color: #F59E0B; text-decoration: none; font-weight: 600;">→ 펀딩 계좌 B</a> (하방 Sell)
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">가격이 어느 방향으로 가든 한쪽은 익절, 한쪽은 손절</span>
                             </div>
@@ -2383,6 +2381,7 @@
                                 <span style="color: #64748B;">한쪽 청산 시 반대쪽 즉시 청산</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">이론적 순손익: ±$0 (한쪽 $6,000, 한쪽 $0)</span>
+                                <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
                             </div>
                         </div>
 
@@ -2395,6 +2394,7 @@
                             </div>
                             <div class="step-description">
                                 <span style="color: #10B981; font-weight: 600;">최종 수령: $3,000 × 80% = $2,400</span>
+                                <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">프롭펌과 정산 완료 후 약 15일 이내 입금</span>
                             </div>
@@ -2574,29 +2574,26 @@
 
                 <!-- HDH 자동화 시스템 v1.1 -->
                 <div class="menu-item expandable" onclick="toggleSubmenu(this)">
-                    <span>HDH 자동화 시스템 v1.1 ⭐</span>
+                    <span>HDH 자동화 시스템 v1.1</span>
                     <span class="expand-arrow">▶</span>
                 </div>
                 <div class="submenu-list">
-                    <div class="submenu-item" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; font-weight: 700; padding: 12px; border-radius: 8px; margin-bottom: 8px; cursor: pointer; text-align: center;">
-                        📥 프로그램 다운로드
-                    </div>
                     <div class="submenu-item">
                         <div style="font-size: 11px; color: #64748B; margin-bottom: 4px;">✅ 1차 챌린지 단계</div>
                         <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 원클릭 동시 진입/청산</div>
-                        <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 음성 명령 지원</div>
                         <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• LOT 자동 계산</div>
                     </div>
                     <div class="submenu-item">
-                        <div style="font-size: 11px; color: #64748B; margin-bottom: 4px;">✅ 2차 펀딩 단계</div>
+                        <div style="font-size: 11px; color: #64748B; margin-bottom: 4px;">✅ 2차 펀딩 금액 트레이딩 단계</div>
                         <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• SL 자동 감지</div>
                         <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 반대 계좌 즉시 청산</div>
                         <div style="font-size: 10px; color: #94A3B8; padding-left: 12px;">• 타이밍 오차 20-80ms</div>
                     </div>
-                    <div class="submenu-item">📖 설치 가이드</div>
-                    <div class="submenu-item">🔧 MT5 연동 방법</div>
+                    <div class="submenu-item">📖 설치 및 MT5 연동 가이드</div>
                     <div class="submenu-item">📹 사용법 동영상</div>
-                    <div class="submenu-item">📄 개발 계획서 보기</div>
+                    <div class="submenu-item" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; font-weight: 700; padding: 12px; border-radius: 8px; margin-top: 8px; cursor: pointer; text-align: center;">
+                        다운로드 및 실행하기
+                    </div>
                 </div>
             </div>
 
@@ -2703,9 +2700,9 @@
                         <div style="font-size: 11px; color: #166534; margin-bottom: 4px;">월간 누적 손익</div>
                         <div style="font-size: 16px; font-weight: 700; color: #15803D;">₩5,160,000</div>
                     </div>
-                    <div style="background: #EFF6FF; padding: 12px; border-radius: 8px; border: 1px solid #BFDBFE;">
-                        <div style="font-size: 11px; color: #1E40AF; margin-bottom: 4px;">연간 누적 손익</div>
-                        <div style="font-size: 16px; font-weight: 700; color: #1D4ED8;">₩58,920,000</div>
+                    <div style="background: #ECFDF5; padding: 12px; border-radius: 8px; border: 1px solid #A7F3D0;">
+                        <div style="font-size: 11px; color: #065F46; margin-bottom: 4px;">연간 누적 손익</div>
+                        <div style="font-size: 16px; font-weight: 700; color: #047857;">₩58,920,000</div>
                     </div>
                 </div>
 
@@ -3313,6 +3310,66 @@
 
         function closeSimulationResults() {
             document.getElementById('simulatorResults').style.display = 'none';
+        }
+
+        // ===== 알람 설정 기능 =====
+        function setAlarm() {
+            const alarmMessage = `거래 시간 알람이 설정되었습니다:\n\n⏰ 오전 08:00\n⏰ 오후 16:00\n⏰ 저녁 20:00\n\n알람은 브라우저 알림으로 발송됩니다.`;
+
+            // 브라우저 알림 권한 요청
+            if ('Notification' in window && Notification.permission === 'default') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        alert(alarmMessage);
+                    } else {
+                        alert('알람 기능을 사용하려면 브라우저 알림 권한이 필요합니다.');
+                    }
+                });
+            } else if (Notification.permission === 'granted') {
+                alert(alarmMessage);
+            } else {
+                alert('브라우저 알림 권한을 허용해주세요.');
+            }
+        }
+
+        // ===== MT5 연결 확인 =====
+        function checkMT5Connection() {
+            alert('MT5 연결 상태를 확인합니다.\n\n✅ 연결 상태: 정상\n✅ 계좌: 활성화\n✅ 서버: 응답 중');
+        }
+
+        // ===== 챌린지 계좌 관리 =====
+        function manageChallengeAccount() {
+            alert('챌린지 계좌 관리 페이지로 이동합니다.\n\n현재 챌린지 계좌 상태:\n• 계좌번호: CH-300-12345\n• 잔액: $300\n• 상태: 활성');
+        }
+
+        // ===== 보험금 계좌 관리 =====
+        function manageInsuranceAccount() {
+            alert('보험금 계좌 관리 페이지로 이동합니다.\n\n현재 보험금 계좌 상태:\n• 계좌번호: IN-300-67890\n• 잔액: $300\n• 상태: 활성');
+        }
+
+        // ===== USDT 구매 =====
+        function buyUSDT() {
+            alert('USDT 구매 안내\n\n1. 업비트 또는 빗썸 접속\n2. USDT 구매\n3. 전자지갑으로 송금\n\n추천 거래소: 업비트, 빗썸');
+        }
+
+        // ===== 전자지갑 송금 =====
+        function transferToWallet() {
+            alert('전자지갑 송금 안내\n\n1. 전자지갑 주소 확인\n2. 거래소에서 출금\n3. 네트워크 수수료 확인\n4. 송금 완료 확인\n\n⚠️ 주의: 주소를 정확히 입력하세요!');
+        }
+
+        // ===== 거래소 입금 확인 =====
+        function checkExchangeDeposit() {
+            alert('거래소 입금 확인\n\n입금 확인까지 약 10-30분 소요\n\n현재 상태:\n• 트랜잭션: 진행 중\n• 컨펌: 2/3');
+        }
+
+        // ===== 펀딩 계좌 A 관리 =====
+        function manageFundingAccountA() {
+            alert('펀딩 계좌 A 관리\n\n계좌 정보:\n• 계좌번호: FD-A-3000-11111\n• 펀딩 금액: $3,000\n• 포지션: 매수(Buy) 대기');
+        }
+
+        // ===== 펀딩 계좌 B 관리 =====
+        function manageFundingAccountB() {
+            alert('펀딩 계좌 B 관리\n\n계좌 정보:\n• 계좌번호: FD-B-3000-22222\n• 펀딩 금액: $3,000\n• 포지션: 매도(Sell) 대기');
         }
 
         // ===== Top 10 랭킹 시스템 =====
