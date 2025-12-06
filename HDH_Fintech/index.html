@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HDH Fintech</title>
     <style>
+        /*
+        ============================================
+        UNIFIED COLOR SYSTEM (통합 색상 시스템)
+        ============================================
+
+        ## 기본 배경색 (Default Backgrounds):
+        - White Cards/Links: #FFFFFF (순수 흰색)
+        - Light Gray Areas: #F8FAFC (연한 회색)
+        - Page Background: #F8FAFC (연한 회색)
+
+        ## 호버 규칙 - 영역별 색상 (Hover Rules by Section):
+
+        ### 좌측 사이드바 (Left Sidebar) - GOLD 계열:
+        - Menu Items: #FFF7ED 배경 + #F59E0B 텍스트
+        - Download Links: 기존 그라데이션 유지 + 상승 효과
+
+        ### 중앙 콘텐츠 (Center) - GOLD 계열:
+        - Process Steps: 기존 스타일 유지
+        - Simulator: 기존 스타일 유지
+
+        ### 우측 사이드바 (Right Sidebar) - GREEN 계열:
+        - Notice Items: #ECFDF5 배경 + #A7F3D0 테두리
+        - Diary Items: #ECFDF5 배경 + #A7F3D0 테두리
+        - Settings Items: #ECFDF5 배경 + #10B981 텍스트
+        - View More: #ECFDF5 배경 + #059669 텍스트
+        - Warning Items: #FEE2E2 배경 (빨강 계열 유지)
+
+        ### 바로가기/외부 링크 (Shortcuts) - BLUE 계열:
+        - Favorites: #EFF6FF 배경 + #93C5FD 테두리 + #3B82F6 텍스트
+        - Community Link: #EFF6FF 배경 + #93C5FD 테두리
+
+        ### 공통 규칙:
+        - Primary Buttons: 색상 유지 + translateY(-2px) + 그림자 강화
+        - Secondary Buttons: #F8FAFC 배경 + 진한 테두리
+        - Table Rows: #F8FAFC 배경만
+        - Modal Close: #FEE2E2 배경 + #DC2626 텍스트
+        - Simulator Close: #475569 배경 (회색)
+        ============================================
+        */
+
         * {
             margin: 0;
             padding: 0;
@@ -102,6 +142,7 @@
         .btn-logout:hover {
             background: rgba(255, 255, 255, 0.3);
             border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
         }
 
         /* 메인 레이아웃 */
@@ -154,7 +195,7 @@
         }
 
         .menu-item:hover {
-            background: #F8FAFC;
+            background: #FFF7ED;
             color: #F59E0B;
         }
 
@@ -175,7 +216,7 @@
         }
 
         .submenu-item:hover {
-            background: #F8FAFC;
+            background: #FFF7ED;
             color: #F59E0B;
         }
 
@@ -214,12 +255,12 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
-            transition: transform 0.2s;
+            transition: all 0.2s;
         }
 
         .link-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
         }
 
         /* 중앙 콘텐츠 (실행) */
@@ -336,18 +377,17 @@
             align-items: center;
             gap: 12px;
             padding: 14px 16px;
-            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
-            border-radius: 12px;
+            background: white;
+            border-radius: 8px;
             text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid #3B82F6;
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+            transition: all 0.2s;
+            border: 1px solid #BFDBFE;
         }
 
         .community-link:hover {
-            background: linear-gradient(135deg, #BFDBFE 0%, #93C5FD 100%);
-            transform: translateX(4px);
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+            background: #EFF6FF;
+            border-color: #93C5FD;
+            transform: translateX(2px);
         }
 
         .community-icon {
@@ -357,8 +397,8 @@
 
         .community-text {
             flex: 1;
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 600;
             color: #1E40AF;
         }
 
@@ -380,7 +420,7 @@
             align-items: center;
             gap: 8px;
             padding: 10px 12px;
-            background: #F8FAFC;
+            background: white;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.2s;
@@ -388,8 +428,8 @@
         }
 
         .favorite-link:hover {
-            background: #FFF7ED;
-            border-color: #F59E0B;
+            background: #EFF6FF;
+            border-color: #93C5FD;
             transform: translateX(2px);
         }
 
@@ -408,7 +448,7 @@
         }
 
         .favorite-link:hover .favorite-name {
-            color: #F59E0B;
+            color: #3B82F6;
         }
 
         /* 우측 사이드바 (결과/공지) */
@@ -442,11 +482,20 @@
         .notice-item {
             padding: 10px;
             margin-bottom: 8px;
-            background: #F8FAFC;
+            background: white;
             border-radius: 8px;
             font-size: 13px;
             color: #475569;
-            border-left: 3px solid #F59E0B;
+            border: 1px solid #E2E8F0;
+            border-left: 3px solid #10B981;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .notice-item:hover {
+            background: #ECFDF5;
+            border-color: #A7F3D0;
+            border-left-color: #10B981;
         }
 
         .notice-date {
@@ -462,7 +511,16 @@
             border-radius: 8px;
             font-size: 13px;
             color: #991B1B;
+            border: 1px solid #FEE2E2;
             border-left: 3px solid #EF4444;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .warning-item:hover {
+            background: #FEE2E2;
+            border-color: #FECACA;
+            border-left-color: #EF4444;
         }
 
         .result-value {
@@ -502,9 +560,17 @@
             align-items: center;
             padding: 10px;
             margin-bottom: 6px;
-            background: #F8FAFC;
+            background: white;
             border-radius: 8px;
             font-size: 13px;
+            border: 1px solid #E2E8F0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .diary-item:hover {
+            background: #ECFDF5;
+            border-color: #A7F3D0;
         }
 
         .diary-date {
@@ -522,21 +588,39 @@
             color: #EF4444;
         }
 
+        .settings-item {
+            cursor: pointer;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+            border: 1px solid #E2E8F0;
+            font-size: 13px;
+        }
+
+        .settings-item:hover {
+            background: #ECFDF5;
+            border-color: #A7F3D0;
+            color: #10B981 !important;
+        }
+
         .view-more {
             display: block;
             text-align: center;
             padding: 8px;
             margin-top: 8px;
-            color: #F59E0B;
+            color: #10B981;
             font-size: 12px;
             font-weight: 600;
             text-decoration: none;
             border-radius: 6px;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .view-more:hover {
-            background: #FEF3C7;
+            background: #ECFDF5;
+            color: #059669;
         }
 
         /* 모달/팝업 */
@@ -601,8 +685,8 @@
         }
 
         .modal-close:hover {
-            background: #F1F5F9;
-            color: #64748B;
+            background: #FEE2E2;
+            color: #DC2626;
         }
 
         .diary-item-modal {
@@ -728,7 +812,7 @@
 
         .btn-settings-cancel:hover {
             background: #F8FAFC;
-            border-color: #CBD5E1;
+            border-color: #94A3B8;
         }
 
         .btn-settings-save {
@@ -855,7 +939,7 @@
 
         .btn-close-results {
             padding: 8px 16px;
-            background: #EF4444;
+            background: #64748B;
             color: white;
             border: none;
             border-radius: 6px;
@@ -866,9 +950,9 @@
         }
 
         .btn-close-results:hover {
-            background: #DC2626;
+            background: #475569;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
         }
 
         .results-summary {
@@ -1593,13 +1677,13 @@
                     <span class="widget-icon">⚙️</span>
                     설정
                 </div>
-                <div class="menu-item" onclick="openSettingsModal(event)" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; margin-bottom: 8px; transition: all 0.2s;">
+                <div class="settings-item" onclick="openSettingsModal(event)">
                     거래 시작일 설정
                 </div>
-                <div class="menu-item" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; margin-bottom: 8px; color: #94A3B8;">
+                <div class="settings-item" style="color: #94A3B8;">
                     알림 설정
                 </div>
-                <div class="menu-item" style="cursor: pointer; padding: 12px; background: #F8FAFC; border-radius: 8px; color: #94A3B8;">
+                <div class="settings-item" style="color: #94A3B8;">
                     계좌 관리
                 </div>
             </div>
