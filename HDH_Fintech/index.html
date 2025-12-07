@@ -1530,9 +1530,9 @@
 
         .support-file-btn:hover,
         .support-submit-btn:hover {
-            background: #ECFDF5 !important;
-            border-color: #A7F3D0 !important;
-            color: #10B981 !important;
+            background: #10B981 !important;
+            border-color: #059669 !important;
+            color: white !important;
         }
 
         /* 반응형 - 태블릿 */
@@ -2834,13 +2834,13 @@
                 </div>
                 <div class="support-input-area">
                     <textarea id="supportQuestion"
-                        placeholder="사용법 문의, 문제 해결, 버그 신고, 기능 제안, HDH 전략 검토, 트레이딩 멘토링까지! AI 활용 능력 고수 + 공인회계사 + 엑셀러레이터인 Sunny에게 자유롭게 문의하세요!"
+                        placeholder="사용법 문의, 문제 해결, 기능 제안, HDH 전략 검토, 트레이딩 멘토링까지! AI 활용 능력 고수 + 공인회계사 + 엑셀러레이터인 Sunny에게 자유롭게 문의하세요!"
                         rows="4"></textarea>
                     <div style="display: flex; gap: 8px;">
                         <button onclick="document.getElementById('supportFile').click()" class="support-file-btn"
-                            style="flex: 1; padding: 10px; font-size: 12px; background: white; border: 1px solid #E2E8F0; border-radius: 8px; cursor: pointer; color: #475569; font-weight: 500; transition: all 0.2s;">파일 첨부</button>
+                            style="flex: 1; padding: 10px; font-size: 12px; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; cursor: pointer; color: #059669; font-weight: 500; transition: all 0.2s;">파일 첨부</button>
                         <button onclick="submitSupport()" class="support-submit-btn"
-                            style="flex: 2; padding: 10px; font-size: 12px; background: white; border: 1px solid #E2E8F0; border-radius: 8px; cursor: pointer; color: #475569; font-weight: 600; transition: all 0.2s;">제출하기</button>
+                            style="flex: 2; padding: 10px; font-size: 12px; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; cursor: pointer; color: #059669; font-weight: 600; transition: all 0.2s;">제출하기</button>
                     </div>
                     <input type="file" id="supportFile" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"
                         style="display: none;" onchange="handleSupportFileSelect(event)">
