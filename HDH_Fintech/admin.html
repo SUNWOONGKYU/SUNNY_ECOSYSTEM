@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDH Fintech - 관리자 페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+            background: #F8FAFC;
+            color: #1F2937;
+        }
+
+        .header {
+            background: #0F172A;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #F59E0B;
+        }
+
+        .admin-title {
+            font-size: 18px;
+            color: #94A3B8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #64748B;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .section {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admin-table th {
+            background: #F8FAFC;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .admin-table td {
+            padding: 12px;
+            border-bottom: 1px solid #E2E8F0;
+            font-size: 14px;
+        }
+
+        .admin-table tr:hover {
+            background: #F8FAFC;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #F59E0B;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #D97706;
+        }
+
+        .btn-secondary {
+            background: #E2E8F0;
+            color: #475569;
+        }
+
+        .btn-secondary:hover {
+            background: #CBD5E1;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        .status-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .footer {
+            background: #F59E0B;
+            color: #FFFFFF;
+            padding: 32px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #F59E0B;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">HDH Fintech</div>
+            <div class="admin-title">관리자 페이지</div>
+        </div>
+    </div>
+
+    <!-- 메인 컨텐츠 -->
+    <div class="container">
+        <a href="index.html" class="back-link">← 메인 페이지로 돌아가기</a>
+
+        <!-- 대시보드 통계 -->
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <div class="stat-label">전체 회원 수</div>
+                <div class="stat-value">1,000명</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">활성 회원 수</div>
+                <div class="stat-value">847명</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">이번 달 거래 건수</div>
+                <div class="stat-value">12,450건</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">총 누적 수익</div>
+                <div class="stat-value">$2.4M</div>
+            </div>
+        </div>
+
+        <!-- 회원 관리 -->
+        <div class="section">
+            <div class="section-title">📊 회원 관리</div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>회원 ID</th>
+                        <th>이름</th>
+                        <th>레벨</th>
+                        <th>랭킹</th>
+                        <th>누적 수익</th>
+                        <th>상태</th>
+                        <th>가입일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1001</td>
+                        <td>홍길동</td>
+                        <td>Lv.10</td>
+                        <td>5위</td>
+                        <td>₩58,920,000</td>
+                        <td><span class="status-badge status-active">활성</span></td>
+                        <td>2025-01-15</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>김영수</td>
+                        <td>Lv.10</td>
+                        <td>1위</td>
+                        <td>₩127,500,000</td>
+                        <td><span class="status-badge status-active">활성</span></td>
+                        <td>2025-01-10</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#1003</td>
+                        <td>이정민</td>
+                        <td>Lv.9</td>
+                        <td>2위</td>
+                        <td>₩98,200,000</td>
+                        <td><span class="status-badge status-active">활성</span></td>
+                        <td>2025-01-08</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#1004</td>
+                        <td>박서연</td>
+                        <td>Lv.8</td>
+                        <td>3위</td>
+                        <td>₩85,600,000</td>
+                        <td><span class="status-badge status-pending">대기</span></td>
+                        <td>2025-01-05</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 문의 관리 -->
+        <div class="section">
+            <div class="section-title">💬 Sunny에게 묻기 관리</div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>회원명</th>
+                        <th>문의 유형</th>
+                        <th>제목</th>
+                        <th>상태</th>
+                        <th>접수일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#501</td>
+                        <td>홍길동</td>
+                        <td>기능 제안</td>
+                        <td>시뮬레이터 개선 요청</td>
+                        <td><span class="status-badge status-pending">답변대기</span></td>
+                        <td>2025-12-07</td>
+                        <td>
+                            <button class="btn btn-primary">답변하기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#502</td>
+                        <td>김영수</td>
+                        <td>사용법 문의</td>
+                        <td>펀딩 계좌 설정 방법</td>
+                        <td><span class="status-badge status-active">답변완료</span></td>
+                        <td>2025-12-06</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-copyright">
+            © 2025 HDH Fintech. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
