@@ -226,6 +226,104 @@
             </div>
         </div>
 
+        <!-- 공지사항 관리 -->
+        <div class="section">
+            <div class="section-title">📢 공지사항 관리</div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>상태</th>
+                        <th>작성일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#101</td>
+                        <td>12월 정기 점검 안내</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-active">게시중</span></td>
+                        <td>2025-12-07</td>
+                        <td>
+                            <button class="btn btn-secondary">수정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#102</td>
+                        <td>레벨 시스템 업데이트 공지</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-active">게시중</span></td>
+                        <td>2025-12-05</td>
+                        <td>
+                            <button class="btn btn-secondary">수정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#103</td>
+                        <td>신규 시뮬레이터 기능 추가</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-pending">임시저장</span></td>
+                        <td>2025-12-03</td>
+                        <td>
+                            <button class="btn btn-primary">게시하기</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 주의사항 관리 -->
+        <div class="section">
+            <div class="section-title">⚠️ 주의사항 관리</div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>상태</th>
+                        <th>작성일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#201</td>
+                        <td>트레이딩 리스크 안내</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-active">게시중</span></td>
+                        <td>2025-12-01</td>
+                        <td>
+                            <button class="btn btn-secondary">수정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#202</td>
+                        <td>계좌 보안 주의사항</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-active">게시중</span></td>
+                        <td>2025-11-28</td>
+                        <td>
+                            <button class="btn btn-secondary">수정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#203</td>
+                        <td>정산 규정 변경 안내</td>
+                        <td>관리자</td>
+                        <td><span class="status-badge status-active">게시중</span></td>
+                        <td>2025-11-25</td>
+                        <td>
+                            <button class="btn btn-secondary">수정</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- 회원 관리 -->
         <div class="section">
             <div class="section-title">📊 회원 관리</div>
@@ -295,9 +393,66 @@
             </table>
         </div>
 
-        <!-- 문의 관리 -->
+        <!-- 고객센터 문의 관리 -->
         <div class="section">
-            <div class="section-title">💬 Sunny에게 묻기 관리</div>
+            <div class="section-title">📞 고객센터 문의 관리</div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>전화번호</th>
+                        <th>문의 내용 (요약)</th>
+                        <th>상태</th>
+                        <th>접수일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#701</td>
+                        <td>이지은</td>
+                        <td>lee@example.com</td>
+                        <td>010-1234-5678</td>
+                        <td>펀딩 계좌 개설 절차 문의</td>
+                        <td><span class="status-badge status-pending">답변대기</span></td>
+                        <td>2025-12-07</td>
+                        <td>
+                            <button class="btn btn-primary">답변하기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#702</td>
+                        <td>박민수</td>
+                        <td>park@example.com</td>
+                        <td>010-9876-5432</td>
+                        <td>정산 지연 관련 문의</td>
+                        <td><span class="status-badge status-active">답변완료</span></td>
+                        <td>2025-12-06</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#703</td>
+                        <td>최수진</td>
+                        <td>choi@example.com</td>
+                        <td>-</td>
+                        <td>레벨 시스템 설명 요청</td>
+                        <td><span class="status-badge status-active">답변완료</span></td>
+                        <td>2025-12-05</td>
+                        <td>
+                            <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sunny에게 묻기 관리 -->
+        <div class="section">
+            <div class="section-title">☀️ Sunny에게 묻기 관리</div>
             <table class="admin-table">
                 <thead>
                     <tr>
@@ -331,6 +486,17 @@
                         <td>2025-12-06</td>
                         <td>
                             <button class="btn btn-secondary">상세보기</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#503</td>
+                        <td>박서연</td>
+                        <td>트레이딩 전략</td>
+                        <td>리스크 관리 방법 조언</td>
+                        <td><span class="status-badge status-pending">답변대기</span></td>
+                        <td>2025-12-05</td>
+                        <td>
+                            <button class="btn btn-primary">답변하기</button>
                         </td>
                     </tr>
                 </tbody>
