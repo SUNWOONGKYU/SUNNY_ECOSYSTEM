@@ -192,6 +192,99 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        /* 모바일 최적화 */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .admin-title {
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 16px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-label {
+                font-size: 11px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            .section {
+                padding: 20px 16px;
+                border-radius: 8px;
+            }
+
+            .section-title {
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            /* 테이블 가로 스크롤 */
+            .admin-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .admin-table thead,
+            .admin-table tbody,
+            .admin-table tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            .admin-table th,
+            .admin-table td {
+                font-size: 12px;
+                padding: 8px 6px;
+            }
+
+            .btn {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .status-badge {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-label {
+                font-size: 10px;
+            }
+
+            .stat-value {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
