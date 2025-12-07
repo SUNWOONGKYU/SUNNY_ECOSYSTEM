@@ -3313,7 +3313,7 @@
 
         function selectAccount(account) {
             simConfig.account = account;
-            document.querySelectorAll('.control-group:nth-child(2) .btn-option').forEach(btn => {
+            document.querySelectorAll('.control-group:nth-child(1) .btn-option').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
