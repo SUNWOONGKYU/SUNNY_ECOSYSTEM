@@ -3304,7 +3304,8 @@
 
         function selectTrades(trades) {
             simConfig.trades = trades;
-            document.querySelectorAll('.control-group:nth-child(1) .btn-option').forEach(btn => {
+            // 클릭된 버튼의 부모 btn-group 내 모든 버튼에서 active 제거
+            event.target.parentElement.querySelectorAll('.btn-option').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
@@ -3312,7 +3313,8 @@
 
         function selectAccount(account) {
             simConfig.account = account;
-            document.querySelectorAll('.control-group:nth-child(1) .btn-option').forEach(btn => {
+            // 클릭된 버튼의 부모 btn-group 내 모든 버튼에서 active 제거
+            event.target.parentElement.querySelectorAll('.btn-option').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
@@ -3321,7 +3323,8 @@
         function selectWinRate(tp, sl) {
             simConfig.winRateTP = tp;
             simConfig.winRateSL = sl;
-            document.querySelectorAll('.control-group:nth-child(3) .btn-option').forEach(btn => {
+            // 클릭된 버튼의 부모 btn-group 내 모든 버튼에서 active 제거
+            event.target.parentElement.querySelectorAll('.btn-option').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
