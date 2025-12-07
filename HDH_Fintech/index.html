@@ -1527,6 +1527,13 @@
             font-size: 12px;
         }
 
+        .support-file-btn:hover,
+        .support-submit-btn:hover {
+            background: #ECFDF5 !important;
+            border-color: #A7F3D0 !important;
+            color: #10B981 !important;
+        }
+
         /* 반응형 - 태블릿 */
         @media (max-width: 1400px) {
             .main-container {
@@ -2829,12 +2836,10 @@
                         placeholder="사용법 문의, 문제 해결, 버그 신고, 기능 제안, HDH 전략 검토, 트레이딩 멘토링까지! AI 활용 능력 고수 + 공인회계사 + 엑셀러레이터인 Sunny에게 자유롭게 문의하세요!"
                         rows="4"></textarea>
                     <div style="display: flex; gap: 8px;">
-                        <button onclick="document.getElementById('supportFile').click()"
-                            style="flex: 1; padding: 10px; font-size: 12px; background: rgba(245, 158, 11, 0.08); border: 1px solid #999; border-radius: 8px; cursor: pointer; color: #333; font-weight: 500; transition: all 0.2s;"
-                            onmouseover="this.style.background='rgba(245, 158, 11, 0.15)'; this.style.borderColor='#F59E0B';"
-                            onmouseout="this.style.background='rgba(245, 158, 11, 0.08)'; this.style.borderColor='#999';">파일 첨부</button>
-                        <button onclick="submitSupport()"
-                            style="flex: 2; padding: 10px; font-size: 12px; background: #F59E0B; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s;">제출하기</button>
+                        <button onclick="document.getElementById('supportFile').click()" class="support-file-btn"
+                            style="flex: 1; padding: 10px; font-size: 12px; background: white; border: 1px solid #E2E8F0; border-radius: 8px; cursor: pointer; color: #475569; font-weight: 500; transition: all 0.2s;">파일 첨부</button>
+                        <button onclick="submitSupport()" class="support-submit-btn"
+                            style="flex: 2; padding: 10px; font-size: 12px; background: white; border: 1px solid #E2E8F0; border-radius: 8px; cursor: pointer; color: #475569; font-weight: 600; transition: all 0.2s;">제출하기</button>
                     </div>
                     <input type="file" id="supportFile" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"
                         style="display: none;" onchange="handleSupportFileSelect(event)">
