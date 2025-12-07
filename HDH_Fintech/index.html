@@ -643,6 +643,78 @@
             color: #10B981 !important;
         }
 
+        /* 트리 구조 스타일 */
+        .settings-item.tree-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .settings-item.tree-toggle.active {
+            background: #EFF6FF;
+            color: #2563EB;
+            font-weight: 600;
+            border-color: #93C5FD;
+        }
+
+        .arrow {
+            font-size: 10px;
+            color: #94A3B8;
+            transition: transform 0.3s;
+        }
+
+        .tree-content {
+            padding-left: 20px;
+            border-left: 2px solid #E2E8F0;
+            margin-left: 10px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .tree-item {
+            padding: 10px 12px;
+            font-size: 13px;
+            color: #475569;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #F1F5F9;
+        }
+
+        .tree-item:hover {
+            background: #F0F9FF;
+            color: #3B82F6;
+            transform: translateX(4px);
+            border-color: #BFDBFE;
+        }
+
+        .tree-content.sub-tree {
+            padding-left: 16px;
+            border-left: 2px solid #F1F5F9;
+            margin-left: 8px;
+        }
+
+        .tree-item.sub-item {
+            font-size: 12px;
+            padding: 8px 10px;
+            background: #FAFAFA;
+        }
+
+        .tree-item.sub-item:hover {
+            background: #F0F9FF;
+        }
+
+        .tree-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
         .view-more {
             display: block;
             text-align: center;
@@ -2786,14 +2858,150 @@
                     <span class="widget-icon">⚙️</span>
                     My 설정
                 </div>
+
+                <!-- 거래 시작일 설정 (단순 클릭) -->
                 <div class="settings-item" onclick="openSettingsModal(event)">
                     거래 시작일 설정
                 </div>
+
+                <!-- 누적손익 목표 설정 (단순 클릭) -->
                 <div class="settings-item" onclick="openGoalModal(event)">
                     누적손익 목표 설정
                 </div>
-                <div class="settings-item" onclick="openAccountModal(event)">
-                    계좌 관리
+
+                <!-- 계좌 관리 (트리 구조) -->
+                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
+                    <span>💼 계좌 관리</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="tree-content" style="display: none;">
+                    <div class="tree-item" onclick="openAccountDashboard()">
+                        📊 계좌 현황 보기
+                    </div>
+                    <div class="tree-item" onclick="openAccountModal(event)">
+                        ➕ 새 계좌 추가
+                    </div>
+                    <div class="tree-item" onclick="openAccountList()">
+                        🔗 연결된 계좌 관리
+                    </div>
+                    <div class="tree-item" onclick="openAccountLog()">
+                        📜 연동 로그
+                    </div>
+                </div>
+
+                <!-- API 연결 설정 (트리 구조) -->
+                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
+                    <span>🔌 API 연결 설정</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="tree-content" style="display: none;">
+                    <div class="tree-item" onclick="openAPIKeyManagement()">
+                        🔑 API 키 관리
+                    </div>
+                    <div class="tree-item" onclick="openConnectionTest()">
+                        🧪 연결 테스트
+                    </div>
+                    <div class="tree-item" onclick="openPermissionCheck()">
+                        🔐 권한 확인
+                    </div>
+                    <div class="tree-item" onclick="openUsageStats()">
+                        📊 사용량 통계
+                    </div>
+                    <div class="tree-item" onclick="openExpiryAlert()">
+                        ⏰ 만료 알림 설정
+                    </div>
+                </div>
+
+                <!-- 알림 설정 (트리 구조) -->
+                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
+                    <span>🔔 알림 설정</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="tree-content" style="display: none;">
+                    <div class="tree-item" onclick="toggleNotification('position', event)">
+                        <input type="checkbox" checked> 💰 포지션 청산 알림
+                    </div>
+                    <div class="tree-item" onclick="toggleNotification('account', event)">
+                        <input type="checkbox" checked> 🔗 계좌 연동 알림
+                    </div>
+                    <div class="tree-item" onclick="toggleNotification('sync', event)">
+                        <input type="checkbox" checked> ⚠️ 동기화 오류 알림
+                    </div>
+                    <div class="tree-item" onclick="toggleNotification('api', event)">
+                        <input type="checkbox" checked> 🔴 API 오류 알림
+                    </div>
+                </div>
+
+                <!-- 데이터 관리 (트리 구조 - 2단계) -->
+                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
+                    <span>📊 데이터 관리</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="tree-content" style="display: none;">
+                    <!-- 데이터 다운로드 (2단계) -->
+                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
+                        <span>📥 데이터 다운로드</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="tree-content sub-tree" style="display: none;">
+                        <div class="tree-item sub-item" onclick="downloadCSV()">
+                            CSV 거래 내역
+                        </div>
+                        <div class="tree-item sub-item" onclick="downloadPDF()">
+                            PDF 손익 리포트
+                        </div>
+                        <div class="tree-item sub-item" onclick="downloadLog()">
+                            TXT 연동 로그
+                        </div>
+                    </div>
+
+                    <!-- 데이터 삭제 (2단계) -->
+                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
+                        <span>🗑️ 데이터 삭제</span>
+                        <span class="arrow">▶</span>
+                    </div>
+                    <div class="tree-content sub-tree" style="display: none;">
+                        <div class="tree-item sub-item" onclick="deleteTradeHistory()">
+                            거래 내역 삭제
+                        </div>
+                        <div class="tree-item sub-item" onclick="deleteCache()">
+                            캐시 삭제
+                        </div>
+                    </div>
+
+                    <!-- 동기화 설정 -->
+                    <div class="tree-item" onclick="openSyncSettings()">
+                        🔄 동기화 설정
+                    </div>
+                </div>
+
+                <!-- 프로필 관리 (트리 구조) -->
+                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
+                    <span>👤 프로필 관리</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="tree-content" style="display: none;">
+                    <div class="tree-item" onclick="changeProfilePhoto()">
+                        📷 프로필 사진
+                    </div>
+                    <div class="tree-item" onclick="changeNickname()">
+                        ✏️ 닉네임 변경
+                    </div>
+                    <div class="tree-item" onclick="changeEmail()">
+                        📧 이메일 변경
+                    </div>
+                    <div class="tree-item" onclick="changePhone()">
+                        📱 전화번호 변경
+                    </div>
+                    <div class="tree-item" onclick="changePassword()">
+                        🔑 비밀번호 변경
+                    </div>
+                    <div class="tree-item" onclick="viewMemberInfo()">
+                        📊 회원 정보
+                    </div>
+                    <div class="tree-item" onclick="withdrawMembership()">
+                        🚪 회원 탈퇴
+                    </div>
                 </div>
             </div>
 
@@ -3289,10 +3497,169 @@
             closeGoalModal();
         }
 
-        // 계좌 관리 모달 함수
+        // ========================================
+        // 트리 구조 토글 함수
+        // ========================================
+        function toggleTree(element) {
+            const treeContent = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+
+            if (treeContent && treeContent.classList.contains('tree-content')) {
+                if (treeContent.style.display === 'none' || treeContent.style.display === '') {
+                    // 펼치기
+                    treeContent.style.display = 'block';
+                    arrow.textContent = '▼';
+                    element.classList.add('active');
+                } else {
+                    // 접기
+                    treeContent.style.display = 'none';
+                    arrow.textContent = '▶';
+                    element.classList.remove('active');
+
+                    // 2단계 트리도 모두 접기
+                    const subTrees = treeContent.querySelectorAll('.sub-tree');
+                    subTrees.forEach(subTree => {
+                        subTree.style.display = 'none';
+                        const subArrow = subTree.previousElementSibling.querySelector('.arrow');
+                        if (subArrow) subArrow.textContent = '▶';
+                    });
+                }
+            }
+
+            event.stopPropagation();
+        }
+
+        // ========================================
+        // 계좌 관리 관련 함수
+        // ========================================
         function openAccountModal(event) {
             event.preventDefault();
             document.getElementById('accountModal').classList.add('active');
+        }
+
+        function openAccountDashboard() {
+            alert('계좌 현황 대시보드\n\n모든 계좌의 실시간 연동 상태를 한눈에 확인할 수 있습니다.\n\n구현 예정입니다.');
+        }
+
+        function openAccountList() {
+            alert('연결된 계좌 관리\n\n계좌 목록 보기 및 편집/삭제 기능입니다.\n\n구현 예정입니다.');
+        }
+
+        function openAccountLog() {
+            alert('계좌 연동 로그\n\n동기화 이력 및 오류 로그를 확인할 수 있습니다.\n\n구현 예정입니다.');
+        }
+
+        // ========================================
+        // API 연결 설정 관련 함수
+        // ========================================
+        function openAPIKeyManagement() {
+            alert('API 키 관리\n\nAPI Key 보기/숨기기 및 재발급 기능입니다.\n\n구현 예정입니다.');
+        }
+
+        function openConnectionTest() {
+            alert('연결 테스트\n\n계좌 연결 상태를 테스트합니다.\n\n- API 인증\n- 계좌 정보 조회\n- 거래 내역 조회\n- 응답 속도 측정\n\n구현 예정입니다.');
+        }
+
+        function openPermissionCheck() {
+            alert('권한 확인\n\nAPI 키의 권한을 확인합니다.\n\n- 조회 권한 (READ)\n- 거래 권한 (TRADE) - 사용 안 함\n- 출금 권한 (WITHDRAW) - 절대 금지\n\n구현 예정입니다.');
+        }
+
+        function openUsageStats() {
+            alert('사용량 통계\n\nAPI 호출 사용량을 확인합니다.\n\n- 일일 사용량\n- 월간 사용량\n- Rate Limit 상태\n\n구현 예정입니다.');
+        }
+
+        function openExpiryAlert() {
+            alert('만료 알림 설정\n\nAPI 키 만료 7일 전부터 알림을 받을 수 있습니다.\n\n구현 예정입니다.');
+        }
+
+        // ========================================
+        // 알림 설정 관련 함수
+        // ========================================
+        function toggleNotification(type, event) {
+            const checkbox = event.target;
+            if (checkbox.tagName === 'INPUT') {
+                const isEnabled = checkbox.checked;
+                console.log(`${type} 알림: ${isEnabled ? 'ON' : 'OFF'}`);
+                alert(`${type} 알림이 ${isEnabled ? '활성화' : '비활성화'}되었습니다.`);
+            }
+            event.stopPropagation();
+        }
+
+        // ========================================
+        // 데이터 관리 관련 함수
+        // ========================================
+        function downloadCSV() {
+            alert('CSV 거래 내역 다운로드\n\n거래 내역을 CSV 파일로 다운로드합니다.\n엑셀에서 열어볼 수 있습니다.\n\n구현 예정입니다.');
+        }
+
+        function downloadPDF() {
+            alert('PDF 손익 리포트 다운로드\n\n손익 리포트를 PDF로 다운로드합니다.\n그래프와 통계가 포함됩니다.\n\n구현 예정입니다.');
+        }
+
+        function downloadLog() {
+            alert('TXT 연동 로그 다운로드\n\n계좌 연동 로그를 텍스트 파일로 다운로드합니다.\n\n구현 예정입니다.');
+        }
+
+        function deleteTradeHistory() {
+            if (confirm('거래 내역을 삭제하시겠습니까?\n\n⚠️ 삭제된 데이터는 복구할 수 없습니다.\n삭제 전 반드시 백업하세요.')) {
+                alert('거래 내역 삭제 기능입니다.\n\n구현 예정입니다.');
+            }
+        }
+
+        function deleteCache() {
+            if (confirm('캐시 데이터를 삭제하시겠습니까?\n\n약 26MB의 공간을 확보할 수 있습니다.')) {
+                alert('캐시 삭제가 완료되었습니다.\n\n구현 예정입니다.');
+            }
+        }
+
+        function openSyncSettings() {
+            alert('동기화 설정\n\n자동 동기화 간격을 설정합니다.\n\n- 5초마다 (권장)\n- 10초마다\n- 30초마다\n- 1분마다\n- 수동만\n\n구현 예정입니다.');
+        }
+
+        // ========================================
+        // 프로필 관리 관련 함수
+        // ========================================
+        function changeProfilePhoto() {
+            alert('프로필 사진 변경\n\n프로필 사진을 업로드할 수 있습니다.\n(JPG, PNG, 최대 2MB)\n\n구현 예정입니다.');
+        }
+
+        function changeNickname() {
+            const nickname = prompt('새 닉네임을 입력하세요 (2~10자):', '홍길동');
+            if (nickname && nickname.length >= 2 && nickname.length <= 10) {
+                alert('닉네임이 변경되었습니다: ' + nickname);
+            } else if (nickname) {
+                alert('닉네임은 2~10자 이내여야 합니다.');
+            }
+        }
+
+        function changeEmail() {
+            const email = prompt('새 이메일을 입력하세요:', 'hong@example.com');
+            if (email && confirm('이메일 변경 시 인증 메일이 발송됩니다.\n계속하시겠습니까?')) {
+                alert('인증 메일이 발송되었습니다.\n메일에서 인증을 완료해주세요.');
+            }
+        }
+
+        function changePhone() {
+            const phone = prompt('새 전화번호를 입력하세요:', '010-1234-5678');
+            if (phone && confirm('전화번호 변경 시 SMS 인증이 필요합니다.\n계속하시겠습니까?')) {
+                alert('인증번호가 발송되었습니다.');
+            }
+        }
+
+        function changePassword() {
+            if (confirm('비밀번호를 변경하시겠습니까?')) {
+                alert('비밀번호 변경 페이지로 이동합니다.\n\n구현 예정입니다.');
+            }
+        }
+
+        function viewMemberInfo() {
+            alert('회원 정보\n\n가입일: 2024년 1월 15일\n회원 등급: Lv.10 (상위 1%)\n총 거래 횟수: 247회\n총 누적 손익: ₩58,920,000');
+        }
+
+        function withdrawMembership() {
+            if (confirm('⚠️ 정말 탈퇴하시겠습니까?\n\n모든 데이터가 삭제되며 복구할 수 없습니다.')) {
+                alert('회원 탈퇴 절차로 이동합니다.\n\n구현 예정입니다.');
+            }
         }
 
         function closeAccountModal(event) {
