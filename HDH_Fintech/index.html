@@ -2674,6 +2674,9 @@
                 <div class="settings-item" onclick="openSettingsModal(event)">
                     거래 시작일 설정
                 </div>
+                <div class="settings-item" onclick="openGoalModal(event)">
+                    누적손익 목표 설정
+                </div>
                 <div class="settings-item" onclick="openAccountModal(event)">
                     계좌 관리
                 </div>
@@ -2981,6 +2984,34 @@
         </div>
     </div>
 
+    <!-- 누적손익 목표 설정 모달 -->
+    <div class="modal-overlay" id="goalModal" onclick="closeGoalModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-title">🎯 누적손익 목표 설정</div>
+                <button class="modal-close" onclick="closeGoalModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section" style="margin-bottom: 24px;">
+                    <div class="settings-label">월간 목표</div>
+                    <div class="settings-description">월간 누적손익 목표 금액을 설정합니다.</div>
+                    <input type="number" id="monthlyGoalInput" class="settings-input" placeholder="예: 5000000" value="5320000">
+                    <div style="font-size: 12px; color: #64748B; margin-top: 4px;">단위: 원 (₩)</div>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-label">연간 목표</div>
+                    <div class="settings-description">연간 누적손익 목표 금액을 설정합니다.</div>
+                    <input type="number" id="yearlyGoalInput" class="settings-input" placeholder="예: 70000000" value="70000000">
+                    <div style="font-size: 12px; color: #64748B; margin-top: 4px;">단위: 원 (₩)</div>
+                </div>
+                <div class="settings-actions">
+                    <button class="btn-settings-cancel" onclick="closeGoalModal()">취소</button>
+                    <button class="btn-settings-save" onclick="saveGoals()">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 계좌 관리 모달 -->
     <div class="modal-overlay" id="accountModal" onclick="closeAccountModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 600px;">
@@ -3114,6 +3145,27 @@
 
             // 모달 닫기
             closeSettingsModal();
+        }
+
+        // 누적손익 목표 설정 모달 함수
+        function openGoalModal(event) {
+            event.preventDefault();
+            document.getElementById('goalModal').classList.add('active');
+        }
+
+        function closeGoalModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('goalModal').classList.remove('active');
+        }
+
+        function saveGoals() {
+            const monthlyGoal = document.getElementById('monthlyGoalInput').value;
+            const yearlyGoal = document.getElementById('yearlyGoalInput').value;
+
+            alert(`목표가 설정되었습니다:\n\n월간 목표: ₩${parseInt(monthlyGoal).toLocaleString()}\n연간 목표: ₩${parseInt(yearlyGoal).toLocaleString()}`);
+
+            // 모달 닫기
+            closeGoalModal();
         }
 
         // 계좌 관리 모달 함수
