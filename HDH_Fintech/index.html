@@ -2455,9 +2455,19 @@
                 <!-- 운영 손익 시뮬레이터 -->
                 <div class="simulator-container" id="simulatorSection">
                     <div class="simulator-title">🧮 운영손익 시뮬레이터</div>
-                    <div class="simulator-subtitle">거래 횟수, 계좌 규모, 합격률을 설정하여 예상 손익을 시뮬레이션하세요</div>
+                    <div class="simulator-subtitle">계좌 규모, 거래 횟수, 합격률을 설정하여 예상 손익을 시뮬레이션하세요</div>
 
                     <div class="simulator-controls">
+                        <!-- 계좌 규모 -->
+                        <div class="control-group">
+                            <label class="control-label">계좌 규모 (챌린지 참가비)</label>
+                            <div class="btn-group">
+                                <button class="btn-option" onclick="selectAccount(100)">$100</button>
+                                <button class="btn-option active" onclick="selectAccount(300)">$300</button>
+                                <button class="btn-option" onclick="selectAccount(500)">$500</button>
+                            </div>
+                        </div>
+
                         <!-- 거래 횟수 -->
                         <div class="control-group">
                             <label class="control-label">월간 거래 횟수 (월간 20일 거래 기준)</label>
@@ -2472,16 +2482,6 @@
                                 <button class="btn-option" onclick="selectTrades(160)">160회</button>
                                 <button class="btn-option" onclick="selectTrades(180)">180회</button>
                                 <button class="btn-option" onclick="selectTrades(200)">200회</button>
-                            </div>
-                        </div>
-
-                        <!-- 계좌 규모 -->
-                        <div class="control-group">
-                            <label class="control-label">계좌 규모 (챌린지 참가비)</label>
-                            <div class="btn-group">
-                                <button class="btn-option" onclick="selectAccount(100)">$100</button>
-                                <button class="btn-option active" onclick="selectAccount(300)">$300</button>
-                                <button class="btn-option" onclick="selectAccount(500)">$500</button>
                             </div>
                         </div>
 

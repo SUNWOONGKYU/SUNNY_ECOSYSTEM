@@ -166,10 +166,10 @@ def md_to_pdf(md_file, pdf_file):
     # PDF 빌드
     try:
         doc.build(story)
-        print(f"✅ PDF created successfully: {pdf_file}")
+        print(f"PDF created successfully: {pdf_file}")
         return True
     except Exception as e:
-        print(f"❌ Error creating PDF: {e}")
+        print(f"Error creating PDF: {e}")
         return False
 
 if __name__ == "__main__":
