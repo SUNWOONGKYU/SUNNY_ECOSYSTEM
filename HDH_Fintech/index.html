@@ -385,18 +385,19 @@
         .community-link {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 12px;
             padding: 14px 16px;
             background: white;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.2s;
-            border: 1px solid #FED7AA;
+            border: 1px solid #E2E8F0;
         }
 
         .community-link:hover {
-            background: #FFF7ED;
-            border-color: #F59E0B;
+            background: #ECFDF5;
+            border-color: #A7F3D0;
             transform: translateX(2px);
         }
 
@@ -409,13 +410,23 @@
             flex: 1;
             font-size: 13px;
             font-weight: 600;
-            color: #D97706;
+            color: #475569;
+            transition: all 0.2s;
+        }
+
+        .community-link:hover .community-text {
+            color: #10B981;
         }
 
         .community-arrow {
             font-size: 18px;
             font-weight: 700;
-            color: #F59E0B;
+            color: #64748B;
+            transition: all 0.2s;
+        }
+
+        .community-link:hover .community-arrow {
+            color: #10B981;
         }
 
         /* 즐겨찾기 */
@@ -1485,6 +1496,37 @@
             white-space: nowrap;
         }
 
+        /* 써니에게 묻기 */
+        .support-input-area {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .support-input-area textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+            font-size: 12px;
+            resize: vertical;
+            line-height: 1.5;
+            color: #1F2937;
+            transition: all 0.2s;
+        }
+
+        .support-input-area textarea:focus {
+            outline: none;
+            border-color: #10B981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .support-input-area textarea::placeholder {
+            color: #94A3B8;
+            font-size: 12px;
+        }
+
         /* 반응형 - 태블릿 */
         @media (max-width: 1400px) {
             .main-container {
@@ -2162,18 +2204,6 @@
                 </div>
             </div>
 
-            <!-- 커뮤니티 바로가기 -->
-            <div class="sidebar-section">
-                <div class="section-title">
-                    <span class="section-icon">💬</span>
-                    커뮤니티 바로가기
-                </div>
-                <a href="#" class="community-link">
-                    <span class="community-text">HDH 실전 운영자 커뮤니티</span>
-                    <span class="community-arrow">→</span>
-                </a>
-            </div>
-
             <!-- HDH 운영 개시 전 프로세스 -->
             <div class="sidebar-section">
                 <div class="section-title">
@@ -2263,6 +2293,23 @@
                     <div class="level-stats-total">전체 회원: <span id="totalMembersDisplay">1,000명</span></div>
                 </div>
                 <div class="level-stats-list" id="levelStatsList">
+                    <!-- JavaScript로 동적 생성 -->
+                </div>
+            </div>
+
+            <!-- 연간 누적 순이익 랭킹 Top 10 -->
+            <div class="sidebar-section ranking-widget">
+                <div class="section-title">
+                    <span class="section-icon">🏆</span>
+                    연간 누적 순이익 랭킹 Top 10
+                </div>
+                <div class="ranking-header">
+                    <div class="ranking-live">
+                        <span class="live-dot"></span>
+                        실시간
+                    </div>
+                </div>
+                <div class="ranking-list" id="rankingList">
                     <!-- JavaScript로 동적 생성 -->
                 </div>
             </div>
@@ -2630,6 +2677,18 @@
                 </div>
             </div>
 
+            <!-- 커뮤니티 바로가기 -->
+            <div class="widget">
+                <div class="widget-title">
+                    <span class="widget-icon">💬</span>
+                    커뮤니티 바로가기
+                </div>
+                <a href="#" class="community-link">
+                    <span class="community-text">HDH 실전 운영자 커뮤니티</span>
+                    <span class="community-arrow">→</span>
+                </a>
+            </div>
+
             <!-- AI 자동화 프로그램 다운로드 -->
             <div class="sidebar-section">
                 <div class="section-title">
@@ -2710,8 +2769,8 @@
                 <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #E2E8F0;">
                     <div style="font-size: 12px; color: #64748B; margin-bottom: 8px;">My 레벨</div>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px; font-weight: 700; color: #10B981;">Lv.5</span>
-                        <span style="font-size: 11px; color: #64748B;">상위 50%</span>
+                        <span style="font-size: 18px; font-weight: 700; color: #EF4444;">Lv.10</span>
+                        <span style="font-size: 11px; color: #64748B;">상위 1%</span>
                     </div>
                 </div>
 
@@ -2719,7 +2778,7 @@
                 <div>
                     <div style="font-size: 12px; color: #64748B; margin-bottom: 8px;">My 랭킹</div>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 18px; font-weight: 700; color: #10B981;">5위</span>
+                        <span style="font-size: 18px; font-weight: 700; color: #EF4444;">5위</span>
                         <span style="font-size: 11px; color: #64748B;">전체 1,000명 중</span>
                     </div>
                 </div>
@@ -2759,20 +2818,28 @@
                 <a href="#" class="view-more" onclick="openDiaryModal(event)" style="margin-top: 8px;">전체 보기 →</a>
             </div>
 
-            <!-- Top 10 랭킹 -->
-            <div class="widget ranking-widget">
+            <!-- 써니에게 묻기 -->
+            <div class="widget">
                 <div class="widget-title">
-                    <span class="widget-icon">🏆</span>
-                    연간 누적 순이익 랭킹 Top 10
+                    <span class="widget-icon">☀️</span>
+                    Sunny에게 묻기
                 </div>
-                <div class="ranking-header">
-                    <div class="ranking-live">
-                        <span class="live-dot"></span>
-                        실시간
+                <div class="support-input-area">
+                    <textarea id="supportQuestion"
+                        placeholder="사용법 문의, 문제 해결, 버그 신고, 기능 제안, HDH 전략 검토, 트레이딩 멘토링까지! AI 활용 능력 고수 + 공인회계사 + 엑셀러레이터인 Sunny에게 자유롭게 문의하세요!"
+                        rows="4"></textarea>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="document.getElementById('supportFile').click()"
+                            style="flex: 1; padding: 10px; font-size: 12px; background: rgba(245, 158, 11, 0.08); border: 1px solid #999; border-radius: 8px; cursor: pointer; color: #333; font-weight: 500; transition: all 0.2s;"
+                            onmouseover="this.style.background='rgba(245, 158, 11, 0.15)'; this.style.borderColor='#F59E0B';"
+                            onmouseout="this.style.background='rgba(245, 158, 11, 0.08)'; this.style.borderColor='#999';">파일 첨부</button>
+                        <button onclick="submitSupport()"
+                            style="flex: 2; padding: 10px; font-size: 12px; background: #F59E0B; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s;">제출하기</button>
                     </div>
-                </div>
-                <div class="ranking-list" id="rankingList">
-                    <!-- JavaScript로 동적 생성 -->
+                    <input type="file" id="supportFile" multiple accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"
+                        style="display: none;" onchange="handleSupportFileSelect(event)">
+                    <div id="supportFileList" style="font-size: 12px; color: #666; max-height: 60px; overflow-y: auto;">
+                    </div>
                 </div>
             </div>
         </div>
@@ -3697,6 +3764,59 @@
             // 30초마다 업데이트 (실제 구현 시 WebSocket 또는 API 폴링)
             setInterval(simulateRankingUpdate, 30000);
         });
+
+        // 써니에게 묻기 관련 함수
+        let supportFiles = [];
+
+        function handleSupportFileSelect(event) {
+            const files = Array.from(event.target.files);
+            supportFiles = supportFiles.concat(files);
+            updateSupportFileList();
+        }
+
+        function updateSupportFileList() {
+            const fileList = document.getElementById('supportFileList');
+            if (supportFiles.length === 0) {
+                fileList.innerHTML = '';
+                return;
+            }
+            fileList.innerHTML = supportFiles.map((file, index) =>
+                `<div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
+                    <span style="color: #475569;">📎 ${file.name}</span>
+                    <button onclick="removeSupportFile(${index})" style="background: none; border: none; color: #EF4444; cursor: pointer; font-size: 14px;">×</button>
+                </div>`
+            ).join('');
+        }
+
+        function removeSupportFile(index) {
+            supportFiles.splice(index, 1);
+            updateSupportFileList();
+        }
+
+        function submitSupport() {
+            const question = document.getElementById('supportQuestion').value;
+
+            if (!question.trim()) {
+                alert('문의 내용을 입력하세요!');
+                return;
+            }
+
+            try {
+                let fileInfo = supportFiles.length > 0 ? '\n📎 첨부 파일: ' + supportFiles.map(f => f.name).join(', ') : '';
+
+                alert('✅ 문의가 접수되었습니다!\n\n문의 내용: ' + question + fileInfo + '\n\n관리자가 확인 후 답변을 드립니다.\n접수 시간: ' + new Date().toLocaleString('ko-KR'));
+
+                // 문의창 및 파일 초기화
+                document.getElementById('supportQuestion').value = '';
+                document.getElementById('supportFile').value = '';
+                supportFiles = [];
+                document.getElementById('supportFileList').innerHTML = '';
+
+            } catch (error) {
+                console.error('문의 제출 실패:', error);
+                alert('문의 제출 중 오류가 발생했습니다: ' + error.message);
+            }
+        }
     </script>
 
     <!-- 푸터 -->
