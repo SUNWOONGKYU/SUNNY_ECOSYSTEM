@@ -1654,14 +1654,22 @@
         /* 반응형 - 모바일 */
         @media (max-width: 960px) {
             .main-wrapper {
-                grid-template-columns: 1fr;
+                display: flex !important;
+                flex-direction: column !important;
                 gap: 16px;
             }
 
             /* 사이드바도 세로로 쌓임 - 숨기지 않음 */
             .left-sidebar,
             .right-sidebar {
-                width: 100%;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column;
+            }
+
+            .center-column {
+                width: 100% !important;
+                order: -1; /* 중앙 컨텐츠를 맨 위로 */
             }
 
             .links-grid {
