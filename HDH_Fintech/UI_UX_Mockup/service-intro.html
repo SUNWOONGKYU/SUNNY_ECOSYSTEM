@@ -177,6 +177,164 @@
             white-space: pre;
         }
 
+        .visual-diagram {
+            margin: 32px 0;
+        }
+
+        .diagram-title {
+            text-align: center;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .diagram-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .diagram-column {
+            flex: 1;
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .diagram-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F59E0B;
+            margin: 0 0 16px 0;
+            text-align: center;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #FEF3C7;
+        }
+
+        .diagram-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .diagram-column li {
+            padding: 8px 0 8px 20px;
+            margin: 0;
+            color: #475569;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .diagram-column li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+        }
+
+        .diagram-footer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid #E2E8F0;
+        }
+
+        .diagram-footer-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .diagram-footer-box {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .journey-diagram {
+            margin: 32px 0;
+        }
+
+        .journey-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .journey-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .journey-step-box {
+            background: white;
+            border: 2px solid #F59E0B;
+            border-radius: 8px;
+            padding: 12px 8px;
+            margin: 0 8px;
+            font-weight: 600;
+            color: #D97706;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.1);
+        }
+
+        .journey-arrow {
+            color: #F59E0B;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .journey-details {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .journey-detail {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            background: #F8FAFC;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        @media (max-width: 768px) {
+            .diagram-row {
+                flex-direction: column;
+            }
+
+            .journey-steps {
+                flex-direction: column;
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+                margin: 8px 0;
+            }
+
+            .journey-details {
+                flex-direction: column;
+            }
+        }
+
         .cta-section {
             background: #F8FAFC;
             padding: 32px;
@@ -342,10 +500,46 @@
 
             <h2>사용자 여정: HDH 운영의 시작부터 수익 창출까지</h2>
 
-            <div class="diagram-box">처음 방문 → 학습 → 준비 → 실행 → 관리 → 자동화 → 수익 창출
-   ↓         ↓      ↓      ↓      ↓       ↓         ↓
- 서비스    솔루션  온보딩  일일   실적    AI      커뮤니티
- 소개      이해    5단계  프로세스 추적   시스템    참여</div>
+            <div class="journey-diagram">
+                <div class="journey-steps">
+                    <div class="journey-step">
+                        <div class="journey-step-box">처음 방문</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">학습</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">준비</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">실행</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">관리</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">자동화</div>
+                    </div>
+                    <span class="journey-arrow">→</span>
+                    <div class="journey-step">
+                        <div class="journey-step-box">수익 창출</div>
+                    </div>
+                </div>
+                <div class="journey-details">
+                    <div class="journey-detail">서비스 소개</div>
+                    <div class="journey-detail">솔루션 이해</div>
+                    <div class="journey-detail">온보딩 5단계</div>
+                    <div class="journey-detail">일일 프로세스</div>
+                    <div class="journey-detail">실적 추적</div>
+                    <div class="journey-detail">AI 시스템</div>
+                    <div class="journey-detail">커뮤니티 참여</div>
+                </div>
+            </div>
 
             <h2>1. 학습 단계: HDH 솔루션 완벽 이해</h2>
 
@@ -516,26 +710,56 @@
 
             <h2>HDH Fintech 웹사이트 구조</h2>
 
-            <div class="diagram-box">┌─────────────────────────────────────────────────────────┐
-│            HDH Fintech 웹사이트 전체 구조                  │
-└─────────────────────────────────────────────────────────┘
+            <div class="visual-diagram">
+                <div class="diagram-title">HDH Fintech 웹사이트 전체 구조</div>
 
-┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-│  좌측 사이드바  │  │  중앙 콘텐츠   │  │  우측 사이드바  │
-└──────────────┘  └──────────────┘  └──────────────┘
-      ↓                  ↓                  ↓
+                <div class="diagram-row">
+                    <div class="diagram-column">
+                        <h4>좌측 사이드바</h4>
+                        <ul>
+                            <li>서비스 바로가기</li>
+                            <li>준비 프로세스</li>
+                            <li>레벨 분포</li>
+                            <li>랭킹 Top 10</li>
+                        </ul>
+                    </div>
 
- • 서비스 바로가기      • 환영 배너         • 즐겨찾기
- • 준비 프로세스       • 1차 프로세스       • 커뮤니티
- • 레벨 분포          • 2차 프로세스       • AI 다운로드
- • 랭킹 Top 10        • 손익 시뮬레이터     • My 설정
-                                        • My 누적손익
-                                        • My 발생일지
-                                        • 공지/주의사항
+                    <div class="diagram-column">
+                        <h4>중앙 콘텐츠</h4>
+                        <ul>
+                            <li>환영 배너</li>
+                            <li>1차 프로세스</li>
+                            <li>2차 프로세스</li>
+                            <li>손익 시뮬레이터</li>
+                        </ul>
+                    </div>
 
-         ↓                 ↓                 ↓
+                    <div class="diagram-column">
+                        <h4>우측 사이드바</h4>
+                        <ul>
+                            <li>즐겨찾기</li>
+                            <li>커뮤니티</li>
+                            <li>AI 다운로드</li>
+                            <li>My 설정</li>
+                            <li>My 누적손익</li>
+                            <li>My 발생일지</li>
+                            <li>공지/주의사항</li>
+                        </ul>
+                    </div>
+                </div>
 
-    【 학습 】         【 실행 】          【 관리 】</div>
+                <div class="diagram-footer">
+                    <div class="diagram-footer-item">
+                        <div class="diagram-footer-box">학습</div>
+                    </div>
+                    <div class="diagram-footer-item">
+                        <div class="diagram-footer-box">실행</div>
+                    </div>
+                    <div class="diagram-footer-item">
+                        <div class="diagram-footer-box">관리</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="cta-section">
                 <h3>지금 바로 시작하세요</h3>
