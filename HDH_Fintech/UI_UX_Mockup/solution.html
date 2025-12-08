@@ -55,6 +55,27 @@
         font-weight: 500;
     }
 
+    .close-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
     /* 목차 네비게이션 */
     .toc {
         background: white;
@@ -367,6 +388,23 @@
         margin: 40px 0;
     }
 
+    /* 뒤로가기 링크 */
+    .back-link {
+        display: inline-block;
+        margin: 40px auto 0;
+        color: #64748B;
+        text-decoration: none;
+        font-size: 15px;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .back-link:hover {
+        color: #F59E0B;
+        transform: translateX(-4px);
+    }
+
     /* 푸터 */
     .footer {
         background: #F59E0B;
@@ -637,8 +675,11 @@
 <!-- 헤더 -->
 <div class="header">
     <div class="header-inner">
-        <div class="logo">HDH Fintech</div>
-        <div class="header-subtitle">금 선물 기반 무위험 차익거래 전략 분석 리포트 v1.2</div>
+        <div>
+            <div class="logo">HDH Fintech</div>
+            <div class="header-subtitle">금 선물 기반 무위험 차익거래 전략 분석 리포트 v1.2</div>
+        </div>
+        <a href="index.html" class="close-btn">×</a>
     </div>
 </div>
 
@@ -1156,6 +1197,10 @@
             </ul>
             <p>수학적으로 정교하게 설계된 무손실 차익거래 구조입니다. 플랫폼이 승인한 합법적 전략이며, 양방향 헷지로 어떤 결과가 나와도 반드시 수익이 발생합니다. 🏆</p>
         </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="index.html" class="back-link">← 메인 페이지로 돌아가기</a>
     </div>
 </div>
 
