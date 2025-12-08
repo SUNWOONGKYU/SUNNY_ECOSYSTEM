@@ -1,188 +1,41 @@
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>HDH_핀테크_솔루션_금선물_v1.1</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HDH 핀테크 솔루션</title>
+<style>
     body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
+        font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+        color: #333;
     }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+    h1 { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+    h2 { margin-top: 40px; border-bottom: 1px solid #eee; padding-bottom: 10px; color: #0056b3; }
+    h3 { margin-top: 30px; color: #444; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background-color: #f8f9fa; font-weight: bold; color: #333; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    code { background-color: #f1f3f5; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; color: #c92a2a; }
+    pre { background-color: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid #e9ecef; }
+    pre code { background-color: transparent; padding: 0; color: #333; }
+    blockquote { border-left: 5px solid #0056b3; margin: 20px 0; padding: 10px 20px; background-color: #e7f5ff; color: #004085; border-radius: 4px; }
+    .emoji { font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif; }
+    hr { border: 0; height: 1px; background: #ddd; margin: 40px 0; }
+</style>
 </head>
 <body>
-<h1 id="hdh-핀테크-솔루션">HDH 핀테크 솔루션</h1>
-<p>금 선물 차익거래 전략에 대한 기본 개념과 용어를 친절히 설명합니다.
-초보자도 이해하기 쉽도록 단계별로 정리했습니다.</p>
-<h2 id="금-선물gold-futures-기반-무위험-차익거래-전략">금 선물(Gold
-Futures) 기반 무위험 차익거래 전략</h2>
-<h3 id="챌린지-계좌-300-보험금-계좌-사용시-분석-리포트">$300 챌린지 계좌
-/ $300 보험금 계좌 사용시 분석 리포트</h3>
-<p><strong>버전 1.1</strong></p>
+<h1>HDH 핀테크 솔루션</h1>
+<h2>금 선물(Gold Futures) 기반 무위험 차익거래 전략</h2>
+<h3>$300 챌린지 계좌 / $300 보험금 계좌 사용시 분석 리포트</h3>
 <hr />
-<h2 id="목차">📋 목차</h2>
-<ol type="1">
+<h2>📋 목차</h2>
+<ol>
 <li>전략 개요</li>
 <li>기초 용어 설명</li>
 <li>계좌 구조</li>
@@ -194,30 +47,11 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <li>84:16 설계의 비밀</li>
 <li>결론</li>
 </ol>
-<h2 id="용어-사전">📚 용어 사전</h2>
-<ul>
-<li><strong>프롭펌 (Prop Firm)</strong>: 트레이더에게 자본을提供하고
-수익을 나눠 갖는 회사.</li>
-<li><strong>헷지 (Hedge)</strong>: 반대 포지션을 동시에 잡아 위험을
-상쇄하는 전략.</li>
-<li><strong>Lot</strong>: 선물 계약의 단위, 1 lot = $100 per point.</li>
-<li><strong>TP (Take Profit)</strong>: 목표 수익에 도달하면 자동
-청산.</li>
-<li><strong>SL (Stop Loss)</strong>: 손실 제한에 도달하면 자동
-청산.</li>
-<li><strong>금 선물 (Gold Futures)</strong>: 금 가격 변동에 투자하는
-선물 계약.</li>
-</ul>
 <hr />
-<h2 id="전략-개요">1. 전략 개요</h2>
-<p>HDH 전략은 <strong>프롭펌(Proprietary Trading Firm)</strong> 챌린지
-시스템을 활용한 무위험 차익거래 구조입니다. 금 선물(Gold Futures) 시장의
-높은 변동성을 활용합니다.</p>
-<h3 id="핵심-아이디어">💡 핵심 아이디어</h3>
-<p>프롭펌에 $300 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩
-챌린지에 참여할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서
-반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 펀딩 금액 $3,000을
-순수익으로 확보합니다.</p>
+<h2>1. 전략 개요</h2>
+<p>HDH 전략은 <strong>프롭펌(Proprietary Trading Firm)</strong> 챌린지 시스템을 활용한 무위험 차익거래 구조입니다. 금 선물(Gold Futures) 시장의 높은 변동성을 활용합니다.</p>
+<h3>💡 핵심 아이디어</h3>
+<p>프롭펌에 $300 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩 챌린지에 참여할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서 반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 <strong>펀딩 계좌 트레이딩 수익($3,000)</strong>을 순수익으로 확보합니다.</p>
 <pre><code>┌─────────────────┐     ┌─────────────────┐
 │  챌린지 계좌    │     │  보험금 계좌    │
 │ (가상 $3,000)   │     │ (실제 $300)     │
@@ -229,20 +63,17 @@ Futures) 기반 무위험 차익거래 전략</h2>
          │                       │
          └───────────┬───────────┘
                      ▼
-              ✅ 완벽한 헷지</code></pre>
+              ✅ 완벽한 헷지
+</code></pre>
 <hr />
-<h2 id="기초-용어-설명">2. 기초 용어 설명</h2>
-<h3 id="프롭펌-prop-firm">🏢 프롭펌 (Prop Firm)</h3>
-<p>트레이더에게 회사 자본을 빌려주고, 수익이 나면 나눠 갖는 회사입니다.
-챌린지 통과 시 최대 수백만 달러까지 운용할 수 있습니다.</p>
-<p><strong>예</strong>: $300 참가비 → 챌린지 통과 → $3,000 실계좌
-지급</p>
-<h3 id="금-선물-gold-futures">🥇 금 선물 (Gold Futures)</h3>
-<p>미래 특정 시점에 금을 정해진 가격에 사고팔기로 약속하는 계약입니다.
-실제 금을 보유하지 않고도 금 선물 가격 변동에 투자할 수 있습니다.</p>
-<p><strong>예</strong>: 금 선물 가격 $2,000 → $2,010 상승 시 Buy 포지션
-수익</p>
-<h3 id="lot-랏---계약수">📊 Lot (랏) - 계약수</h3>
+<h2>2. 기초 용어 설명</h2>
+<h3>🏢 프롭펌 (Prop Firm)</h3>
+<p>트레이더에게 회사 자본을 빌려주고, 수익이 나면 나눠 갖는 회사입니다. 챌린지 통과 시 최대 수백만 달러까지 운용할 수 있습니다.</p>
+<p><strong>예</strong>: $300 참가비 → 챌린지 통과 → $3,000 실계좌 지급</p>
+<h3>🥇 금 선물 (Gold Futures)</h3>
+<p>미래 특정 시점에 금을 정해진 가격에 사고팔기로 약속하는 계약입니다. 실제 금을 보유하지 않고도 금 선물 가격 변동에 투자할 수 있습니다.</p>
+<p><strong>예</strong>: 금 선물 가격 $2,000 → $2,010 상승 시 Buy 포지션 수익</p>
+<h3>📊 Lot (랏) - 계약수</h3>
 <p>금 선물 거래에서 계약수를 나타내는 단위입니다.</p>
 <table>
 <thead>
@@ -271,32 +102,27 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tbody>
 </table>
 <p><strong>예</strong>: 0.9 lots × 1 point 이동 = $90 손익</p>
-<h3 id="point-포인트---가격-변동-단위">📏 Point (포인트) - 가격 변동
-단위</h3>
+<h3>📏 Point (포인트) - 가격 변동 단위</h3>
 <p>금 선물 가격의 변동 단위입니다.</p>
-<p><strong>예</strong>: 금 선물 가격 $2,000.0 → $2,000.1 = 1 point
-상승</p>
-<h3 id="tp-take-profit---익절">🎯 TP (Take Profit) - 익절</h3>
+<p><strong>예</strong>: 금 선물 가격 $2,000.0 → $2,000.1 = 1 point 상승</p>
+<h3>🎯 TP (Take Profit) - 익절</h3>
 <p>목표 수익에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
 <p><strong>예</strong>: TP 4.1p = 4.1 point 수익 시 자동 종료</p>
-<h3 id="sl-stop-loss---손절">🛡️ SL (Stop Loss) - 손절</h3>
+<h3>🛡️ SL (Stop Loss) - 손절</h3>
 <p>손실 한도에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
 <p><strong>예</strong>: SL 21.5p = 21.5 point 손실 시 자동 종료</p>
-<h3 id="헷지-hedge">⚖️ 헷지 (Hedge)</h3>
+<h3>⚖️ 헷지 (Hedge)</h3>
 <p>반대 방향 거래로 위험을 상쇄하는 전략입니다.</p>
-<p><strong>예</strong>: A계좌 Buy + B계좌 Sell = 가격이 어디로 가든 손익
-상쇄</p>
-<h3 id="buy-sell">📈 Buy / 📉 Sell</h3>
+<p><strong>예</strong>: A계좌 Buy + B계좌 Sell = 가격이 어디로 가든 손익 상쇄</p>
+<h3>📈 Buy / 📉 Sell</h3>
 <ul>
-<li><strong>Buy (매수)</strong>: 가격 상승에 베팅. 가격이 오르면 수익,
-내리면 손실.</li>
-<li><strong>Sell (매도)</strong>: 가격 하락에 베팅. 가격이 내리면 수익,
-오르면 손실.</li>
+<li><strong>Buy (매수)</strong>: 가격 상승에 베팅. 가격이 오르면 수익, 내리면 손실.</li>
+<li><strong>Sell (매도)</strong>: 가격 하락에 베팅. 가격이 내리면 수익, 오르면 손실.</li>
 </ul>
 <p><strong>예</strong>: 금 $2,000에서 Buy → $2,010이 되면 +$10 수익</p>
 <hr />
-<h2 id="계좌-구조-300-기준">3. 계좌 구조 ($300 기준)</h2>
-<h3 id="참가-구조">3.1 참가 구조</h3>
+<h2>3. 계좌 구조 ($300 기준)</h2>
+<h3>3.1 참가 구조</h3>
 <table>
 <thead>
 <tr>
@@ -328,7 +154,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="트레이딩-설정">3.2 트레이딩 설정</h3>
+<h3>3.2 트레이딩 설정</h3>
 <table>
 <thead>
 <tr>
@@ -360,10 +186,8 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h4 id="반대-방향도-가능">🔄 반대 방향도 가능!</h4>
-<p>위 설정은 예시입니다. 챌린지 계좌 Sell + 보험금 계좌 Buy로 반대 방향
-진입도 가능합니다. 중요한 것은 두 계좌가 서로 반대 방향이어야 한다는
-점입니다.</p>
+<h4>🔄 반대 방향도 가능!</h4>
+<p>위 설정은 예시입니다. 챌린지 계좌 Sell + 보험금 계좌 Buy로 반대 방향 진입도 가능합니다. 중요한 것은 두 계좌가 서로 반대 방향이어야 한다는 점입니다.</p>
 <table>
 <thead>
 <tr>
@@ -386,8 +210,8 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tbody>
 </table>
 <hr />
-<h2 id="헷지-전략">4. 헷지 전략</h2>
-<h3 id="반대-포지션-동시-진입">4.1 반대 포지션 동시 진입</h3>
+<h2>4. 헷지 전략</h2>
+<h3>4.1 반대 포지션 동시 진입</h3>
 <p>같은 시점에 두 계좌에서 반대 방향으로 진입합니다.</p>
 <table>
 <thead>
@@ -411,20 +235,14 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tbody>
 </table>
 <p>어느 방향이든 두 계좌가 서로 반대이기만 하면 헷지가 성립합니다.</p>
-<h3 id="tpsl-대칭-설계">4.2 TP/SL 대칭 설계</h3>
-<h4 id="핵심-아이디어-1">💡 핵심 아이디어</h4>
+<h3>4.2 TP/SL 대칭 설계</h3>
+<h4>💡 핵심 아이디어</h4>
 <p>✅ <strong>챌린지 합격 → 보험금 계좌는 손절</strong></p>
 <p>✅ <strong>챌린지 탈락 → 보험금 계좌는 익절</strong></p>
 <p>→ 이렇게 손익을 상쇄합니다!</p>
-<h3 id="시나리오별-결과">4.3 시나리오별 결과</h3>
-<h4 id="차-챌린지-단계">1차: 챌린지 단계</h4>
+<h3>4.3 시나리오별 결과</h3>
+<h4>1차: 챌린지 단계</h4>
 <table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr>
 <th>시나리오</th>
@@ -436,8 +254,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tbody>
 <tr>
 <td>금 선물 가격 +21.5p 상승</td>
-<td>TP 도달 → 합격!<br><strong>펀딩 금액 +$3,000</strong><br>참가비 소멸
--$300</td>
+<td>TP 도달 → 합격!<br><strong>펀딩 계좌 트레이딩 수익 +$3,000</strong><br>참가비 소멸 -$300</td>
 <td>SL 도달 → 손절<br>(0.9 lots × 21.5p × $100 = -$1,935)</td>
 <td><strong>+$165</strong> 🏆<br>($2,400 - $1,935 - $300)</td>
 </tr>
@@ -449,11 +266,11 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h4 id="차-펀딩-금액-트레이딩-단계">2차: 펀딩 금액 트레이딩 단계</h4>
-<p>챌린지 합격 후 받은 펀딩 계좌($3,000)는 즉시 현금화되지 않고, 추가
-트레이딩 단계를 거칩니다.</p>
-<p><strong>프로세스:</strong> 1. 펀딩 계좌 2개 확보 대기 (2회 챌린지
-합격) 2. 양방향 헷지 트레이딩 실행</p>
+<h4>2차: 펀딩 금액 트레이딩 단계</h4>
+<p>챌린지 합격 후 받은 펀딩 계좌($3,000)는 즉시 현금화되지 않고, 추가 트레이딩 단계를 거칩니다.</p>
+<p><strong>프로세스:</strong>
+1. 펀딩 계좌 2개 확보 대기 (2회 챌린지 합격)
+2. 양방향 헷지 트레이딩 실행</p>
 <table>
 <thead>
 <tr>
@@ -478,8 +295,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<p><strong>이론적 순손익:</strong> ±$0 (한쪽 손실, 한쪽 이익으로
-상쇄)</p>
+<p><strong>이론적 순손익:</strong> 시장 중립(±$0)이나, <strong>한쪽 계좌에서 정산 대상 수익($3,000) 발생</strong></p>
 <p><strong>실제 운용:</strong></p>
 <table>
 <thead>
@@ -495,7 +311,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 <tr>
 <td>완벽한 실행</td>
-<td>±$0 (이론값)</td>
+<td><strong>$3,000 수익 발생</strong> (한쪽 계좌 수익 실현)</td>
 </tr>
 <tr>
 <td>조기 익절</td>
@@ -511,22 +327,19 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<p><strong>최종 정산:</strong> - 트레이딩 완료 후 프롭펌과 80:20 정산 -
-최종 수령액: <strong>$3,000 × 80% = $2,400</strong></p>
-<p>💡 <strong>본 문서의 수익 계산은 이 단계에서 ±$0를
-가정합니다.</strong></p>
+<p><strong>최종 정산:</strong>
+- 트레이딩 완료 후 프롭펌과 80:20 정산
+- 최종 수령액: <strong>$3,000 × 80% = $2,400</strong></p>
+<p>💡 <strong>본 문서의 수익 계산은 이 단계에서 정산 대상 수익($3,000)이 정상적으로 발생함을 가정합니다.</strong></p>
 <hr />
-<h2 id="수학적-분석">5. 수학적 분석</h2>
-<h3 id="확률의-의미">5.1 84:16 확률의 의미</h3>
+<h2>5. 수학적 분석</h2>
+<h3>5.1 84:16 확률의 의미</h3>
 <p>TP와 SL의 거리 비율이 확률을 결정합니다:</p>
-<pre><code>익절 확률 = SL ÷ (TP + SL) = 21.5 ÷ (4.1 + 21.5) = 21.5 ÷ 25.6 ≈ 84%</code></pre>
-<pre><code>손절 확률 = TP ÷ (TP + SL) = 4.1 ÷ 25.6 ≈ 16%</code></pre>
+<pre><code>익절 확률 = SL ÷ (TP + SL) = 21.5 ÷ (4.1 + 21.5) = 21.5 ÷ 25.6 ≈ 84%
+</code></pre>
+<pre><code>손절 확률 = TP ÷ (TP + SL) = 4.1 ÷ 25.6 ≈ 16%
+</code></pre>
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
 <th>결과</th>
@@ -538,19 +351,19 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tr>
 <td>보험금 계좌 익절</td>
 <td>84%</td>
-<td>챌린지 탈락, 보험금 계좌 이익 발생</td>
+<td>챌린지 탈락, 보험금 계좌 수익 발생</td>
 </tr>
 <tr>
 <td><strong>보험금 계좌 손절 = 챌린지 합격!</strong></td>
 <td><strong>16%</strong></td>
-<td><strong>펀딩 금액 $3,000 획득</strong></td>
+<td><strong>펀딩 계좌 트레이딩 수익 $3,000 획득</strong></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="손익-계산">6. 손익 계산</h2>
-<h3 id="회-거래-손익">6.1 1회 거래 손익</h3>
-<h4 id="보험금-계좌-손익">보험금 계좌 손익</h4>
+<h2>6. 손익 계산</h2>
+<h3>6.1 1회 거래 손익</h3>
+<h4>보험금 계좌 손익</h4>
 <table>
 <thead>
 <tr>
@@ -572,7 +385,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h4 id="챌린지-계좌-손익">챌린지 계좌 손익</h4>
+<h4>챌린지 계좌 손익</h4>
 <table>
 <thead>
 <tr>
@@ -584,7 +397,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tbody>
 <tr>
 <td>챌린지 합격 시 (16%)</td>
-<td>펀딩 금액 $3,000 × 80% 수익</td>
+<td>펀딩 계좌 트레이딩 수익 $3,000 × 80%</td>
 <td>+$2,400</td>
 </tr>
 <tr>
@@ -599,32 +412,15 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="기대값-검증">6.2 기대값 검증</h3>
+<h3>6.2 기대값 검증</h3>
 <pre><code>기대값 = (84% × $369) + (16% × -$1,935)
-      = $310 - $310 = ≈ $0 (완벽한 헷지!) ✅</code></pre>
+      = $310 - $310 = ≈ $0 (완벽한 헷지!) ✅
+</code></pre>
 <hr />
-<h2 id="회-시뮬레이션">7. 60회 시뮬레이션</h2>
-<p>84:16 확률로 60회 거래 시, 약 10회 챌린지 합격 (보험금 계좌 손절)이
-발생합니다. 아래는 랜덤 시뮬레이션 결과입니다:</p>
-<h4 id="시뮬레이션-결과-합격">시뮬레이션 결과 (🏆 = 합격)</h4>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-<col style="width: 7%" />
-</colgroup>
+<h2>7. 60회 시뮬레이션</h2>
+<p>84:16 확률로 60회 거래 시, 약 10회 챌린지 합격 (보험금 계좌 손절)이 발생합니다. 아래는 랜덤 시뮬레이션 결과입니다:</p>
+<h4>시뮬레이션 결과 (🏆 = 합격)</h4>
+<table>
 <thead>
 <tr>
 <th>1</th>
@@ -698,7 +494,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="회-시뮬레이션-요약">📊 60회 시뮬레이션 요약</h3>
+<h3>📊 60회 시뮬레이션 요약</h3>
 <table>
 <thead>
 <tr>
@@ -724,7 +520,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <td><strong>-$900</strong></td>
 </tr>
 <tr>
-<td><strong>합격 10회 펀딩 수익 (80%)</strong></td>
+<td><strong>합격 10회 펀딩 계좌 트레이딩 수익 (80%)</strong></td>
 <td><strong>10 × $3,000 × 80%</strong></td>
 <td><strong>+$24,000</strong></td>
 </tr>
@@ -739,23 +535,14 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <td>-$15,000</td>
 </tr>
 <tr>
-<td><strong>최종 순이익</strong></td>
+<td><strong>최종 순수익</strong></td>
 <td></td>
 <td><strong>+$6,000</strong></td>
 </tr>
 </tbody>
 </table>
-<h3 id="회차별-상세-손익-합격">📋 회차별 상세 손익 (🏆 = 합격)</h3>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 15%" />
-<col style="width: 15%" />
-</colgroup>
+<h3>📋 회차별 상세 손익 (🏆 = 합격)</h3>
+<table>
 <thead>
 <tr>
 <th>회차</th>
@@ -1310,49 +1097,27 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<hr />
-<h3 id="참고사항">📌 참고사항</h3>
+<h2>8. 비즈니스 모델</h2>
 <blockquote>
-<p><strong>거래 수수료는 본 손익 계산에 포함되지
-않았습니다.</strong></p>
-<p>실제 거래 시 프롭펌 및 브로커의 스프레드, 수수료가 발생할 수 있으며,
-이는 최종 손익에 영향을 미칠 수 있습니다.</p>
+<p><strong>Win‑Win 구조</strong></p>
+<ul>
+<li><strong>프롭펌 (Prop Firm)</strong>: 참가비 수입은 펀딩 지급으로 상쇄(Zero-Sum)되나, <strong>펀딩 계좌 트레이딩 수익 발생 시 20%($600)를 배분</strong>받아 수익 창출</li>
+<li><strong>참가자 (Participant)</strong>: 보험금 계좌 헷지로 리스크를 제거하고, <strong>펀딩 계좌 트레이딩 수익의 80%($2,400)를 배분</strong>받아 수익 창출</li>
+<li><strong>결과</strong>: 프롭펌은 안정적으로 <strong>펀딩 계좌 트레이딩 수익을 배분</strong>받고, 참가자는 무위험 트레이딩 기회를 통해 <strong>펀딩 계좌 트레이딩 수익을 배분</strong>받는 <strong>이상적인 상생 모델</strong></li>
+</ul>
 </blockquote>
-<hr />
-<h2 id="비즈니스-모델-win-win-구조">8. 비즈니스 모델 (Win-Win 구조)</h2>
-<h3 id="프롭펌-관점">8.1 프롭펌 관점</h3>
-<table>
-<thead>
-<tr>
-<th>항목</th>
-<th>계산</th>
-<th>금액</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>참가비 수입 (10명)</td>
-<td>10 × $300</td>
-<td>$3,000</td>
-</tr>
-<tr>
-<td>합격자 펀딩 지급 (1명)</td>
-<td></td>
-<td>-$3,000</td>
-</tr>
-<tr>
-<td><strong>챌린지 단계 손익</strong></td>
-<td></td>
-<td><strong>±$0 (제로섬)</strong></td>
-</tr>
-<tr>
-<td><strong>정산 시 수익 (20%)</strong></td>
-<td>$3,000 × 20%</td>
-<td><strong>+$600</strong></td>
-</tr>
-</tbody>
-</table>
-<h3 id="참가자-관점">8.2 참가자 관점</h3>
+<h3>8.1 참가 대상자</h3>
+<ul>
+<li>직장인 및 투자 실패 경험이 있는 초보 트레이더</li>
+<li>투자에 대한 지속 가능한 수익 구조를 찾는 사람</li>
+<li>감정에 휘둘리지 않고 원칙 기반 트레이딩을 원하는 투자자</li>
+</ul>
+<h3>8.2 리스크 제한</h3>
+<pre><code>21.5 ÷ 4.1 = 5.24
+
+이 비율이 정확히 보험금 계좌 손익을 제로(0)로 맞춥니다 ✅
+</code></pre>
+<h3>8.3 참가자 관점</h3>
 <table>
 <thead>
 <tr>
@@ -1371,33 +1136,59 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 <tr>
 <td><strong>합격 시 수익</strong></td>
-<td><strong>펀딩 금액 $3,000 × 80% = $2,400</strong></td>
+<td><strong>펀딩 계좌 트레이딩 수익 $3,000 × 80% = $2,400</strong></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="설계의-비밀">9. 84:16 설계의 비밀</h2>
-<h3 id="수학적-균형점">9.1 수학적 균형점</h3>
-<pre><code>21.5 ÷ 4.1 = 5.24
-
-이 비율이 정확히 보험금 계좌 손익을 제로(0)로 맞춥니다 ✅</code></pre>
-<h3 id="심리적-최적점">9.2 심리적 최적점</h3>
-<p>60회 시뮬레이션 기준 참가자 순이익 비교:</p>
+<h3>8.4 프롭펌 관점</h3>
 <table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 27%" />
-<col style="width: 19%" />
-<col style="width: 31%" />
-</colgroup>
+<thead>
+<tr>
+<th>항목</th>
+<th>계산</th>
+<th>금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>참가비 수입 (10명)</td>
+<td>10 × $300</td>
+<td>$3,000</td>
+</tr>
+<tr>
+<td>합격자 펀딩 계좌 제공 (1명)</td>
+<td></td>
+<td>-$3,000</td>
+</tr>
+<tr>
+<td><strong>챌린지 단계 손익</strong></td>
+<td></td>
+<td><strong>±$0 (제로섬)</strong></td>
+</tr>
+<tr>
+<td><strong>정산 시 수익 (20%)</strong></td>
+<td>펀딩 계좌 트레이딩 수익 $3,000 × 20%</td>
+<td><strong>+$600</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>9. 84:16 설계의 비밀</h2>
+<h3>9.1 왜 84:16인가?</h3>
+<p>이 비율은 임의로 정한 것이 아닙니다. <strong>보험금 계좌의 손익분기점(BEP)</strong>을 정확히 맞추기 위한 수학적 해답입니다.</p>
+<ul>
+<li><strong>익절(TP) 4.1p</strong> : <strong>손절(SL) 21.5p</strong></li>
+<li>이 비율이 정확히 16 : 84의 확률 분포를 만들어냅니다.</li>
+</ul>
+<h3>9.2 심리적 최적점</h3>
+<p>60회 시뮬레이션 기준 참가자 순수익 비교:</p>
+<table>
 <thead>
 <tr>
 <th>설계</th>
 <th>합격률</th>
 <th>보험금 계좌 손익</th>
 <th>참가자 심리</th>
-<th>참가자 순이익 (60회)</th>
+<th>참가자 순수익 (60회)</th>
 </tr>
 </thead>
 <tbody>
@@ -1432,53 +1223,41 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tr>
 <td>손익분기점</td>
 <td>12.2%</td>
-<td>소폭 이익</td>
+<td>소폭 수익</td>
 <td>편안 😊</td>
 <td>±$0</td>
 </tr>
 <tr>
 <td>보수적 (90:10)</td>
 <td>10%</td>
-<td>계속 이익</td>
+<td>계속 수익</td>
 <td>편안 😊</td>
 <td>+$780 ✅</td>
 </tr>
 <tr>
 <td><strong>합격 없음 (100:0)</strong></td>
 <td><strong>0%</strong></td>
-<td><strong>큰 이익</strong></td>
+<td><strong>큰 수익</strong></td>
 <td><strong>편안</strong> 😊</td>
 <td><strong>+$4,140</strong> ✅</td>
 </tr>
 </tbody>
 </table>
-<p><strong>84:16은 “손해 보는 느낌 없이 무한 반복 가능한” 심리적
-최적점입니다.</strong></p>
-<p>💡 <strong>핵심 통찰</strong>: 이 전략은 합격률 0%여도 이익이
-발생하는 구조입니다! 보험금 계좌의 헷지 효과로 최악의 경우에도 +$4,140의
-수익이 보장됩니다.</p>
+<p><strong>84:16은 "손해 보는 느낌 없이 무한 반복 가능한" 심리적 최적점입니다.</strong></p>
+<p>💡 <strong>핵심 통찰</strong>: 이 전략은 합격률 0%여도 수익이 발생하는 구조입니다! 보험금 계좌의 헷지 효과로 최악의 경우에도 +$4,140의 수익이 발생합니다.</p>
 <hr />
-<h2 id="결론">10. 결론</h2>
-<h3 id="이-전략이-천재적인-이유">🎯 이 전략이 천재적인 이유</h3>
-<ol type="1">
-<li><strong>무손실 구조</strong> - 합격률 0%여도 +$4,140 이익! 손실 날
-가능성이 전혀 없음</li>
-<li><strong>수학적 완벽성</strong> - 84:16 확률로 보험금 계좌 완벽한
-헷지 구현</li>
-<li><strong>심리적 안정</strong> - 어떤 결과가 나와도 이익, 무한 반복
-가능</li>
+<h2>10. 결론</h2>
+<h3>🎯 이 전략이 천재적인 이유</h3>
+<ol>
+<li><strong>무손실 구조</strong> - 합격률 0%여도 +$4,140 수익! 손실 날 가능성이 전혀 없음</li>
+<li><strong>수학적 완벽성</strong> - 84:16 확률로 보험금 계좌 완벽한 헷지 구현</li>
+<li><strong>심리적 안정</strong> - 어떤 결과가 나와도 수익, 무한 반복 가능</li>
 <li><strong>사업 모델</strong> - 참가자와 프롭펌 모두 Win-Win</li>
-<li><strong>변동성 활용</strong> - 금 선물의 높은 변동성이 오히려
-유리</li>
+<li><strong>변동성 활용</strong> - 금 선물의 높은 변동성이 오히려 유리</li>
 <li><strong>합법적 구조</strong> - 플랫폼에서 승인한 정당한 전략</li>
 </ol>
-<h3 id="자금-운용-계획-60회-기준">10.1 자금 운용 계획 (60회 기준)</h3>
+<h3>10.1 자금 운용 계획 (60회 기준)</h3>
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
 <th>구분</th>
@@ -1504,7 +1283,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="월간-거래-계획">10.2 월간 거래 계획</h3>
+<h3>10.2 월간 거래 계획</h3>
 <table>
 <thead>
 <tr>
@@ -1527,7 +1306,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="예상-월-수익">10.3 예상 월 수익</h3>
+<h3>10.3 예상 월 수익</h3>
 <table>
 <thead>
 <tr>
@@ -1537,7 +1316,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </thead>
 <tbody>
 <tr>
-<td><strong>합격 10회 펀딩 수익 (80%)</strong></td>
+<td><strong>합격 10회 펀딩 계좌 트레이딩 수익 (80%)</strong></td>
 <td><strong>+$24,000</strong></td>
 </tr>
 <tr>
@@ -1549,7 +1328,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <td>-$15,000</td>
 </tr>
 <tr>
-<td><strong>월 순이익</strong></td>
+<td><strong>월 순수익</strong></td>
 <td><strong>+$6,000</strong></td>
 </tr>
 <tr>
@@ -1558,7 +1337,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tr>
 </tbody>
 </table>
-<h3 id="수익-구조-분석">10.4 수익 구조 분석</h3>
+<h3>10.4 수익 구조 분석</h3>
 <table>
 <thead>
 <tr>
@@ -1569,31 +1348,15 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tbody>
 <tr>
 <td><strong>최저 수익 (합격률 0%)</strong></td>
-<td><strong>+$4,140</strong> - 전부 탈락해도 이익 발생</td>
+<td><strong>+$4,140</strong> - 전부 탈락해도 수익 발생</td>
 </tr>
 <tr>
 <td><strong>기대 수익 (합격률 16%)</strong></td>
 <td><strong>+$6,000</strong> - 정상적인 확률 기대값</td>
 </tr>
-<tr>
-<td><strong>슬리피지 관리</strong></td>
-<td>소량(0.9 lots) 거래로 영향 미미</td>
-</tr>
-<tr>
-<td><strong>마진 관리</strong></td>
-<td>$20,000 예치로 10회 연속 합격 시나리오 대비</td>
-</tr>
-<tr>
-<td><strong>변동성 활용</strong></td>
-<td>양방향 거래로 변동성이 클수록 유리</td>
-</tr>
-<tr>
-<td><strong>손실 가능성</strong></td>
-<td><strong>0% - 손실 불가능 구조</strong></td>
-</tr>
 </tbody>
 </table>
-<h3 id="솔루션-평가">10.5 솔루션 평가</h3>
+<h3>10.5 솔루션 평가</h3>
 <table>
 <thead>
 <tr>
@@ -1611,7 +1374,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tr>
 <td>실현 가능성</td>
 <td>⭐⭐⭐⭐</td>
-<td>소량 거래로 슬리피지 최소화</td>
+<td><strong>AI 자동 매매</strong>로 타이밍 리스크 해결 (개발 예정)</td>
 </tr>
 <tr>
 <td>규정 준수</td>
@@ -1621,7 +1384,7 @@ Futures) 기반 무위험 차익거래 전략</h2>
 <tr>
 <td>장기 지속성</td>
 <td>⭐⭐⭐⭐</td>
-<td>프롭펌과 참가자 모두 이익</td>
+<td>프롭펌과 참가자 모두 수익</td>
 </tr>
 <tr>
 <td><strong>총평</strong></td>
@@ -1631,23 +1394,28 @@ Futures) 기반 무위험 차익거래 전략</h2>
 </tbody>
 </table>
 <hr />
-<h2 id="최종-결론">💰 최종 결론</h2>
-<h3 id="으로-월-6000-수익률-20.0---손실-불가능-구조">$30,000으로 월
-$6,000 (수익률 20.0%) - 손실 불가능 구조!</h3>
-<p><strong>🔥 핵심 포인트:</strong> - ✅ <strong>합격률 0%여도 +$4,140
-이익 보장</strong> - ✅ <strong>합격률 16%면 +$6,000 월 수익</strong> -
-✅ <strong>손실 날 가능성이 전혀 없는 구조</strong> - ✅ <strong>보험금
-계좌 헷지로 완벽한 리스크 제거</strong></p>
-<p>수학적으로 정교하게 설계된 무손실 차익거래 구조입니다. 플랫폼이
-승인한 합법적 전략이며, 양방향 헷지로 어떤 결과가 나와도 반드시 이익이
-발생합니다. 🏆</p>
-<p><strong>최악의 경우에도 수익이 보장되는, 금융공학적으로 완벽한 구조화
-상품입니다.</strong> 💡</p>
+<h2>💰 최종 결론</h2>
+<h3>$30,000으로 월 $6,000 (수익률 20.0%) - 손실 불가능 구조!</h3>
+<blockquote>
+<p><strong>💡 자금 부담이 되시나요?</strong></p>
+<p>본 문서는 월 $6,000 수익을 위한 최적 세팅($30,000)을 기준으로 작성되었습니다. 자금 상황에 따라 <strong>$100 계좌</strong>로 축소하거나 거래 횟수를 조절하여 <strong>약 $5,000(600~700만 원)</strong>으로도 충분히 시작할 수 있는 <strong>확장성(Scalability)</strong>을 갖추고 있습니다.</p>
+</blockquote>
+<p><strong>🔥 핵심 포인트:</strong>
+- ✅ <strong>합격률 0%여도 +$4,140 수익 발생</strong>
+- ✅ <strong>합격률 16%면 +$6,000 월 수익</strong>
+- ✅ <strong>손실 날 가능성이 전혀 없는 구조</strong>
+- ✅ <strong>보험금 계좌 헷지로 완벽한 리스크 제거</strong>
+- ⚠️ <strong>슬리피지 리스크 관리</strong> - 급격한 변동성으로 인한 수익 축소나 손실 가능성은 있으나, 소액 계좌 운용으로 충분히 통제 가능합니다.</p>
+<p>수학적으로 정교하게 설계된 무손실 차익거래 구조입니다.
+플랫폼이 승인한 합법적 전략이며,
+양방향 헷지로 어떤 결과가 나와도 반드시 수익이 발생합니다. 🏆</p>
+<p><strong>최악의 경우에도 수익이 발생하는,
+금융공학적으로 완벽한 구조화 상품입니다.</strong> 💡</p>
 <hr />
 <p><strong>HDH Fintech Solution</strong></p>
 <p>Gold Futures Trading Strategy Report - $300 Account Analysis</p>
-<p>⚠️ 본 문서는 교육 및 분석 목적으로 작성되었습니다. 실제 투자 결정 전
-충분한 검토가 필요합니다.</p>
+<p>⚠️ 본 문서는 교육 및 분석 목적으로 작성되었습니다.
+실제 투자 결정 전 충분한 검토가 필요합니다.</p>
 <p><strong>버전 1.1 - 2025-12-07</strong></p>
 </body>
 </html>
