@@ -945,10 +945,85 @@
         <h4>2차: 펀딩 금액 트레이딩 단계</h4>
         <p>챌린지 합격 후 받은 펀딩 계좌($3,000)는 즉시 현금화되지 않고, 추가 트레이딩 단계를 거칩니다.</p>
 
+        <div class="info-box">
+            <p><strong>프로세스:</strong></p>
+            <ol>
+                <li>펀딩 계좌 2개 확보 대기 (2회 챌린지 합격)</li>
+                <li>양방향 헷지 트레이딩 실행</li>
+            </ol>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>펀딩 계좌 A (상방)</th>
+                        <th>펀딩 계좌 B (하방)</th>
+                        <th>순 결과</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>가격 상승</td>
+                        <td>익절 → $6,000</td>
+                        <td>손절 → $0</td>
+                        <td>$6,000</td>
+                    </tr>
+                    <tr>
+                        <td>가격 하락</td>
+                        <td>손절 → $0</td>
+                        <td>익절 → $6,000</td>
+                        <td>$6,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p><strong>이론적 순손익:</strong> 시장 중립(±$0)이나, <strong>한쪽 계좌에서 정산 대상 수익($3,000) 발생</strong></p>
+
+        <div class="info-box">
+            <p><strong>실제 운용:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>요소</th>
+                            <th>내용</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>타이밍 리스크</td>
+                            <td>손절 시 반대 계좌를 즉시 익절해야 함</td>
+                        </tr>
+                        <tr class="success-row">
+                            <td><strong>완벽한 실행</strong></td>
+                            <td><strong>$3,000 수익 발생</strong> (한쪽 계좌 수익 실현)</td>
+                        </tr>
+                        <tr>
+                            <td>조기 익절</td>
+                            <td>소폭 손실 가능</td>
+                        </tr>
+                        <tr>
+                            <td>지연 익절</td>
+                            <td>추가 변동으로 소폭 손익 가능</td>
+                        </tr>
+                        <tr>
+                            <td>AI 자동화</td>
+                            <td>타이밍 리스크 최소화 (개발 예정)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div class="warning-box">
-            <p><strong>최종 정산:</strong><br>
-            - 트레이딩 완료 후 프롭펌과 80:20 정산<br>
-            - 최종 수령액: <strong>$3,000 × 80% = $2,400</strong></p>
+            <p><strong>최종 정산:</strong></p>
+            <ul>
+                <li>트레이딩 완료 후 프롭펌과 80:20 정산</li>
+                <li>최종 수령액: <strong>$3,000 × 80% = $2,400</strong></li>
+            </ul>
             <p>💡 <strong>본 문서의 수익 계산은 이 단계에서 정산 대상 수익($3,000)이 정상적으로 발생함을 가정합니다.</strong></p>
         </div>
     </div>
