@@ -2622,7 +2622,7 @@
                             <div class="step-description">
                                 <a href="#" onclick="transferToExchange(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 거래소 송금</a> |
                                 <a href="#" onclick="convertToCash(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 현금화</a> |
-                                <span style="color: #64748B;">은행 계좌 출금</span>
+                                <a href="#" onclick="withdrawToBank(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">은행 계좌 출금</a>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">$2,400 USDT 매각액</span>
                                 <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
@@ -4244,6 +4244,19 @@
                 console.error('문의 제출 실패:', error);
                 alert('문의 제출 중 오류가 발생했습니다: ' + error.message);
             }
+        }
+
+        // 출금 관련 함수들
+        function transferToExchange() {
+            alert('📤 거래소 송금 안내\n\n1. MW Wallet에서 USDT를 거래소로 송금합니다.\n2. 송금 주소를 정확히 확인해주세요.\n3. 네트워크는 TRC20을 권장합니다 (수수료 저렴).\n\n구현 예정입니다.');
+        }
+
+        function convertToCash() {
+            alert('💰 현금화 안내\n\n1. 거래소에서 USDT를 원화로 매도합니다.\n2. 현재 시세를 확인하고 매도하세요.\n3. 매도 체결 후 원화가 거래소 계좌에 입금됩니다.\n\n구현 예정입니다.');
+        }
+
+        function withdrawToBank() {
+            alert('🏦 은행 계좌 출금 안내\n\n1. 거래소에서 원화 출금을 신청합니다.\n2. 등록된 본인 명의 계좌로만 출금 가능합니다.\n3. 출금 처리 시간: 영업일 기준 1-2일 소요\n\n구현 예정입니다.');
         }
     </script>
 
