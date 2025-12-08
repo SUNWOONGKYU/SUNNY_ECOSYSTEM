@@ -147,22 +147,7 @@
         }
 
         /* 메인 레이아웃 */
-        /* 정체성 배너 */
-        .identity-banner {
-            background: #F8FAFC;
-            border-bottom: 1px solid #E2E8F0;
-            padding: 16px 24px;
-            text-align: center;
-        }
-
-        .identity-text {
-            font-size: 17px;
-            color: #F59E0B;
-            font-weight: 700;
-            line-height: 1.6;
-        }
-
-        .main-container {
+        .main-wrapper {
             display: grid;
             grid-template-columns: 333px minmax(400px, 720px) 333px;
             gap: 12px;
@@ -170,6 +155,29 @@
             justify-content: center;
             padding: 20px;
             min-height: calc(100vh - 84px);
+        }
+
+        /* 중앙 컬럼 */
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* 정체성 배너 */
+        .identity-banner {
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+        }
+
+        .identity-text {
+            font-size: 17px;
+            color: #F59E0B;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
         }
 
         /* 좌측 사이드바 (준비) */
@@ -2295,15 +2303,8 @@
         </div>
     </div>
 
-    <!-- 정체성 배너 -->
-    <div class="identity-banner">
-        <div class="identity-text">
-            HDH 핀테크 솔루션 운영을 체계적으로 지원하는 회원 전용 웹사이트입니다.
-        </div>
-    </div>
-
-    <!-- 메인 컨테이너 -->
-    <div class="main-container">
+    <!-- 메인 래퍼 (사이드바 + 중앙 컨텐츠) -->
+    <div class="main-wrapper">
         <!-- 좌측 사이드바 (준비) -->
         <div class="left-sidebar">
             <!-- 공지사항 -->
@@ -2448,8 +2449,17 @@
 
         </div>
 
-        <!-- 중앙 콘텐츠 (실행) -->
-        <div class="center-content">
+        <!-- 중앙 콘텐츠 영역 -->
+        <div class="center-column">
+            <!-- 정체성 배너 -->
+            <div class="identity-banner">
+                <div class="identity-text">
+                    HDH 핀테크 솔루션 운영을 체계적으로 지원하는 회원 전용 웹사이트입니다.
+                </div>
+            </div>
+
+            <!-- 중앙 콘텐츠 (실행) -->
+            <div class="center-content">
             <div class="content-main">
                 <!-- 환영 배너 -->
                 <div class="welcome-banner">
@@ -2797,6 +2807,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- 우측 사이드바 (결과/공지) -->
@@ -4280,6 +4291,8 @@
             alert('🏦 은행 계좌 출금 안내\n\n1. 거래소에서 원화 출금을 신청합니다.\n2. 등록된 본인 명의 계좌로만 출금 가능합니다.\n\n구현 예정입니다.');
         }
     </script>
+
+    </div>
 
     <!-- 푸터 -->
     <footer class="footer">
