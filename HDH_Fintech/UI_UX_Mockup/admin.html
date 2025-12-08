@@ -166,6 +166,41 @@
             color: #92400E;
         }
 
+        /* 회원 등급 배지 */
+        .grade-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .grade-general {
+            background: #F1F5F9;
+            color: #475569;
+            border: 1px solid #E2E8F0;
+        }
+
+        .grade-operating {
+            background: #DBEAFE;
+            color: #1E40AF;
+            border: 1px solid #BFDBFE;
+        }
+
+        .grade-admin {
+            background: #FEF3C7;
+            color: #92400E;
+            border: 1px solid #FDE68A;
+        }
+
+        .grade-super-admin {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+        }
+
         .footer {
             background: #F59E0B;
             color: #FFFFFF;
@@ -305,18 +340,42 @@
             <div class="stat-card">
                 <div class="stat-label">전체 회원 수</div>
                 <div class="stat-value">1,000명</div>
+                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">+15 (이번 달)</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">활성 회원 수</div>
+                <div class="stat-label">일반 회원</div>
+                <div class="stat-value">153명</div>
+                <div style="font-size: 12px; color: #EF4444; margin-top: 4px;">-8 (이번 달)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">운영 회원</div>
                 <div class="stat-value">847명</div>
+                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">+23 (이번 달)</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">연간 회원 총 누적 수익 (2025)</div>
+                <div class="stat-label">관리자</div>
+                <div class="stat-value">10명</div>
+                <div style="font-size: 12px; color: #64748B; margin-top: 4px;">+1 (이번 달)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">교육 수강 신청</div>
+                <div class="stat-value">신규 23건</div>
+                <div style="font-size: 12px; color: #F59E0B; margin-top: 4px;">대기 12건</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">추천인 코드 신청</div>
+                <div class="stat-value">대기 15건</div>
+                <div style="font-size: 12px; color: #64748B; margin-top: 4px;">발급 347건 (누적)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">연간 회원 총 누적 수익</div>
                 <div class="stat-value">₩458억</div>
+                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">+₩38억 (이번 달)</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">AI 자동화 프로그램 다운로드</div>
+                <div class="stat-label">AI 프로그램 다운로드</div>
                 <div class="stat-value">1,247건</div>
+                <div style="font-size: 12px; color: #10B981; margin-top: 4px;">+89 (이번 달)</div>
             </div>
         </div>
 
@@ -327,6 +386,7 @@
                 <thead>
                     <tr>
                         <th>회원 ID</th>
+                        <th>등급</th>
                         <th>이름</th>
                         <th>레벨</th>
                         <th>랭킹</th>
@@ -339,6 +399,7 @@
                 <tbody>
                     <tr>
                         <td>#1001</td>
+                        <td><span class="grade-badge grade-operating">🔵 운영</span></td>
                         <td>홍길동</td>
                         <td>Lv.10</td>
                         <td>5위</td>
@@ -346,11 +407,13 @@
                         <td><span class="status-badge status-active">활성</span></td>
                         <td>2025-01-15</td>
                         <td>
+                            <button class="btn btn-primary" style="margin-right: 4px;">등급변경</button>
                             <button class="btn btn-secondary">상세보기</button>
                         </td>
                     </tr>
                     <tr>
                         <td>#1002</td>
+                        <td><span class="grade-badge grade-operating">🔵 운영</span></td>
                         <td>김영수</td>
                         <td>Lv.10</td>
                         <td>1위</td>
@@ -358,31 +421,216 @@
                         <td><span class="status-badge status-active">활성</span></td>
                         <td>2025-01-10</td>
                         <td>
+                            <button class="btn btn-primary" style="margin-right: 4px;">등급변경</button>
                             <button class="btn btn-secondary">상세보기</button>
                         </td>
                     </tr>
                     <tr>
                         <td>#1003</td>
+                        <td><span class="grade-badge grade-general">🔘 일반</span></td>
                         <td>이정민</td>
-                        <td>Lv.9</td>
-                        <td>2위</td>
-                        <td>₩98,200,000</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>₩0</td>
                         <td><span class="status-badge status-active">활성</span></td>
                         <td>2025-01-08</td>
                         <td>
+                            <button class="btn btn-primary" style="margin-right: 4px;">등급변경</button>
                             <button class="btn btn-secondary">상세보기</button>
                         </td>
                     </tr>
                     <tr>
-                        <td>#1004</td>
-                        <td>박서연</td>
-                        <td>Lv.8</td>
-                        <td>3위</td>
-                        <td>₩85,600,000</td>
-                        <td><span class="status-badge status-pending">대기</span></td>
-                        <td>2025-01-05</td>
+                        <td>#A001</td>
+                        <td><span class="grade-badge grade-super-admin">🔴 총괄</span></td>
+                        <td>김총괄</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="status-badge status-active">활성</span></td>
+                        <td>2024-06-01</td>
                         <td>
-                            <button class="btn btn-secondary">상세보기</button>
+                            <button class="btn btn-secondary">로그조회</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#A003</td>
+                        <td><span class="grade-badge grade-admin">🟠 관리자</span></td>
+                        <td>이관리</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="status-badge status-active">활성</span></td>
+                        <td>2024-08-15</td>
+                        <td>
+                            <button class="btn btn-primary" style="margin-right: 4px;">등급변경</button>
+                            <button class="btn btn-secondary">로그조회</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 아카데미 교육 관리 -->
+        <div class="section">
+            <div class="section-title">🎓 아카데미 교육 관리</div>
+            <div style="display: flex; gap: 12px; margin-bottom: 20px; padding: 16px; background: #F8FAFC; border-radius: 8px;">
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">이번 달 신규</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #0F172A;">23건</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">승인 대기</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #F59E0B;">12건</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">교육 진행 중</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #3B82F6;">8명</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">교육 완료</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #10B981;">124명</div>
+                </div>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>신청 ID</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>연락처</th>
+                        <th>희망 시기</th>
+                        <th>투자 경험</th>
+                        <th>상태</th>
+                        <th>신청일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#523</td>
+                        <td>박민수</td>
+                        <td>park@email.com</td>
+                        <td>010-2345-6789</td>
+                        <td>빠른 시일 내</td>
+                        <td>초보 (1년 미만)</td>
+                        <td><span class="status-badge" style="background: #FEF3C7; color: #92400E;">신규 접수</span></td>
+                        <td>2025-12-07</td>
+                        <td>
+                            <button class="btn btn-primary" style="font-size: 11px; padding: 6px 10px; margin-right: 4px;">승인</button>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#522</td>
+                        <td>최영희</td>
+                        <td>choi@email.com</td>
+                        <td>010-3456-7890</td>
+                        <td>1개월 이내</td>
+                        <td>없음</td>
+                        <td><span class="status-badge" style="background: #DBEAFE; color: #1E40AF;">검토 중</span></td>
+                        <td>2025-12-06</td>
+                        <td>
+                            <button class="btn btn-primary" style="font-size: 11px; padding: 6px 10px; margin-right: 4px;">승인</button>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#521</td>
+                        <td>정수진</td>
+                        <td>jung@email.com</td>
+                        <td>010-4567-8901</td>
+                        <td>일정 협의</td>
+                        <td>중급 (1-3년)</td>
+                        <td><span class="status-badge status-active">승인</span></td>
+                        <td>2025-12-05</td>
+                        <td>
+                            <button class="btn btn-primary" style="font-size: 11px; padding: 6px 10px; margin-right: 4px;">교육완료</button>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 추천인 코드 관리 -->
+        <div class="section">
+            <div class="section-title">🔑 추천인 코드 관리</div>
+            <div style="display: flex; gap: 12px; margin-bottom: 20px; padding: 16px; background: #F8FAFC; border-radius: 8px;">
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">이번 달 신청</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #0F172A;">18건</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">발급 대기</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #F59E0B;">12건</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">발급 완료 (누적)</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #10B981;">347건</div>
+                </div>
+                <div style="flex: 1;">
+                    <div style="font-size: 12px; color: #64748B;">활성 코드</div>
+                    <div style="font-size: 20px; font-weight: 700; color: #3B82F6;">298개</div>
+                </div>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>신청 ID</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>연락처</th>
+                        <th>교육 이수</th>
+                        <th>신청 목적</th>
+                        <th>상태</th>
+                        <th>추천인 코드</th>
+                        <th>신청일</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#489</td>
+                        <td>이준호</td>
+                        <td>lee@email.com</td>
+                        <td>010-5678-9012</td>
+                        <td><span class="status-badge status-active">이수 완료</span></td>
+                        <td>개인 운영</td>
+                        <td><span class="status-badge" style="background: #FEF3C7; color: #92400E;">신규 신청</span></td>
+                        <td>-</td>
+                        <td>2025-12-08</td>
+                        <td>
+                            <button class="btn btn-primary" style="font-size: 11px; padding: 6px 10px; margin-right: 4px;">코드발급</button>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#488</td>
+                        <td>강민지</td>
+                        <td>kang@email.com</td>
+                        <td>010-6789-0123</td>
+                        <td><span class="status-badge status-pending">교육 예정</span></td>
+                        <td>학습 목적</td>
+                        <td><span class="status-badge" style="background: #DBEAFE; color: #1E40AF;">검토 중</span></td>
+                        <td>-</td>
+                        <td>2025-12-07</td>
+                        <td>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#487</td>
+                        <td>윤서준</td>
+                        <td>yoon@email.com</td>
+                        <td>010-7890-1234</td>
+                        <td><span class="status-badge status-active">이수 완료</span></td>
+                        <td>개인 운영</td>
+                        <td><span class="status-badge status-active">승인</span></td>
+                        <td><strong>HDH-2025-A1B2</strong></td>
+                        <td>2025-12-06</td>
+                        <td>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px; margin-right: 4px;">재발급</button>
+                            <button class="btn btn-secondary" style="font-size: 11px; padding: 6px 10px;">상세</button>
                         </td>
                     </tr>
                 </tbody>
