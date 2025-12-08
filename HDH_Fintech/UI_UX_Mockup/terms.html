@@ -42,6 +42,26 @@
             text-decoration: none;
         }
 
+        .close-btn {
+            background: #E5E7EB;
+            color: #6B7280;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #D1D5DB;
+            color: #374151;
+        }
+
         .main-content {
             max-width: 900px;
             margin: 40px auto;
@@ -104,6 +124,20 @@
             line-height: 1.7;
         }
 
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #64748B;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .back-link:hover {
+            color: #F59E0B;
+        }
+
         .footer {
             background: #F59E0B;
             color: #FFFFFF;
@@ -164,6 +198,7 @@
     <div class="header">
         <div class="header-inner">
             <a href="index.html" class="logo">HDH Fintech</a>
+            <a href="index.html" class="close-btn">×</a>
         </div>
     </div>
 
@@ -292,6 +327,8 @@
 
             <h2>부칙</h2>
             <p>본 약관은 2025년 12월 7일부터 적용됩니다.</p>
+
+            <a href="index.html" class="back-link">← 메인 페이지로 돌아가기</a>
         </div>
     </div>
 
