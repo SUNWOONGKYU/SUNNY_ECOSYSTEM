@@ -1513,12 +1513,17 @@ SUNNY ECOSYSTEM 전체를 연결하고 ProActive Senior의 전문성을
                    </span>`
                 : service.icon;
 
+            // Service Site Hub는 카드에서 줄바꿈 표시
+            const displayTitle = service.id === 'sites'
+                ? service.title.replace('Service Site Hub', 'Service Site<br>Hub')
+                : service.title;
+
             return `
                 <div class="service-card" ${service.hasDetailPage ? `onclick="handleServiceClick('${service.id}')"` : ''} style="${!service.hasDetailPage ? 'cursor: default;' : ''}">
                     <div class="service-icon" style="background: ${service.color};">
                         ${iconHTML}
                     </div>
-                    <h3 class="service-title">${service.title}</h3>
+                    <h3 class="service-title">${displayTitle}</h3>
                     <p class="service-subtitle" style="color: ${service.color};">${service.subtitle}</p>
                     <p class="service-description">${service.description}</p>
                     ${button}
