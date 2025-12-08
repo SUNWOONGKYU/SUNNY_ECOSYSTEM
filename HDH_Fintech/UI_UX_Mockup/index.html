@@ -2375,7 +2375,17 @@
                 <div class="menu-item" onclick="window.location.href='referral-apply.html'">3. 추천인 코드 신청하기</div>
 
                 <!-- 매뉴얼 숙지하기 -->
-                <div class="menu-item" onclick="window.location.href='manual.html'">4. 매뉴얼 숙지하기</div>
+                <div class="menu-item expandable" onclick="toggleSubmenu(this)">
+                    <span>4. 매뉴얼 숙지하기</span>
+                    <span class="expand-arrow">▶</span>
+                </div>
+                <div class="submenu-list">
+                    <div class="submenu-item" onclick="window.location.href='manual.html#section1'">1. WTG (프롭펌 플랫폼)</div>
+                    <div class="submenu-item" onclick="window.location.href='manual.html#section2'">2. 보험금 계좌 (실거래)</div>
+                    <div class="submenu-item" onclick="window.location.href='manual.html#section3'">3. 챌린지 계좌 (시험 거래)</div>
+                    <div class="submenu-item" onclick="window.location.href='manual.html#section4'">4. 펀딩 계좌 (실거래)</div>
+                    <div class="submenu-item" onclick="window.location.href='manual.html#section5'">5. USDT 관리</div>
+                </div>
             </div>
 
             <!-- 레벨별 회원 분포 -->
@@ -2841,12 +2851,13 @@
                     누적손익 목표 설정
                 </div>
 
-                <!-- 계좌 관리 (트리 구조) -->
+                <!-- 계좌 관리 (트리 구조 - 3단계까지) -->
                 <div class="settings-item tree-toggle" onclick="toggleTree(this)">
                     <span>계좌 관리</span>
                     <span class="arrow">▶</span>
                 </div>
                 <div class="tree-content" style="display: none;">
+                    <!-- 계좌 현황 -->
                     <div class="tree-item" onclick="openAccountDashboard()">
                         계좌 현황 보기
                     </div>
@@ -2859,28 +2870,71 @@
                     <div class="tree-item" onclick="openAccountLog()">
                         연동 로그
                     </div>
-                </div>
 
-                <!-- API 연결 설정 (트리 구조) -->
-                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
-                    <span>API 연결 설정</span>
-                    <span class="arrow">▶</span>
-                </div>
-                <div class="tree-content" style="display: none;">
-                    <div class="tree-item" onclick="openAPIKeyManagement()">
-                        API 키 관리
+                    <!-- API 연결 설정 (2단계) -->
+                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
+                        <span>API 연결 설정</span>
+                        <span class="arrow">▶</span>
                     </div>
-                    <div class="tree-item" onclick="openConnectionTest()">
-                        연결 테스트
+                    <div class="tree-content sub-tree" style="display: none;">
+                        <div class="tree-item sub-item" onclick="openAPIKeyManagement()">
+                            API 키 관리
+                        </div>
+                        <div class="tree-item sub-item" onclick="openConnectionTest()">
+                            연결 테스트
+                        </div>
+                        <div class="tree-item sub-item" onclick="openPermissionCheck()">
+                            권한 확인
+                        </div>
+                        <div class="tree-item sub-item" onclick="openUsageStats()">
+                            사용량 통계
+                        </div>
+                        <div class="tree-item sub-item" onclick="openExpiryAlert()">
+                            만료 알림 설정
+                        </div>
                     </div>
-                    <div class="tree-item" onclick="openPermissionCheck()">
-                        권한 확인
+
+                    <!-- 데이터 관리 (2단계 - 3단계까지) -->
+                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
+                        <span>데이터 관리</span>
+                        <span class="arrow">▶</span>
                     </div>
-                    <div class="tree-item" onclick="openUsageStats()">
-                        사용량 통계
-                    </div>
-                    <div class="tree-item" onclick="openExpiryAlert()">
-                        만료 알림 설정
+                    <div class="tree-content sub-tree" style="display: none;">
+                        <!-- 데이터 다운로드 (3단계) -->
+                        <div class="tree-item sub-item tree-toggle" onclick="toggleTree(this)">
+                            <span>데이터 다운로드</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="tree-content sub-tree" style="display: none;">
+                            <div class="tree-item sub-item" onclick="downloadCSV()">
+                                CSV 거래 내역
+                            </div>
+                            <div class="tree-item sub-item" onclick="downloadPDF()">
+                                PDF 손익 리포트
+                            </div>
+                            <div class="tree-item sub-item" onclick="downloadLog()">
+                                TXT 연동 로그
+                            </div>
+                        </div>
+
+                        <!-- 데이터 삭제 (3단계) -->
+                        <div class="tree-item sub-item tree-toggle" onclick="toggleTree(this)">
+                            <span>데이터 삭제</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="tree-content sub-tree" style="display: none;">
+                            <div class="tree-item sub-item" onclick="deleteTradeHistory()">
+                                거래 내역 삭제
+                            </div>
+                            <div class="tree-item sub-item" onclick="deleteCache()">
+                                캐시 삭제
+                            </div>
+                        </div>
+
+                        <!-- 동기화 설정 -->
+                        <div class="tree-item sub-item" onclick="openSyncSettings()">
+                            동기화 설정
+                        </div>
                     </div>
                 </div>
 
@@ -2901,49 +2955,6 @@
                     </div>
                     <div class="tree-item" onclick="toggleNotification('api', event)">
                         <input type="checkbox" checked> API 오류 알림
-                    </div>
-                </div>
-
-                <!-- 데이터 관리 (트리 구조 - 2단계) -->
-                <div class="settings-item tree-toggle" onclick="toggleTree(this)">
-                    <span>데이터 관리</span>
-                    <span class="arrow">▶</span>
-                </div>
-                <div class="tree-content" style="display: none;">
-                    <!-- 데이터 다운로드 (2단계) -->
-                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
-                        <span>데이터 다운로드</span>
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="tree-content sub-tree" style="display: none;">
-                        <div class="tree-item sub-item" onclick="downloadCSV()">
-                            CSV 거래 내역
-                        </div>
-                        <div class="tree-item sub-item" onclick="downloadPDF()">
-                            PDF 손익 리포트
-                        </div>
-                        <div class="tree-item sub-item" onclick="downloadLog()">
-                            TXT 연동 로그
-                        </div>
-                    </div>
-
-                    <!-- 데이터 삭제 (2단계) -->
-                    <div class="tree-item tree-toggle" onclick="toggleTree(this)">
-                        <span>데이터 삭제</span>
-                        <span class="arrow">▶</span>
-                    </div>
-                    <div class="tree-content sub-tree" style="display: none;">
-                        <div class="tree-item sub-item" onclick="deleteTradeHistory()">
-                            거래 내역 삭제
-                        </div>
-                        <div class="tree-item sub-item" onclick="deleteCache()">
-                            캐시 삭제
-                        </div>
-                    </div>
-
-                    <!-- 동기화 설정 -->
-                    <div class="tree-item" onclick="openSyncSettings()">
-                        동기화 설정
                     </div>
                 </div>
 
