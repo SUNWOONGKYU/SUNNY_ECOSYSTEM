@@ -56,17 +56,20 @@ Secondary Border:     #A7F3D0  /* 호버 테두리 */
 
 ---
 
-**Tertiary - Blue (정보/링크)**
+**Tertiary - Blue (정보/링크/액션)**
 
 ```
-Tertiary Blue:      #3B82F6  /* 정보, 외부 링크 */
-Tertiary Navy:      #1E40AF  /* 제목, 강조 텍스트 */
+Tertiary Blue:      #3B82F6  /* 액션 링크, 알람 버튼, 정보 */
+Tertiary Dark:      #2563EB  /* 버튼 호버 */
+Tertiary Navy:      #1E40AF  /* 문서 제목, 강조 텍스트 (제한적 사용) */
 Tertiary Light:     #EFF6FF  /* 호버 배경 */
 Tertiary Border:    #93C5FD  /* 호버 테두리 */
 Tertiary Lighter:   #BFDBFE  /* 약한 테두리 */
 ```
 
 **용도:**
+- 프로세스 내 액션 링크 (→ 계좌 관리, → USDT 구매 등)
+- 알람 설정 버튼
 - 외부 링크, 바로가기
 - 문서 제목 (h1, h2)
 - 프로세스 스텝 번호
@@ -1163,8 +1166,9 @@ transition: all 0.2s ease;
 - 금지: 경고, 중립 정보
 
 **청색 (Blue) - #3B82F6**
-- 용도: 정보, 링크, 문서 제목, 프로세스
+- 용도: 액션 링크, 알람 버튼, 정보 메시지, 문서 제목, 프로세스 스텝
 - 금지: 수익 표시, 브랜드 정체성
+- 원칙: 프로세스 내 모든 클릭 가능한 링크는 #3B82F6로 통일
 
 **빨강 (Red) - #EF4444**
 - 용도: 알림, 오류, 손실, 삭제
