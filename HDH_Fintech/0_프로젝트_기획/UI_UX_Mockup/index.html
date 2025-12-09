@@ -2403,7 +2403,7 @@
                 </div>
                 <div class="submenu-list">
                     <!-- 1. WTG -->
-                    <div class="submenu-item expandable" onclick="toggleSubmenu(this); event.stopPropagation();">
+                    <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
                         <span>1. WTG (프롭펌 플랫폼)</span>
                         <span class="expand-arrow">▶</span>
                     </div>
@@ -2414,7 +2414,7 @@
                     </div>
 
                     <!-- 2. 보험금 계좌 -->
-                    <div class="submenu-item expandable" onclick="toggleSubmenu(this); event.stopPropagation();">
+                    <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
                         <span>2. 보험금 계좌 (실거래)</span>
                         <span class="expand-arrow">▶</span>
                     </div>
@@ -2425,7 +2425,7 @@
                     </div>
 
                     <!-- 3. 챌린지 계좌 -->
-                    <div class="submenu-item expandable" onclick="toggleSubmenu(this); event.stopPropagation();">
+                    <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
                         <span>3. 챌린지 계좌 (시험 거래)</span>
                         <span class="expand-arrow">▶</span>
                     </div>
@@ -2436,7 +2436,7 @@
                     </div>
 
                     <!-- 4. 펀딩 계좌 -->
-                    <div class="submenu-item expandable" onclick="toggleSubmenu(this); event.stopPropagation();">
+                    <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
                         <span>4. 펀딩 계좌 (실거래)</span>
                         <span class="expand-arrow">▶</span>
                     </div>
@@ -2447,7 +2447,7 @@
                     </div>
 
                     <!-- 5. USDT 관리 -->
-                    <div class="submenu-item expandable" onclick="toggleSubmenu(this); event.stopPropagation();">
+                    <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
                         <span>5. USDT 관리</span>
                         <span class="expand-arrow">▶</span>
                     </div>
@@ -2549,9 +2549,9 @@
                                 <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" onclick="checkMT5Connection(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ MT5 연결 확인</a> |
-                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> |
-                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a>
+                                <a href="#" onclick="checkMT5Connection(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ MT5 연결 확인</a> |
+                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> |
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a>
                             </div>
                         </div>
 
@@ -2563,9 +2563,9 @@
                                 <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" onclick="buyUSDT(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ USDT 구매</a> <span style="color: #64748B;">(업비트 등)</span> |
-                                <a href="#" onclick="transferToWallet(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 전자지갑 송금</a> |
-                                <a href="#" onclick="checkExchangeDeposit(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 브로커 입금 확인</a>
+                                <a href="#" onclick="buyUSDT(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ USDT 구매</a> <span style="color: #64748B;">(업비트 등)</span> |
+                                <a href="#" onclick="transferToWallet(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 전자지갑 송금</a> |
+                                <a href="#" onclick="checkExchangeDeposit(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 브로커 입금 확인</a>
                             </div>
                         </div>
 
@@ -2577,8 +2577,8 @@
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> <span style="color: #64748B;">(Buy/Sell, TP: 21.5p, SL: 참가비 소멸)</span> |
-                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a> <span style="color: #64748B;">(반대 방향, TP: 4.1p, SL: 21.5p)</span>
+                                <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> <span style="color: #64748B;">(Buy/Sell, TP: 21.5p, SL: 참가비 소멸)</span> |
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a> <span style="color: #64748B;">(반대 방향, TP: 4.1p, SL: 21.5p)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">양방향 헷지로 어느 결과든 수익 발생</span>
                             </div>
@@ -2641,8 +2641,8 @@
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" onclick="manageFundingAccountA(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 펀딩 계좌 A</a> <span style="color: #64748B;">(상방 Buy)</span> |
-                                <a href="#" onclick="manageFundingAccountB(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 펀딩 계좌 B</a> <span style="color: #64748B;">(하방 Sell)</span>
+                                <a href="#" onclick="manageFundingAccountA(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 펀딩 계좌 A</a> <span style="color: #64748B;">(상방 Buy)</span> |
+                                <a href="#" onclick="manageFundingAccountB(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 펀딩 계좌 B</a> <span style="color: #64748B;">(하방 Sell)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">가격이 어느 방향으로 가든 한쪽은 익절, 한쪽은 손절</span>
                             </div>
@@ -2688,9 +2688,9 @@
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
-                                <a href="#" onclick="transferToExchange(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 거래소 송금</a> |
-                                <a href="#" onclick="convertToCash(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">→ 현금화</a> |
-                                <a href="#" onclick="withdrawToBank(); return false;" style="color: #F59E0B; text-decoration: underline; font-weight: 600;">은행 계좌 출금</a>
+                                <a href="#" onclick="transferToExchange(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 거래소 송금</a> |
+                                <a href="#" onclick="convertToCash(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">→ 현금화</a> |
+                                <a href="#" onclick="withdrawToBank(); return false;" style="color: #1E40AF; text-decoration: underline; font-weight: 600;">은행 계좌 출금</a>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">$2,400 USDT 매각액</span>
                                 <span style="font-size: 12px; color: #94A3B8;"> ($300 계좌 기준)</span>
