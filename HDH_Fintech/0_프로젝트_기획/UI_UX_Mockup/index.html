@@ -1297,9 +1297,9 @@
         /* 버튼 스타일 */
         .btn-alarm {
             padding: 6px 16px;
-            background: white;
-            color: #64748B;
-            border: 1px solid #E2E8F0;
+            background: #3B82F6;
+            color: white;
+            border: 1px solid #3B82F6;
             border-radius: 6px;
             cursor: pointer;
             font-size: 12px;
@@ -1308,9 +1308,9 @@
         }
 
         .btn-alarm:hover {
-            background: #F8FAFC;
-            border-color: #CBD5E1;
-            color: #475569;
+            background: #2563EB;
+            border-color: #2563EB;
+            color: white;
         }
 
         /* Top 10 랭킹 위젯 - 표준 디자인 시스템 */
@@ -2518,7 +2518,7 @@
 
                 <!-- 1차: 챌린지 단계 프로세스 -->
                 <div class="process-container">
-                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 12px; text-align: center;">1차: 챌린지 단계 프로세스</div>
+                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4); margin-bottom: 12px; text-align: center;">1차: 챌린지 단계 프로세스</div>
                     <div style="text-align: center; font-size: 13px; color: #64748B; margin-bottom: 16px;">
                         💡 하루 3회 (오전/오후/저녁), 총 10회 내외 거래 | 합격하면 좋고, 탈락해도 수익 발생
                     </div>
@@ -2532,8 +2532,8 @@
                                 <div class="step-status">✓</div>
                             </div>
                             <div class="step-description">
-                                <span style="color: #3B82F6; font-weight: 700;">⏰ 오전 08:00 - 12:00 (4시간)</span> |
-                                <span style="color: #3B82F6; font-weight: 700;">오후 16:00 - 24:00 (8시간)</span>
+                                <span style="color: #000000;">⏰ 오전 08:00 - 12:00 (4시간)</span> |
+                                <span style="color: #000000;">오후 16:00 - 24:00 (8시간)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">오전 3-4회, 오후 6-7회 권장</span>
                                 <br>
@@ -2612,7 +2612,7 @@
 
                 <!-- 2차: 펀딩계좌 트레이딩 단계 프로세스 -->
                 <div class="process-container" style="margin-top: 32px;">
-                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 12px; text-align: center;">2차: 펀딩계좌 트레이딩 단계 프로세스</div>
+                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4); margin-bottom: 12px; text-align: center;">2차: 펀딩계좌 트레이딩 단계 프로세스</div>
                     <div style="text-align: center; font-size: 13px; color: #64748B; margin-bottom: 16px;">
                         💡 펀딩 계좌 2개 확보 시 실행 (불규칙) | 양방향 헷지 후 80% 정산 수령
                     </div>
@@ -4334,6 +4334,26 @@
         function withdrawToBank() {
             alert('🏦 은행 계좌 출금 안내\n\n1. 거래소에서 원화 출금을 신청합니다.\n2. 등록된 본인 명의 계좌로만 출금 가능합니다.\n\n구현 예정입니다.');
         }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const diaryModal = document.getElementById('diaryModal');
+                const settingsModal = document.getElementById('settingsModal');
+                const goalModal = document.getElementById('goalModal');
+                const accountModal = document.getElementById('accountModal');
+
+                if (diaryModal && diaryModal.classList.contains('active')) {
+                    closeDiaryModal();
+                } else if (settingsModal && settingsModal.classList.contains('active')) {
+                    closeSettingsModal();
+                } else if (goalModal && goalModal.classList.contains('active')) {
+                    closeGoalModal();
+                } else if (accountModal && accountModal.classList.contains('active')) {
+                    closeAccountModal();
+                }
+            }
+        });
     </script>
 
     <!-- 푸터 -->
