@@ -2698,7 +2698,7 @@
 
                 <!-- HDH 운영 손익 시뮬레이터 -->
                 <div class="simulator-container" id="simulatorSection">
-                    <div class="simulator-title">🧮 HDH 운영손익 시뮬레이터</div>
+                    <div class="simulator-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 12px;">🧮 HDH 운영손익 시뮬레이터</div>
                     <div class="simulator-subtitle">계좌 규모, 거래 횟수, 합격률을 설정하여 예상 손익을 시뮬레이션하세요</div>
 
                     <div class="simulator-controls">
@@ -3450,12 +3450,12 @@
 
                         <div style="margin-bottom: 12px;">
                             <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">API Key</label>
-                            <input type="text" id="apiKey" class="settings-input" placeholder="API Key 입력" style="width: 100%;">
+                            <input type="text" id="apiKey" class="settings-input" placeholder="API Key 입력" style="width: 100%;" autocomplete="off" spellcheck="false">
                         </div>
 
                         <div style="margin-bottom: 16px;">
                             <label style="display: block; font-size: 13px; color: #64748B; margin-bottom: 6px;">API Secret</label>
-                            <input type="password" id="apiSecret" class="settings-input" placeholder="API Secret 입력" style="width: 100%;">
+                            <input type="password" id="apiSecret" class="settings-input" placeholder="API Secret 입력" style="width: 100%;" autocomplete="new-password">
                         </div>
 
                         <button type="button" onclick="addAccount()" style="width: 100%; padding: 12px; background: #10B981; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">
