@@ -411,7 +411,6 @@
         }
 
         .author-level {
-            background: #10B981;
             color: white;
             padding: 1px 6px;
             border-radius: 8px;
@@ -419,14 +418,37 @@
             font-weight: 600;
         }
 
+        /* 레벨별 색상 (Lv.1~10) */
+        .author-level.lv-1 { background: #94A3B8; }
+        .author-level.lv-2 { background: #64748B; }
+        .author-level.lv-3 { background: #059669; }
+        .author-level.lv-4 { background: #10B981; }
+        .author-level.lv-5 { background: #3B82F6; }
+        .author-level.lv-6 { background: #6366F1; }
+        .author-level.lv-7 { background: #8B5CF6; }
+        .author-level.lv-8 { background: #A855F7; }
+        .author-level.lv-9 { background: #EC4899; }
+        .author-level.lv-10 { background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%); }
+
         .author-rank {
-            background: #EF4444;
-            color: white;
             padding: 1px 6px;
             border-radius: 8px;
             font-size: 10px;
             font-weight: 600;
         }
+
+        /* 순위별 색상 (1~10위만, 11위 이후는 검정) */
+        .author-rank.rank-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; }
+        .author-rank.rank-2 { background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%); color: #000; }
+        .author-rank.rank-3 { background: linear-gradient(135deg, #CD7F32 0%, #B87333 100%); color: white; }
+        .author-rank.rank-4 { background: #EF4444; color: white; }
+        .author-rank.rank-5 { background: #F97316; color: white; }
+        .author-rank.rank-6 { background: #F59E0B; color: white; }
+        .author-rank.rank-7 { background: #84CC16; color: white; }
+        .author-rank.rank-8 { background: #22C55E; color: white; }
+        .author-rank.rank-9 { background: #14B8A6; color: white; }
+        .author-rank.rank-10 { background: #06B6D4; color: white; }
+        .author-rank.rank-normal { background: #1F2937; color: white; }
 
         .author-type-badge {
             background: #8B5CF6;
@@ -436,6 +458,16 @@
             font-size: 10px;
             font-weight: 600;
         }
+
+        /* 검색 결과 없음 */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748B;
+        }
+        .no-results-icon { font-size: 48px; margin-bottom: 16px; }
+        .no-results-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #1F2937; }
+        .no-results-desc { font-size: 14px; }
 
         .meta-divider {
             width: 1px;
@@ -686,7 +718,7 @@
         <!-- 게시글 목록 -->
         <div class="post-list">
             <!-- 공지사항 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="notice" data-author="관리자" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-notice">공지</span>
                     <span class="post-badge badge-board">공지사항</span>
@@ -709,7 +741,7 @@
             </div>
 
             <!-- 코치 게시글 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="coach" data-author="박영수" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-hot">Hot</span>
                     <span class="post-badge badge-coach">코치</span>
@@ -732,7 +764,7 @@
             </div>
 
             <!-- Q&A 게시글 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="qna" data-author="이민준" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-board">Q&A</span>
                     <span class="post-title">챌린지 계좌 손절 타이밍에 대해 질문드립니다</span>
@@ -743,8 +775,8 @@
                 <div class="post-meta">
                     <div class="author-info">
                         <span class="author-name">이민준</span>
-                        <span class="author-level">Lv.3</span>
-                        <span class="author-rank">156위</span>
+                        <span class="author-level lv-3">Lv.3</span>
+                        <span class="author-rank rank-normal">156위</span>
                     </div>
                     <span class="meta-divider"></span>
                     <span>2024.12.08 11:20</span>
@@ -756,7 +788,7 @@
             </div>
 
             <!-- 정보공유 게시글 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="info_share" data-author="김서연" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-board">정보공유</span>
                     <span class="post-title">유용한 경제 캘린더 사이트 모음 공유합니다</span>
@@ -767,8 +799,8 @@
                 <div class="post-meta">
                     <div class="author-info">
                         <span class="author-name">김서연</span>
-                        <span class="author-level">Lv.6</span>
-                        <span class="author-rank">8위</span>
+                        <span class="author-level lv-6">Lv.6</span>
+                        <span class="author-rank rank-8">8위</span>
                     </div>
                     <span class="meta-divider"></span>
                     <span>2024.12.07 16:45</span>
@@ -780,7 +812,7 @@
             </div>
 
             <!-- 가입인사 게시글 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="greeting" data-author="최동현" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-board">가입인사</span>
                     <span class="post-title">안녕하세요! 신규 가입했습니다 🙋‍♂️</span>
@@ -791,8 +823,8 @@
                 <div class="post-meta">
                     <div class="author-info">
                         <span class="author-name">최동현</span>
-                        <span class="author-level">Lv.1</span>
-                        <span class="author-rank">892위</span>
+                        <span class="author-level lv-1">Lv.1</span>
+                        <span class="author-rank rank-normal">892위</span>
                     </div>
                     <span class="meta-divider"></span>
                     <span>2024.12.07 09:30</span>
@@ -804,7 +836,7 @@
             </div>
 
             <!-- 자유게시판 게시글 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="free" data-author="정하늘" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-board">자유</span>
                     <span class="post-title">드디어 첫 Funded 달성했습니다! 🎉</span>
@@ -815,8 +847,8 @@
                 <div class="post-meta">
                     <div class="author-info">
                         <span class="author-name">정하늘</span>
-                        <span class="author-level">Lv.5</span>
-                        <span class="author-rank">42위</span>
+                        <span class="author-level lv-5">Lv.5</span>
+                        <span class="author-rank rank-normal">42위</span>
                     </div>
                     <span class="meta-divider"></span>
                     <span>2024.12.06 18:20</span>
@@ -828,7 +860,7 @@
             </div>
 
             <!-- 코치 게시글 2 -->
-            <div class="post-item" onclick="location.href='community-post-detail.html'">
+            <div class="post-item" data-board="coach" data-author="김지훈" onclick="location.href='community-post-detail.html'">
                 <div class="post-header">
                     <span class="post-badge badge-coach">코치</span>
                     <span class="post-title">이번 주 시장 분석 및 주의사항 안내</span>
@@ -847,6 +879,13 @@
                     <span class="meta-item likes">👍 98</span>
                     <span class="meta-item">💬 27</span>
                 </div>
+            </div>
+
+            <!-- 검색 결과 없음 메시지 -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <div class="no-results-title">검색 결과가 없습니다</div>
+                <div class="no-results-desc">다른 검색어를 입력하거나 다른 게시판을 선택해보세요</div>
             </div>
         </div>
 
@@ -879,16 +918,74 @@
     </div>
 
     <script>
+        // 현재 필터 상태
+        let currentBoard = 'all';
+        let currentSearch = '';
+
+        // 게시글 필터링 함수
+        function filterPosts() {
+            const posts = document.querySelectorAll('.post-item');
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            posts.forEach(post => {
+                const postBoard = post.dataset.board;
+                const postAuthor = post.dataset.author || '';
+                const postTitle = post.querySelector('.post-title').textContent.toLowerCase();
+                const postContent = post.querySelector('.post-content-preview').textContent.toLowerCase();
+
+                // 게시판 필터
+                const boardMatch = currentBoard === 'all' || postBoard === currentBoard;
+
+                // 검색 필터
+                const searchTerm = currentSearch.toLowerCase();
+                const searchMatch = !searchTerm ||
+                    postTitle.includes(searchTerm) ||
+                    postContent.includes(searchTerm) ||
+                    postAuthor.includes(searchTerm);
+
+                if (boardMatch && searchMatch) {
+                    post.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+
+            // 검색 결과 없음 표시
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
         // 탭 전환
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
-                const board = this.dataset.board;
-                // 실제 구현에서는 여기서 게시글 필터링
-                console.log('Selected board:', board);
+                currentBoard = this.dataset.board;
+                filterPosts();
             });
+        });
+
+        // 검색 기능
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+
+        searchBtn.addEventListener('click', function() {
+            currentSearch = searchInput.value.trim();
+            filterPosts();
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                currentSearch = searchInput.value.trim();
+                filterPosts();
+            }
+        });
+
+        // 실시간 검색 (입력할 때마다)
+        searchInput.addEventListener('input', function() {
+            currentSearch = searchInput.value.trim();
+            filterPosts();
         });
 
         // 글쓰기 모달
