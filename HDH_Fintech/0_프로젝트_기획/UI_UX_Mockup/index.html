@@ -1046,7 +1046,7 @@
 
         .btn-simulate {
             padding: 12px 24px;
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -1054,15 +1054,16 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
-            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            margin: 8px auto 0;
             width: 70%;
             max-width: 300px;
+            display: block;
         }
 
         .btn-simulate:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
 
         .simulator-results {
@@ -2517,7 +2518,7 @@
 
                 <!-- 1차: 챌린지 단계 프로세스 -->
                 <div class="process-container">
-                    <div class="process-title">📊 1차: 챌린지 단계 프로세스</div>
+                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 12px; text-align: center;">1차: 챌린지 단계 프로세스</div>
                     <div style="text-align: center; font-size: 13px; color: #64748B; margin-bottom: 16px;">
                         💡 하루 3회 (오전/오후/저녁), 총 10회 내외 거래 | 합격하면 좋고, 탈락해도 수익 발생
                     </div>
@@ -2611,7 +2612,7 @@
 
                 <!-- 2차: 펀딩계좌 트레이딩 단계 프로세스 -->
                 <div class="process-container" style="margin-top: 32px;">
-                    <div class="process-title">💰 2차: 펀딩계좌 트레이딩 단계 프로세스</div>
+                    <div class="process-title" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); margin-bottom: 12px; text-align: center;">2차: 펀딩계좌 트레이딩 단계 프로세스</div>
                     <div style="text-align: center; font-size: 13px; color: #64748B; margin-bottom: 16px;">
                         💡 펀딩 계좌 2개 확보 시 실행 (불규칙) | 양방향 헷지 후 80% 정산 수령
                     </div>
@@ -3370,10 +3371,10 @@
     </div>
 
     <!-- 설정 모달 -->
-    <div class="modal-overlay" id="settingsModal" onclick="closeSettingsModal(event)">
+    <div class="modal-overlay" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle" onclick="closeSettingsModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="modal-title">⚙️ 거래 시작일 설정</div>
+                <div class="modal-title" id="settingsModalTitle">⚙️ 거래 시작일 설정</div>
                 <button type="button" class="modal-close" onclick="closeSettingsModal()">&times;</button>
             </div>
             <div class="modal-body">
@@ -3395,10 +3396,10 @@
     </div>
 
     <!-- 누적손익 목표 설정 모달 -->
-    <div class="modal-overlay" id="goalModal" onclick="closeGoalModal(event)">
+    <div class="modal-overlay" id="goalModal" role="dialog" aria-modal="true" aria-labelledby="goalModalTitle" onclick="closeGoalModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="modal-title">🎯 누적손익 목표 설정</div>
+                <div class="modal-title" id="goalModalTitle">🎯 누적손익 목표 설정</div>
                 <button type="button" class="modal-close" onclick="closeGoalModal()">&times;</button>
             </div>
             <div class="modal-body">
@@ -3423,10 +3424,10 @@
     </div>
 
     <!-- 계좌 관리 모달 -->
-    <div class="modal-overlay" id="accountModal" onclick="closeAccountModal(event)">
+    <div class="modal-overlay" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle" onclick="closeAccountModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 600px;">
             <div class="modal-header">
-                <div class="modal-title">💼 계좌 관리</div>
+                <div class="modal-title" id="accountModalTitle">💼 계좌 관리</div>
                 <button type="button" class="modal-close" onclick="closeAccountModal()">&times;</button>
             </div>
             <div class="modal-body">
