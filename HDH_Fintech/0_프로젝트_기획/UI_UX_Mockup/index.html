@@ -1046,7 +1046,7 @@
 
         .btn-simulate {
             padding: 12px 24px;
-            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -1054,13 +1054,15 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
             margin-top: 8px;
+            width: 70%;
+            max-width: 300px;
         }
 
         .btn-simulate:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
         }
 
         .simulator-results {
@@ -3188,10 +3190,10 @@
     </div>
 
     <!-- 손익 발생 일지 전체 보기 모달 -->
-    <div class="modal-overlay" id="diaryModal" onclick="closeDiaryModal(event)">
+    <div class="modal-overlay" id="diaryModal" role="dialog" aria-modal="true" aria-labelledby="diaryModalTitle" onclick="closeDiaryModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <div class="modal-title">📝 손익 발생 일지</div>
+                <div class="modal-title" id="diaryModalTitle">📝 손익 발생 일지</div>
                 <button type="button" class="modal-close" onclick="closeDiaryModal()">&times;</button>
             </div>
             <div class="modal-body">
