@@ -616,24 +616,24 @@ HDH Fintech UI/UX Mockup은 **디자인 완성도와 일관성이 매우 우수*
 
 ### 9.1 즉시 수정 체크리스트
 
-- [ ] index.html Line 4317 불필요한 `</div>` 제거
-- [ ] 모든 `target="_blank"`에 `rel="noopener noreferrer"` 추가
-- [ ] 모든 `<button>`에 `type` 속성 추가
+- [x] index.html Line 4317 불필요한 `</div>` 제거
+- [x] 모든 `target="_blank"`에 `rel="noopener noreferrer"` 추가
+- [x] 모든 `<button>`에 `type` 속성 추가
 
 ### 9.2 보안 수정 체크리스트
 
-- [ ] academy-apply.html: autocomplete 추가
-- [ ] referral-apply.html: autocomplete 추가
-- [ ] contact.html: autocomplete 추가
+- [x] academy-apply.html: autocomplete 추가
+- [x] referral-apply.html: autocomplete 추가
+- [x] contact.html: autocomplete 추가
 - [ ] admin.html: autocomplete 추가
-- [ ] index.html: API 키 필드 autocomplete="off"
+- [x] index.html: API 키 필드 autocomplete="off"
 
 ### 9.3 접근성 수정 체크리스트
 
-- [ ] index.html: 모달에 ARIA 속성 추가
+- [x] index.html: 모달에 ARIA 속성 추가
 - [ ] admin.html: 모달에 ARIA 속성 추가
-- [ ] index.html: 메뉴 아이템 키보드 탐색
-- [ ] manual.html: 아코디언 키보드 탐색
+- [x] index.html: 메뉴 아이템 키보드 탐색
+- [x] manual.html: 아코디언 키보드 탐색
 
 ### 9.4 콘텐츠 작성 체크리스트
 
