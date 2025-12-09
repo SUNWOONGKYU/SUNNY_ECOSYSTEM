@@ -199,7 +199,6 @@
         }
 
         .author-level {
-            background: #10B981;
             color: white;
             padding: 2px 6px;
             border-radius: 8px;
@@ -207,9 +206,41 @@
             font-weight: 600;
         }
 
+        /* 레벨별 색상 */
+        .author-level.lv-1 { background: #94A3B8; }
+        .author-level.lv-2 { background: #64748B; }
+        .author-level.lv-3 { background: #059669; }
+        .author-level.lv-4 { background: #10B981; }
+        .author-level.lv-5 { background: #3B82F6; }
+        .author-level.lv-6 { background: #6366F1; }
+        .author-level.lv-7 { background: #8B5CF6; }
+        .author-level.lv-8 { background: #A855F7; }
+        .author-level.lv-9 { background: #EC4899; }
+        .author-level.lv-10 { background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%); }
+
         .author-rank {
-            background: #EF4444;
-            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* 순위별 색상 */
+        .author-rank.rank-1 { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; }
+        .author-rank.rank-2 { background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%); color: #000; }
+        .author-rank.rank-3 { background: linear-gradient(135deg, #CD7F32 0%, #B87333 100%); color: white; }
+        .author-rank.rank-4 { background: #EF4444; color: white; }
+        .author-rank.rank-5 { background: #F97316; color: white; }
+        .author-rank.rank-6 { background: #F59E0B; color: white; }
+        .author-rank.rank-7 { background: #84CC16; color: white; }
+        .author-rank.rank-8 { background: #22C55E; color: white; }
+        .author-rank.rank-9 { background: #14B8A6; color: white; }
+        .author-rank.rank-10 { background: #06B6D4; color: white; }
+        .author-rank.rank-normal { background: #1F2937; color: white; }
+
+        .author-center {
+            background: #E0F2FE;
+            color: #0369A1;
             padding: 2px 6px;
             border-radius: 8px;
             font-size: 11px;
@@ -784,8 +815,9 @@
                 <div class="comment-item">
                     <div class="comment-header">
                         <span class="comment-author">이민준</span>
-                        <span class="author-level">Lv.3</span>
-                        <span class="author-rank">156위</span>
+                        <span class="author-level lv-3">Lv.3</span>
+                        <span class="author-rank rank-normal">156위</span>
+                        <span class="author-center">서울센트럴</span>
                         <span class="comment-time">2024.12.08 16:00</span>
                     </div>
                     <div class="comment-content">
@@ -832,8 +864,9 @@
                 <div class="comment-item">
                     <div class="comment-header">
                         <span class="comment-author">김서연</span>
-                        <span class="author-level">Lv.6</span>
-                        <span class="author-rank">8위</span>
+                        <span class="author-level lv-6">Lv.6</span>
+                        <span class="author-rank rank-8">8위</span>
+                        <span class="author-center">서울센트럴</span>
                         <span class="comment-time">2024.12.08 17:30</span>
                     </div>
                     <div class="comment-content">
@@ -856,8 +889,9 @@
                 <div class="comment-item">
                     <div class="comment-header">
                         <span class="comment-author">정하늘</span>
-                        <span class="author-level">Lv.5</span>
-                        <span class="author-rank">42위</span>
+                        <span class="author-level lv-5">Lv.5</span>
+                        <span class="author-rank rank-normal">42위</span>
+                        <span class="author-center">서울센트럴</span>
                         <span class="comment-time">2024.12.08 18:00</span>
                     </div>
                     <div class="comment-content">
