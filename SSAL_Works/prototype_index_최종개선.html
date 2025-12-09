@@ -1900,6 +1900,406 @@
             flex: 1;
         }
 
+        /* ========== Responsive Design ========== */
+
+        /* Tablet: 768px ~ 1024px */
+        @media (max-width: 1024px) {
+            .layout-container {
+                grid-template-columns: 200px 1fr 240px;
+            }
+
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .header-tagline {
+                font-size: 13px;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            .left-sidebar,
+            .right-sidebar {
+                padding: 12px 8px;
+            }
+
+            .workspace-header {
+                padding: 12px 16px;
+            }
+
+            .workspace-title {
+                font-size: 18px;
+            }
+
+            .action-btn {
+                padding: 6px 10px;
+                font-size: 11px;
+                width: 75px;
+            }
+        }
+
+        /* Small Tablet / Large Phone: 768px 이하 */
+        @media (max-width: 768px) {
+            .layout-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 16px;
+                gap: 8px;
+            }
+
+            .header-center {
+                order: 2;
+            }
+
+            .header-tagline {
+                font-size: 12px;
+                text-align: center;
+                white-space: normal;
+            }
+
+            .header-right {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            /* Left Sidebar - Collapsible */
+            .left-sidebar {
+                grid-column: 1;
+                grid-row: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 300px;
+                overflow-y: auto;
+            }
+
+            /* Center Workspace */
+            .center-workspace {
+                grid-column: 1;
+                grid-row: auto;
+                min-height: 60vh;
+            }
+
+            .workspace-top {
+                height: auto;
+                min-height: 50vh;
+            }
+
+            .workspace-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .workspace-actions {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .action-btn {
+                flex: 1;
+                min-width: 80px;
+                max-width: 100px;
+            }
+
+            /* Right Sidebar */
+            .right-sidebar {
+                grid-column: 1;
+                grid-row: auto;
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+            }
+
+            /* Footer */
+            .footer-inner {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 16px;
+            }
+
+            .footer-left,
+            .footer-right {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            /* Text Editor */
+            .text-editor {
+                min-height: 200px;
+            }
+
+            /* Translation Section */
+            .translation-section {
+                padding: 8px 10px;
+            }
+
+            .translation-title {
+                font-size: 14px;
+            }
+        }
+
+        /* Mobile: 480px 이하 */
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 10px 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+                gap: 8px;
+            }
+
+            .logo h1 {
+                font-size: 18px;
+            }
+
+            .rice-grain {
+                width: 8px;
+                height: 14px;
+            }
+
+            .header-tagline {
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .header-btn {
+                padding: 5px 12px;
+                font-size: 12px;
+            }
+
+            .left-sidebar,
+            .right-sidebar {
+                padding: 10px 8px;
+                max-height: 250px;
+            }
+
+            .sidebar-title,
+            .sidebar-section h3 {
+                font-size: 13px;
+            }
+
+            .process-major,
+            .process-prep,
+            .process-special {
+                padding: 5px 8px;
+            }
+
+            .process-name,
+            .process-prep-name,
+            .process-special-name {
+                font-size: 11px;
+            }
+
+            .workspace-header {
+                padding: 10px 12px;
+            }
+
+            .workspace-title {
+                font-size: 16px;
+            }
+
+            .workspace-actions {
+                gap: 6px;
+            }
+
+            .action-btn {
+                padding: 5px 8px;
+                font-size: 10px;
+                width: auto;
+                min-width: 60px;
+            }
+
+            .workspace-content {
+                padding: 8px;
+            }
+
+            .text-editor {
+                min-height: 150px;
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .translation-section {
+                padding: 6px 8px;
+            }
+
+            .translation-title {
+                font-size: 13px;
+            }
+
+            .translation-preview {
+                font-size: 11px;
+            }
+
+            .footer-inner {
+                padding: 10px 12px;
+            }
+
+            .footer-btn {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+
+            /* Knowledge items */
+            .knowledge-major {
+                padding: 6px 8px;
+            }
+
+            .knowledge-name {
+                font-size: 11px;
+            }
+
+            /* Quick links */
+            .quick-link-btn {
+                padding: 8px 10px;
+            }
+
+            /* Project list */
+            .project-list-item {
+                padding: 6px 8px;
+            }
+
+            .project-name {
+                font-size: 11px;
+            }
+
+            .project-status {
+                font-size: 10px;
+                padding: 2px 5px;
+            }
+
+            /* Outbox notification */
+            .outbox-notification {
+                top: auto;
+                right: 12px;
+                left: 12px;
+                bottom: 60px;
+            }
+
+            .outbox-notification-content {
+                min-width: auto;
+                padding: 10px 12px;
+            }
+
+            .outbox-notification-icon {
+                font-size: 20px;
+            }
+
+            .outbox-notification-title {
+                font-size: 12px;
+            }
+
+            .outbox-notification-message {
+                font-size: 11px;
+            }
+        }
+
+        /* Mobile Toggle Button for Sidebars */
+        .mobile-sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .mobile-sidebar-toggle:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Collapsible sidebars on mobile */
+            .left-sidebar.collapsed,
+            .right-sidebar.collapsed {
+                max-height: 0;
+                padding: 0;
+                overflow: hidden;
+                border: none;
+            }
+
+            .left-sidebar.expanded,
+            .right-sidebar.expanded {
+                max-height: 400px;
+            }
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .process-major,
+            .process-small,
+            .process-tiny,
+            .knowledge-major,
+            .knowledge-medium,
+            .knowledge-small,
+            .quick-link-btn,
+            .project-menu-item,
+            .project-list-item {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .action-btn,
+            .header-btn,
+            .footer-btn {
+                min-height: 40px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .header,
+            .footer,
+            .left-sidebar,
+            .right-sidebar,
+            .mobile-sidebar-toggle {
+                display: none !important;
+            }
+
+            .layout-container {
+                display: block;
+            }
+
+            .center-workspace {
+                width: 100%;
+            }
+        }
+
     </style>
 
     <!-- Supabase JS Client -->
@@ -8808,6 +9208,91 @@ ${result.answer}`;
         } else {
             initSupabase();
         }
+
+        // ========== Mobile Responsive Functions ==========
+
+        // Mobile sidebar toggle functionality
+        (function() {
+            let sidebarState = 'both'; // 'both', 'left', 'right', 'none'
+
+            function initMobileSidebar() {
+                // Create toggle button if it doesn't exist
+                if (!document.querySelector('.mobile-sidebar-toggle')) {
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'mobile-sidebar-toggle';
+                    toggleBtn.innerHTML = '☰';
+                    toggleBtn.setAttribute('aria-label', '사이드바 토글');
+                    toggleBtn.addEventListener('click', toggleSidebars);
+                    document.body.appendChild(toggleBtn);
+                }
+
+                // Handle window resize
+                window.addEventListener('resize', handleResize);
+                handleResize();
+            }
+
+            function toggleSidebars() {
+                const leftSidebar = document.querySelector('.left-sidebar');
+                const rightSidebar = document.querySelector('.right-sidebar');
+                const toggleBtn = document.querySelector('.mobile-sidebar-toggle');
+
+                switch(sidebarState) {
+                    case 'both':
+                        // Show both -> Hide both
+                        leftSidebar.classList.add('collapsed');
+                        rightSidebar.classList.add('collapsed');
+                        toggleBtn.innerHTML = '◀▶';
+                        toggleBtn.setAttribute('aria-label', '사이드바 모두 표시');
+                        sidebarState = 'none';
+                        break;
+                    case 'none':
+                        // Hide both -> Show left only
+                        leftSidebar.classList.remove('collapsed');
+                        rightSidebar.classList.add('collapsed');
+                        toggleBtn.innerHTML = '◀';
+                        toggleBtn.setAttribute('aria-label', '우측 사이드바 표시');
+                        sidebarState = 'left';
+                        break;
+                    case 'left':
+                        // Show left -> Show right only
+                        leftSidebar.classList.add('collapsed');
+                        rightSidebar.classList.remove('collapsed');
+                        toggleBtn.innerHTML = '▶';
+                        toggleBtn.setAttribute('aria-label', '좌측 사이드바 표시');
+                        sidebarState = 'right';
+                        break;
+                    case 'right':
+                        // Show right -> Show both
+                        leftSidebar.classList.remove('collapsed');
+                        rightSidebar.classList.remove('collapsed');
+                        toggleBtn.innerHTML = '☰';
+                        toggleBtn.setAttribute('aria-label', '사이드바 숨기기');
+                        sidebarState = 'both';
+                        break;
+                }
+            }
+
+            function handleResize() {
+                const leftSidebar = document.querySelector('.left-sidebar');
+                const rightSidebar = document.querySelector('.right-sidebar');
+                const toggleBtn = document.querySelector('.mobile-sidebar-toggle');
+
+                if (window.innerWidth > 768) {
+                    // Desktop: Show all sidebars, hide toggle
+                    if (leftSidebar) leftSidebar.classList.remove('collapsed');
+                    if (rightSidebar) rightSidebar.classList.remove('collapsed');
+                    sidebarState = 'both';
+                    if (toggleBtn) toggleBtn.innerHTML = '☰';
+                }
+            }
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileSidebar);
+            } else {
+                initMobileSidebar();
+            }
+        })();
     </script>
 </body>
 
