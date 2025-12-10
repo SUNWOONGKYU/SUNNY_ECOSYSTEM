@@ -1721,7 +1721,7 @@
 
         /* Status Indicator */
         .server-status {
-            position: fixed;
+            position: fixed !important;
             bottom: 20px;
             right: 300px;
             padding: 10px 16px;
@@ -1748,7 +1748,7 @@
         /* Project Grid Fullscreen Modal */
         .grid-fullscreen-modal {
             display: none;
-            position: fixed;
+            position: fixed !important;
             top: 0;
             left: 0;
             width: 100%;
@@ -1906,7 +1906,7 @@
         /* 사이드바 오버레이 (모바일용) */
         .sidebar-overlay {
             display: none;
-            position: fixed;
+            position: fixed !important;
             inset: 0;
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
@@ -1966,7 +1966,7 @@
         /* FAB 컨테이너 */
         .fab-container {
             display: none;
-            position: fixed;
+            position: fixed !important;
             bottom: 20px;
             right: 20px;
             flex-direction: column;
@@ -2013,8 +2013,8 @@
             .logo h1 { font-size: 20px; }
 
             .right-sidebar {
-                position: fixed;
-                right: -320px;
+                position: fixed !important;
+                right: -320px !important;
                 top: 0;
                 bottom: 0;
                 width: 300px;
@@ -2026,7 +2026,7 @@
                 padding-top: 20px;
             }
 
-            .right-sidebar.open { right: 0; }
+            .right-sidebar.open { right: 0 !important; }
             .right-sidebar .sidebar-close-btn { display: flex; }
             .fab-container { display: flex; }
             .fab-container .fab-menu { display: none; }
@@ -2047,8 +2047,8 @@
             .logo h1 { font-size: 20px; }
 
             .left-sidebar {
-                position: fixed;
-                left: -320px;
+                position: fixed !important;
+                left: -320px !important;
                 top: 0;
                 bottom: 0;
                 width: 300px;
@@ -2059,14 +2059,16 @@
                 overflow-y: auto;
                 padding-top: 60px;
                 -webkit-overflow-scrolling: touch;
+                grid-column: unset !important;
+                grid-row: unset !important;
             }
 
-            .left-sidebar.open { left: 0; }
+            .left-sidebar.open { left: 0 !important; }
             .left-sidebar .sidebar-close-btn { display: flex; top: 16px; }
 
             .right-sidebar {
-                position: fixed;
-                right: -320px;
+                position: fixed !important;
+                right: -320px !important;
                 top: 0;
                 bottom: 0;
                 width: 300px;
@@ -2077,9 +2079,11 @@
                 overflow-y: auto;
                 padding-top: 60px;
                 -webkit-overflow-scrolling: touch;
+                grid-column: unset !important;
+                grid-row: unset !important;
             }
 
-            .right-sidebar.open { right: 0; }
+            .right-sidebar.open { right: 0 !important; }
             .right-sidebar .sidebar-close-btn { display: flex; top: 16px; }
             .fab-container { display: flex; }
 
@@ -6763,7 +6767,7 @@ AI와 함께 웹사이트를 개발하는 여정을 시작해보세요.
 
             const modalHTML = `
                 <div id="editorSelectModal" style="
-                    position: fixed;
+                    position: fixed !important;
                     top: 100px;
                     right: 50px;
                     width: 480px;
@@ -8248,7 +8252,7 @@ ${result.answer}`;
             // 중앙 모달 팝업 생성
             const popup = document.createElement('div');
             popup.style.cssText = `
-                position: fixed;
+                position: fixed !important;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
@@ -8291,7 +8295,7 @@ ${result.answer}`;
             const overlay = document.createElement('div');
             overlay.className = 'order-notification-overlay';
             overlay.style.cssText = `
-                position: fixed;
+                position: fixed !important;
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -8542,7 +8546,7 @@ ${result.answer}`;
                 // 모달 생성
                 const overlay = document.createElement('div');
                 overlay.style.cssText = `
-                    position: fixed;
+                    position: fixed !important;
                     top: 0;
                     left: 0;
                     width: 100%;
@@ -8613,7 +8617,7 @@ ${result.answer}`;
                 });
 
                 modal.style.cssText = `
-                    position: fixed;
+                    position: fixed !important;
                     left: ${modalLeft}px;
                     top: ${modalTop}px;
                     background: white;
@@ -9159,6 +9163,14 @@ ${result.answer}`;
                 const rightSidebar = document.querySelector('.right-sidebar');
                 const toggleBtn = document.querySelector('.mobile-sidebar-toggle');
 
+                if (window.innerWidth > 768) {
+                    // Desktop mode
+                } else {
+                    // Mobile: Hide all sidebars initially
+                    if (leftSidebar) leftSidebar.classList.remove('open');
+                    if (rightSidebar) rightSidebar.classList.remove('open');
+                    sidebarState = 'none';
+                }
                 if (window.innerWidth > 768) {
                     // Desktop: Show all sidebars, hide toggle
                     if (leftSidebar) leftSidebar.classList.remove('collapsed');
