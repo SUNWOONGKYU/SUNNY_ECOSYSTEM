@@ -2039,7 +2039,7 @@
 
         /* Tablet Portrait: 768px 이하 */
         @media (max-width: 768px) {
-            .layout-container { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+            .layout-container { display: grid !important; grid-template-columns: 1fr !important; grid-template-rows: auto 1fr !important; }
             .mobile-menu-btn { display: flex; }
             .header-inner { height: 60px; padding: 0 12px; }
             .header-center { display: none; }
