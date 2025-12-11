@@ -1009,7 +1009,7 @@
 
         <h3>4.3 시나리오별 결과</h3>
 
-        <h4>1차: 챌린지 단계</h4>
+        <h4>1단계: 챌린지 단계</h4>
         <div class="table-wrapper">
             <table class="table-green">
                 <thead>
@@ -1017,42 +1017,38 @@
                         <th>시나리오</th>
                         <th>챌린지 계좌</th>
                         <th>보험금 계좌</th>
-                        <th>순 결과</th>
+                        <th>단계 결과</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="success-row">
-                        <td>금 선물 가격 +21.5p 상승<br><small>(시나리오 A)</small></td>
-                        <td>TP 도달 → 합격!<br><strong>펀딩 계좌 트레이딩 수익 +$2,400</strong><br>챌린지 참가비 -$300</td>
-                        <td>SL 도달 → 손절<br>(0.9 lots × 21.5p × $100 = -$1,935)</td>
-                        <td><strong>+$127</strong> 🏆<br>($2,400 - $1,935 - $300 - $18 - $20)</td>
+                        <td>금 선물 가격 +21.5p 상승</td>
+                        <td><strong>합격!</strong><br>→ 펀딩 계좌 획득<br>참가비 -$300</td>
+                        <td>SL 도달 → 손절<br>-$1,935<br>(0.9 lots × 21.5p × $100)</td>
+                        <td>펀딩 계좌 획득<br>손익: -$2,253<br>(-$300 -$1,935 -$18)</td>
                     </tr>
                     <tr>
-                        <td>금 선물 가격 -4.1p 하락<br><small>(시나리오 B)</small></td>
-                        <td>탈락<br>챌린지 참가비 -$300</td>
-                        <td>TP 도달 → 익절<br>(0.9 lots × 4.1p × $100 = +$369)</td>
-                        <td><strong>+$51</strong><br>($369 - $300 - $18)</td>
+                        <td>금 선물 가격 -4.1p 하락</td>
+                        <td>탈락<br>참가비 -$300</td>
+                        <td>TP 도달 → 익절<br>+$369<br>(0.9 lots × 4.1p × $100)</td>
+                        <td><strong>순이익 +$51</strong><br>(+$369 -$300 -$18)</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="4" style="text-align: left; font-size: 13px; color: #64748B;">
-                            ※ 보험금 계좌 거래수수료 $18/회 포함
+                            ※ 보험금 계좌 거래수수료 $18/회 포함 (합격/탈락 무관하게 발생)
                         </td>
                     </tr>
                 </tfoot>
             </table>
         </div>
 
-        <h4>2차: 펀딩 금액 트레이딩 단계</h4>
-        <p>챌린지 합격 후 받은 펀딩 계좌($3,000)는 즉시 현금화되지 않고, 추가 트레이딩 단계를 거칩니다.</p>
+        <h4>2단계: 펀딩 계좌 트레이딩 단계 (합격 시에만)</h4>
+        <p>챌린지 합격 후 받은 펀딩 계좌($3,000)로 트레이딩하여 수익을 실현합니다.</p>
 
         <div class="info-box">
-            <p><strong>프로세스:</strong></p>
-            <ol>
-                <li>펀딩 계좌 2개 확보 대기 (2회 챌린지 합격)</li>
-                <li>양방향 헷지 트레이딩 실행</li>
-            </ol>
+            <p><strong>전제조건:</strong> 챌린지 2회 합격 → 펀딩 계좌 2개 확보</p>
         </div>
 
         <div class="table-wrapper">
@@ -1060,73 +1056,43 @@
                 <thead>
                     <tr>
                         <th>시나리오</th>
-                        <th>펀딩 계좌 A (상방)</th>
-                        <th>펀딩 계좌 B (하방)</th>
-                        <th>순 결과</th>
+                        <th>펀딩 계좌 A (Buy)</th>
+                        <th>펀딩 계좌 B (Sell)</th>
+                        <th>트레이딩 수익</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>가격 상승</td>
-                        <td>익절 → $6,000</td>
+                        <td>익절 → +$3,000</td>
                         <td>손절 → $0</td>
-                        <td>$6,000</td>
+                        <td>+$3,000</td>
                     </tr>
                     <tr>
                         <td>가격 하락</td>
                         <td>손절 → $0</td>
-                        <td>익절 → $6,000</td>
-                        <td>$6,000</td>
+                        <td>익절 → +$3,000</td>
+                        <td>+$3,000</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: left; font-size: 13px; color: #64748B;">
+                            ※ 펀딩 계좌 거래수수료 $20 × 2개 = $40
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
 
-        <p><strong>이론적 순손익:</strong> 시장 중립(±$0)이나, <strong>한쪽 계좌에서 정산 대상 수익($3,000) 발생</strong></p>
-
-        <div class="info-box">
-            <p><strong>실제 운용:</strong></p>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>요소</th>
-                            <th>내용</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>타이밍 리스크</td>
-                            <td>손절 시 반대 계좌를 즉시 익절해야 함</td>
-                        </tr>
-                        <tr class="success-row">
-                            <td><strong>완벽한 실행</strong></td>
-                            <td><strong>$3,000 수익 발생</strong> (한쪽 계좌 수익 실현)</td>
-                        </tr>
-                        <tr>
-                            <td>조기 익절</td>
-                            <td>소폭 손실 가능</td>
-                        </tr>
-                        <tr>
-                            <td>지연 익절</td>
-                            <td>추가 변동으로 소폭 손익 가능</td>
-                        </tr>
-                        <tr>
-                            <td>AI 자동화</td>
-                            <td>타이밍 리스크 최소화 (개발 예정)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="warning-box">
-            <p><strong>최종 정산:</strong></p>
+        <div class="success-box">
+            <p><strong>펀딩 트레이딩 최종 정산:</strong></p>
             <ul>
-                <li>트레이딩 완료 후 프롭펌과 80:20 정산</li>
-                <li>최종 수령액: <strong>$3,000 × 80% = $2,400</strong></li>
+                <li>트레이딩 수익: +$3,000</li>
+                <li>프롭펌 수익 배분 (80:20): $3,000 × 80% = <strong>+$2,400</strong></li>
+                <li>펀딩 계좌 거래수수료: -$40 ($20 × 2개)</li>
+                <li><strong>펀딩 트레이딩 순수익: +$2,360</strong></li>
             </ul>
-            <p>💡 <strong>본 문서의 수익 계산은 이 단계에서 정산 대상 수익($3,000)이 정상적으로 발생함을 가정합니다.</strong></p>
         </div>
     </div>
 
