@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HDH 솔루션 상세 - HDH 솔루션 이해하기 3</title>
+<title>HDH Fintech 솔루션 상세 - HDH 솔루션 이해하기 4</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 <style>
     /* ============================================
@@ -759,7 +759,7 @@
     <div class="header-inner">
         <div>
             <div class="logo">HDH Fintech</div>
-            <div class="header-subtitle">HDH 솔루션 이해하기 4 - HDH 솔루션 상세</div>
+            <div class="header-subtitle">HDH 솔루션 이해하기 4 - HDH Fintech 솔루션 상세</div>
         </div>
         <a href="index.html" class="close-btn">×</a>
     </div>
@@ -784,7 +784,7 @@
             <li><a href="#section4">3.4 헷지 전략</a></li>
             <li><a href="#section5">3.5 수학적 분석</a></li>
             <li><a href="#section6">3.6 손익 계산</a></li>
-            <li><a href="#section7">3.7 60회 시뮬레이션</a></li>
+            <li><a href="#section7">3.7 월 60회 챌린지 참가 시뮬레이션</a></li>
             <li><a href="#section8">3.8 비즈니스 모델</a></li>
             <li><a href="#section9">3.9 84:16 설계의 비밀</a></li>
             <li><a href="#section10">3.10 결론</a></li>
@@ -798,7 +798,7 @@
 
         <div class="highlight-box">
             <h3>💡 핵심 아이디어</h3>
-            <p>프롭펌에 $300 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩 챌린지에 참여할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서 반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 <strong>펀딩 계좌 트레이딩 수익($3,000)</strong>을 순수익으로 확보합니다.</p>
+            <p>프롭펌에 $300 챌린지 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩 챌린지에 참가할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서 반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 <strong>펀딩 계좌 트레이딩 수익($3,000)</strong>을 순수익으로 확보합니다.</p>
         </div>
 
         <div class="hedge-diagram">
@@ -806,8 +806,8 @@
                 <div class="account-title">챌린지 계좌</div>
                 <div class="account-amount">(가상 $3,000)</div>
                 <div class="trade-info"><strong>방향:</strong> Buy 📈</div>
-                <div class="trade-info"><strong>TP:</strong> 21.5p</div>
-                <div class="trade-info"><strong>SL:</strong> 참가비 소멸</div>
+                <div class="trade-info"><strong>TP:</strong> 21.5p (합격)</div>
+                <div class="trade-info"><strong>SL:</strong> 4.1p (탈락)</div>
             </div>
 
             <div class="arrow-container">
@@ -819,8 +819,8 @@
                 <div class="account-title">보험금 계좌</div>
                 <div class="account-amount">(실제 $300)</div>
                 <div class="trade-info"><strong>방향:</strong> Sell 📉</div>
-                <div class="trade-info"><strong>TP:</strong> 4.1p</div>
-                <div class="trade-info"><strong>SL:</strong> 21.5p</div>
+                <div class="trade-info"><strong>SL:</strong> 21.5p (챌린지 합격 시)</div>
+                <div class="trade-info"><strong>TP:</strong> 4.1p (챌린지 탈락 시)</div>
             </div>
         </div>
 
@@ -842,8 +842,8 @@
         <h2>3.2 기초 용어 설명</h2>
 
         <h3>🏢 프롭펌 (Prop Firm)</h3>
-        <p>트레이더에게 회사 자본을 빌려주고, 수익이 나면 나눠 갖는 회사입니다. 챌린지 통과 시 최대 수백만 달러까지 운용할 수 있습니다.</p>
-        <p><strong>예</strong>: $300 참가비 → 챌린지 통과 → $3,000 실계좌 지급</p>
+        <p>트레이더에게 회사 자본을 빌려주고, 수익이 나면 나눠 갖는 회사입니다. 챌린지 합격 시 최대 수백만 달러까지 운용할 수 있습니다.</p>
+        <p><strong>예</strong>: $300 챌린지 참가비 → 챌린지 합격 → $3,000 펀딩 계좌 제공</p>
 
         <h3>🥇 금 선물 (Gold Futures)</h3>
         <p>미래 특정 시점에 금을 정해진 가격에 사고팔기로 약속하는 계약입니다. 실제 금을 보유하지 않고도 금 선물 가격 변동에 투자할 수 있습니다.</p>
@@ -923,7 +923,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>참가비</td>
+                        <td>챌린지 참가비</td>
                         <td>$300</td>
                         <td>최대 손실</td>
                     </tr>
@@ -963,14 +963,14 @@
                         <td>0.9 lots</td>
                     </tr>
                     <tr>
-                        <td>Take Profit</td>
-                        <td><strong>21.5p</strong></td>
-                        <td><strong>4.1p</strong></td>
+                        <td>TP (Take Profit; 익절)</td>
+                        <td><strong>21.5p</strong> (합격)</td>
+                        <td><strong>4.1p</strong> (챌린지 탈락 시)</td>
                     </tr>
                     <tr>
-                        <td>Stop Loss</td>
-                        <td>참가비 소멸</td>
-                        <td><strong>21.5p</strong></td>
+                        <td>SL (Stop Loss; 손절)</td>
+                        <td><strong>4.1p</strong> (탈락)</td>
+                        <td><strong>21.5p</strong> (챌린지 합격 시)</td>
                     </tr>
                     <tr>
                         <td>방향</td>
@@ -1018,13 +1018,13 @@
                 <tbody>
                     <tr class="success-row">
                         <td>금 선물 가격 +21.5p 상승<br><small>(시나리오 A)</small></td>
-                        <td>TP 도달 → 합격!<br><strong>펀딩 계좌 트레이딩 수익 +$2,400</strong><br>참가비 소멸 -$300</td>
+                        <td>TP 도달 → 합격!<br><strong>펀딩 계좌 트레이딩 수익 +$2,400</strong><br>챌린지 참가비 -$300</td>
                         <td>SL 도달 → 손절<br>(0.9 lots × 21.5p × $100 = -$1,935)</td>
                         <td><strong>+$127</strong> 🏆<br>($2,400 - $1,935 - $300 - $18 - $20)</td>
                     </tr>
                     <tr>
                         <td>금 선물 가격 -4.1p 하락<br><small>(시나리오 B)</small></td>
-                        <td>탈락<br>참가비 소멸 -$300</td>
+                        <td>탈락<br>챌린지 참가비 -$300</td>
                         <td>TP 도달 → 익절<br>(0.9 lots × 4.1p × $100 = +$369)</td>
                         <td><strong>+$51</strong><br>($369 - $300 - $18)</td>
                     </tr>
@@ -1032,7 +1032,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="4" style="text-align: left; font-size: 13px; color: #64748B;">
-                            ※ 거래 수수료 $18/회 포함
+                            ※ 보험금 계좌 거래수수료 $18/회 포함
                         </td>
                     </tr>
                 </tfoot>
@@ -1172,14 +1172,14 @@
                 <p style="margin-top: 8px; font-size: 12px; color: #64748B;">펀딩 계좌 트레이딩 수익 $3,000 × 80%</p>
             </div>
             <div class="stat-card">
-                <div class="stat-label">거래 수수료</div>
+                <div class="stat-label">보험금 계좌 거래수수료</div>
                 <div class="stat-value danger">-$18</div>
-                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">회당 고정 수수료</p>
+                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">회당 고정 거래수수료</p>
             </div>
         </div>
 
         <div class="info-box">
-            <h4>시나리오별 순이익 (수수료 포함)</h4>
+            <h4>시나리오별 순이익 (거래수수료 포함)</h4>
             <ul>
                 <li><strong>시나리오 A (합격 16%):</strong> $2,400 - $1,935 - $300 - $18(보험금) - $20(펀딩) = <strong>+$127</strong></li>
                 <li><strong>시나리오 B (탈락 84%):</strong> $369 - $300 - $18(보험금) = <strong>+$51</strong></li>
@@ -1195,8 +1195,8 @@
 
     <!-- 7. 60회 시뮬레이션 -->
     <div class="section" id="section7">
-        <h2>3.7 60회 시뮬레이션</h2>
-        <p>84:16 확률로 60회 거래 시, 약 10회 챌린지 합격 (보험금 계좌 손절)이 발생합니다. 아래는 랜덤 시뮬레이션 결과입니다:</p>
+        <h2>3.7 월 60회 챌린지 참가 시뮬레이션</h2>
+        <p>84:16 확률로 월 60회 챌린지 참가 시, 약 10회 챌린지 합격 (보험금 계좌 손절)이 발생합니다. 아래는 랜덤 시뮬레이션 결과입니다:</p>
 
         <h4>시뮬레이션 결과 (🏆 = 합격)</h4>
         <div class="table-wrapper">
@@ -1276,7 +1276,7 @@
             </table>
         </div>
 
-        <h3>📊 60회 시뮬레이션 요약</h3>
+        <h3>📊 월 60회 챌린지 참가 시뮬레이션 요약</h3>
         <div class="table-wrapper">
             <table class="table-green">
                 <thead>
@@ -1308,22 +1308,22 @@
                         <td><strong>+$24,000</strong></td>
                     </tr>
                     <tr>
-                        <td>합격 10회 참가비 손실</td>
+                        <td>합격 10회 챌린지 참가비</td>
                         <td>10 × $300</td>
                         <td>-$3,000</td>
                     </tr>
                     <tr>
-                        <td>탈락 50회 참가비 손실</td>
+                        <td>탈락 50회 챌린지 참가비</td>
                         <td>50 × $300</td>
                         <td>-$15,000</td>
                     </tr>
                     <tr>
-                        <td>보험금 계좌 수수료 60회</td>
+                        <td>보험금 계좌 거래수수료 60회</td>
                         <td>60 × $18</td>
                         <td>-$1,080</td>
                     </tr>
                     <tr>
-                        <td>펀딩 계좌 수수료 10회</td>
+                        <td>펀딩 계좌 거래수수료 10회</td>
                         <td>10 × $20</td>
                         <td>-$200</td>
                     </tr>
@@ -1352,7 +1352,7 @@
         </div>
 
         <h3>📋 회차별 상세 손익 (🏆 = 합격)</h3>
-        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">※ 수수료: 보험금 계좌 $18/회, 펀딩 계좌 $20/회</p>
+        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">※ 거래수수료: 보험금 계좌 $18/회, 펀딩 계좌 $20/회</p>
         <div class="table-wrapper">
             <table class="table-green">
                 <thead>
@@ -1360,9 +1360,9 @@
                         <th>회차</th>
                         <th>결과</th>
                         <th>보험금 계좌</th>
-                        <th>펀딩 수익</th>
-                        <th>참가비</th>
-                        <th>수수료</th>
+                        <th>펀딩 계좌 수익</th>
+                        <th>챌린지 참가비</th>
+                        <th>거래수수료</th>
                         <th>회차 손익</th>
                         <th>누적 합계</th>
                     </tr>
@@ -1440,7 +1440,7 @@
         <div class="highlight-box">
             <p><strong>Win‑Win 구조</strong></p>
             <ul>
-                <li><strong>프롭펌 (Prop Firm)</strong>: 참가비 수입은 펀딩 지급으로 상쇄(Zero-Sum)되나, <strong>펀딩 계좌 트레이딩 수익 발생 시 20%($600)를 배분</strong>받아 수익 창출</li>
+                <li><strong>프롭펌 (Prop Firm)</strong>: 챌린지 참가비 수입은 펀딩 지급으로 상쇄(Zero-Sum)되나, <strong>펀딩 계좌 트레이딩 수익 발생 시 20%($600)를 배분</strong>받아 수익 창출</li>
                 <li><strong>참가자 (Participant)</strong>: 보험금 계좌 헷지로 리스크를 제거하고, <strong>펀딩 계좌 트레이딩 수익의 80%($2,400)를 배분</strong>받아 수익 창출</li>
                 <li><strong>결과</strong>: 프롭펌은 안정적으로 <strong>펀딩 계좌 트레이딩 수익을 배분</strong>받고, 참가자는 무위험 트레이딩 기회를 통해 <strong>펀딩 계좌 트레이딩 수익을 배분</strong>받는 <strong>이상적인 상생 모델</strong></li>
             </ul>
@@ -1474,7 +1474,7 @@
                     </tr>
                     <tr>
                         <td>비용</td>
-                        <td>참가비 $300 (고정 비용)</td>
+                        <td>챌린지 참가비 $300 (고정 비용)</td>
                     </tr>
                     <tr class="success-row">
                         <td><strong>합격 시 수익</strong></td>
@@ -1496,7 +1496,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>참가비 수입 (10명)</td>
+                        <td>챌린지 참가비 수입 (10명)</td>
                         <td>10 × $300</td>
                         <td>$3,000</td>
                     </tr>
@@ -1535,7 +1535,7 @@
         </div>
 
         <h3>9.2 심리적 최적점</h3>
-        <p>60회 시뮬레이션 기준 참가자 순수익 비교:</p>
+        <p>월 60회 챌린지 참가 시뮬레이션 기준 참가자 순수익 비교:</p>
 
         <div class="table-wrapper">
             <table class="table-green">
@@ -1615,7 +1615,7 @@
 
         <h3>🎯 이 전략이 천재적인 이유</h3>
         <ol>
-            <li><strong>무손실 구조</strong> - 합격률 0%여도 +$4,140 수익! 손실 날 가능성이 전혀 없음</li>
+            <li><strong>합격률 0%여도 이익 발생</strong> - 전부 탈락해도 +$3,060 순이익</li>
             <li><strong>수학적 완벽성</strong> - 84:16 확률로 보험금 계좌 완벽한 헷지 구현</li>
             <li><strong>심리적 안정</strong> - 어떤 결과가 나와도 수익, 무한 반복 가능</li>
             <li><strong>사업 모델</strong> - 참가자와 프롭펌 모두 Win-Win</li>
@@ -1623,7 +1623,7 @@
             <li><strong>합법적 구조</strong> - 플랫폼에서 승인한 정당한 전략</li>
         </ol>
 
-        <h3>10.1 자금 운용 계획 (60회 기준)</h3>
+        <h3>10.1 자금 운용 계획 (월 60회 챌린지 참가 기준)</h3>
         <div class="table-wrapper">
             <table class="table-gold">
                 <thead>
@@ -1637,10 +1637,10 @@
                     <tr>
                         <td>보험금 계좌</td>
                         <td>$20,000</td>
-                        <td>마진 + 최대 손실 대비 (10회 연속 합격 시)</td>
+                        <td>준비금 + 최대 손실 대비 (10회 연속 합격 시)</td>
                     </tr>
                     <tr>
-                        <td>참가비 운용자금</td>
+                        <td>챌린지 참가비</td>
                         <td>$10,000</td>
                         <td>초기 자금 (회수 재투자, 회수 기간 약 15일)</td>
                     </tr>
@@ -1664,12 +1664,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>일일 거래 횟수</td>
+                        <td>일일 챌린지 참가 횟수</td>
                         <td>약 3회</td>
                     </tr>
                     <tr>
-                        <td>월간 거래 횟수</td>
-                        <td>약 60회 (20 거래일 기준)</td>
+                        <td>월간 챌린지 참가 횟수</td>
+                        <td>월 60회 챌린지 참가 (하루 3회 × 20 거래일 기준)</td>
                     </tr>
                     <tr>
                         <td>예상 합격 횟수</td>
@@ -1694,19 +1694,19 @@
                         <td><strong>+$24,000</strong></td>
                     </tr>
                     <tr>
-                        <td>합격 10회 참가비 손실</td>
+                        <td>합격 10회 챌린지 참가비</td>
                         <td>-$3,000</td>
                     </tr>
                     <tr>
-                        <td>탈락 50회 참가비 손실</td>
+                        <td>탈락 50회 챌린지 참가비</td>
                         <td>-$15,000</td>
                     </tr>
                     <tr>
-                        <td>보험금 계좌 수수료 60회</td>
+                        <td>보험금 계좌 거래수수료 60회</td>
                         <td>-$1,080</td>
                     </tr>
                     <tr>
-                        <td>펀딩 계좌 수수료 10회</td>
+                        <td>펀딩 계좌 거래수수료 10회</td>
                         <td>-$200</td>
                     </tr>
                     <tr class="success-row">
@@ -1737,7 +1737,7 @@
                     </tr>
                     <tr class="success-row">
                         <td><strong>기대 수익 (합격률 16%)</strong></td>
-                        <td><strong>+$3,820</strong> - 정상적인 확률 기대값 (수수료 포함)</td>
+                        <td><strong>+$3,820</strong> - 정상적인 확률 기대값 (거래수수료 포함)</td>
                     </tr>
                 </tbody>
             </table>
@@ -1796,15 +1796,15 @@
 
         <div class="highlight-box">
             <h3>💰 최종 결론</h3>
-            <h4>$30,000으로 월 $3,820 (수익률 12.7%) - 손실 불가능 구조!</h4>
+            <h4>$30,000으로 월 $3,820 (수익률 12.7%) - 어떤 경우든 순이익 발생 구조</h4>
             <p><strong>🔥 핵심 포인트:</strong></p>
             <ul>
                 <li>✅ <strong>합격률 0%여도 +$3,060 수익 발생</strong></li>
                 <li>✅ <strong>합격률 16%면 +$3,820 월 수익</strong></li>
-                <li>✅ <strong>손실 날 가능성이 전혀 없는 구조</strong></li>
+                <li>✅ <strong>어떤 경우든 순이익이 발생하는 구조</strong></li>
                 <li>✅ <strong>보험금 계좌 헷지로 완벽한 리스크 제거</strong></li>
             </ul>
-            <p>수학적으로 정교하게 설계된 무손실 차익거래 구조입니다. 플랫폼이 승인한 합법적 전략이며, 양방향 헷지로 어떤 결과가 나와도 반드시 수익이 발생합니다. 🏆</p>
+            <p>수학적으로 정교하게 설계된 무위험 차익거래 구조입니다. 플랫폼이 승인한 합법적 전략이며, 양방향 헷지로 어떠한 결과가 나와도 순이익이 발생합니다.</p>
         </div>
 
         <!-- 다음 페이지 링크 -->
