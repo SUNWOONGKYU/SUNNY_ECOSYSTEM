@@ -502,23 +502,18 @@
         transition: all 0.2s;
     }
 
-    .page-nav a.primary {
-        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    .page-nav a.active {
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
         color: white;
     }
 
-    .page-nav a.primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    }
-
-    .page-nav a.secondary {
+    .page-nav a:not(.active) {
         background: #F8FAFC;
         color: #64748B;
         border: 1px solid #E2E8F0;
     }
 
-    .page-nav a.secondary:hover {
+    .page-nav a:not(.active):hover {
         background: #EFF6FF;
         color: #1E40AF;
         border-color: #BFDBFE;
@@ -919,11 +914,10 @@
 
     <!-- 페이지 네비게이션 -->
     <div class="page-nav">
-        <a href="solution-1.html" class="secondary">1. HDH 개요</a>
-        <a href="solution-2.html" class="secondary">2. HDH 핵심 손익 구조</a>
+        <a href="solution-1.html">1. HDH 개요</a>
+        <a href="solution-2.html">2. HDH 핵심 손익 구조</a>
         <a href="solution-monthly-500.html" class="active">3. 5천만원으로 월 500만원 벌기</a>
-        <a href="solution-3.html" class="secondary">4. HDH 솔루션 상세</a>
-        <a href="index.html" class="secondary">메인으로 →</a>
+        <a href="solution-3.html">4. HDH 솔루션 상세</a>
     </div>
 
 </div>
