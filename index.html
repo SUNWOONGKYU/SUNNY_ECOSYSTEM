@@ -136,14 +136,60 @@
             color: #000000;
             font-size: 18px;
             line-height: 1.8;
-            margin-bottom: 32px;
+            margin-bottom: 0;
             font-weight: 500;
         }
 
-        .ecosystem-desc p:last-child {
-            color: #333333;
+        /* 캐치프레이즈 */
+        .catchphrase {
+            max-width: 900px;
+            margin: 0 auto 32px;
+            padding: 32px;
+            background: #F8FAFC;
+            border-radius: 16px;
+            border: 2px solid #E2E8F0;
+        }
+
+        .catchphrase-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #F59E0B;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .catchphrase-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #D97706;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .catchphrase-intro {
             font-size: 16px;
+            font-weight: 600;
+            color: #000000;
+            text-align: center;
             line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .catchphrase-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .catchphrase-item {
+            font-size: 15px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .item-number {
+            font-weight: 700;
+            color: #D97706;
         }
 
         .highlight-gold {
@@ -735,14 +781,22 @@
                 <p>
                     <span class="highlight-gold">ProActive Senior</span>와 <span class="highlight-green">스타트업</span>이 함께 성장하는 선순환 경제 생태계입니다.
                 </p>
-                <p>
-                    안정적 수익 창출부터 AI 창업, 그리고 스타트업에 대한 멘토링과 투자까지<br/>
-                    전문성과 다양한 경험을 가진 ProActive Senior들이 새로운 여정을 시작하고,<br/>
-                    스타트업은 이들의 지원을 받아 함께 성장합니다.
+            </div>
+
+            <!-- 캐치프레이즈 -->
+            <div class="catchphrase">
+                <h3 class="catchphrase-title">SEE the Future</h3>
+                <p class="catchphrase-subtitle">당신의 황금기는 지금부터입니다</p>
+                <p class="catchphrase-intro">
+                    <span class="highlight-gold">ProActive Senior</span> 여러분, <span class="highlight-gold">SEE Member</span>가 되어 다음 세 가지를 함께 합시다!
                 </p>
+                <div class="catchphrase-items">
+                    <p class="catchphrase-item"><span class="item-number">1.</span> 검증된 HDH 핀테크 솔루션을 직접 운영하여, 매월 500만원 이상의 안정적인 고정 수입을 만듭시다.</p>
+                    <p class="catchphrase-item"><span class="item-number">2.</span> AI를 활용한 웹 서비스를 직접 개발하여 새로운 수익을 창출하고, 그 혁신적 사업을 자녀에게 물려줍시다.</p>
+                    <p class="catchphrase-item"><span class="item-number">3.</span> 평생 쌓아온 당신의 지식과 경험, 그리고 자본으로 대한민국 미래를 이끌 수많은 스타트업을 함께 키웁시다.</p>
+                </div>
             </div>
         </div>
-
         <!-- 서비스 카드 -->
         <div class="services-container">
             <!-- Basic Services Section -->
