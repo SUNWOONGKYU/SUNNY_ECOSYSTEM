@@ -794,18 +794,18 @@
     <!-- 1. 전략 개요 -->
     <div class="section" id="section1">
         <h2>3.1 전략 개요</h2>
-        <p>HDH 전략은 <strong>프롭펌(Proprietary Trading Firm)</strong> 챌린지 시스템을 활용한 무위험 차익거래 구조입니다. 금 선물(Gold Futures) 시장의 높은 변동성을 활용합니다.</p>
+        <p>HDH 전략은 <strong>프롭펌(Proprietary Trading Firm)</strong> 챌린지 시스템을 활용한 무위험 차익거래 구조입니다. 금 선물(Gold Futures) 시장의 변동성을 활용합니다.</p>
 
         <div class="highlight-box">
             <h3>💡 핵심 아이디어</h3>
-            <p>프롭펌에 $300 챌린지 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩 챌린지에 참가할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서 반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 <strong>펀딩 계좌 트레이딩 수익($3,000)</strong>을 순수익으로 확보합니다.</p>
+            <p>프롭펌에 $300 챌린지 참가비를 내면 10배인 $3,000 가상 자금으로 트레이딩 챌린지에 참가할 수 있습니다. 이 챌린지 계좌와 별도의 보험금 계좌에서 반대 방향으로 동시 진입하여 헷지를 구현하고, 합격 시 <strong>펀딩 계좌 트레이딩 수익 $3,000의 80%</strong>를 확보합니다.</p>
         </div>
 
         <div class="hedge-diagram">
             <div class="account-box challenge">
                 <div class="account-title">챌린지 계좌</div>
                 <div class="account-amount">(가상 $3,000)</div>
-                <div class="trade-info"><strong>방향:</strong> Buy 📈</div>
+                <div class="trade-info"><strong>방향:</strong> Buy (상승 베팅) 📈</div>
                 <div class="trade-info"><strong>TP:</strong> 21.5p (합격)</div>
                 <div class="trade-info"><strong>SL:</strong> 4.1p (탈락)</div>
             </div>
@@ -818,7 +818,7 @@
             <div class="account-box insurance">
                 <div class="account-title">보험금 계좌</div>
                 <div class="account-amount">(실제 $300)</div>
-                <div class="trade-info"><strong>방향:</strong> Sell 📉</div>
+                <div class="trade-info"><strong>방향:</strong> Sell (하락 베팅) 📉</div>
                 <div class="trade-info"><strong>SL:</strong> 21.5p (챌린지 합격 시)</div>
                 <div class="trade-info"><strong>TP:</strong> 4.1p (챌린지 탈락 시)</div>
             </div>
@@ -830,7 +830,7 @@
 
         <div class="info-box">
             <h4>🔄 반대 방향도 가능!</h4>
-            <p>위 설정은 예시입니다. <strong>챌린지 계좌 Sell 📉 + 보험금 계좌 Buy 📈</strong>로 반대 방향 진입도 가능합니다. 중요한 것은 두 계좌가 서로 <strong>반대 방향</strong>이어야 한다는 점입니다.</p>
+            <p>위 설정은 예시입니다. <strong>챌린지 계좌 Sell (하락 베팅) 📉 + 보험금 계좌 Buy (상승 베팅) 📈</strong>로 반대 방향 진입도 가능합니다. 중요한 것은 두 계좌가 서로 <strong>반대 방향</strong>이어야 한다는 점입니다.</p>
             <div style="margin-top: 12px; padding: 12px; background: white; border-radius: 6px;">
                 <strong>핵심:</strong> 어느 방향이든 두 계좌가 서로 반대이기만 하면 헷지가 성립합니다!
             </div>
@@ -847,10 +847,10 @@
 
         <h3>🥇 금 선물 (Gold Futures)</h3>
         <p>미래 특정 시점에 금을 정해진 가격에 사고팔기로 약속하는 계약입니다. 실제 금을 보유하지 않고도 금 선물 가격 변동에 투자할 수 있습니다.</p>
-        <p><strong>예</strong>: 금 선물 가격 $2,000 → $2,010 상승 시 Buy 포지션 수익</p>
+        <p><strong>예</strong>: 금 선물 가격 $4,200.25 → $4,210.25 상승 시 Buy 포지션 수익</p>
 
         <h3>📊 Lot (랏) - 계약수</h3>
-        <p>금 선물 거래에서 계약수를 나타내는 단위입니다.</p>
+        <p>랏(Lot)은 금 선물 거래에서 계약수를 나타내는 단위입니다.</p>
 
         <div class="table-wrapper">
             <table>
@@ -864,7 +864,7 @@
                 <tbody>
                     <tr>
                         <td>Standard Lot</td>
-                        <td>1.0</td>
+                        <td>1</td>
                         <td>$100</td>
                     </tr>
                     <tr>
@@ -885,15 +885,15 @@
 
         <h3>📏 Point (포인트) - 가격 변동 단위</h3>
         <p>금 선물 가격의 변동 단위입니다.</p>
-        <p><strong>예</strong>: 금 선물 가격 $2,000.0 → $2,000.1 = 1 point 상승</p>
+        <p><strong>예</strong>: 금 선물 가격 $4,200.25 → $4,201.25 = 1 point 상승</p>
 
         <h3>🎯 TP (Take Profit) - 익절</h3>
         <p>목표 수익에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
-        <p><strong>예</strong>: TP 4.1p = 4.1 point 수익 시 자동 종료</p>
+        <p><strong>예</strong>: TP 4.1p = 4.1 point 수익 시 자동 청산</p>
 
         <h3>🛡️ SL (Stop Loss) - 손절</h3>
         <p>손실 한도에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
-        <p><strong>예</strong>: SL 21.5p = 21.5 point 손실 시 자동 종료</p>
+        <p><strong>예</strong>: SL 21.5p = 21.5 point 손실 시 자동 청산</p>
 
         <h3>⚖️ 헷지 (Hedge)</h3>
         <p>반대 방향 거래로 위험을 상쇄하는 전략입니다.</p>
@@ -904,7 +904,7 @@
             <li><strong>Buy (매수)</strong>: 가격 상승에 베팅. 가격이 오르면 수익, 내리면 손실.</li>
             <li><strong>Sell (매도)</strong>: 가격 하락에 베팅. 가격이 내리면 수익, 오르면 손실.</li>
         </ul>
-        <p><strong>예</strong>: 금 $2,000에서 Buy → $2,010이 되면 +$10 수익</p>
+        <p><strong>예</strong>: 금 $4,200.25에서 Buy → $4,210.25가 되면 +$10 수익</p>
     </div>
 
     <!-- 3. 계좌 구조 -->
@@ -974,8 +974,8 @@
                     </tr>
                     <tr>
                         <td>방향</td>
-                        <td>Buy 📈</td>
-                        <td>Sell 📉</td>
+                        <td>Buy (상승 베팅) 📈</td>
+                        <td>Sell (하락 베팅) 📉</td>
                     </tr>
                 </tbody>
             </table>
