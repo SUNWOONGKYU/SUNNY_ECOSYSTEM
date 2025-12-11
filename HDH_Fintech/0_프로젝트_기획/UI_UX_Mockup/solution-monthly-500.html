@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5천만원으로 매월 500만원 순이익 - HDH 솔루션</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+    /* ============================================
+       HDH FINTECH DESIGN SYSTEM
+       ============================================ */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+        background: #F8FAFC;
+        color: #1F2937;
+        line-height: 1.6;
+    }
+
+    /* 헤더 */
+    .header {
+        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        padding: 24px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: white;
+        letter-spacing: -0.5px;
+    }
+
+    .header-subtitle {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+    }
+
+    .close-btn {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* 컨테이너 */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px;
+    }
+
+    /* 히어로 섹션 */
+    .hero {
+        background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+        border-radius: 20px;
+        padding: 60px 40px;
+        color: white;
+        text-align: center;
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+        animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        font-weight: 900;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .hero h1 .highlight {
+        color: #FEF3C7;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        opacity: 0.95;
+        margin-bottom: 32px;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .hero-stat {
+        text-align: center;
+    }
+
+    .hero-stat-value {
+        font-size: 36px;
+        font-weight: 900;
+        display: block;
+    }
+
+    .hero-stat-label {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    /* 섹션 카드 */
+    .section {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 타이포그래피 */
+    h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #059669;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #D1FAE5;
+    }
+
+    h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #1E40AF;
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    p {
+        margin-bottom: 16px;
+        color: #475569;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* 큰 숫자 강조 */
+    .big-number {
+        font-size: 72px;
+        font-weight: 900;
+        color: #10B981;
+        text-align: center;
+        margin: 40px 0;
+        line-height: 1;
+    }
+
+    .big-number span {
+        font-size: 24px;
+        color: #64748B;
+        font-weight: 600;
+    }
+
+    /* 계산 박스 */
+    .calc-box {
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+        border: 2px solid #10B981;
+        border-radius: 16px;
+        padding: 32px;
+        margin: 32px 0;
+    }
+
+    .calc-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #059669;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .calc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .calc-item {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .calc-item-label {
+        font-size: 13px;
+        color: #64748B;
+        margin-bottom: 8px;
+    }
+
+    .calc-item-value {
+        font-size: 28px;
+        font-weight: 800;
+        color: #059669;
+    }
+
+    .calc-item-note {
+        font-size: 12px;
+        color: #94A3B8;
+        margin-top: 6px;
+    }
+
+    /* 테이블 */
+    .table-wrapper {
+        overflow-x: auto;
+        margin: 24px 0;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+
+    th {
+        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        color: white;
+        font-weight: 600;
+        padding: 16px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    td {
+        padding: 14px 16px;
+        text-align: center;
+        border-bottom: 1px solid #E2E8F0;
+        font-size: 14px;
+    }
+
+    tr:hover {
+        background: #F8FAFC;
+    }
+
+    tr.highlight-row {
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+        font-weight: 600;
+    }
+
+    tr.highlight-row td {
+        color: #059669;
+    }
+
+    /* 시나리오 카드 */
+    .scenario-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 32px 0;
+    }
+
+    .scenario-card {
+        border-radius: 16px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .scenario-card.fail {
+        background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        border: 2px solid #3B82F6;
+    }
+
+    .scenario-card.pass {
+        background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+        border: 2px solid #10B981;
+    }
+
+    .scenario-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .scenario-card.fail .scenario-badge {
+        background: #3B82F6;
+    }
+
+    .scenario-card.pass .scenario-badge {
+        background: #10B981;
+    }
+
+    .scenario-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .scenario-card.fail .scenario-title {
+        color: #1E40AF;
+    }
+
+    .scenario-card.pass .scenario-title {
+        color: #059669;
+    }
+
+    .scenario-detail {
+        font-size: 14px;
+        color: #64748B;
+        margin-bottom: 20px;
+        line-height: 1.7;
+    }
+
+    .scenario-result {
+        padding: 16px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .scenario-card.fail .scenario-result {
+        background: rgba(59, 130, 246, 0.15);
+    }
+
+    .scenario-card.pass .scenario-result {
+        background: rgba(16, 185, 129, 0.15);
+    }
+
+    .result-amount {
+        font-size: 32px;
+        font-weight: 800;
+    }
+
+    .scenario-card.fail .result-amount {
+        color: #1E40AF;
+    }
+
+    .scenario-card.pass .result-amount {
+        color: #059669;
+    }
+
+    .result-rate {
+        font-size: 14px;
+        color: #64748B;
+        margin-top: 4px;
+    }
+
+    /* 강조 박스들 */
+    .highlight-box {
+        background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+        border-left: 4px solid #F59E0B;
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 24px 0;
+    }
+
+    .info-box {
+        background: #EFF6FF;
+        border-left: 4px solid #3B82F6;
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 24px 0;
+    }
+
+    .success-box {
+        background: #ECFDF5;
+        border-left: 4px solid #10B981;
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 24px 0;
+    }
+
+    .warning-box {
+        background: #FFFBEB;
+        border-left: 4px solid #F59E0B;
+        padding: 20px 24px;
+        border-radius: 8px;
+        margin: 24px 0;
+    }
+
+    /* 결론 박스 */
+    .conclusion-box {
+        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        border-radius: 20px;
+        padding: 48px;
+        color: white;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .conclusion-title {
+        font-size: 32px;
+        font-weight: 900;
+        margin-bottom: 16px;
+    }
+
+    .conclusion-amount {
+        font-size: 64px;
+        font-weight: 900;
+        margin: 24px 0;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .conclusion-text {
+        font-size: 18px;
+        opacity: 0.95;
+        line-height: 1.8;
+    }
+
+    /* 리스트 */
+    ul, ol {
+        margin: 16px 0;
+        padding-left: 24px;
+        color: #475569;
+    }
+
+    li {
+        margin: 12px 0;
+        line-height: 1.7;
+    }
+
+    /* 페이지 네비게이션 */
+    .page-nav {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .page-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.2s;
+    }
+
+    .page-nav a.primary {
+        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        color: white;
+    }
+
+    .page-nav a.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .page-nav a.secondary {
+        background: #F8FAFC;
+        color: #64748B;
+        border: 1px solid #E2E8F0;
+    }
+
+    .page-nav a.secondary:hover {
+        background: #EFF6FF;
+        color: #1E40AF;
+        border-color: #BFDBFE;
+    }
+
+    /* 푸터 */
+    .footer {
+        background: #10B981;
+        color: #FFFFFF;
+        padding: 40px 0;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+        font-weight: 800;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+    }
+
+    .footer-text {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+        .hero {
+            padding: 40px 24px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .hero-stats {
+            gap: 24px;
+        }
+
+        .hero-stat-value {
+            font-size: 28px;
+        }
+
+        .big-number {
+            font-size: 48px;
+        }
+
+        .section {
+            padding: 24px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .calc-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .scenario-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .conclusion-box {
+            padding: 32px 24px;
+        }
+
+        .conclusion-title {
+            font-size: 24px;
+        }
+
+        .conclusion-amount {
+            font-size: 48px;
+        }
+
+        .header-inner {
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="header">
+    <div class="header-inner">
+        <div>
+            <div class="logo">HDH Fintech</div>
+            <div class="header-subtitle">수학적으로 검증된 무손실 투자 전략</div>
+        </div>
+        <a href="index.html" class="close-btn" title="메인으로">×</a>
+    </div>
+</div>
+
+<!-- 컨테이너 -->
+<div class="container">
+
+    <!-- 히어로 섹션 -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">HDH 솔루션 - 검증된 수익 전략</div>
+            <h1>5천만원으로<br><span class="highlight">매월 562만원</span> 순이익</h1>
+            <p class="hero-subtitle">$300 계좌 × 하루 3회 × 20일 = 60회 거래 (합격률 16%)</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">$3,820</span>
+                    <span class="hero-stat-label">월 순이익 (USD)</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">₩5,615,400</span>
+                    <span class="hero-stat-label">월 순이익 (KRW)</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">12.7%</span>
+                    <span class="hero-stat-label">월 수익률</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 핵심 요약 -->
+    <div class="section">
+        <h2>핵심 요약</h2>
+
+        <p>HDH 솔루션은 <strong>프롭펌 챌린지</strong>와 <strong>보험금 계좌 헷지</strong>를 결합한 양방향 트레이딩 전략입니다. 10년간 검증된 84:16 확률 구조를 통해 <strong>어떤 결과가 나와도 수익이 발생</strong>하는 무손실 구조를 실현했습니다.</p>
+
+        <div class="calc-box">
+            <div class="calc-title">월 500만원 수익 공식</div>
+            <div class="calc-grid">
+                <div class="calc-item">
+                    <div class="calc-item-label">계좌 규모</div>
+                    <div class="calc-item-value">$300</div>
+                    <div class="calc-item-note">챌린지 참가비</div>
+                </div>
+                <div class="calc-item">
+                    <div class="calc-item-label">월 거래 횟수</div>
+                    <div class="calc-item-value">60회</div>
+                    <div class="calc-item-note">일 3회 × 20일</div>
+                </div>
+                <div class="calc-item">
+                    <div class="calc-item-label">월 순이익 (USD)</div>
+                    <div class="calc-item-value">$3,820</div>
+                    <div class="calc-item-note">합격률 16% 기준</div>
+                </div>
+                <div class="calc-item">
+                    <div class="calc-item-label">월 순이익 (KRW)</div>
+                    <div class="calc-item-value">₩5,615,400</div>
+                    <div class="calc-item-note">@1,470원/$ 기준</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 수익 구조 -->
+    <div class="section">
+        <h2>수익 구조 상세</h2>
+
+        <h3>84:16 확률 구조</h3>
+        <p>HDH 전략의 핵심은 <strong>탈락:합격 = 84%:16%</strong> 비율입니다. 이 비율은 보험금 계좌의 SL:TP 비율(21.5p:4.1p = 5.25배)과 정확히 일치하여, 어떤 결과에서도 수익이 발생합니다.</p>
+
+        <div class="scenario-grid">
+            <div class="scenario-card fail">
+                <div class="scenario-badge">84% 확률</div>
+                <div class="scenario-title">시나리오 B: 챌린지 탈락</div>
+                <div class="scenario-detail">
+                    • 보험금 계좌: +$369 (TP 익절)<br>
+                    • 참가비 손실: -$300<br>
+                    • 보험금 계좌 수수료: -$18
+                </div>
+                <div class="scenario-result">
+                    <div class="result-amount">+$51</div>
+                    <div class="result-rate">순이익률 8.5%</div>
+                </div>
+            </div>
+            <div class="scenario-card pass">
+                <div class="scenario-badge">16% 확률</div>
+                <div class="scenario-title">시나리오 A: 챌린지 합격</div>
+                <div class="scenario-detail">
+                    • 펀딩 수익: +$2,400 (80%)<br>
+                    • 보험금 손절: -$1,935<br>
+                    • 참가비: -$300<br>
+                    • 수수료: -$38 ($18+$20)
+                </div>
+                <div class="scenario-result">
+                    <div class="result-amount">+$127</div>
+                    <div class="result-rate">순이익률 21.2%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-box">
+            <p><strong>핵심 포인트:</strong> 탈락해도 +$51, 합격하면 +$127! 어느 쪽이든 수익이 발생하는 구조입니다.</p>
+        </div>
+    </div>
+
+    <!-- 60회 시뮬레이션 -->
+    <div class="section">
+        <h2>60회 시뮬레이션 결과</h2>
+
+        <p>84:16 확률에 따라 60회 거래 시 예상되는 결과입니다.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>계산</th>
+                        <th>금액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>보험금 계좌 익절 50회</td>
+                        <td>50 × $369</td>
+                        <td>+$18,450</td>
+                    </tr>
+                    <tr>
+                        <td>보험금 계좌 손절 10회</td>
+                        <td>10 × $1,935</td>
+                        <td>-$19,350</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보험금 계좌 순손익</strong></td>
+                        <td></td>
+                        <td><strong>-$900</strong></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>펀딩 수익 (10회 합격)</strong></td>
+                        <td><strong>10 × $3,000 × 80%</strong></td>
+                        <td><strong>+$24,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>참가비 손실 (60회)</td>
+                        <td>60 × $300</td>
+                        <td>-$18,000</td>
+                    </tr>
+                    <tr>
+                        <td>보험금 계좌 수수료</td>
+                        <td>60 × $18</td>
+                        <td>-$1,080</td>
+                    </tr>
+                    <tr>
+                        <td>펀딩 계좌 수수료</td>
+                        <td>10 × $20</td>
+                        <td>-$200</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>월 최종 순이익</strong></td>
+                        <td></td>
+                        <td><strong>+$3,820</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="big-number">
+            $3,820 <span>/월</span>
+        </div>
+
+        <div class="info-box">
+            <p><strong>환산:</strong> $3,820 × 1,470원 = <strong>₩5,615,400</strong> (월 순이익, 2025.12.11 환율 기준)</p>
+        </div>
+    </div>
+
+    <!-- 필요 자본 -->
+    <div class="section">
+        <h2>필요 자본 구성</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>항목</th>
+                        <th>금액 (USD)</th>
+                        <th>금액 (KRW)</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>보험금 계좌 마진</td>
+                        <td>$15,000</td>
+                        <td>₩22,050,000</td>
+                        <td>50회 × $300 마진</td>
+                    </tr>
+                    <tr>
+                        <td>챌린지 참가비</td>
+                        <td>$15,000</td>
+                        <td>₩22,050,000</td>
+                        <td>50회분 예비 자금</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>총 필요 자본</strong></td>
+                        <td><strong>$30,000</strong></td>
+                        <td><strong>₩44,100,000</strong></td>
+                        <td>여유 자금 포함 시 5,000만원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>권장 자본:</strong> 안정적인 운영을 위해 약 <strong>5,000만원</strong>의 자본을 권장합니다. 이는 예상치 못한 변동성에 대응하고 심리적 여유를 확보하기 위함입니다.</p>
+        </div>
+    </div>
+
+    <!-- 왜 손실이 불가능한가 -->
+    <div class="section">
+        <h2>왜 손실이 불가능한가?</h2>
+
+        <h3>최악의 시나리오 분석</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>합격 횟수</th>
+                        <th>결과</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><strong>최악 (합격 0회)</strong></td>
+                        <td>0회 / 60회</td>
+                        <td><strong>+$3,060</strong> (60 × $51)</td>
+                    </tr>
+                    <tr>
+                        <td>기대값 (합격 10회)</td>
+                        <td>10회 / 60회</td>
+                        <td>+$3,820</td>
+                    </tr>
+                    <tr>
+                        <td>행운 (합격 20회)</td>
+                        <td>20회 / 60회</td>
+                        <td>+$4,580</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="success-box">
+            <p><strong>핵심:</strong> 60회 전부 탈락해도 <strong>+$3,060 (₩4,498,200)</strong>의 수익이 발생합니다. 손실이 발생하는 시나리오는 수학적으로 존재하지 않습니다.</p>
+        </div>
+
+        <h3>수학적 근거</h3>
+        <ul>
+            <li><strong>헷지 구조:</strong> 보험금 계좌와 챌린지 계좌가 반대 포지션으로 연동</li>
+            <li><strong>확률 설계:</strong> 탈락:합격 = 84%:16% = SL:TP 비율과 일치</li>
+            <li><strong>펀딩 레버리지:</strong> 합격 시 참가비의 10배($3,000) 중 80% 수익</li>
+            <li><strong>10년 검증:</strong> 실전 테스트를 통해 안정성 입증</li>
+        </ul>
+    </div>
+
+    <!-- 실제 운영 고려사항 -->
+    <div class="section">
+        <h2>실제 운영 시 고려사항</h2>
+
+        <div class="highlight-box">
+            <h4 style="color: #D97706; margin-bottom: 12px;">슬리피지 & 스프레드</h4>
+            <p style="margin-bottom: 0;">청산 시 지정가격보다 밀려서 체결되거나, 매도/매수 호가 간의 갭으로 인해 수익이 줄어들 수 있습니다. 실제 운영에서는 약 5~10% 수익 감소를 예상합니다.</p>
+        </div>
+
+        <div class="info-box">
+            <h4 style="color: #1E40AF; margin-bottom: 12px;">안전 운영 전략</h4>
+            <p style="margin-bottom: 0;">안전한 운영을 위해 TP/SL 포인트를 조정할 경우 순이익이 감소할 수 있습니다. 그러나 이 경우에도 손실이 발생하지 않는 구조는 유지됩니다.</p>
+        </div>
+
+        <div class="success-box">
+            <h4 style="color: #059669; margin-bottom: 12px;">AI 자동화 시스템</h4>
+            <p style="margin-bottom: 0;">HDH 솔루션은 20-80ms 동기화 시스템을 통해 양 계좌 동시 진입/청산을 자동화합니다. 이를 통해 타이밍 리스크를 최소화하고 감정적 판단을 배제합니다.</p>
+        </div>
+    </div>
+
+    <!-- 결론 -->
+    <div class="conclusion-box">
+        <div class="conclusion-title">$300 계좌 × 60회 거래 = 월 $3,820</div>
+        <div class="conclusion-amount">₩5,615,400/월</div>
+        <div class="conclusion-text">
+            수학적으로 손실이 불가능한 구조<br>
+            10년 검증된 84:16 헷지 전략<br>
+            월 수익률 12.7% (연 152%+)<br><br>
+            <strong>탈락해도 이익, 합격하면 더 큰 이익!</strong><br>
+            <small style="opacity: 0.8;">(2025.12.11 환율 $1 = ₩1,470 기준)</small>
+        </div>
+    </div>
+
+    <!-- 페이지 네비게이션 -->
+    <div class="page-nav">
+        <a href="solution-1.html" class="secondary">← HDH 개요</a>
+        <a href="solution-2.html" class="secondary">핵심 손익 구조</a>
+        <a href="solution-3.html" class="secondary">솔루션 상세</a>
+        <a href="index.html" class="primary">메인으로 →</a>
+    </div>
+
+</div>
+
+<!-- 푸터 -->
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">HDH Fintech Solution</div>
+        <div class="footer-text">5천만원으로 매월 500만원 순이익 - 검증된 무손실 전략</div>
+        <div class="footer-text">본 문서는 교육 및 분석 목적으로 작성되었습니다.</div>
+    </div>
+</div>
+
+</body>
+</html>

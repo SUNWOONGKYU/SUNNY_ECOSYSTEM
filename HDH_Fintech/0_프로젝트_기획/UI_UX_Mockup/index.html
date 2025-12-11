@@ -2379,8 +2379,10 @@
                     <span class="expand-arrow">▶</span>
                 </div>
                 <div class="submenu-list">
-                    <div class="submenu-item" onclick="window.location.href='about-hdh.html'">HDH란?</div>
-                    <div class="submenu-item" onclick="window.location.href='solution.html'">HDH 솔루션 소개</div>
+                    <div class="submenu-item" onclick="window.location.href='solution-1.html'">1. HDH 개요</div>
+                    <div class="submenu-item" onclick="window.location.href='solution-2.html'">2. 핵심 손익 구조</div>
+                    <div class="submenu-item" onclick="window.location.href='solution-3.html'">3. 솔루션 상세</div>
+                    <div class="submenu-item" style="background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); color: #059669; font-weight: 600;" onclick="window.location.href='solution-monthly-500.html'">4. 월 500만원 수익 전략</div>
                 </div>
 
                 <!-- 아카데미 교육 수강하기 -->
@@ -2812,12 +2814,20 @@
                                     <td>참가비 소멸액 (참가비×참가횟수)</td>
                                     <td class="breakdown-value breakdown-negative" id="entryLoss">-$0</td>
                                 </tr>
+                                <tr>
+                                    <td>보험금 계좌 수수료 ($18×참가횟수)</td>
+                                    <td class="breakdown-value breakdown-negative" id="insuranceFeeTotal">-$0</td>
+                                </tr>
+                                <tr>
+                                    <td>펀딩 계좌 수수료 ($20×합격횟수)</td>
+                                    <td class="breakdown-value breakdown-negative" id="fundingFeeTotal">-$0</td>
+                                </tr>
                                 <tr class="breakdown-total">
                                     <td><strong>최종 예상 순이익</strong></td>
                                     <td class="breakdown-value" id="finalProfit" style="font-size: 18px; font-weight: 700; color: #10B981;">$0</td>
                                 </tr>
                             </table>
-                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 등은 반영하지 않은 데이터입니다</p>
+                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 포함 (보험금 계좌 $18/회, 펀딩 계좌 $20/회)</p>
                         </div>
 
                         <div class="results-breakdown">
@@ -3929,7 +3939,14 @@
             // 참가비 투입액 = 참가비 × 참가 횟수
             const entryFeeTotal = account * trades;
 
-            const totalProfit = hedgeNet + fundingProfitTotal - entryFeeTotal;
+            // 수수료 계산
+            const insuranceFee = 18; // 보험금 계좌 수수료 (매 거래)
+            const fundingFee = 20; // 펀딩 계좌 수수료 (합격 시에만)
+            const insuranceFeeTotal = trades * insuranceFee; // 보험금 계좌 수수료 총액
+            const fundingFeeTotal = passCount * fundingFee; // 펀딩 계좌 수수료 총액
+            const totalFees = insuranceFeeTotal + fundingFeeTotal; // 총 수수료
+
+            const totalProfit = hedgeNet + fundingProfitTotal - entryFeeTotal - totalFees;
 
             // 월 수익률 계산 (필요 자본 = 보험금 계좌 + 참가비)
             const requiredCapital = account * trades + account * 50; // 마진 포함
@@ -3952,6 +3969,8 @@
             document.getElementById('hedgeNet').textContent = `$${hedgeNet.toLocaleString()}`;
             document.getElementById('fundingProfit').textContent = `+$${fundingProfitTotal.toLocaleString()}`;
             document.getElementById('entryLoss').textContent = `-$${entryFeeTotal.toLocaleString()}`;
+            document.getElementById('insuranceFeeTotal').textContent = `-$${insuranceFeeTotal.toLocaleString()}`;
+            document.getElementById('fundingFeeTotal').textContent = `-$${fundingFeeTotal.toLocaleString()}`;
             document.getElementById('finalProfit').textContent = `$${totalProfit.toLocaleString()}`;
 
             // 회차별 상세 테이블 생성
@@ -3970,7 +3989,9 @@
                 const hedgeAmount = isPass ? -slLoss : tpProfit;
                 const fundingAmount = isPass ? (account * 10 * 0.8) : 0; // 합격시만 펀딩 수익
                 const entryFee = -account; // 참가비는 항상 비용
-                const roundProfit = hedgeAmount + fundingAmount + entryFee;
+                const roundInsuranceFee = -insuranceFee; // 보험금 계좌 수수료 (매 거래)
+                const roundFundingFee = isPass ? -fundingFee : 0; // 펀딩 계좌 수수료 (합격 시에만)
+                const roundProfit = hedgeAmount + fundingAmount + entryFee + roundInsuranceFee + roundFundingFee;
                 cumulative += roundProfit;
 
                 // 펀딩 수익을 15일 후에 입금되도록 예약
@@ -3978,15 +3999,15 @@
                     fundingPayments[index + fundingDelayDays] += fundingAmount;
                 }
 
-                // 현재 회차의 실제 현금흐름 = 헤지 손익 - 참가비 + 15일 전 발생한 펀딩 입금
+                // 현재 회차의 실제 현금흐름 = 헤지 손익 - 참가비 - 수수료 + 15일 전 발생한 펀딩 입금
                 const delayedFunding = fundingPayments[index] || 0;
-                const currentCashFlow = hedgeAmount + entryFee + delayedFunding;
+                const currentCashFlow = hedgeAmount + entryFee + roundInsuranceFee + roundFundingFee + delayedFunding;
                 cashFlow += currentCashFlow;
 
                 const tr = document.createElement('tr');
                 if (isPass) tr.classList.add('pass-row');
 
-                const challengeNet = fundingAmount + entryFee; // 펀딩 수익 + 참가비 소멸
+                const challengeNet = fundingAmount + entryFee + roundFundingFee; // 펀딩 수익 + 참가비 소멸 + 펀딩 수수료
                 tr.innerHTML = `
                     <td>${round}</td>
                     <td><span class="${isPass ? 'pass-badge' : 'fail-badge'}">${isPass ? '🏆 합격' : '탈락'}</span></td>
