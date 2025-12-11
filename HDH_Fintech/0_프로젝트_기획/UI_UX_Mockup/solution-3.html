@@ -782,12 +782,11 @@
             <li><a href="#section2">3.2 기초 용어 설명</a></li>
             <li><a href="#section3">3.3 계좌 구조</a></li>
             <li><a href="#section4">3.4 헷지 전략</a></li>
-            <li><a href="#section5">3.5 수학적 분석</a></li>
-            <li><a href="#section6">3.6 손익 계산</a></li>
-            <li><a href="#section7">3.7 월 60회 챌린지 참가 시뮬레이션</a></li>
-            <li><a href="#section8">3.8 비즈니스 모델</a></li>
-            <li><a href="#section9">3.9 84:16 설계의 비밀</a></li>
-            <li><a href="#section10">3.10 결론</a></li>
+            <li><a href="#section5">3.5 수학적 분석 및 손익 계산</a></li>
+            <li><a href="#section6">3.6 월 60회 챌린지 참가 시뮬레이션</a></li>
+            <li><a href="#section7">3.7 비즈니스 모델</a></li>
+            <li><a href="#section8">3.8 84:16 설계의 비밀</a></li>
+            <li><a href="#section9">3.9 결론</a></li>
         </ol>
     </div>
 
@@ -1125,77 +1124,97 @@
         </div>
     </div>
 
-    <!-- 5. 수학적 분석 -->
+    <!-- 5. 수학적 분석 및 손익 계산 -->
     <div class="section" id="section5">
-        <h2>3.5 수학적 분석</h2>
+        <h2>3.5 수학적 분석 및 손익 계산</h2>
 
-        <h3>5.1 84:16 확률의 의미</h3>
-        <p>TP와 SL의 거리 비율이 확률을 결정합니다:</p>
-
-        <pre><code>익절 확률 = SL ÷ (TP + SL) = 21.5 ÷ (4.1 + 21.5) = 21.5 ÷ 25.6 ≈ 84%
-손절 확률 = TP ÷ (TP + SL) = 4.1 ÷ 25.6 ≈ 16%</code></pre>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-label">보험금 계좌 익절</div>
-                <div class="stat-value">84%</div>
-                <p style="margin-top: 8px; font-size: 13px; color: #64748B;">챌린지 탈락, 보험금 계좌 수익 발생</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">챌린지 합격!</div>
-                <div class="stat-value success">16%</div>
-                <p style="margin-top: 8px; font-size: 13px; color: #64748B;">펀딩 계좌 트레이딩 수익 $3,000 획득</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. 손익 계산 -->
-    <div class="section" id="section6">
-        <h2>3.6 손익 계산</h2>
-
-        <h3>6.1 1회 거래 손익</h3>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-label">보험금 계좌 익절 (84%)</div>
-                <div class="stat-value success">+$369</div>
-                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">0.9 lots × 4.1p × $100</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">보험금 계좌 손절 (16%)</div>
-                <div class="stat-value danger">-$1,935</div>
-                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">0.9 lots × 21.5p × $100</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">챌린지 합격 (16%)</div>
-                <div class="stat-value success">+$2,400</div>
-                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">펀딩 계좌 트레이딩 수익 $3,000 × 80%</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">보험금 계좌 거래수수료</div>
-                <div class="stat-value danger">-$18</div>
-                <p style="margin-top: 8px; font-size: 12px; color: #64748B;">회당 고정 거래수수료</p>
-            </div>
-        </div>
+        <h3>84:16 확률은 어디서 나오나?</h3>
+        <p>금 선물 가격은 위로 갈지 아래로 갈지 예측할 수 없습니다. 하지만 <strong>TP/SL 거리 비율</strong>로 확률을 계산할 수 있습니다.</p>
 
         <div class="info-box">
-            <h4>시나리오별 순이익 (거래수수료 포함)</h4>
+            <p><strong>설정값:</strong></p>
             <ul>
-                <li><strong>시나리오 A (합격 16%):</strong> $2,400 - $1,935 - $300 - $18(보험금) - $40(펀딩) = <strong>+$107</strong></li>
-                <li><strong>시나리오 B (탈락 84%):</strong> $369 - $300 - $18(보험금) = <strong>+$51</strong></li>
+                <li>챌린지 합격까지 거리: <strong>21.5p</strong> (TP)</li>
+                <li>챌린지 탈락까지 거리: <strong>4.1p</strong> (SL)</li>
+                <li>총 거리: 21.5 + 4.1 = <strong>25.6p</strong></li>
             </ul>
         </div>
 
-        <h3>6.2 기대값 검증</h3>
+        <div class="highlight-box">
+            <p><strong>확률 계산:</strong></p>
+            <ul>
+                <li><strong>탈락 확률</strong> = 탈락 거리 ÷ 총 거리 = 4.1 ÷ 25.6 = <strong>16%</strong> (가까우니까 먼저 도달할 확률 낮음)</li>
+                <li><strong>합격 확률</strong> = 합격 거리 ÷ 총 거리 = 21.5 ÷ 25.6 = <strong>84%</strong> (멀지만 탈락 안 하면 결국 도달)</li>
+            </ul>
+            <p style="margin-top: 12px;"><strong>→ 탈락이 84%, 합격이 16%</strong></p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">챌린지 탈락</div>
+                <div class="stat-value">84%</div>
+                <p style="margin-top: 8px; font-size: 13px; color: #64748B;">보험금 계좌 익절 (+$369)</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">챌린지 합격</div>
+                <div class="stat-value success">16%</div>
+                <p style="margin-top: 8px; font-size: 13px; color: #64748B;">펀딩 계좌 획득 (+$2,400)</p>
+            </div>
+        </div>
+
+        <h3>1회 챌린지 손익</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>확률</th>
+                        <th>보험금 계좌</th>
+                        <th>펀딩 수익</th>
+                        <th>참가비</th>
+                        <th>수수료</th>
+                        <th>순이익</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>탈락</strong></td>
+                        <td>84%</td>
+                        <td>+$369</td>
+                        <td>-</td>
+                        <td>-$300</td>
+                        <td>-$18</td>
+                        <td><strong>+$51</strong></td>
+                    </tr>
+                    <tr class="success-row">
+                        <td><strong>합격</strong></td>
+                        <td>16%</td>
+                        <td>-$1,935</td>
+                        <td>+$2,400</td>
+                        <td>-$300</td>
+                        <td>-$58</td>
+                        <td><strong>+$107</strong></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" style="text-align: left; font-size: 13px; color: #64748B;">
+                            ※ 수수료: 보험금 계좌 $18 + 펀딩 계좌 $40 (합격 시)
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
         <div class="success-box">
-            <pre><code>기대값 = (84% × $369) + (16% × -$1,935)
-      = $310 - $310 = ≈ $0 (완벽한 헷지!) ✅</code></pre>
+            <p><strong>핵심:</strong> 탈락해도 +$51, 합격해도 +$107 → <strong>어느 경우든 순이익 발생!</strong></p>
         </div>
     </div>
 
-    <!-- 7. 60회 시뮬레이션 -->
-    <div class="section" id="section7">
-        <h2>3.7 월 60회 챌린지 참가 시뮬레이션</h2>
+    <!-- 6. 60회 시뮬레이션 -->
+    <div class="section" id="section6">
+        <h2>3.6 월 60회 챌린지 참가 시뮬레이션</h2>
         <p>84:16 확률로 월 60회 챌린지 참가 시, 약 10회 챌린지 합격 (보험금 계좌 손절)이 발생합니다. 아래는 랜덤 시뮬레이션 결과입니다:</p>
 
         <h4>시뮬레이션 결과 (🏆 = 합격)</h4>
@@ -1433,9 +1452,9 @@
         </div>
     </div>
 
-    <!-- 8. 비즈니스 모델 -->
-    <div class="section" id="section8">
-        <h2>3.8 비즈니스 모델</h2>
+    <!-- 7. 비즈니스 모델 -->
+    <div class="section" id="section7">
+        <h2>3.7 비즈니스 모델</h2>
 
         <div class="highlight-box">
             <p><strong>Win‑Win 구조</strong></p>
@@ -1520,11 +1539,11 @@
         </div>
     </div>
 
-    <!-- 9. 84:16 설계의 비밀 -->
-    <div class="section" id="section9">
-        <h2>3.9 84:16 설계의 비밀</h2>
+    <!-- 8. 84:16 설계의 비밀 -->
+    <div class="section" id="section8">
+        <h2>3.8 84:16 설계의 비밀</h2>
 
-        <h3>9.1 왜 84:16인가?</h3>
+        <h3>8.1 왜 84:16인가?</h3>
         <p>이 비율은 임의로 정한 것이 아닙니다. <strong>보험금 계좌의 손익분기점(BEP)</strong>을 정확히 맞추기 위한 수학적 해답입니다.</p>
 
         <div class="info-box">
@@ -1534,7 +1553,7 @@
             </ul>
         </div>
 
-        <h3>9.2 심리적 최적점</h3>
+        <h3>8.2 심리적 최적점</h3>
         <p>월 60회 챌린지 참가 시뮬레이션 기준 참가자 순수익 비교:</p>
 
         <div class="table-wrapper">
@@ -1609,9 +1628,9 @@
         </div>
     </div>
 
-    <!-- 10. 결론 -->
-    <div class="section" id="section10">
-        <h2>3.10 결론</h2>
+    <!-- 9. 결론 -->
+    <div class="section" id="section9">
+        <h2>3.9 결론</h2>
 
         <h3>🎯 이 전략이 천재적인 이유</h3>
         <ol>
