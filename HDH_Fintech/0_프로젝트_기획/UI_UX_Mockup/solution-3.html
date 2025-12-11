@@ -954,6 +954,7 @@
                         <th>구분</th>
                         <th>챌린지 계좌</th>
                         <th>보험금 계좌</th>
+                        <th>결과</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -961,47 +962,30 @@
                         <td>Lot Size</td>
                         <td>6.8 lots</td>
                         <td>0.9 lots</td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>방향</td>
                         <td>Buy (상승 베팅) 📈</td>
                         <td>Sell (하락 베팅) 📉</td>
+                        <td>-</td>
                     </tr>
                     <tr>
-                        <td>TP/SL</td>
-                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(프롭펌 규칙: +21.5p 합격, -4.1p 탈락)</span></td>
-                        <td>TP +4.1p / SL -21.5p</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="margin-top: 8px; color: #64748B; font-size: 14px;">※ 반대 방향 (챌린지 Sell + 보험금 Buy)도 가능</p>
-
-        <h3>3.3 보험금 계좌 TP/SL 설정</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>설정</th>
-                        <th>값</th>
-                        <th>의미</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>TP (익절)</strong></td>
+                        <td>TP (익절)</td>
+                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(+21.5p 도달 시 합격)</span></td>
                         <td>+4.1p</td>
-                        <td>챌린지 탈락 → 보험금으로 참가비 상쇄</td>
+                        <td>챌린지 탈락 → 보험금 계좌 수익으로 참가비 상쇄</td>
                     </tr>
                     <tr>
-                        <td><strong>SL (손절)</strong></td>
+                        <td>SL (손절)</td>
+                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(-4.1p 도달 시 탈락)</span></td>
                         <td>-21.5p</td>
-                        <td>챌린지 합격 → 펀딩 획득</td>
+                        <td>챌린지 합격 → 펀딩 계좌 획득</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="margin-top: 8px; color: #64748B; font-size: 14px;">※ 반대 방향 (챌린지 Sell + 보험금 Buy) 시: TP -4.1p / SL +21.5p</p>
+        <p style="margin-top: 8px; color: #64748B; font-size: 14px;">※ 반대 방향 (챌린지 Sell + 보험금 Buy) 시: 보험금 계좌 TP -4.1p / SL +21.5p</p>
         <div class="info-box">
             <p><strong>※ 예외 상황 발생 시:</strong> 트레이더가 즉시 수동 청산하거나, AI가 자동 청산</p>
         </div>
