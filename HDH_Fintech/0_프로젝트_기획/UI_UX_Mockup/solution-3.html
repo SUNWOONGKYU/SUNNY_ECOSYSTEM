@@ -687,6 +687,49 @@
         }
     }
 
+    /* 다음 페이지 링크 */
+    .next-page {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .next-page a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.2s;
+    }
+
+    .next-page a.primary {
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        color: white;
+    }
+
+    .next-page a.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .next-page a.secondary {
+        background: #F8FAFC;
+        color: #64748B;
+        border: 1px solid #E2E8F0;
+    }
+
+    .next-page a.secondary:hover {
+        background: #EFF6FF;
+        color: #1E40AF;
+        border-color: #BFDBFE;
+    }
+
     /* 프린트 스타일 */
     @media print {
         body {
@@ -1765,11 +1808,10 @@
         </div>
     </div>
 
-    <!-- 이전/다음 페이지 네비게이션 -->
-    <div class="page-nav" style="margin-top: 40px;">
-        <a href="solution-2.html">← 이전: 핵심 손익 구조</a>
-        <a href="solution-monthly-500.html" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white;">다음: 월 500만원 수익 전략 →</a>
-        <a href="index.html">메인으로</a>
+    <!-- 다음 페이지 링크 -->
+    <div class="next-page">
+        <a href="solution-monthly-500.html" class="secondary">← 이전: 5천만원으로 월 500만원 벌기</a>
+        <a href="index.html" class="primary">메인으로 →</a>
     </div>
 </div>
 
