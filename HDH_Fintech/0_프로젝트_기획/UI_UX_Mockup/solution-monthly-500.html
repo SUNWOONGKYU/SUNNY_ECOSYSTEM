@@ -226,19 +226,66 @@
     table {
         width: 100%;
         border-collapse: collapse;
+        margin: 20px 0;
         font-size: 14px;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    th, td {
-        padding: 12px 16px;
-        text-align: left;
-        border-bottom: 1px solid #E2E8F0;
+    thead {
+        background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%);
+    }
+
+    /* 테이블 색상 변형 */
+    .table-gold thead {
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    }
+
+    .table-green thead {
+        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
     }
 
     th {
-        background: #F8FAFC;
+        padding: 14px 12px;
+        text-align: left;
         font-weight: 600;
-        color: #334155;
+        color: white;
+        font-size: 13px;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #E2E8F0;
+        color: #475569;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+        background: #F8FAFC;
+    }
+
+    tr:hover {
+        background: #FFF7ED;
+        transition: background 0.2s;
+    }
+
+    /* 합격 행 강조 */
+    tr.success-row {
+        background: #ECFDF5 !important;
+        font-weight: 600;
+    }
+
+    tr.success-row td {
+        color: #059669;
+    }
+
+    tr.success-row:hover {
+        background: #D1FAE5 !important;
     }
 
     .highlight-row {
