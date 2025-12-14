@@ -20,7 +20,8 @@
         font-family: 'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
         background: #F8FAFC;
         color: #1F2937;
-        line-height: 1.6;
+        line-height: 1.7;
+        letter-spacing: -0.02em;
     }
 
     /* 헤더 */
@@ -151,7 +152,7 @@
         font-weight: 600;
         color: #1E40AF;
         margin-top: 28px;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     h4 {
@@ -159,12 +160,12 @@
         font-weight: 600;
         color: #059669;
         margin-top: 20px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
 
     p {
-        color: #475569;
-        margin: 12px 0;
+        color: #334155;
+        margin-bottom: 20px;
         line-height: 1.7;
     }
 
@@ -172,12 +173,12 @@
     ul, ol {
         margin: 16px 0;
         padding-left: 24px;
-        color: #475569;
+        color: #334155;
     }
 
     li {
-        margin: 8px 0;
-        line-height: 1.6;
+        margin: 10px 0;
+        line-height: 1.7;
     }
 
     /* 박스 스타일 */
@@ -186,7 +187,7 @@
         border-left: 4px solid #F59E0B;
         padding: 20px 24px;
         border-radius: 8px;
-        margin: 20px 0;
+        margin: 24px 0;
     }
 
     .highlight-box strong {
@@ -198,7 +199,7 @@
         border-left: 4px solid #10B981;
         padding: 20px 24px;
         border-radius: 8px;
-        margin: 20px 0;
+        margin: 24px 0;
     }
 
     .warning-box {
@@ -206,7 +207,7 @@
         border-left: 4px solid #F97316;
         padding: 20px 24px;
         border-radius: 8px;
-        margin: 20px 0;
+        margin: 24px 0;
     }
 
     .info-box {
@@ -214,7 +215,7 @@
         border-left: 4px solid #3B82F6;
         padding: 20px 24px;
         border-radius: 8px;
-        margin: 20px 0;
+        margin: 24px 0;
     }
 
     /* 테이블 */
@@ -453,6 +454,15 @@
 
         .page-nav a {
             text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn {
+            width: 44px;
+            height: 44px;
         }
 
         .next-page {
@@ -461,6 +471,10 @@
 
         .next-page a {
             text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 </style>
