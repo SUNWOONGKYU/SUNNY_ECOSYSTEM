@@ -2415,15 +2415,15 @@
                         <div class="submenu-item" onclick="window.location.href='manual-wtg-1-3.html'">1.3 WTG 홈페이지 사용법</div>
                     </div>
 
-                    <!-- 2. 보험금 계좌 -->
+                    <!-- 2. 스캘핑 계좌 -->
                     <div class="submenu-item expandable" tabindex="0" role="button" onclick="toggleSubmenu(this); event.stopPropagation();" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();toggleSubmenu(this)}">
-                        <span>2. 보험금 계좌 (실거래)</span>
+                        <span>2. 스캘핑 계좌 (실거래)</span>
                         <span class="expand-arrow">▶</span>
                     </div>
                     <div class="submenu-list" style="padding-left: 20px;">
-                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-1.html'">2.1 보험금 계좌 이해</div>
-                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-2.html'">2.2 보험금 계좌 개설</div>
-                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-3.html'">2.3 보험금 계좌 운영</div>
+                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-1.html'">2.1 스캘핑 계좌 이해</div>
+                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-2.html'">2.2 스캘핑 계좌 개설</div>
+                        <div class="submenu-item" onclick="window.location.href='manual-insurance-2-3.html'">2.3 스캘핑 계좌 운영</div>
                     </div>
 
                     <!-- 3. 챌린지 계좌 -->
@@ -2558,7 +2558,7 @@
                             <div class="step-description">
                                 <a href="#" onclick="checkMT5Connection(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ MT5 연결 확인</a> |
                                 <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> |
-                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a>
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 스캘핑 계좌</a>
                             </div>
                         </div>
 
@@ -2580,12 +2580,12 @@
                         <div class="process-step">
                             <div class="step-header">
                                 <div class="step-number">4</div>
-                                <div class="step-title">챌린지 + 보험금 계좌 동시 거래 실행</div>
+                                <div class="step-title">챌린지 + 스캘핑 계좌 동시 거래 실행</div>
                                 <div class="step-status">⏳</div>
                             </div>
                             <div class="step-description">
                                 <a href="#" onclick="manageChallengeAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 챌린지 계좌</a> <span style="color: #64748B;">(Buy/Sell, TP: 21.5p, SL: 참가비 소멸)</span> |
-                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 보험금 계좌</a> <span style="color: #64748B;">(반대 방향, TP: 4.1p, SL: 21.5p)</span>
+                                <a href="#" onclick="manageInsuranceAccount(); return false;" style="color: #3B82F6; text-decoration: underline; font-weight: 600;">→ 스캘핑 계좌</a> <span style="color: #64748B;">(반대 방향, TP: 4.1p, SL: 21.5p)</span>
                                 <br>
                                 <span style="font-size: 12px; color: #94A3B8;">양방향 헷지로 어느 결과든 수익 발생</span>
                             </div>
@@ -2601,13 +2601,13 @@
                             <div class="step-description">
                                 <div style="margin-bottom: 8px;">
                                     <strong>챌린지 탈락 시:</strong><br>
-                                    <span style="color: #10B981;">• 보험금 계좌 +$369 수익 발생</span><br>
+                                    <span style="color: #10B981;">• 스캘핑 계좌 +$369 수익 발생</span><br>
                                     <span style="color: #EF4444;">• 챌린지 참가비 -$300 소멸</span>
                                 </div>
                                 <div style="margin-bottom: 8px;">
                                     <strong>챌린지 합격 시:</strong><br>
                                     <span style="color: #10B981;">• 펀딩 계좌 +$3,000 획득</span><br>
-                                    <span style="color: #EF4444;">• 보험금 계좌 -$1,935 손실 발생</span>
+                                    <span style="color: #EF4444;">• 스캘핑 계좌 -$1,935 손실 발생</span>
                                 </div>
                                 <span style="font-size: 12px; color: #94A3B8;">($300 계좌 기준)</span>
                                 <br>
@@ -2782,7 +2782,7 @@
                                 <div class="summary-value" id="passCount">0회</div>
                             </div>
                             <div class="summary-card">
-                                <div class="summary-label">챌린지 탈락(보험금 계좌 수익) 횟수</div>
+                                <div class="summary-label">챌린지 탈락(스캘핑 계좌 수익) 횟수</div>
                                 <div class="summary-value" id="failCount">0회</div>
                             </div>
                             <div class="summary-card">
@@ -2795,15 +2795,15 @@
                             <div class="breakdown-title">상세 예상손익</div>
                             <table class="breakdown-table">
                                 <tr>
-                                    <td>보험금 계좌 익절(TP) 수익</td>
+                                    <td>스캘핑 계좌 익절(TP) 수익</td>
                                     <td class="breakdown-value breakdown-positive" id="hedgeProfit">+$0</td>
                                 </tr>
                                 <tr>
-                                    <td>보험금 계좌 손절(SL) 손실</td>
+                                    <td>스캘핑 계좌 손절(SL) 손실</td>
                                     <td class="breakdown-value breakdown-negative" id="hedgeLoss">-$0</td>
                                 </tr>
                                 <tr>
-                                    <td>보험금 계좌 순손익</td>
+                                    <td>스캘핑 계좌 순손익</td>
                                     <td class="breakdown-value" id="hedgeNet">$0</td>
                                 </tr>
                                 <tr class="breakdown-highlight">
@@ -2815,7 +2815,7 @@
                                     <td class="breakdown-value breakdown-negative" id="entryLoss">-$0</td>
                                 </tr>
                                 <tr>
-                                    <td>보험금 계좌 수수료 ($18×참가횟수)</td>
+                                    <td>스캘핑 계좌 수수료 ($18×참가횟수)</td>
                                     <td class="breakdown-value breakdown-negative" id="insuranceFeeTotal">-$0</td>
                                 </tr>
                                 <tr>
@@ -2827,7 +2827,7 @@
                                     <td class="breakdown-value" id="finalProfit" style="font-size: 18px; font-weight: 700; color: #10B981;">$0</td>
                                 </tr>
                             </table>
-                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 포함 (보험금 계좌 $18/회, 펀딩 계좌 $40/회)</p>
+                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 포함 (스캘핑 계좌 $18/회, 펀딩 계좌 $40/회)</p>
                         </div>
 
                         <div class="results-breakdown">
@@ -2838,7 +2838,7 @@
                                         <tr>
                                             <th>회차</th>
                                             <th>결과</th>
-                                            <th>보험금<br>계좌</th>
+                                            <th>스캘핑<br>계좌</th>
                                             <th>챌린지<br>계좌</th>
                                             <th>회차<br>손익</th>
                                             <th>누적<br>손익</th>
@@ -3920,8 +3920,8 @@
             const { trades, account, winRateTP, winRateSL } = simConfig;
 
             // PDF 기반 계산식
-            const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 보험금 계좌 수익
-            const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 보험금 계좌 손실
+            const tpProfit = account === 100 ? 123 : account === 300 ? 369 : 615; // TP 도달 시 스캘핑 계좌 수익
+            const slLoss = account === 100 ? 645 : account === 300 ? 1935 : 3225; // SL 도달 시 스캘핑 계좌 손실
 
             // 합격률 계산 (winRateSL = 합격 확률)
             const passRate = winRateSL / 100;
@@ -3929,9 +3929,9 @@
             const failCount = trades - passCount;
 
             // 손익 계산
-            const hedgeProfitTotal = failCount * tpProfit; // 보험금 계좌 익절 수익
-            const hedgeLossTotal = passCount * slLoss; // 보험금 계좌 손절 손실
-            const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 보험금 계좌 순손익
+            const hedgeProfitTotal = failCount * tpProfit; // 스캘핑 계좌 익절 수익
+            const hedgeLossTotal = passCount * slLoss; // 스캘핑 계좌 손절 손실
+            const hedgeNet = hedgeProfitTotal - hedgeLossTotal; // 스캘핑 계좌 순손익
 
             // 합격시 펀딩 수익 = 참가비 × 10 × 합격 횟수 × 80%
             const fundingProfitTotal = account * 10 * passCount * 0.8;
@@ -3940,15 +3940,15 @@
             const entryFeeTotal = account * trades;
 
             // 수수료 계산
-            const insuranceFee = 18; // 보험금 계좌 수수료 (매 거래)
+            const insuranceFee = 18; // 스캘핑 계좌 수수료 (매 거래)
             const fundingFee = 40; // 펀딩 계좌 수수료 (합격 시에만, $20 × 2개)
-            const insuranceFeeTotal = trades * insuranceFee; // 보험금 계좌 수수료 총액
+            const insuranceFeeTotal = trades * insuranceFee; // 스캘핑 계좌 수수료 총액
             const fundingFeeTotal = passCount * fundingFee; // 펀딩 계좌 수수료 총액
             const totalFees = insuranceFeeTotal + fundingFeeTotal; // 총 수수료
 
             const totalProfit = hedgeNet + fundingProfitTotal - entryFeeTotal - totalFees;
 
-            // 월 수익률 계산 (필요 자본 = 보험금 계좌 + 참가비)
+            // 월 수익률 계산 (필요 자본 = 스캘핑 계좌 + 참가비)
             const requiredCapital = account * trades + account * 50; // 마진 포함
             const monthlyReturn = (totalProfit / requiredCapital * 100).toFixed(1);
 
@@ -3989,7 +3989,7 @@
                 const hedgeAmount = isPass ? -slLoss : tpProfit;
                 const fundingAmount = isPass ? (account * 10 * 0.8) : 0; // 합격시만 펀딩 수익
                 const entryFee = -account; // 참가비는 항상 비용
-                const roundInsuranceFee = -insuranceFee; // 보험금 계좌 수수료 (매 거래)
+                const roundInsuranceFee = -insuranceFee; // 스캘핑 계좌 수수료 (매 거래)
                 const roundFundingFee = isPass ? -fundingFee : 0; // 펀딩 계좌 수수료 (합격 시에만)
                 const roundProfit = hedgeAmount + fundingAmount + entryFee + roundInsuranceFee + roundFundingFee;
                 cumulative += roundProfit;
@@ -4083,9 +4083,9 @@
             alert('챌린지 계좌 관리 페이지로 이동합니다.\n\n현재 챌린지 계좌 상태:\n• 계좌번호: CH-300-12345\n• 잔액: $300\n• 상태: 활성');
         }
 
-        // ===== 보험금 계좌 관리 =====
+        // ===== 스캘핑 계좌 관리 =====
         function manageInsuranceAccount() {
-            alert('보험금 계좌 관리 페이지로 이동합니다.\n\n현재 보험금 계좌 상태:\n• 계좌번호: IN-300-67890\n• 잔액: $300\n• 상태: 활성');
+            alert('스캘핑 계좌 관리 페이지로 이동합니다.\n\n현재 스캘핑 계좌 상태:\n• 계좌번호: IN-300-67890\n• 잔액: $300\n• 상태: 활성');
         }
 
         // ===== USDT 구매 =====
