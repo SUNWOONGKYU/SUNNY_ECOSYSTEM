@@ -821,8 +821,8 @@
                 <div class="account-title">챌린지 계좌</div>
                 <div class="account-amount">(가상 $3,000)</div>
                 <div class="trade-info"><strong>방향:</strong> Buy (상승 베팅) 📈</div>
-                <div class="trade-info"><strong>TP:</strong> 21.5 p (합격)</div>
-                <div class="trade-info"><strong>SL:</strong> 4.1 p (탈락)</div>
+                <div class="trade-info"><strong>TP:</strong> 금선물 기준 21.5 p (합격)</div>
+                <div class="trade-info"><strong>SL:</strong> 금선물 기준 4.1 p (탈락)</div>
             </div>
 
             <div class="arrow-container">
@@ -834,8 +834,8 @@
                 <div class="account-title">스캘핑 계좌</div>
                 <div class="account-amount">(실제 $300)</div>
                 <div class="trade-info"><strong>방향:</strong> Sell (하락 베팅) 📉</div>
-                <div class="trade-info"><strong>SL:</strong> 21.5 p (챌린지 합격 시)</div>
-                <div class="trade-info"><strong>TP:</strong> 4.1 p (챌린지 탈락 시)</div>
+                <div class="trade-info"><strong>SL:</strong> 금선물 기준 21.5 p (챌린지 합격 시)</div>
+                <div class="trade-info"><strong>TP:</strong> 금선물 기준 4.1 p (챌린지 탈락 시)</div>
             </div>
         </div>
 
@@ -904,11 +904,11 @@
 
         <h4>🎯 TP (Take Profit) - 익절</h4>
         <p>목표 수익에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
-        <p><strong>예</strong>: TP 4.1 p = 4.1 point 수익 시 자동 청산</p>
+        <p><strong>예</strong>: TP 금선물 기준 4.1 p = 4.1 point 수익 시 자동 청산</p>
 
         <h4>🛡️ SL (Stop Loss) - 손절</h4>
         <p>손실 한도에 도달하면 자동으로 포지션을 청산하는 설정입니다.</p>
-        <p><strong>예</strong>: SL 21.5 p = 21.5 point 손실 시 자동 청산</p>
+        <p><strong>예</strong>: SL 금선물 기준 21.5 p = 21.5 point 손실 시 자동 청산</p>
 
         <h4>⚖️ 헷지 (Hedge)</h4>
         <p>반대 방향 거래로 위험을 상쇄하는 전략입니다.</p>
@@ -987,20 +987,20 @@
                     </tr>
                     <tr>
                         <td>TP (익절)</td>
-                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(+21.5 p 도달 시 합격)</span></td>
-                        <td>+4.1 p</td>
+                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(금선물 기준 +21.5 p 도달 시 합격)</span></td>
+                        <td>금선물 기준 +4.1 p</td>
                         <td>챌린지 탈락 → 스캘핑 계좌 수익으로 참가비 상쇄</td>
                     </tr>
                     <tr>
                         <td>SL (손절)</td>
-                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(-4.1 p 도달 시 탈락)</span></td>
-                        <td>-21.5 p</td>
+                        <td>설정 불가<br><span style="font-size: 12px; color: #64748B;">(금선물 기준 -4.1 p 도달 시 탈락)</span></td>
+                        <td>금선물 기준 -21.5 p</td>
                         <td>챌린지 합격 → 펀딩 계좌 획득</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="margin-top: 8px; color: #64748B; font-size: 14px;">※ 반대 방향 (챌린지 Sell + 스캘핑 Buy) 시: 스캘핑 계좌 TP +4.1 p / SL -21.5 p</p>
+        <p style="margin-top: 8px; color: #64748B; font-size: 14px;">※ 반대 방향 (챌린지 Sell + 스캘핑 Buy) 시: 스캘핑 계좌 TP 금선물 기준 +4.1 p / SL 금선물 기준 -21.5 p</p>
         <div class="info-box">
             <p><strong>※ 예외 상황:</strong> 챌린지 계좌가 먼저 합격/탈락했는데 스캘핑 계좌 TP/SL이 아직 체결되지 않은 경우</p>
             <p><strong>→ 대응:</strong> 트레이더가 즉시 수동 청산하거나, AI가 자동 청산</p>
@@ -1037,15 +1037,15 @@
                 </thead>
                 <tbody>
                     <tr class="success-row">
-                        <td>금 선물 가격 +21.5 p 상승</td>
+                        <td>금 선물 가격 금선물 기준 +21.5 p 상승</td>
                         <td><strong>합격!</strong><br>→ 펀딩 계좌 획득<br>참가비 -$300</td>
-                        <td>SL 도달 → 손절<br>-$1,935<br>(0.9 lots × 21.5 p × $100)</td>
+                        <td>SL 도달 → 손절<br>-$1,935<br>(0.9 lots × 금선물 기준 21.5 p × $100)</td>
                         <td>펀딩 계좌 획득<br>손익: -$2,253<br>(-$300 -$1,935 -$18)</td>
                     </tr>
                     <tr>
-                        <td>금 선물 가격 -4.1 p 하락</td>
+                        <td>금 선물 가격 금선물 기준 -4.1 p 하락</td>
                         <td>탈락<br>참가비 -$300</td>
-                        <td>TP 도달 → 익절<br>+$369<br>(0.9 lots × 4.1 p × $100)</td>
+                        <td>TP 도달 → 익절<br>+$369<br>(0.9 lots × 금선물 기준 4.1 p × $100)</td>
                         <td><strong>순이익 +$51</strong><br>(+$369 -$300 -$18)</td>
                     </tr>
                 </tbody>
@@ -1151,20 +1151,20 @@
         <div class="info-box">
             <p><strong>설정값:</strong></p>
             <ul>
-                <li>스캘핑 계좌 손절(SL): <strong>21.5 p</strong> = 챌린지 합격까지 거리 (TP)</li>
-                <li>스캘핑 계좌 익절(TP): <strong>4.1 p</strong> = 챌린지 탈락까지 거리 (SL)</li>
-                <li>총 거리: 21.5 + 4.1 = <strong>25.6 p</strong></li>
+                <li>스캘핑 계좌 손절(SL): <strong>금선물 기준 21.5 p</strong> = 챌린지 합격까지 거리 (TP)</li>
+                <li>스캘핑 계좌 익절(TP): <strong>금선물 기준 4.1 p</strong> = 챌린지 탈락까지 거리 (SL)</li>
+                <li>총 거리: 금선물 기준 21.5 + 4.1 = <strong>25.6 p</strong></li>
             </ul>
-            <p style="margin-top: 12px;"><strong>이 SL:TP 비율(21.5 p:4.1 p)이 정확히 84:16의 확률 분포를 만들어냅니다.</strong></p>
+            <p style="margin-top: 12px;"><strong>이 SL:TP 비율(금선물 기준 21.5 p:4.1 p)이 정확히 84:16의 확률 분포를 만들어냅니다.</strong></p>
         </div>
 
         <div class="highlight-box">
             <p><strong>확률 원리:</strong></p>
             <ul>
-                <li><strong>탈락 확률 84%</strong>: 합격선(21.5 p)까지 멀어서 거기까지 도달할 확률이 낮음</li>
-                <li><strong>합격 확률 16%</strong>: 탈락선(4.1 p)이 가까워서 거기에 걸리지 않고 합격선까지 도달할 확률이 낮음</li>
+                <li><strong>탈락 확률 84%</strong>: 합격선(금선물 기준 21.5 p)까지 멀어서 거기까지 도달할 확률이 낮음</li>
+                <li><strong>합격 확률 16%</strong>: 탈락선(금선물 기준 4.1 p)이 가까워서 거기에 걸리지 않고 합격선까지 도달할 확률이 낮음</li>
             </ul>
-            <p style="margin-top: 12px; font-size: 13px; color: #64748B;">※ 수학적으로: 탈락 확률 = 21.5 ÷ 25.6 = 84%, 합격 확률 = 4.1 ÷ 25.6 = 16%</p>
+            <p style="margin-top: 12px; font-size: 13px; color: #64748B;">※ 수학적으로: 탈락 확률 = 금선물 기준 21.5 ÷ 25.6 = 84%, 합격 확률 = 금선물 기준 4.1 ÷ 25.6 = 16%</p>
         </div>
 
         <div class="stats-grid">
@@ -1518,7 +1518,7 @@
         </ul>
 
         <h4>4-7-2. 리스크 제한</h4>
-        <pre><code>21.5 ÷ 4.1 = 5.24
+        <pre><code>금선물 기준 21.5 ÷ 4.1 = 5.24
 
 이 비율이 정확히 스캘핑 계좌 손익을 제로(0)로 맞춥니다 ✅</code></pre>
 
