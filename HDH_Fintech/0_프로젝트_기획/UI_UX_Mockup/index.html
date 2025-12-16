@@ -2819,7 +2819,7 @@
                                     <td class="breakdown-value breakdown-negative" id="insuranceFeeTotal">-$0</td>
                                 </tr>
                                 <tr>
-                                    <td>펀딩 계좌 수수료 ($40×합격횟수)</td>
+                                    <td>펀딩 계좌 수수료 ($32×합격횟수)</td>
                                     <td class="breakdown-value breakdown-negative" id="fundingFeeTotal">-$0</td>
                                 </tr>
                                 <tr class="breakdown-total">
@@ -2827,7 +2827,7 @@
                                     <td class="breakdown-value" id="finalProfit" style="font-size: 18px; font-weight: 700; color: #10B981;">$0</td>
                                 </tr>
                             </table>
-                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 포함 (스캘핑 계좌 $18/회, 펀딩 계좌 $40/회)</p>
+                            <p style="margin-top: 12px; font-size: 12px; color: #94A3B8; text-align: center;">※ 거래 수수료 포함 (스캘핑 계좌 $18/회, 펀딩 계좌 $32/회)</p>
                         </div>
 
                         <div class="results-breakdown">
@@ -3941,7 +3941,7 @@
 
             // 수수료 계산
             const insuranceFee = 18; // 스캘핑 계좌 수수료 (매 거래)
-            const fundingFee = 40; // 펀딩 계좌 수수료 (합격 시에만, $20 × 2개)
+            const fundingFee = 32; // 펀딩 계좌 수수료 (합격 시에만, $20 × 2개 × 80%)
             const insuranceFeeTotal = trades * insuranceFee; // 스캘핑 계좌 수수료 총액
             const fundingFeeTotal = passCount * fundingFee; // 펀딩 계좌 수수료 총액
             const totalFees = insuranceFeeTotal + fundingFeeTotal; // 총 수수료
